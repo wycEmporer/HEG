@@ -1,0 +1,30 @@
+[
+  {
+    "ab": "G8",
+    "al": "GoAir"
+  },
+  {
+    "ab": "SG",
+    "al":"SpiceJet"
+  },
+  {
+    "ab": "UK",
+    "al":"Vistara"
+  },
+  {
+    "ab": "AI",
+    "al": "Air India"
+  },
+  {
+    "ab": "9W",
+    "al": "Jet Airways"
+  },
+  {
+    "ab": "6E",
+    "al": "IndiGo"
+  },
+  {
+    "ab": "AK",
+    "al": "AirAsia"
+  }
+]

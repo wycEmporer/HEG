@@ -1,0 +1,28 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+body{
+  background-color:@gray-lighter;
+}
+.content{
+  h1{
+    font-size: 26px;
+  }
+  background-color:#fff;
+  padding:16px 20px;
+  h2{
+    font-weight: bold;
+    color:@brand-primary;
+    line-height: 30px;
+    font-size: 18px;
+  }
+  section{
+    padding: 10px 30px;
+    h3{
+      font-weight: bold;
+    }
+  }
+  p{
+    color:@gray-dark;
+    line-height: 20px;
+    margin: 10px 4px;
+  }
+}

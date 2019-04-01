@@ -1,0 +1,103 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1854715138111332',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.async="async";
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="banner">
+  
+</div>
+<div class="content">
+  <div class="container">
+    <div class="tab clearfix">
+      <ul>
+        <li>
+          <a href="javascript:void(0)">Best Offers</a>
+        </li>
+      </ul>
+    </div>
+    <div class="activities">
+      <ul id="offerList" class="clearfix">
+       
+      </ul>
+    </div>
+  </div>
+  <!-- end L-content -->
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="container">
+      <div class="panel panel-default">
+        <a role="button" class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+          aria-controls="collapseOne">
+          <i class="onOff onOffactive"></i>
+        </a>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="cont font-Light">
+            <p>
+              <span>We</span> all look forward to breaking the monotony of life and spending a few days away with our loved ones. A vacation is often not something you desire, but something you need. It fills you with a new life and the strength to survive the daily grind. 
+            </p>
+        
+            <p>
+              <span>However</span> , none of us gets to travel as much as they would like to. While some don’t possess the time, many are restricted due to the balance in their bank accounts. While we can’t do anything regarding your hectic routine, we do have a solution if budget’s the issue. 
+            </p>
+           
+            <p>
+              <span>HappyEasyGo</span>  brings you latest flight offers that will help you quench your thirst for some fun and excitement without burning a hole in your pocket. Whether you are contemplating a sojourn within India or planning a vacay on another continent, just grab our best air ticket deals and kick off the trip of your life. 
+            </p>
+          
+            <p>
+              <span>Want</span> more? How about some amazing <a class='colorDec' href="https://hotel.happyeasygo.com" title="Cheap Hotel Booking">hotel booking</a> offers that will help you save a few bucks on accommodation? You got it! Be it a palatial 5-star resort or a budget hotel, we have exactly what you need. And, do not mistake our cheap <a class='colorDec' href="https://hotel.happyeasygo.com" title="Cheap Hotel Booking">hotel booking</a> deals for a compromise on services. We strive to give our customers memories they cherish forever. 
+            </p>
+           
+            <p><span>HappyEasyGo</span>   has become one of the fastest growing online travel agency (OTA) in a short span of time. And, it has done so by providing customers with precisely what they need, and that too at reasonable prices. Our hotel and airline ticket offers will tempt you to hit up your family and friends and make travel plans. These are that good! 
+            </p>
+            <p><span>With</span>   HappyEasyGo, you can always find exclusive flight booking coupons. Incredible deals, discounts and offers are consistently rolled out to help you travel without breaking the bank. You can log on to the HappyEasyGo website or download the <a class='colorDec' href="https://www.happyeasygo.com/cheap-flights-booking-app" title="Flight Booking App">cheap flight booking app</a> for Android or iOS to check out today’s flight ticket deals.
+            </p>
+            <p><span>When</span>    you book with HappyEasyGo, you never have to fret about paying extra for your flight tickets or accommodation. Our online flight bookings deals and hotel offers are unbeatable. 
+            </p>
+            <p><span>So</span> , why wait? Start planning a holiday today! We have got your back with our myriad latest offers on flights and hotels. Happy holidays to you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script id="offerListTpl" type="text/template">
+  {{_.each(model, function(val, key){ }}
+  <li>
+    <img src="{{=val.url}}" alt="" width=380 height="220">
+    <div class="article">
+      <div class="share clearfix">
+        <p>{{=val.title}}</p>
+        <!-- <a href="##" class="fb"></a>
+        <a href="##" class="tt"></a> -->
+      </div>
+      <div class="showDetail clearfix">
+        <div class="pull-left">
+          <p>Validity:</p>
+          <p class="grayDark">
+            {{=val.period}}
+          </p>
+        </div>
+        <div class="pull-right">
+          <a href="{{=val.href}}" class="btn btn-warning">View Detail</a>
+        </div>
+      </div>
+    </div>
+  </li>
+  {{})}}
+</script>

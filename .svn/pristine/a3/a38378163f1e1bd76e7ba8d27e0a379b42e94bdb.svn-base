@@ -1,0 +1,80 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1854715138111332',
+      xfbml      : true,
+      version    : 'v2.9'
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.async="async";
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="banner">
+  <div class="hotelSearchBar">
+		<%=require('../../_component/flightAndhotel/search.ejs')()%>
+	</div>
+</div>
+<div class="content">
+  <div class="container">
+    
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a href="#All" aria-controls="All" role="tab" data-toggle="tab">All</a></li>
+      <li role="presentation"><a href="#Flights" aria-controls="Flights" role="tab" data-toggle="tab">Flights</a></li>
+      <li role="presentation"><a href="#Hotels" aria-controls="Hotels" role="tab" data-toggle="tab">Hotels</a></li>
+    </ul>
+      <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="All">
+        
+      </div>
+      <div role="tabpanel" class="tab-pane" id="Flights">
+      
+      </div>
+      <div role="tabpanel" class="tab-pane" id="Hotels">
+      
+      </div>
+    </div>
+    
+  </div>
+</div>
+<script id="offerListTpl" type="text/template">
+  <div class="activities">
+   {{ if(model.length == 0) { }}
+    <div class='noOffer'>
+      <img src="<%= require('./imgs/noOffer.png') %>" alt="">    
+      <p>No record found</p>
+    </div>
+   {{ } else { }}
+    <ul id="" class="clearfix">
+      {{_.each(model, function(val, key){ }}
+      <li>
+        <a href="{{=val.href}}">
+          <div class="title"><span>{{=val.title}}</span> <i class="icon {{= val.isNew ? 'new' : (val.businessType == 1 ? 'flight' : 'hotel') }}"></i> </div>
+          <img src="{{=val.url}}" alt="" width=380 height="180">
+          <div class="article">
+            <div class="showDetail clearfix">
+              <div class="pull-left">
+                <p class="font-Light">{{=val.alt}}</p>
+                <p class="fontSz12 grayDark">
+                  Valid till : {{=val.period}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      {{})}}
+    </ul>
+   {{ } }}
+
+  </div>
+</script>

@@ -1,0 +1,237 @@
+<div class="content">
+	<a href='https://app.adjust.com/vbzvaj?campaign=M&adgroup=Ranking&creative=Online' class="bannerBox">
+		<div class="banner" id="banner">	
+		</div>
+	</a>
+	<div class="container">
+		<div class='login_info' id="login_info">
+			
+		</div>
+		<div class="wrap clearfix">
+			<div class="wrap-title">
+				<i class="icon icon-l"></i>
+				<span class="font-Bold">Ranking</span>
+				<i class="icon icon-r"></i>
+				<a href="/ReferralWinner" class="goHistorial">A list of historical winners</a>
+			</div>
+			<p class="wrap-des">Weekly data recording closes at 23:59 every Sunday</p>
+
+			<div class="Ranking-List clearfix" id="rankingList">
+				
+			</div>
+		</div>
+		<div class="offersDetails">
+			<div class="title">
+				<span>Offer Details</span>
+				<a href="/referral" class="goHistorial">Referral Terms & Conditions</a>
+			</div>
+			<div class="cont">
+				<p>
+						This campaign subjects to 
+						HappyEasygo  referral program, aimed to award top participants with  <span class="font-Bold">Samsung Galaxy S8, free flight tickets</span> and
+						<span class="font-Bold">special discount vouchers</span> every week.
+				</p>
+				<p class=" font-Bold">How to participate:</p>
+				<p>Refer your friends and contacts to sign up HappyEasygo App and to book flight tickets via HappyEasygo app</p>
+				<p>The weekly winners will be announced <span class="font-Bold">on every Tuesday at 10 AM. </span> </p>
+				<p>Reward for top participants on Referral Program Activity</p>
+				<div>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Ranking</th>
+								<th>Reward for Top Referred Register</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Top 1</td>
+								<td class="font-Bold">Samsung Galaxy S8</td>
+							</tr>
+							<tr>
+								<td>Top 2</td>
+								<td class="font-Bold">1 free flight ticket </td>
+							</tr>
+							<tr>
+								<td>Top 3-10</td>
+								<td>Voucher of Rs.500 discount on flights bookings</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div>
+					<table class="table table-bordered">
+						<thead>
+							<tr>
+								<th>Ranking</th>
+								<th>Reward for Top Referred Order</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Top 1</td>
+								<td class="font-Bold">Samsung Galaxy S8</td>
+							</tr>
+							<tr>
+								<td>Top 2</td>
+								<td class="font-Bold">1 free flight ticket </td>
+							</tr>
+							<tr>
+								<td>Top 3-10</td>
+								<td>Voucher of Rs.500 discount on flights bookings</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			
+				<p class=" font-Bold">How to get your award?</p>
+				<p>Top 1 winner sends post address and contact info to <a href="javascript:;" style='text-decoration: underline;'>cs@happyeasygo.com</a>, and we’ll deliver it for you.
+						Other winners will receive personalized coupon codes with 1-month validity via email to redeem their rewards on HappyEasygo  app.
+					</p>
+				<p class=" font-Bold">Terms & Conditions</p>
+				<ul>
+					<li>Only individuals you invited sign up HappyEasygo  app with your referral code will be recorded as your Referred Register and Referred Order when they book tickets with us.</li>
+					<li>All top 10 participants will be able to gain rewards once they have completed to refer no less than 50 contacts to sign up HappyEasygo  app successfully or make more than 25 orders from their referred registers within a week.</li>
+					<li>Regarding free flight ticket reward, convenience fee and tax cannot be deducted. Winner needs to pay convenience fee and tax and apply a customized coupon code to get it. And this free flight tickets coupon code is valid for flight 
+							tickets valued no more than Rs.5000 on HappyEasygo App only, from 1st September to 30th September. It can be used once for one winner.</li>
+					<li>The voucher of Rs.500 discount on flight booking is redeemed with personalized coupon codes with one-month validity, which can be used on HappyEasygo App once per person.</li>
+					<li>In case of any cancellation/refund (by airline or provider) happens out of the validity of this activity, your Referred Order will be reduced accordingly.</li>
+					<li>HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of Referral Program, or replace wholly or in part, this offer by any other offer, 
+							whether similar to this offer or not, without prior notice.</li>
+					<li>All other standard T&C available at HappyEasyGo.com shall apply.</li>
+					<li>Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon,Haryana, India.</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script id="login_infoTpl" type="text/template">
+	{{if(!myModel.isLogin){ }}
+	<div class='loginInfo loginInfoBefore pull-left'>
+		<div class="loginBefore">
+			<i class='icon icon-left'></i>
+			<a href="/static/tpl/loginTpl.html"  data-toggle="modal" data-target="#login_modal" class="loginIn">sign in</a>
+			<span>or</span>
+			<a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal" class="loginUp">Sign up</a>
+			<i class='icon icon-right'></i>
+		</div>
+		<p class="Describe">Improve your ranking & win the free air ticket rewards.</p>
+	</div>
+	{{ }else{ }}
+	<div class='loginInfo loginInAfter pull-left'>
+		<div class="loginAfter">
+			<div class="pull-left">
+				<p>My Referred Registers</p>
+				<p>
+					{{if(myModel[0].currentRank == 1 ) { }}
+					<span class="font-Bold reg_1">NO.{{= myModel[0].currentRank}}</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>{{= myModel[0].quantity}}</span>
+					{{ }else if(myModel[0].currentRank == 2 ){ }}
+					<span class="font-Bold reg_2">NO.{{= myModel[0].currentRank}}</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>{{= myModel[0].quantity}}</span>
+					{{ }else if (myModel[0].currentRank == 3 ){ }}
+					<span class="font-Bold reg_3">NO.{{= myModel[0].currentRank}}</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>{{= myModel[0].quantity}}</span>
+					{{ }else if (myModel[0].currentRank == 0 || myModel[0].currentRank == null ){ }}
+					<span class="font-Bold reg_4">NO.9999+</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>0</span>
+					{{ }else{ }}
+					<span class="font-Bold reg_4">NO.{{= myModel[0].currentRank}}</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>{{= myModel[0].quantity}}</span>
+					{{ } }}
+				</p>
+			</div>
+			<div class="pull-right">
+				<p>My Referred Orders</p>
+				<p>
+					{{if(myModel[1].currentRank == 1 ) { }}
+					<span  class="font-Bold reg_1">NO.{{= myModel[1].currentRank}}</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>{{= myModel[1].quantity}}</span>
+					{{ }else if (myModel[1].currentRank == 2 ) { }}
+					<span  class="font-Bold reg_2">NO.{{= myModel[1].currentRank}}</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>{{= myModel[1].quantity}}</span>
+					{{ }else if (myModel[1].currentRank == 3 ){ }}
+					<span class="font-Bold reg_3">NO.{{= myModel[1].currentRank}}</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>{{= myModel[1].quantity}}</span>
+					{{ }else if (myModel[1].currentRank == 0 || myModel[1].currentRank == null ){ }}
+					<span class="font-Bold reg_4">NO.9999+</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>0</span>
+					{{ }else{ }}
+					<span class="font-Bold reg_4">NO.{{= myModel[1].currentRank}}</span>
+					<span>&nbsp;/&nbsp;</span>
+					<span>{{= myModel[1].quantity}}</span>
+					{{ } }}
+				</p>
+			</div>
+		</div>
+	</div>
+	{{ } }}
+	<div class='TdCode pull-right'> 
+		<div class='TdCodeImg'></div>
+		<p>DownLoad the app</p>
+	</div>
+</script>
+<!-- 排行列表 -->
+<script id="rankingListTpl" type="text/template">
+	<div class="list registerList pull-left">
+			<p>Registers</p>
+			<ul id="">
+				{{_.each(model.register, function(val, key){}}
+				<li>
+					<div class="item">
+						{{if(key==0) { }}
+						<i class='icon_1'></i>
+						{{ }else if(key == 1) { }}
+						<i class='icon_3'></i>
+						{{ }else if(key == 2) { }}
+						<i class='icon_4'></i>
+						{{ }else if(key >= 3) { }}
+						<i class='icon_5'>{{=(key + 1)}}</i>
+						{{ } }}
+						<i class='icon_2'></i>
+						<div class='userInfo'>
+							<span>{{=val.userName}}</span>
+							<span class='pull-right'>{{=val.quantity}}</span>
+						</div>
+					</div>
+				</li>
+				{{ }) }}
+			</ul>
+		</div>
+		<div class="list ordersList pull-right">
+			<p>Orders</p>
+			<ul>
+					{{_.each(model.order, function(val, key){}}
+					<li>
+						<div class="item">
+							{{if(key==0) { }}
+							<i class='icon_1'></i>
+							{{ }else if(key == 1) { }}
+							<i class='icon_3'></i>
+							{{ }else if(key == 2) { }}
+							<i class='icon_4'></i>
+							{{ }else if(key >= 3) { }}
+							<i class='icon_5'>{{=(key + 1)}}</i>
+							{{ } }}
+							<i class='icon_2'></i>
+							<div class='userInfo'>
+								<span>{{=val.userName}}</span>
+								<span class='pull-right'>{{=val.quantity}}</span>
+							</div>
+						</div>
+					</li>
+					{{ }) }}
+			</ul>
+		</div>
+</script>

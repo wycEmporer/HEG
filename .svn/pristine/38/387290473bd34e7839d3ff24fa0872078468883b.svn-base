@@ -1,0 +1,169 @@
+
+<div class="banner" id="banner">
+</div>
+<div class="add-search row" style="padding:10px 0;">
+	<form id="searchForm" onsubmit="return false;">
+		<nav class="L-tripType clearfix">
+		  <ul>
+			<li class="item oneway" >
+			  <label for="oneway">
+				<input type="radio" name="tripType" id="oneway" value="0" class="trip-type" checked="checked">
+				<strong class="font-Roman">One way</strong>
+			  </label>
+			</li>
+			<li class="item roundtrip">
+			  <label for="Roundtrip">
+				<input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+				<strong class="font-Roman">Round trip</strong>
+			  </label>
+			</li>
+		  </ul>
+		</nav>
+		<div class="LS-trip">
+      <div class="section1 clearfix">
+        <div class="d-city fore form-group">
+          <span class="checkError hidden">You missed this</span>
+          <input type="text" id="D_city" value="New Delhi" class="form-control" autocomplete="off" placeholder="New Delhi">
+          <input type="hidden" id="From" name="from" value="DEL" data-country="IN">
+          <p class="img-icon takeOff"></p>
+        </div>
+        <div class="a-city fore form-group">
+          <span class="checkError hidden">You missed this</span>
+          <input type="text" id="A_city" value="New Delhi" class="form-control" autocomplete="off" placeholder="New Delhi">
+          <input type="hidden" id="To" name="to" value="BOM" data-country="IN">
+          <p class="img-icon landing"></p>
+        </div>
+      </div>
+      <div class="section2 clearfix">
+        <div class="d-date fore form-group">
+          <input type="text" readonly="readonly" id="D_date" class="form-control time-input" placeholder="Choose Date" autocomplete='off'>
+          <input type="hidden" id="departDate" name="departDate" value="">
+          <a class="icon datepick"></a>
+          <span class="checkError hidden">You missed this</span>
+          <p class="img-icon calendar"></p>
+        </div>
+        <div class="r-date fore form-group ">
+          <input type="text" readonly="readonly" id="R_date" class="form-control time-input" placeholder="Choose Date" autocomplete='off'>
+          <input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+          <a class="icon datepick"></a>
+          <p class="checkError hidden">You missed this</p>
+          <p class="img-icon calendar"></p>
+        </div>
+      </div>
+      <div class="section3 clearfix">
+        <div class="item selectItem form-group">
+          <a href="javascript:void(0)" class="trallerpop" id="p-popover">
+            <span id="pCount">1</span>&nbsp;<span id="pIcon">|</span>&nbsp;<span id="pType">Ecnomic</span>
+            <div class="img-icon arrows">
+              <p></p>
+            </div>
+          </a>
+          <div class="SelectWrap  bottom popover">
+            <div class="arrow" style="left: 10%;"></div>
+            <div class="headTop">
+              <a href="javascript:void(0)" style="position: absolute;top:4px; right:10px;z-index:2;" class="close">&times;</a>
+            </div>
+            <div class="clearfix">
+              <div class="A-passenger fore">
+                <p>Adults</p>
+                <span class="img-type A-type"></span>
+                <input id="A_passenger" type="text" value="1" name="adults" alt="a" class="passenger" autocomplete='off'>
+                <div class="minus-plus">
+                  <span class="minus-img"></span>
+                  <span class="plus-img"></span>
+                </div>
+              </div>
+              <div class="C-passenger fore">
+                  <p>Children</p>
+                  <span class="img-type C-type"></span>
+                  <input id="C_passenger" type="tel" value="0" name="childs" alt="c" class="passenger" autocomplete='off'>
+                  <div class="minus-plus">
+                    <span class="minus-img"></span>
+                    <span class="plus-img"></span>
+                  </div>
+              </div>
+              <div class="I-passenger fore">
+                  <p>Infants</p>
+                  <span class="img-type I-type"></span>
+                  <input id="I_passenger" type="tel" value="0" name="baby" alt="i" class="passenger" autocomplete='off'>
+                  <div class="minus-plus">
+                    <span class="minus-img"></span>
+                    <span class="plus-img"></span>
+                  </div> 
+              </div>
+              <div class="S-seat">
+                  <div class="s-seatType">
+                      <label for="economy">
+                        <input type="radio" name="cabinClass" id="economy" value="Economy" checked="checked" class="seat-type">
+                        <strong class="font-Roman">Economy</strong>
+                      </label> 
+                      <label for="business">
+                        <input type="radio" name="cabinClass" id="business" value="Business" class="seat-type">
+                        <strong class="font-Roman">Business</strong>
+                      </label> 
+                      <label for="first">
+                        <input type="radio" name="cabinClass" id="first" value="First" class="seat-type">
+                        <strong class="font-Roman">First</strong>
+                      </label> 
+                      <label for="prenium" class="prenium">
+                        <input type="radio" name="cabinClass" id="prenium" value="Prenium Economy" class="seat-type">
+                        <strong class="font-Roman">Prenium Economy</strong>
+                      </label> 
+                  </div>
+                  <!-- <div class="s-seatRegular">
+                    <p>Children 5 to 14 years old on a separate flight must be reserved for their "unaccompanied minors".</p>
+                  </div> -->
+              </div>
+              <div class="B-confirm" style="margin-top: 20px;">
+                <input id="confirm" type="button" value="Confirm" name="button" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="section4" >
+        <button class="btn font-Roman" id="search_flights" style="margin-top: 6px;">Search flights</button>
+      </div>
+      <input type="hidden" name="airline">
+      <input type="hidden" name="carrier">
+    </div>
+	</form>
+</div>
+<div class="content">
+	<div class="container">
+		<div class="wrap clearfix fontSz14" style="width:925px">
+			<h1 class="title text-center">Spring Travel Offer
+			</h1>
+			<div class="summary center-block marB10" >
+				<p class="padB10">
+					Begin with fresh flowers and sunshine, Spring is the time of plans and projects. Start this year with your dreaming destination travel, get out of your usual surroundings and have an eye-opening, relaxing, or just plain fun experience somewhere new. 
+				</p>
+				<p>
+					HappyEasyGo comes out the Spring Travel Offer, giving you enormous discounts on the air travel to your ideal places. Lowest price guaranteed on your flight you book with us!
+				</p>
+			</div> 
+			<div class="fontSz24  marT10 padT10" style="line-height:40px;">
+				<h4>Domestic flight:</h4>
+				<!-- <p><span class="colorDan">Rs.250</span> instant discount by Coupon code: <span class="fontB">HEGDOM</span> on desktop & mobile site</p> -->
+				<p><span class="colorDan">Rs.100</span> instant discount by Coupon code: <span class="fontB"> APPDOM</span> on HEG App</p>
+			</div>
+			<div class="fontSz24  marT10 padT10 marB20" style="line-height:40px;">
+				<h4>International flight: </h4>
+				<p><span class="colorDan">Rs.500</span> instant discount by Coupon code: <span class="fontB">HEGINT</span> on desktop & mobile site</p>
+				<p><span class="colorDan">Rs.700</span> instant discount by Coupon code: <span class="fontB">APPINT</span> on HEG App</p>
+			</div>
+			<p>All coupon codes are valid till tomorrow. Book tickets now, you’ll get huge discount instantly. </p>
+			<div class="text-img text-center marT10 padT10">
+				<img src="<%=require('./images/text-img.png')%>" alt="">
+			</div>
+			<div class="tobook text-center">
+				<a href="https://www.happyeasygo.com/?utm_source=Direct&utm_medium=SpringWeb&utm_campaign=BookNow" class="btn btn-primary fontSz18">Book Now</a>
+			</div>
+			<div class="terms  text-center">
+				<a href="/SpringTravel-terms/" class="colorPri">Terms & Conditions</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+

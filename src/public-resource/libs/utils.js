@@ -1,0 +1,713 @@
+var configModule = require('configModule');
+var utils = {};
+utils.path = {
+  apiRoot:configModule.API_ROOT,
+  apiUrl: function(path) {
+    var apiRoot = configModule.API_ROOT;
+    if(path.indexOf(apiRoot) == 0){
+      return path;
+    }
+    return apiRoot + path;
+  },
+  checkEmailAndPhone: function(){
+    var path = '/heg_api/user/checkExistEmailAndPhone.do';
+    return this.apiUrl(path);
+  },
+  getPaymentChannel: function(){
+    var path = '/heg_api/queryPaymentChannel.do';
+    return this.apiUrl(path);
+  },
+  getInsure: function(){
+    var path = 'heg_api/insurance/hasInsurance.do';
+    return this.apiUrl(path);
+  },
+  getInsure_v2: function(){
+    var path = 'heg_api/insurance/hasInsurance_v2.do';
+    return this.apiUrl(path);
+  },
+  getCouponValue: function(){
+    var path = 'heg_api/coupon/GetCoupon.do';
+    return this.apiUrl(path);
+  },
+  getGstInfo: function(){
+    var path = 'heg_api/getGstInfo.do';
+    return this.apiUrl(path);
+  },
+  getAutMyPrizes(){
+    var path = 'heg_api/anniversary/selectWinningRecord.do';
+    return this.apiUrl(path);
+  },
+  getAutWinnerList(){
+    var path = 'heg_api/anniversary/winningUserList.do';
+    return this.apiUrl(path);
+  },
+  getAutChance(){
+    var path = 'heg_api/anniversary/obtainRemainingLottery.do';
+    return this.apiUrl(path);
+  },
+  getAutPrizeList(){
+    var path = 'heg_api/anniversary/prizeList.do';
+    return this.apiUrl(path);
+  },
+  getNodeList: function(){
+    var path = 'heg_api/advertising/getNodeList.do';
+    return this.apiUrl(path);
+  },
+  intlCountry: function(){
+    var path = 'heg_api/airportCity/searchCountry.do';
+    return this.apiUrl(path);
+  },
+  areaCodeQuery: function(){
+    var path = 'heg_api/mobileApp/findSms.do';
+    return this.apiUrl(path);
+  },
+  msgCodeQuery: function(){
+    var path = '/heg_api/user/sendUserProfileOTP.do';
+    return this.apiUrl(path);
+  },
+  editMobileQuery: function(){
+    var path = '/heg_api/user/modifyPhoneNumberByOTP.do';
+    return this.apiUrl(path);
+  },
+  getRoundFlightInfo:function(){
+    var path = 'heg_api/flight/getRoundTripPrice.do';
+    return this.apiUrl(path);
+  },
+  saveJsRes: function(){
+    var path = 'heg_api/saveJsResponse.do';
+
+    return this.apiUrl(path);
+  },
+  getPromotionInfo: function(){
+    var path = 'heg_api/advertising/advList.do?businessType=1&';
+    return this.apiUrl(path);
+  },
+  getAllPromotionInfo: function(){
+    var path = 'heg_api/advertising/advList.do?businessType=&';
+    return this.apiUrl(path);
+  },
+  getBankAndWallets: function(){ 
+    var path = '/heg_api/searchBanksAndWallets.do';
+    return this.apiUrl(path);
+  },
+  shareStatistics: function(){
+    var path = 'heg_api/activity/ShareByThirdParty.do';
+    return this.apiUrl(path);
+  },
+  getCheckAvailable: function() {
+    var path = 'heg_api/activity/checkAvailable.do';
+    return this.apiUrl(path);
+  },
+  getLetter: function(){
+    var path = 'heg_api/activity/getLetter.do';
+    return this.apiUrl(path);
+  },
+  queryLetters: function(){
+    var path = 'heg_api/activity/seachLetters.do';
+    return this.apiUrl(path);
+  },
+  exchangeLetters: function(){
+    var path = 'heg_api/activity/exchangeReward.do';
+    return this.apiUrl(path);
+  },
+  orderSendOtp: function(){
+    var path = 'heg_api/order/sendOtp.do';
+    return this.apiUrl(path);
+  },
+  getSiteInfo: function(){
+    var path = '/heg_api/getWebsiteInfo.do';
+    return this.apiUrl(path);
+  },
+  countShareUrl(){
+    var path = '/heg_api/shareUrl.do';
+    return this.apiUrl(path);
+  }, 
+  shareByEmail: function(){
+    var path = 'heg_api/shareByEmail.do';
+    return this.apiUrl(path);
+  },
+  shareBySms: function(){
+    var path = 'heg_api/shareBySMS.do';
+    return this.apiUrl(path);
+  },
+
+  newShareBySms: function () {
+    var path = 'heg_api/newShareBySMS.do';
+    return this.apiUrl(path);
+  },
+  getReferLink:function(){
+    var path = 'heg_api/shareRegister.do';
+    return this.apiUrl(path);
+  },
+  login:function(){
+    var path = 'heg_api/user/login.do';
+    return this.apiUrl(path);
+  },
+  loginNew:function(){
+    var path = 'heg_api/user/loginNew.do';
+    return this.apiUrl(path);
+  },
+  returnUrl:function(orderId, phoneNo=''){
+    var path = `account/?source=backFromPayment&orderId=${orderId}&phoneNo=${phoneNo}`;
+    return this.apiUrl(path);
+  },
+  logout:function(){
+    var path = 'heg_api/user/logout.do';
+    return this.apiUrl(path);
+  },
+  register:function(){
+    var path = 'heg_api/user/registerByPhone.do';
+    return this.apiUrl(path);
+  },
+  verifyRegister:function(){
+    var path = 'heg_api/user/activate.do';
+    return this.apiUrl(path);
+  },
+  applyNewPwd:function(){
+    var path = 'heg_api/user/getCheckWay.do';
+    return this.apiUrl(path);
+  },
+  resetPwd:function(){
+    var path= 'heg_api/user/resetPassNew.do';
+    return this.apiUrl(path);
+  },
+  setPayPwd: function(){
+    var path = 'heg_api/wallet/setPayPasswordNew.do';
+    return this.apiUrl(path);
+  },
+  getPayPwdOtp: function(){
+    var path = 'heg_api/wallet/resetPayPasswordNew.do';
+    return this.apiUrl(path);
+  },
+  getLogPwdOtp: function(){
+    var path = 'heg_api//user/applyResetPass.do';
+    return this.apiUrl(path);
+  },
+  flightUrl:function(queryData){
+    var path = '/flights/?' + queryData;
+    return path;
+  },
+  // flightDataUrl: function(){
+  //   var path = 'heg_api/flight/SearchFlightsNew.do';
+  //   return this.apiUrl(path);
+  // },
+  flightDataUrl: function(){
+    var path = '/flight_api/flight/SearchFlightsNew.do';
+    return this.apiUrl(path);
+  },
+  fareBaggageQueryUrl:function(){
+    var path = 'heg_api/flight/SearchTGQAndBaggageNew.do';
+    return this.apiUrl(path);
+  },
+  fareQueryUrl:function(){
+    var path = 'heg_api/flight/SearchTGQ.do';
+    return this.apiUrl(path);
+  },
+  couponQueryUrl:function(code){
+    var path = 'heg_api/flight/SearchCoupon.do?k1=' + code;
+    return this.apiUrl(path);
+  },
+  baggageQueryUrl:function(){
+    var path = 'heg_api/flight/SearchBaggageInfo.do';
+    return this.apiUrl(path);
+  },
+  // first book verify
+  bookVerify:function(){
+    var path = 'heg_api/order/checkCountAndPrice.do';
+    return this.apiUrl(path);
+  },
+  bookVerify0: function(){
+    var path = 'heg_api/order/check.do';
+    return this.apiUrl(path);
+  },
+  intervalVerify: function(){
+    var path = 'heg_api/order/getCheckResult.do';
+    return this.apiUrl(path);
+  },
+  //book get data
+  bookingUrl: function(){
+    var path = 'heg_api/order/getBaggageInfoAndAllPriceNew.do';
+    return this.apiUrl(path);
+  },
+  saveOrder:function(){
+    var path = 'heg_api/order/saveOrder.do';
+    return this.apiUrl(path);
+  },
+  isPay:function(id){
+    var path = 'heg_api/ResultOfPayment.do?orderId='+ id;
+    return this.apiUrl(path);
+  },
+  cityListUrl: function(){
+    var path = 'heg_api/airportCity/searchAirPortCity.do';
+    return this.apiUrl(path);
+  },
+  airlineListUrl: function(){
+    var path = '/mock/airlines.json';
+    // var path = 'heg_api/airportCity/searchAirPortCity.do';
+    return path;
+  },
+  paymentUrl:function(){
+    var path = 'heg_api/payment.do'; 
+    // var path = 'heg_api/';
+    return this.apiUrl(path);
+  },
+  paymentHUrl:function(){
+    var path = 'heg_api/paymentH.do'; 
+    // var path = 'heg_api/';
+    return this.apiUrl(path);
+  },
+  // old interface
+  paymentOldUrl: function(){
+    var path = 'heg_api/paymentNew.do';
+    return this.apiUrl(path);
+  },
+  // 补差价
+  paymentO: function(){
+    var path = 'heg_api/paymentForD.do';
+    return this.apiUrl(path);
+  },
+  getSilverUrl:function(){
+    var path = 'heg_api/selectConfig.do';
+    return this.apiUrl(path);
+  },
+  getTopupAmount:function(){
+    var path = 'heg_api/wallet/getRechargeConfig.do';
+    return this.apiUrl(path);
+  },
+  getGoldUrl:function(){
+    var path = 'heg_api/wallet/searchHappyGold.do';
+    return this.apiUrl(path);
+  },
+  getSilverForm:function(){
+    var path = 'heg_api/wallet/searchHcCurrencyNew.do';
+    return this.apiUrl(path);
+  },
+  getGoldForm:function(){
+    var path = 'heg_api/wallet/searchEcCurrencyNew.do';
+    return this.apiUrl(path);
+  },
+  getGoldRecord:function(){
+    var path = 'heg_api/wallet/searchCashBackRecord.do';
+    return this.apiUrl(path);
+  },
+  verifyEmail: function(){
+    var path = 'heg_api/user/automaticRegister.do';
+    return this.apiUrl(path);
+  },
+  verifyBirth:function(){
+    var path = 'heg_api/order/checkPassenger.do';
+    return this.apiUrl(path);
+  },
+  tepOrder:function(){
+    var path = 'heg_api/order/getFlights.do';
+    return this.apiUrl(path);
+  },
+  isPayPwd:function(){
+    var path = 'heg_api/wallet/checkUserPayPassword.do';
+    return this.apiUrl(path);
+  },
+  getVisitNum: function () {
+    var path = 'heg_api/visit/saveVisit.do';
+    return this.apiUrl(path);
+  },
+  getGold: function () {
+    var path = '/heg_api/mobileApp/getInviteCodeReward.do';
+    return this.apiUrl(path);
+  },
+  getCouponInfo: function(){
+    var path = '/heg_api/coupon/getCouponPromnByPage.do';
+    return this.apiUrl(path);
+  },
+  getCouponPromn: function(){
+    var path = '/heg_api/coupon/getCouponPromnByCode.do';
+    return this.apiUrl(path);
+  },
+  getSendMsg: function(){
+    var path = '/heg_api/appSendMsg/sendMsg.do';
+    return this.apiUrl(path);
+  },
+  getReferRankWeekCurrent: function(){
+    var path = '/heg_api/queryReferRankWeekCurrent.do';
+    return this.apiUrl(path);
+  },
+  getReferRankWeekHistory: function(){
+    var path = '/heg_api/queryReferRankWeekHistory.do';
+    return this.apiUrl(path);
+  },
+  getReferRankWeekNow: function(){
+    var path = '/heg_api/queryReferRankWeekNow.do'; 
+    return this.apiUrl(path);
+  },
+  getPassport: function(){
+    var path = '/heg_api/policy/checkPassport.do';
+    return this.apiUrl(path);
+  },
+  saveLotteryOpportunities:function(){
+    var path = '/heg_api/anniversary/saveLotteryOpportunitiesToOrder.do';
+    return this.apiUrl(path);
+  },
+  obtainRemainingLottery:function(){
+    var path = '/heg_api/anniversary/obtainRemainingLottery.do';
+    return this.apiUrl(path);
+  },
+  selectWinningRecord:function(){
+    var path = '/heg_api/anniversary/selectWinningRecord.do';
+    return this.apiUrl(path);
+  },
+  goLottery:function(){
+    var path = '/heg_api/anniversary/goLottery.do';
+    return this.apiUrl(path);
+  },
+  saveRecipient:function(){
+    var path = '/heg_api/anniversary/saveRecipient.do';
+    return this.apiUrl(path);
+  },
+  getInviteInfo: function(){
+    var path = 'heg_api/mobileApp/getInviteInfo_v3.do';
+    return this.apiUrl(path);
+  },
+  getInviteInfo_v4: function(){
+    var path = 'heg_api/mobileApp/getInviteInfo_v4.do';
+    return this.apiUrl(path);
+  },
+  getDepartmentJobList: function(){
+    var path = 'heg_api/join/getDepartmentJobList.do';
+    return this.apiUrl(path);
+  },
+  getWorkMessage: function(){
+    var path = 'heg_api/join/getWorkMessage.do';
+    return this.apiUrl(path);
+  },
+ 
+  cancelOrderByGuest: function(){
+    var path = 'heg_api/cancelOrder/cancelOrderByGuest.do';
+    return this.apiUrl(path);
+  },
+  getCancelReason: function(){
+    var path = 'heg_api/cancelOrder/getCancelReason.do';
+    return this.apiUrl(path);
+  },
+  saveCareer: function(){
+    var path = '/heg_api/join/saveCareer.do';
+    return this.apiUrl(path);
+  },
+  getDeptCount: function(){
+    var path = '/heg_api/join/getDeptCount.do';
+    return this.apiUrl(path);
+  },
+  queryDiwaliByOrderId: function(){
+    var path = '/heg_api/activity/queryDiwaliByOrderId.do';
+    return this.apiUrl(path);
+  },
+  countDiwaliActivity: function(){
+    var path = '/heg_api/activity/countDiwaliActivity.do';
+    return this.apiUrl(path);
+  },
+  pageImgList: function(){
+    var path = '/heg_api/anniversary/pageImgList.do';
+    return this.apiUrl(path);
+  },
+  registerByPhoneAndCode: function(){
+    var path = '/heg_api/user/registerByPhoneAndCode.do';
+    return this.apiUrl(path);
+  },
+  
+  getIsSilverEnough: function(){
+    var path = '/heg_api/wallet/getIsSilverEnough.do';
+    return this.apiUrl(path);
+  },
+  getIsSilverEnough_2: function(){
+    var path = '/heg_api/getIsSilverEnough.do';
+    return this.apiUrl(path);
+  },
+  getOrderBySupport: function(){
+    var path = '/heg_api/getOrderBySupport.do';
+    return this.apiUrl(path);
+  },
+  saveFeedback: function(){
+    var path = '/heg_api/support/saveFeedback.do';
+    return this.apiUrl(path);
+  },
+  saveHelpful: function(){
+    var path = 'heg_api/support/saveHelpful.do';
+    return this.apiUrl(path);
+  },
+  getLowPriceCalendar: function(){
+    var path = '/heg_api/flight/getLowPriceCalendar.do';
+    return this.apiUrl(path);
+  },
+
+};
+utils.accountPath = {
+  apiUrl: function(path) {
+    var apiRoot = configModule.API_ROOT;
+    if(path.indexOf(apiRoot) == 0){
+      return path;
+    }
+    return apiRoot + path;
+  },
+  getHotelList(){
+    var path = 'api/web/orders/order_list';
+    return this.apiUrl(path);
+  },
+  getHotelListUnlogin(){
+    var path = '/api/web/orders/queryUserOrderNew';
+    return this.apiUrl(path);
+  },
+  getHotelDetailUnlogin(){
+    var path = 'api/web/rourists';
+    return this.apiUrl(path);
+  },
+  getHotelDetail(){
+    var path = 'api/web/orders/order_detail';
+    return this.apiUrl(path);
+  },
+  withdrawOtp: function(){
+    var path = 'heg_api/user/sendWalletOTP.do';
+    return this.apiUrl(path);
+  },
+  withdrawConf:function(){
+    var path = 'heg_api/wallet/getCashConfig.do';
+    return this.apiUrl(path);
+  },
+  getRefundOtp: function(){
+    var path = 'heg_api/refund/getRefundOTP.do';
+    return this.apiUrl(path);
+  },
+  getRegOtpByMob:function(){
+    var path = 'heg_api/user/sendRegisterOTP.do';
+    return this.apiUrl(path);
+  },
+  tripIdDetailUrl:function(queryData){
+    var path = 'heg_api/order/queryOrderDetailByTripId.do?' + queryData;
+    return this.apiUrl(path);
+  },
+  tripDetailUrl:function(queryData){
+    var path = 'heg_api/order/queryOrderDetail.do?' + queryData;
+    return this.apiUrl(path);
+  },
+  tripOrderUrl:function(queryData){
+    var path = 'heg_api/usearOrder/queryUserOrder.do';
+    return this.apiUrl(path);
+  },
+  feedbackUrl:function(){
+    var path = 'heg_api/about/feedBack.do';
+     return this.apiUrl(path);
+  },
+  cancelQueryUrl:function(tripid){
+    var path = 'heg_api/refund/getRefundAmount.do?tripId=' + tripid;
+    return this.apiUrl(path);
+  },
+  cancelApply:function(){
+    var path = 'heg_api/refund/applyForRefund.do';
+    return this.apiUrl(path);
+  },
+  changeApply:function(){
+    var path = 'heg_api/rebook/applyForRebook.do';
+    return this.apiUrl(path);
+  },
+  emailItinerary: function(tripid){
+    var path = 'heg_api/itinerary/sendTicketAttach.do?tripId=' + tripid;
+    return this.apiUrl(path);
+  },
+  queryUserInfo: function(){
+    var path = 'heg_api/user/userInfo.do';
+    return this.apiUrl(path);
+  },
+  modifyUserInfo: function(){
+    var path = 'heg_api/user/changeUserInfo.do';
+    return this.apiUrl(path);
+  },
+  modifyUserPwd: function(){
+    var path = 'heg_api/user/changePass.do';
+    return this.apiUrl(path);
+  },
+  modifyPayPwd:function(){
+    var path = 'heg_api/user/changePaymentPass.do';
+    return this.apiUrl(path);
+  },
+  getBank:function(){
+    var path = 'heg_api/getBanks.do';
+    return this.apiUrl(path);
+  },
+  subWithdrawal:function(){
+    var path = 'heg_api/wallet/applyWalletCash.do';
+    return this.apiUrl(path);
+  },
+  rechargeWallet: function(){
+   var path = 'heg_api/wallet/rechargeWallet.do';
+   return this.apiUrl(path);
+  },
+  checkIden: function(){
+    var path = 'heg_api/user/checkAuthen.do';
+    return this.apiUrl(path);
+  },
+  identityOtp: function(){
+    var path = 'heg_api/user/sendAuthenOTP.do';
+    return this.apiUrl(path);
+  },
+  uploadImg: function(){
+    var path = 'heg_api/user/idcardUpload.do';
+    return this.apiUrl(path);
+  },
+  getUserCoupon: function(){
+    var path = 'heg_api/coupon/GetUserCoupon.do';
+    return this.apiUrl(path);
+  },
+  GetAllUserCoupon: function(){
+    var path = 'heg_api/coupon/GetAllUserCoupon.do';
+    return this.apiUrl(path);
+  },
+  
+  getOrderToken: function(){
+    var path = 'heg_api/getOrderToken.do';
+    return this.apiUrl(path);
+  },
+  getOrderOTP: function(){
+    var path = 'heg_api/getOrderOTP.do';
+    return this.apiUrl(path);
+  },
+  queryUserOrderNew: function(){
+    var path = '/heg_api/queryUserOrderNew.do';
+    return this.apiUrl(path);
+  },
+  queryOrderDetailByTripIdNew: function(){
+    var path = '/heg_api/queryOrderDetailByTripIdNew.do';
+    return this.apiUrl(path);
+  },
+  verifyRefund: function(){
+    var path = '/heg_api/refund/verifyRefund.do';
+    return this.apiUrl(path);
+  },
+  updateEmailSendOldOtp: function(){
+    var path = '/heg_api/user/updateEmailSendOldOtp.do';
+    return this.apiUrl(path);
+  },
+  updateEmailVerifyOTP: function(){
+    var path = '/heg_api/user/updateEmailVerifyOTP.do';
+    return this.apiUrl(path);
+  },
+  updateEmailSendNewOtp: function(){
+    var path = '/heg_api/user/updateEmailSendNewOtp.do';
+    return this.apiUrl(path);
+  },
+  updateEmail: function(){
+    var path = '/heg_api/user/updateEmail.do';
+    return this.apiUrl(path);
+  },
+  getRechargeAmount: function(){
+    var path = '/heg_api/wallet/getRechargeAmount.do';
+    return this.apiUrl(path);
+  },
+  verifyPhone: function(){
+    var path = '/heg_api/modify/verifyPhone.do';
+    return this.apiUrl(path);
+  },
+  sendOTP: function(){
+    var path = '/heg_api/modify/sendOTP.do';
+    return this.apiUrl(path);
+  },
+  sendSecondOTP: function(){
+    var path = '/heg_api/modify/sendSecondOTP.do';
+    return this.apiUrl(path);
+  },
+  updateNewPhone: function(){
+    var path = '/heg_api/modify/updateNewPhone.do';
+    return this.apiUrl(path);
+  },
+
+};
+utils.messagePath = {
+  apiUrl: function(path) {
+    var apiRoot = configModule.API_ROOT;
+    if(path.indexOf(apiRoot) == 0){
+      return path;
+    }
+    return apiRoot + path;
+  }, 
+  saveFlightPriceAlert: function(){
+    var path = '/message_api/flight/saveFlightPriceAlert.do';
+    return this.apiUrl(path);
+  },
+};
+utils.offerPath = {
+  apiUrl: function(path) {
+    var apiRoot = configModule.API_ROOT;
+    if(path.indexOf(apiRoot) == 0){
+      return path;
+    }
+    return apiRoot + path;
+  }, 
+  getUserAllCoupon: function(){
+    var path = '/offer_api/coupon/all';
+    return this.apiUrl(path);
+  },
+  sponsoredDetail: function(){
+    var path = '/offer_api/coupon/detail';
+    return this.apiUrl(path);
+  },
+  blogSelectAll: function(){
+    var path = '/offer_api/blog/selectAll.do';
+    return this.apiUrl(path);
+  },
+  exclusiveEmail: function(){
+    var path = '/offer_api/exclusiveEmail/saveEmail.do';
+    return this.apiUrl(path);
+  },
+};
+utils.flightPath = {
+  apiUrl: function(path) {
+    var apiRoot = configModule.API_ROOT;
+    if(path.indexOf(apiRoot) == 0){
+      return path;
+    }
+    return apiRoot + path;
+  }, 
+  selectAll: function(){
+    var path = '/flight_api/seoHotDestination/selectAll.do';
+    return this.apiUrl(path);
+  },
+  getCouponUse: function(){
+    var path = '/offer_api/coupon/getCouponUse.do';
+    return this.apiUrl(path);
+  },
+};
+
+
+utils.parseQueryStr = function(){
+  const queryStr = location.search.replace(/^\?/, '');
+  if(queryStr == '') return {};
+  var parameters = queryStr.split(/\&/g);
+  var result = {};
+  for(var i = 0;i < parameters.length; i ++){
+    var array = parameters[i].split(/=/);
+    var key = decodeURIComponent(array[0]);
+    var value = decodeURIComponent(array[1]).replace(/\+/g, '');
+    result[key] = value;
+  }
+  return result;
+};
+
+utils.cookieUtil = {
+  setCookie: function (name, value){
+    var Days = 1;
+    var exp = new Date();
+    exp.setTime(exp.getTime() + Days*24*60*60*1000);
+    document.cookie = name + '='+ escape (value) + ';expires=' + exp.toGMTString()+';path=/';
+  },
+  getCookie: function (name){
+    var arr, reg=new RegExp('(^| )'+name+'=([^;]*)(;|$)');
+    if(arr=document.cookie.match(reg))
+    return unescape(arr[2]);
+    else
+    return null;
+  },
+  delCookie: function (name){
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=this.getCookie(name);
+    if(cval!=null)
+    document.cookie= name + '='+cval+';expires='+exp.toGMTString()+';path=/';
+  }
+};
+module.exports = utils;

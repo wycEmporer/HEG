@@ -1,0 +1,18 @@
+// Modify bootstrap variables here.
+
+// a example:
+// @body-bg: @gray-lighter;
+@brand-primary:         #0b9d78;
+@brand-success:         #ea8010;
+@brand-info:            #3b5990;
+@brand-warning:         #ffad3d;
+@brand-danger:          #e9645a;
+@brand-other:           #a1c9f8;
+
+@btn-warning-bg:        #ffad3d;
+
+@line-height-base:        1.333333; // 16/12
+@grid-gutter-width:         20px;
+@container-large-desktop:      (1180px + @grid-gutter-width);
+@breadcrumb-color:              #333;
+@breadcrumb-separator:          "/";

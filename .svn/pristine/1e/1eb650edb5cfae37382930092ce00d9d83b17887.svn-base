@@ -1,0 +1,989 @@
+const cookieUtil = require('cp').cookieUtil;
+require('lessDir/base.less');
+require('./content.less');
+require('dataFormat');
+import * as formReg from 'formVerify';
+const store = require('store');
+const utils = require('utils');
+const paths = utils.path;
+import { observer } from './observer';
+import { checkForm } from './checkform';
+import { dataLayer } from './dataLayer.js';
+import operateData from './operateData.js';
+import { Coupon } from './Coupon.js';
+import { CheckPrice } from './checkPrice.js';
+import './sticky.js';
+import orderSendOtp from './orderSendOtp.js';
+import travellerHold from './travellerHold.js';
+import { queryCountry, queryAreaCode } from './passengerSupport/index.js';
+import { SetPayment } from './payment/index';
+import { getGstList } from './gstNameHold.js';
+import { getInsure } from './insure/index.js';
+import { farePop } from './farePop/farePop.js';
+import { getPaymentChannel } from './payment/paymentChannel.js';
+
+const accountPaths = utils.accountPath;
+const queryObj = utils.parseQueryStr();
+const IS_PROD = (process.env.NODE_ENV === 'production' && !IS_UAT) ? 'PROD' : 'TEST';
+
+var postData = {
+  supplieId: 0,
+  serviceCount: 0,
+  couponCode: queryObj.coupon,
+  isLogin: null,
+  token: queryObj.token,
+  useGold: 0,
+  isUseGold: false,
+  goldInfo: null,
+  coupon: null,
+  isNewPay: true,
+  fee: {},
+  paymentChannel: null,
+  isInsure: false,
+  isRegetFlight: false, // 点击comfirm 再次获取 flight
+  viaCheck:false, // 是否验验价通过，是否可以保存订单
+  insureObj:{},
+};
+
+if (cookieUtil.getCookie('uuid') !== null) {
+  postData.isLogin = true;
+  postData.isPaymentPwd = Number(cookieUtil.getCookie('paymentPass')) ? true : false;
+} else {
+  postData.isLogin = false;
+}
+
+let bookExpireObj = {
+  title: 'Oops!',
+  text: 'Fare or Seat(s) not available with the airline. <br />Redirecting to Search Page...',
+  btnTex: 'OK',
+  href: null
+};
+let sessionExpireObj = {
+  title: 'Session Expired!',
+  text: 'Your session has expired. Please click Continue to reload.',
+  btnTex: 'Continue',
+  href: null
+};
+
+function updateData(postData, result) {
+  delete result.flights.fee;
+  Object.assign(postData, result.flights);
+  operateData(postData);
+  if (postData.couponCode) {
+    Coupon.getCoupon(postData)
+      .then(coupon => {
+        postData.coupon = coupon;
+        $('#couponNote').text(`Save extra Rs. ${-coupon.value} by coupon`);
+      })
+      .catch(err => {
+        if(err == 'Coupon no longer available in the time or amount') {
+          $('#couponNote').text('This coupon is not avalable for this order.Please check the code and its conditions or use HEGPCM.');
+         postData.coupon = null;
+        }else {
+          alert('The request timed out. Please try again.');
+        }
+      });
+  }
+  // if (postData.code === 1) {
+  //   $('#upFare')
+  //     .removeClass('hidden')
+  //     .find('.upp')
+  //     .text((postData.fee.disPrice - postData.fee.opr).toThree());
+  //     postData.totalPrice = postData.fee.totalPrice;
+  // }
+  if (postData.isLogin) {
+    $.getJSON(paths.getGoldUrl())
+      .then(res => {
+        postData.happyGoldBalance = res.happyGoldBalance;
+      })
+      .fail(err => {
+        console.log(err);
+      });
+  }
+}
+
+(function(w, $, _) {
+  function ViewContrller() {
+    this.init.apply(this, arguments);
+  }
+
+  ViewContrller.prototype.init = function() {
+    var _this = this;
+    const p1 = new Promise((resolve, reject) => {
+      $.getJSON({
+        type: 'GET',
+        url: paths.tepOrder(),
+        data: { token: postData.token },
+        dataType: 'json',
+        cache: false
+      })
+        .then(function(result) {
+          if (!result || result.code === 7) {
+            return $.Deferred().reject(result);
+          }
+          if (result.code === 2) {
+            return $.Deferred().reject('Request timed out, please requery');
+          }
+          updateData(postData, result);
+          itineraryController(postData);
+
+          postData.elementId = 'viewTotal';
+          observer(postData);
+          postData.isPassPort = result;
+          CheckPrice.checkFare(postData).then(res => {
+            if (res.code == 0) {
+              postData.viaCheck = true;
+            } else if (res.code === 1) {
+              postData.isRegetFlight =  true;
+            }
+          });
+          fareController(postData);
+
+          if (postData.returnCash) {
+            let content = `
+            <div>
+              <p>Terms & Conditions:</p>
+              <p>&bull; <i class="rs colorDan">Rs.</i><span class="originPr colorDan"> ${postData.fee.goldback.toThree()} </span> will be transferred to your wallet instantly.
+              </p>
+              <p>&bull; Invoice will be issued as per the displayed price of <i class="rs colorDan">Rs.</i> <span class="originPr colorDan">${(postData.fee.totalPrice + postData.fee.cf).toThree()}</span>.
+              </p>          
+              <p>&bull;  Cashback amount will be deducted if you cancel your order.
+              </p>
+              <p>${postData.type == 4 ? '&bull; You can free to change your flight one time.' : ''}
+              </p>
+            </div>
+            <div style="padding: 10px 0">
+              <a href="/cashback/" target="_blank" class="btn btn-warning">Know more</a>
+            </div>
+          `;
+            $('#conRight .goldbackPop').popover({ content });
+          }
+          resolve();
+        })
+        .fail(err => {
+          let model = null;
+          if (err.code === 7) {
+            model = Object.assign({}, sessionExpireObj);
+          } else {
+            model = Object.assign({}, bookExpireObj);
+          }
+          model.href = cookieUtil.getCookie('flightsUrl') ? cookieUtil.getCookie('flightsUrl') : '/';
+          let $bookExpire = $('#bookExpire');
+          let $bookExpireCon = $bookExpire.find('.modal-content');
+          renderView($bookExpireCon, $bookExpireCon.html(), { model });
+          $bookExpire.modal('show');
+          reject();
+        });
+    }); //end Promise
+
+    const p2 = new Promise((resolve, reject) => {
+      if (postData.isLogin) {
+        $.ajax({
+          url: '/heg_api/commonTavelers/getCommTraInfo.do',
+          type: 'GET',
+          dataType: 'json'
+        })
+          .done(res => {
+            postData.travellerHis = res;
+            resolve();
+          })
+          .fail(err => {
+            resolve();
+          });
+      } else {
+        resolve();
+      }
+    });
+
+    const p3 = new Promise((resolve, reject) => {
+      if (!postData.isLogin) {
+        $.ajax({
+          url: '/heg_api/getRegisterSilver.do',
+          type: 'GET',
+          dataType: 'json',
+          headers: { 'x-Device': 'PC' }
+        })
+          .then(res => {
+            postData.registerSilver = res.data;
+            return resolve();
+          })
+          .fail(err => {
+            return resolve();
+          });
+      } else {
+        return resolve();
+      }
+    });
+
+    Promise.all([p1, p2, p3]).then(res => {
+      passportController(postData.isPassPort);
+      getPaymentChannel()
+        .then(res => {
+          postData.paymentChannel = res;
+        })
+        .catch(err => {
+          postData.paymentChannel = [];
+        });
+    });
+    return;
+  };
+
+  function itineraryController(postData) {
+    var viewHtml = $('#itineraryTpl').html();
+    renderView($('#Itinerary'), viewHtml, { myModel: postData });
+
+    $('#section1')
+      .removeClass('closed')
+      .addClass('open');
+  }
+
+  function fareController(postData) {
+    let fareEle = $('#fareDetailWrap');
+    let offersEle = $('#hegOffers');
+    let walletEle = $('#hegWallet');
+    let fareTpl = $('#fareDetailTpl').html();
+    let offersTpl = $('#hegOffersTpl').html();
+    let walletTpl = $('#hegWalletTpl').html();
+
+    let fareModel = Object.assign({}, postData.pers, postData.fee);
+    let offersModel = Object.assign({}, postData.couponCode);
+    fareModel.type = postData.type;
+    var earnTitle = sessionStorage.getItem('earnTitle');
+    postData.earnTitle = JSON.parse(earnTitle);
+    renderView(fareEle, fareTpl, { model: fareModel });
+    renderView(offersEle, offersTpl, { model: postData });
+    renderView(walletEle, walletTpl, { model: postData });
+    farePop(postData);
+  }
+
+  function passengerController(postData) {
+    let viewElement = $('#Passenger');
+    if (viewElement.text().length > 1) {
+      return;
+    }
+    var model = postData.pers;
+    const {
+      birthdateRequired: isI5, allowGST, travellerHis, sendOtpRequired, isLogin, isIntl, isPassport 
+    } = postData;
+
+    model.isI5 = isI5;
+    model.allowGST = allowGST;
+    model.isIntl = isIntl;
+    model.isPassport = isPassport;
+    model.sendOtpRequired = sendOtpRequired;
+    model.travellerHis = travellerHis;
+    model.isLogin = isLogin;
+    model.productType = postData.type;
+    model.registerSilver = postData.registerSilver || 0;
+    model.silverDis = postData.fee.discount;
+    if (model.sendOtpRequired) {
+      model.otpMob = cookieUtil.getCookie('phone');
+    }
+    var viewHtml = $('#passengersTpl').html();
+    renderView($('#Passenger'), viewHtml, { myModel: model });
+
+    if (postData.isLogin) {
+      travellerHold(model.travellerHis);
+      getGstList();
+    }
+    if (model.isPassport) {
+      var countryData = JSON.parse(sessionStorage.getItem('country'));
+      if (countryData && countryData.length != 0) {
+        addCountry(countryData);
+      } else {
+        queryCountry(addCountry);
+      }
+    }
+
+    var areaCodeData = JSON.parse(sessionStorage.getItem('areaCode') == 'undefined' ? null : sessionStorage.getItem('areaCode'));
+    if (areaCodeData && areaCodeData.length != 0) {
+      addAreaCode(areaCodeData);
+    } else {
+      queryAreaCode(addAreaCode);
+    }
+
+    function addAreaCode(data) {
+      var $areaCode = $('#section2 .areaCode');
+      var optionArr = [];
+      data.forEach(function(val, key) {
+        if (val.regionCode == 91) {
+          var option = `<option value="${val.regionCode}" selected>${val.countryName + ' (+' + val.regionCode})</option>`;
+        } else {
+          var option = `<option value="${val.regionCode}">${val.countryName + ' (+' + val.regionCode})</option>`;
+        }
+        optionArr.push(option);
+      });
+      $areaCode.html(optionArr.join(''));
+    }
+
+    function addCountry(data) {
+      var $selectCountry = $('#section2 .passCountry');
+      data.forEach(function(val, key) {
+        if (val.code == 'IN') {
+          $selectCountry.append(`<option value="${val.code}" selected>${val.name}</option>`);
+        } else {
+          $selectCountry.append(`<option value="${val.code}">${val.name}</option>`);
+        }
+      });
+    }
+    orderSendOtp('silverOtp', paths.orderSendOtp());
+  }
+
+  function passportController(result) {
+    const paramet = {
+      departFlight: {},
+      requestFromClient: {}
+    };
+    paramet.departFlight.stopByFlightArray = result.flights.departFlight.stopByFlightArray;
+    paramet.requestFromClient = result.flights.requestFromClient;
+    if (result.flights.returnFlight) {
+      paramet.returnFlight = {};
+      paramet.returnFlight.stopByFlightArray = result.flights.returnFlight.stopByFlightArray;
+    }
+    $.ajax({
+      url: paths.getPassport(),
+      type: 'POST',
+      data: JSON.stringify(paramet),
+      dataType: 'json',
+      contentType: 'application/json'
+    })
+      .done(function(res) {
+        if (res.success) {
+          postData.isPassport = res.data[0].passportPolicy;
+
+          passengerController(postData);
+          getInsure(postData);
+        }
+      })
+      .fail(function() {});
+  }
+
+  function renderView(viewElement, viewHtml, model) {
+    var renderTemp = _.template(viewHtml);
+    viewElement.html(renderTemp(model));
+  }
+  w.ViewContrller = new ViewContrller();
+})(window, jQuery, underscore);
+
+$(function() {
+  $('#conRight').stick_in_parent({ parent: '#container' });
+
+  function continueBooking() {
+    $(this).removeClass('progress-dynamic');
+    var slideUpTime = $(this)
+      .parents('.sec')
+      .height();
+    var nextSection = $('#section3');
+    $('#section1').slideUp(slideUpTime, 'linear', shownav);
+    $(this)
+      .parents('.sec')
+      .slideUp(slideUpTime, 'linear', shownav); // callback next nav show
+    nextSection.removeClass('closed');
+    if (nextSection.find('.content').is(':hidden')) {
+      nextSection.addClass('closed');
+    } else {
+      nextSection.addClass('open');
+    }
+  }
+
+  function shownav() {
+    // this=> sec
+    $(this)
+      .find('.content')
+      .css('display', 'none') //content hide
+      .end() //sec
+      .removeClass('open') //whan call continueBooking display, avoid nav background color transition to fast
+      .slideDown(400)
+      .addClass('closed');
+    // .find(".nav")
+    // .css({
+    //   cursor: "pointer"
+    // });
+    // current nav
+    // .on({
+    //   click: function() {
+    //     $(this).parent().removeClass("closed").addClass("open").find(".content").slideDown(400);
+    //   }
+    // });
+  }
+
+  $(document).on('click', '#section1 .viewEdit', function() {
+    $(this)
+    .toggleClass('Viewtext')
+    .parents('.sec')
+    .removeClass('closed')
+    .addClass('open')
+    .find('.content')
+    .slideToggle(400);
+    $(this).text('View Detail');
+    $('.Viewtext').text('View');
+  });
+  $(document).on('click', '#section2 .viewEdit, #conRight .editFare', function() {
+    postData.useGold = 0;
+    $('#section2')
+      .removeClass('closed')
+      .addClass('open')
+      .find('.content')
+      .slideDown(400);
+      $('.TD_viewEdit ').addClass('hidden');
+    $('#section3')
+      .removeClass('open')
+      .addClass('closed');
+    $('#conRight')
+      .removeClass('closed')
+      .find('.disMask')
+      .remove();
+  });
+  // show has GST number
+  $(document).on('click', '#isGST', function() {
+    if (
+      $(this)
+        .find('input:checkbox')
+        .prop('checked')
+    ) {
+      $('#gstCon').removeClass('hidden');
+      $('#gstCon input').removeAttr('disabled');
+    } else {
+      $('#gstCon').addClass('hidden');
+      $('#gstCon input').attr('disabled', 'disabled');
+    }
+  });
+
+  function JudgeSilver (postData, flag) {
+    if(postData.isLogin){
+      var tdis = flag ? postData.insureObj.tdis : 0;
+      var discount = Math.abs(tdis) + Math.abs(postData.fee.discount);  
+      var userId = getCookie('uid');
+      $.ajax({
+        url: paths.getIsSilverEnough() +'?silverAmount=' + discount +'&userId=' + userId,
+        type: 'GET',
+        dataType: 'json'
+      })
+      .done(res => {
+        if(res.success) {
+          if(res.code == 900){
+            let model = null;
+            let bookExpireObj = {
+              title: 'Oops!',
+              text: res.msg,
+              btnTex: 'OK',
+              href: null
+            };
+            model = Object.assign({}, bookExpireObj);
+            model.href = cookieUtil.getCookie('flightsUrl') ? cookieUtil.getCookie('flightsUrl') : '/';
+            let $bookExpire = $('#bookExpire');
+            let $bookExpireCon = $bookExpire.find('.modal-content');
+            renderView($bookExpireCon, $bookExpireCon.html(), { model });
+            $bookExpire.modal('show');
+          }
+        }
+      });
+    }
+  } 
+  function regetFlight(){
+    $.getJSON(paths.tepOrder(), { token: postData.token }).done(result => {
+      updateData(postData, result);
+      postData.viaCheck = true;
+      JudgeSilver(postData, true);
+    });
+  }
+  function operateOrder(_this, timer) {
+    let flightPsrList = [];
+    $('.passengerInfo', $('#section2')).each(function(i, val) {
+      let birthday = '';
+      let cardValid = '';
+      // .replace(/(\b[1-9]\b)/, '0$1')
+      if ($('.birthdayInfo', $(this)).length != 0) {
+        birthday = $('.day', $(this)).val() + '-' + $('.month', $(this)).val() + '-' + $('.year', $(this)).val();
+      }
+
+      flightPsrList[i] = {
+        sex: $('.sex', $(this)).val() == '1' ? 0 : 1,
+        passengerFirstName: $('.Fname', $(this)).val(),
+        passengerLastName: $('.Lname', $(this)).val(),
+        birthDate: birthday,
+        passengerType: Number($('.sex', $(this)).attr('passengerType'))
+      };
+      if ($('.expiryDate', $(this)).length != 0) {
+        cardValid = $('.eday', $(this)).val() + '-' + $('.emonth', $(this)).val() + '-' + $('.eyear', $(this)).val();
+
+        flightPsrList[i].country = $('.passCountry', $(this)).val();
+        flightPsrList[i].cardType = 1;
+        flightPsrList[i].cardValid = cardValid;
+        flightPsrList[i].cardNo = $('.passNo', $(this)).val();
+      }
+    });
+
+    let flightPsrs = {};
+    flightPsrList.forEach(function(value, i) {
+      flightPsrs[i] = {
+        birthDate: value.birthDate,
+        passengerType: value.passengerType
+      };
+    });
+    let contact = {
+      contactEmail: $('input[name="email"]', $(_this.form)).val(),
+      contactMob: $('.areaCode', $(_this.form)).val() + ' ' + $('input[name="phoneNo"]', $(_this.form)).val(),
+      isSendMsg: $('input[name="isSendMsg"]', $(_this.form)).prop('checked'),
+      contactName: $('input[name="contactName"]', $(_this.form)).val(),
+      otp: $('input[name="otp"]', $(_this.form)).val(),
+      password: $('input[name="password"]', $(_this.form)).val() || null,
+      days: $('input[name="insureTime"]', $(_this.form)).val() || null
+    };
+    let gstInfo = $('#isGST input').prop('checked')
+      ? {
+          registrationNumber: $('input[name="gstN"]', $(_this.form)).val(),
+          registeredCompanyName: $('input[name="gstC"]', $(_this.form)).val(),
+          email: $('input[name="gstEmail"]', $(_this.form)).val(),
+          registeredCompanyAddress: $('input[name="gstAddr"]', $(_this.form)).val(),
+          phone: $('input[name="gstPhone"]', $(_this.form)).val(),
+          country: $('.gstCountry', $(_this.form)).val(),
+          state: $('.gstState', $(_this.form)).val()
+        }
+      : null;
+    let flightOrder = {
+      supplieId: postData.supplieId,
+      insurance: postData.isInsure,
+      flightPsrList: flightPsrList,
+      contactEmail: contact.contactEmail,
+      contactMob: contact.contactMob,
+      contactName: contact.contactName,
+      payTransactionMap: postData.payTransactionMap || null,
+      serviceCount: postData.serviceCount,
+      days:contact.days-0
+    };
+    Object.assign(postData, {
+      contact,
+      flightPsrs,
+      flightPsrList,
+      gstInfo
+    });
+    let feeO = {
+      obfp: postData.departFlight.fee.obfp,
+      ogst: postData.departFlight.fee.ogst,
+      bfp: postData.departFlight.fee.bfp,
+      gst: postData.departFlight.fee.gst,
+      policyDiscount: postData.departFlight.fee.policyDiscount || null,
+      intervalDiscount: postData.departFlight.fee.intervalDiscount || null,
+      airCompanyDiscount: postData.departFlight.fee.airCompanyDiscount || null
+    };
+
+    let sendData = {
+      otp: contact.otp,
+      rtd: postData.rtd || null,
+      departFlight: postData.departFlight,
+      returnCash: postData.returnCash,
+      requestFromClient: postData.requestFromClient,
+      flightOrder,
+      token: postData.token,
+      ordersGSTInfo: gstInfo
+    };
+    sendData.departFlight.feeO = feeO;
+    if (!!postData.returnFlight) {
+      let feeO = {
+        obfp: postData.returnFlight.fee.obfp,
+        ogst: postData.returnFlight.fee.ogst,
+        bfp: postData.returnFlight.fee.bfp,
+        gst: postData.returnFlight.fee.gst,
+
+        policyDiscount: postData.returnFlight.fee.policyDiscount || null,
+        intervalDiscount: postData.returnFlight.fee.intervalDiscount || null,
+        airCompanyDiscount: postData.returnFlight.fee.airCompanyDiscount || null
+      };
+
+      Object.assign(sendData, { returnFlight: postData.returnFlight });
+      sendData.returnFlight.feeO = feeO;
+    }
+
+    // verify birth date
+    var birthDef = _this => {
+      var deferred = $.Deferred();
+      $.ajax({
+          url: paths.verifyBirth(),
+          type: 'POST',
+          data: JSON.stringify({
+            flightPsrs,
+            flightDates: postData.flightDates
+          }),
+          dataType: 'json',
+          contentType: 'application/json'
+        })
+        .done(function(result) {
+          if (result.success) {
+            return deferred.resolve();
+          } else {
+            var errorInfo = {
+              1: 'Adult\'s age shall not be less than 12 on the date of travel.',
+              2: 'Child\'s age must be between 2 and 11 on the date of travel.',
+              3: 'Infant\'s age must be less than 2 on the date of travel.',
+              4: 'Infant\'s date of birth has to be up 14 days at the time of travel.'
+            };
+            var psrDom = $(_this.form).find('.passengerInfo');
+            $.each(result.flightPsrs, function(key, val) {
+              var birthDom = psrDom.eq(key).find('.birthdayInfo');
+              birthDom.find('select').addClass('errorInput');
+              birthDom
+                .find('.dateError')
+                .text(errorInfo[val.passengerType])
+                .removeClass('hidden');
+            });
+            return deferred.reject();
+          }
+        });
+        return deferred.promise();
+    };
+    var registerDef = () => {
+      var deferred = $.Deferred();
+      if (postData.isLogin || postData.type == 1) {
+        return deferred.resolve();
+      }
+      $.ajax({
+          url: paths.checkEmailAndPhone(),
+          type: 'POST',
+          data: JSON.stringify({
+            email: contact.contactEmail,
+            cellphone: contact.contactMob
+          }),
+          contentType: 'application/json',
+          dataType: 'json'
+        })
+        .then(res => {
+          if (res.succ) {
+            let model = {
+              showClose: true,
+              title: 'Oops!',
+              text: 'Hi, this price is valid only for logged-in users. <a href="/static/tpl/loginTpl.html" class="colorPri" data-toggle="modal" data-target="#login_modal">Sign In</a> now.',
+              btnTex: false
+            };
+            let $bookExpire = $('#bookExpire');
+            let $bookExpireCon = $bookExpire.find('.modal-content');
+            renderView($bookExpireCon, $bookExpireCon.html(), { model });
+            $bookExpire.modal('show');
+            return deferred.reject();
+          } else {
+            return deferred.resolve();
+          }
+        });
+      return deferred.promise();
+    };
+
+    // save order;
+    $.when(birthDef(_this), registerDef())
+      .then(function() {
+        saveOrder(sendData, postData, _this);
+      })
+      .fail(err => {
+        $(_this)
+          .text('Confirm')
+          .removeClass('progress-dynamic');
+        $(_this).removeAttr('disabled');
+      });
+  }
+
+  function saveOrder(sendData, postData, _this) {
+    // error text
+    $.ajax({
+      url: paths.saveOrder(),
+      type: 'POST',
+      dataType: 'json',
+      headers: { 'x-Device': 'PC' },
+      data: JSON.stringify(sendData),
+      contentType: 'application/json'
+    })
+      .then(function(result) {
+        try{
+          let trackObj = {
+            apiMethodName: 'saveOrder',
+            apiRequestParamter: JSON.stringify(sendData),
+            apiHttpStatus: '200',
+            apiResponseStatus: result.success,
+            elementId: 'step2'
+          };
+          window.hegTrackCallback(trackObj);
+        }catch(e){}
+        $(_this)
+          .text('Confirm')
+          .removeClass('progress-dynamic');
+        $(_this).removeAttr('disabled');
+        if (result.code === 0) {
+          addMask();
+          postData.serviceCount++;
+          postData.hasVerifiedOtp = result.hasVerifiedOtp;
+          postData.hasPhone = result.hasPhone;
+          //result.creatTime
+          var d = new Date(result.creatTime + 900000);
+          var offset = d.getTimezoneOffset() * 60000;
+          var IndiaTime = d.getTime() + offset + 3600000 * 5.5;
+          postData.exTime = new Date(IndiaTime).toString().replace(/(GMT|UTC).*/, '');
+          var data = result.PriceView;
+          if(data.changedView.viewChange > 0 ){
+            farePopController(data, postData);
+          }
+          postData.payPrice = result.PriceView.orderFee.payPrice;
+          SetPayment.renderPeople(postData);
+          SetPayment.renderPayment(postData);
+          continueBooking.call(_this);
+          $('.section2 .TD_viewEdit').removeClass('hidden');
+          $('body').animate({ scrollTop: '0px' }, 800);
+          postData.orderId = result.orderId;
+          var historyOrderArray = store.get('H_O') || [];
+          dataLayer(postData);
+          if (historyOrderArray.length >= 20) {
+            historyOrderArray.shift();
+          }
+          historyOrderArray.push({
+            sendData,
+            itinerary: postData.itineraryArray
+          });
+          store.set('H_O', historyOrderArray);
+        }else if(result == 9){
+          alert(result.message);
+        }
+         else {
+          return $.Deferred().reject(result);
+        }
+        
+      })
+      .fail(function(err) {
+        try{
+          let trackObj = {
+            apiMethodName: 'saveOrder',
+            apiRequestParamter: JSON.stringify(sendData),
+            apiHttpStatus: err.status || '200',
+            apiResponseStatus: false,
+            elementId: 'step2'
+          };
+          window.hegTrackCallback(trackObj);
+        }catch(e){}
+
+        let model = null;
+        if (err.code === 7) {
+          model = Object.assign({}, sessionExpireObj);
+        } else if (err.code === 8) {
+          let bookExpireObj;
+          if(postData.isLogin){
+            bookExpireObj = {
+              title: 'Oops!',
+              text: 'Tip：There is not enough Happy Silver in your account to avail Member Discount. Refer your friends now and earn Happy Silver to save money.',
+              btnTex: 'OK',
+              href: null
+            };
+          } else {
+            bookExpireObj = {
+              showClose: true,
+              title: 'Oops!',
+              text: `<p class="fontSz14">The demanding amount of silver points for booking this order is greater than the current balance of your silver account:</p>
+              <p class="marT10">&bull; <a href="/static/tpl/loginTpl.html" class="colorPri" data-toggle="modal" data-target="#login_modal">Sign In</a> or <a href="/static/tpl/register.html" class="colorPri" data-toggle="modal" data-target="#register_modal">Register</a>, and check your account balance now</p>
+              <p>&bull; Or close this page, check the rules of <a href="/wallet" class="colorPri">how to earn silver</a> .`,
+              btnTex: false
+            }; 
+          }
+          model = bookExpireObj;
+        } else if (err.code === 6) {
+          // otp code error
+          $('input[name=otp]', $(_this.form))
+            .next()
+            .text(err.msg)
+            .removeClass('hidden');
+          return;
+        } else {
+          model = Object.assign({}, bookExpireObj);
+          model.text = err.msg ? err.msg + '<br />Redirecting to Search Page...' : model.text;
+        }
+        model.href = cookieUtil.getCookie('flightsUrl') ? cookieUtil.getCookie('flightsUrl') : '/';
+        let $bookExpire = $('#bookExpire');
+        let $bookExpireCon = $bookExpire.find('.modal-content');
+        renderView($bookExpireCon, $bookExpireCon.html(), { model });
+        $bookExpire.modal('show');
+      });
+  }
+  function farePopController(data, postData) {
+
+    var changedView = data.changedView;
+    var orderFee = data.orderFee;
+    var saveOrderData = {totalPrice:orderFee.baseFare + orderFee.taxesFees + orderFee.discount + orderFee.coupNo};
+    
+    // postData.fee.totalPrice = saveOrderData.totalPrice + orderFee.insurancePrice;
+    var  farePostData = {fee:{
+        obfp :orderFee.baseFare,
+        ogst : orderFee.taxesFees,
+        totalPrice : orderFee.payPrice-orderFee.convFee,
+        get totalDis(){
+          return orderFee.discount + orderFee.coupNo;
+      }
+    }};
+   
+    $('#viewOopr').text((orderFee.baseFare + orderFee.taxesFees).toThree());
+    $('#viewCash').text(Math.abs(orderFee.discount).toThree());
+    $('.viewCash_1').text(Math.abs(orderFee.happySilver).toThree());
+    $('#viewTotal').text((saveOrderData.totalPrice + orderFee.insurancePrice).toThree());
+    farePop(farePostData);
+
+    $('#upFare')
+    .removeClass('hidden')
+    .find('.upp')
+    .text((changedView.viewChange).toThree());
+  }
+  function addMask() {
+    $('#conRight')
+      .addClass('closed')
+      .find('#hegOffers')
+      .prepend('<div class="disMask"></div>');
+  }
+
+  var operateOrderTimer;
+  $(document).on('click', '#step2', function() {
+    regetFlight();
+    clearInterval(operateOrderTimer);
+    let _this = this;
+    if (checkForm(this.form)) {
+      $(this)
+        .text('Checking the fare')
+        .addClass('progress-dynamic');
+      $(this).attr('disabled', 'disabled');
+      if (postData.viaCheck) {
+        operateOrder(_this);
+      } else {
+        operateOrderTimer = setInterval(function() {
+          if (postData.viaCheck) {
+            operateOrder(_this);
+            clearInterval(operateOrderTimer);
+          }
+        }, 1000);
+      }
+    } // end if checkform
+  });
+
+  function renderView(viewElement, viewHtml, model) {
+    var renderTemp = _.template(viewHtml);
+    viewElement.html(renderTemp(model));
+  }
+  $(document).on('blur', '#section2 input[name=email], #section2 input[name=phoneNo]', checkEmailAndPhone);
+
+  function checkEmailAndPhone(e) {
+    let areaCode = $('#section2 .registerAreaCode').val();
+    let phone = $('#section2 input[name=phoneNo]')
+      .val()
+      .trim();
+    let cellphone = phone ? areaCode + ' ' + phone : '';
+    const checkData = {
+      email: $('#section2 input[name=email]')
+        .val()
+        .trim(),
+      cellphone
+    };
+    $.ajax({
+      url: paths.checkEmailAndPhone(),
+      type: 'POST',
+      data: JSON.stringify(checkData),
+      contentType: 'application/json',
+      dataType: 'json'
+    }).then(res => {
+      const $getSilverBox = $('#getSilverBox');
+      if (res.succ) {
+        let html = `<div class="fontSz14 grayDark marB8">
+          Hi, this price is valid only for logged-in users. <a href="/static/tpl/loginTpl.html" class="colorPri" data-toggle="modal" data-target="#login_modal">Sign In</a> / <a href="/static/tpl/register.html" class="colorPri" data-toggle="modal" data-target="#register_modal">Sign Up</a> now. 
+          </div>
+          <div class="fontSz14 grayDark">
+            Please <a href="/static/tpl/reset-password.html" class="colorPri" data-toggle="modal"  data-target="#login_modal">reset your password </a>if you failed to sign in. 
+          </div>`;
+        !$getSilverBox.data('boxhtml') && $getSilverBox.data('boxhtml', $getSilverBox.html());
+        $getSilverBox.html(html);
+      } else {
+        $getSilverBox.data('boxhtml') && $getSilverBox.html($getSilverBox.data('boxhtml'));
+      }
+    });
+  }
+
+  $(document).on('keydown', '#couponInput', function(e) {
+    if (event.keyCode == 13) {
+      $('#applyCoupon').click();
+    }
+  });
+  $(document).on('click', '#applyCoupon', function(e) {
+    e.cancelBubble = true;
+    e.stopPropagation();
+    postData.couponCode = $('.coupon-code')
+      .find('input')
+      .val();
+    if (postData.couponCode == '') {
+      postData.coupon = null;
+      // $('input.HC').click();
+      $('#couponNote').text('');
+      return;
+    }
+    Coupon.getCoupon(postData)
+      .then(coupon => {
+        postData.coupon = coupon;
+        $('#couponNote').text(`Save extra Rs. ${-coupon.value} by coupon`);
+        // $('input.HC').click();
+      })
+      .catch(err => {
+        if(err == 'Coupon no longer available in the time or amount') {
+          $('#couponNote').text('This coupon is not avalable for this order.Please check the code and its conditions or use HEGPCM.');
+         postData.coupon = null;
+        }else {
+          alert('The request timed out. Please try again.');
+        }
+      });
+  });
+  defineReactive(postData, 'coupon', postData.coupon, couponChange);
+
+  function defineReactive(obj, key, val, updata) {
+    Object.defineProperty(obj, key, {
+      enumerable: true,
+      configurable: true,
+      get: () => val,
+      set: newVal => {
+        // if(newVal === val) return;
+        val = newVal;
+        updata();
+      }
+    });
+  }
+  // checkout silver coupon
+  function couponChange() {
+    if (postData.coupon) {
+      postData.fee.off = postData.coupon.value;
+      postData.fee.viaCouponDis = postData.coupon.viaCouponDis;
+      postData.payTransactionMap['1'] = postData.coupon.couponMap;
+    } else {
+      postData.fee.off = 0;
+      postData.fee.viaCouponDis = undefined;
+      delete postData.payTransactionMap['1'];
+    }
+    
+    postData.totalPrice = postData.fee.totalPrice;
+  }
+  // couponList
+  $(document).on('click', '#couponList', function(e) {
+    e.stopPropagation();
+    $.ajax({
+      url: accountPaths.getUserCoupon(),
+      type: 'get',
+      headers: { 'x-Device': 'PC' }
+    })
+      .done(function(res) {
+        if (res.success) {
+          var model = res.data;
+          renderView($('#couponItem'), $('#couponItemTpl').html(), { myModel: model });
+        }
+      })
+      .fail(function() {});
+    $('.couponList').toggleClass('hide');
+  });
+  $(document).on('click', '.couponList ul li', function() {
+    var text = $(
+      $(this)
+        .children('span')
+        .eq(0)
+    ).text();
+    $('#couponInput').val(text);
+    $('.couponList').addClass('hide');
+    $('#applyCoupon').click();
+  });
+
+  $(document).on('click', function() {
+    $('.couponList').addClass('hide');
+  });
+});

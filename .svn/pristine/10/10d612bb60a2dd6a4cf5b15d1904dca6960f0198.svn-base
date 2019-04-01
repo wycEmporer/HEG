@@ -1,0 +1,207 @@
+<script id='myCouponTpl' type='text/template'>
+  <div class='myCoupon-wrap clearfix'>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Sponsored</a></li>
+      <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">HEG</a></li>
+      
+    </ul>
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="home">
+        <div class='clearfix'>
+          {{if(myModel.heg.length == 0){ }} 
+            <div class='noCoupon'>
+            
+            </div>
+          {{ } else { }}
+          <div class='flightCoupon' id='flightCoupon_1'>
+            <ul class='clearfix'>
+              {{_.each(myModel.heg, function(val, i){ }}
+              <li class='text' data-toggle="modal" data-target="#noPrizeModal_1">
+                {{ if(val.isHotelCoupon) { }}
+                  <a href='https://hotel.happyeasygo.com/'>
+                {{ } else { }}
+                  <a href="/coupondetails?detailId={{=val.id}}&type=1&coupon_Type=1">
+                {{ } }}
+                  <div class="{{=val.isHotelCoupon? 'hotelImg': 'flightImg'}}"></div>
+                  <div class='info clearfix'>
+                  {{ if(val.discountType == 1) { }}
+                    <div class="pull-left font-BlackCond"><span style='font-size:49px;'>{{= Math.abs(val.discount) }}</span><span style="text-align:left;display: inline-block;width: 23px;margin-left: 5px;"><span style='font-size:12px;'>% <br></span>Off</span></div>
+                  {{ } else if(val.discountType == 2) { }}
+                    <div class="pull-left font-BlackCond"><span style='font-size:49px;'>{{= Math.abs(val.discount) }}</span><span>Rs.</span></div>
+                  {{ } else if(val.discountType == 3) { }}
+                    <div class="pull-left font-BlackCond"><span style='font-size:49px;' class="font-BlackCond">{{= val.discount.match(/\d+/) }}</span><span style='text-align:left;display: inline-block;width: 23px;margin-left: 5px;'><span style='font-size:12px;'>Upto</span> Rs.</span></div>
+                  {{ } else if(val.discountType == 4) { }}
+                    <div class="pull-left font-BlackCond"><span style='font-size:49px;' class="font-BlackCond">{{= val.discount.match(/\d+/) }}</span><span style='text-align:left;display: inline-block;width: 23px;margin-left: 5px;'><span style='font-size:12px;'>Upto</span> %</span></div>
+                  {{ } }}
+                    <div class="pull-right">
+                      <p class='font-Bold'>{{=val.title}}</p>
+                      <p class='font-Light'>Validity: {{= val.validTill}}</p>
+                    </div>
+                  </div>
+                </a>
+                <div class='copyBox'>
+                  <span class='copyText_1'>{{=val.code}}</span>
+                  <div class='TipsMsg'>
+                    The coupon code has been copied to your clipboard.
+                  </div>
+                </div>
+                <a class='goSearch' href="{{=val.isHotelCoupon? 'https://hotel.happyeasygo.com/': '/flight'}}">Go To Use</a>
+              </li>
+              {{ }) }}
+              
+            </ul>
+          </div>
+          {{ } }}
+          <!--{{if(myModel != ''){ }} 
+          <div id="pagination-Contral" class='pagination-contral pull-right'></div>
+          {{ }else{ }}
+          <div id="pagination-Contral" class='pagination-contral hide pull-right'></div>
+          {{ } }} --->
+        </div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class='panel-heading'>
+              <span>Expired</span>
+              <a role="button" class="" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+                aria-controls="collapseOne">
+                <i class="onOff"></i>
+              </a>
+            </div>
+            <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="cont">
+                {{if(myModel.hegExpired.length == 0){ }} 
+                <div class='noCoupon_2 font-Roman'>
+                  <p>You have no expired coupons currently!</p>
+                </div>
+                {{ } else { }}
+                <div class='flightCoupon' id=''>
+                  <ul class='clearfix'>
+                    {{_.each(myModel.hegExpired, function(val, i){ }}
+                    <li class='text' data-toggle="modal" data-target="#noPrizeModal_1">
+                      {{ if(val.isHotelCoupon) { }}
+                        <a href='https://hotel.happyeasygo.com/'>
+                      {{ } else { }}
+                        <a href="/coupondetails?detailId={{=val.id}}&type=1&coupon_Type=1">
+                      {{ } }}
+                        {{ if(!val.isHotelCoupon){ }}
+                          <img src="<%= require('../imgs/flight.png') %>" alt="">
+                        {{ } else { }}
+                          <img src="<%= require('../imgs/hotel-2.png') %>" alt="">
+                        {{ } }}
+                        
+                        <div class='info clearfix'>
+                          <div class="pull-left font-BlackCond"><span style='font-size:49px;'>{{= Math.abs(val.discount) }}<span style="font-size:22px;position: absolute;line-height: 95px;">{{= val.discountType == 1 ? '%' : '' }} </span></span><span>{{= val.discountType == 1 ? 'Off' : 'Rs.' }}</span></div>
+                          <div class="pull-right">
+                            <p class='font-Bold'>{{=val.title}}</p>
+                            <p class='font-Light'>Validity: {{= val.validTill}}</p>
+                          </div>
+                        </div>
+                      </a>
+                      <div class='copyBox'>
+                        <span class='copyText_1'>{{=val.code}}</span>
+                        <div class='TipsMsg'>
+                          The coupon code has been copied to your clipboard.
+                        </div>
+                      </div>
+                      <a class='goSearch'  href="https://hotel.happyeasygo.com/">Go To Use</a>
+                    </li>
+                    {{ }) }}
+                  </ul>
+                </div>
+                {{ } }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="profile">
+        <div class='clearfix'>
+          {{if(myModel.bd.length == 0){ }} 
+            <div class='noCoupon'>
+
+            </div>
+          {{ } else { }}
+          <div class='flightCoupon' id='bdCoupon_1'>
+            <ul class='clearfix'>
+              {{_.each(myModel.bd, function(val, i){ }}
+              <li class='text' data-toggle="modal" data-target="#noPrizeModal_1">
+                <a href="/coupondetails?detailId={{=val.id}}&type=1&coupon_Type=2">
+                 <div class='sponImg'></div>
+                  <div class='info clearfix'>
+                    <div class="pull-left font-BlackCond"><span style='font-size:49px;'>{{= Math.abs(val.discount) }}<span style="font-size:22px;position: absolute;line-height: 95px;">{{= val.discountType == 1 ? '%' : '' }} </span></span><span>{{= val.discountType == 1 ? 'Off' : 'Rs.' }}</span></div>
+                    <div class="pull-right">
+                      <p class='font-Bold'>{{= val.sponsoredName}}</p>
+                      <p class='font-Light'>Validity: {{= val.validTill}}</p>
+                    </div>
+                  </div>
+                </a>
+                <div class='copyBox'>
+                  <span class='copyText_1'>{{=val.code}}</span>
+                  <div class='TipsMsg'>
+                    The coupon code has been copied to your clipboard.
+                  </div>
+                </div>
+                <a class='goSearch'  href="{{=val.url}}">Go To Use</a>
+              </li>
+              {{ }) }}
+            </ul>
+          </div>
+          {{ } }}
+          <!--{{if(myModel != ''){ }} 
+          <div id="pagination-Contral" class='pagination-contral pull-right'></div>
+          {{ }else{ }}
+          <div id="pagination-Contral" class='pagination-contral hide pull-right'></div>
+          {{ } }} --->
+        </div>
+        <div class="panel-group" id="accordion_2" role="tablist" aria-multiselectable="true">
+          <div class="panel panel-default">
+            <div class='panel-heading'>
+              <span>Expired</span>
+              <a role="button" class="" data-toggle="collapse" data-parent="#accordion_2" href="#collapseOne_2" aria-expanded="true"
+                aria-controls="collapseOne_2">
+                <i class="onOff"></i>
+              </a>
+            </div>
+            <div id="collapseOne_2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+              <div class="cont">
+                {{if(myModel.bdExpired.length == 0){ }} 
+                <div class='noCoupon_2 font-Roman'>
+                  <p>You currently do not have expired coupons!</p>
+                </div>
+                {{ } else { }}
+                <div class='flightCoupon' id=''>
+                  <ul class='clearfix'>
+                    {{_.each(myModel.bdExpired, function(val, i){ }}
+                    <li class='text' data-toggle="modal" data-target="#noPrizeModal_1">
+                      <a href="/coupondetails?detailId={{=val.id}}&type=1&coupon_Type=2">
+                        <img src="<%= require('../imgs/spon.png') %>" alt="">
+                        <div class='info clearfix'>
+                          <div class="pull-left font-BlackCond"><span style='font-size:49px;'>{{= Math.abs(val.discount) }}<span style="font-size:22px;position: absolute;line-height: 95px;">{{= val.discountType == 1 ? '%' : '' }} </span></span><span>{{= val.discountType == 1 ? 'Off' : 'Rs.' }}</span></div>
+                          <div class="pull-right">
+                            <p class='font-Bold'>{{=val.sponsoredName}}</p>
+                            <p class='font-Light'>Validity: {{= val.validTill}}</p>
+                          </div>
+                        </div>
+                      </a>
+                      <div class='copyBox'>
+                        <span class='copyText_1'>{{=val.code}}</span>
+                        <div class='TipsMsg'>
+                          The coupon code has been copied to your clipboard.
+                        </div>
+                      </div>
+                      <a class='goSearch'  href="{{=val.url}}">Go To Use</a>
+                    </li>
+                    {{ }) }}
+                  </ul>
+                </div>
+                {{ } }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>

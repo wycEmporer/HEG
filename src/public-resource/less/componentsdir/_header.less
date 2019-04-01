@@ -1,0 +1,507 @@
+header{
+  height:61px;
+  box-sizing: border-box;
+  // overflow: hidden;
+  background: white;
+  font-size: 14px;
+  background: #0b9d78;
+  // background-size: 100%;
+  background-position: center bottom;
+  min-width: 1200px;
+  .container{
+    position: relative;
+  }
+  .logo{
+    position: absolute;
+    width: 293px;
+    height: 60px;
+    top: 0;
+    left: -33px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .tel{
+    line-height: 34px;
+  }
+  .icon{
+    float:left;
+    color:#666;
+    line-height:34px;
+  }
+  i.icon{
+    width:25px;
+    height:25px;
+    float:left;
+    background-repeat: no-repeat;
+   
+  } 
+  .refer{
+    margin-top: 14px;
+     background-image: url(../image/Group.png);
+  }
+  .custom{
+     margin-top: 21px;
+    background-image: url(../image/Customer.png);
+  }
+  .login-icon{
+    margin-top: 19px;
+     background-image: url(../image/topLogin.png)
+  }
+ .icon-down{
+    margin-top: 24px;
+    background-image: url(../image/icon-down.png)
+ }
+  .cont{
+    margin-left: 34px;
+  }
+  a.join{
+    border:1px solid @brand-primary;
+    line-height: 34px;
+    padding:0 20px;
+    margin-left:30px;
+    text-align: center;
+  }
+  .item-wrap {
+    width: 415px;
+    padding-left: 55px;
+    // background:url('../image/bd-head.png') no-repeat;
+    color: white;
+    li{
+      width: 90px;
+      height: 60px;
+      line-height: 62px; 
+      float: left;
+      position:relative;
+      text-align: center;
+      a{
+        display: inline-block;
+        width: 70px;
+        height: 100%;
+        color: white;
+      }
+    }
+    .referral_li{
+      width: 145px;
+      // margin-left: 105px;
+      a{
+        width: 140px;
+      }
+    }
+    .support_li{
+      width: 115px;
+      a{
+        width: 100px;
+      }
+    }
+    .customInfo{
+      width: 95px;
+      margin-left:20px;
+    }
+    .sing{
+      margin-left: 30px;
+      width: 182px;
+      text-align: left;
+      cursor: pointer;
+      &:hover,&.active{
+        .tools_box{
+          display: block;
+        }
+      }
+      .register{
+        display: inline-block;
+      }
+      .menu-text{
+        display: inline-block;
+        max-width: 130px;
+        overflow: hidden;/*超出部分隐藏*/
+        white-space: nowrap;/*不换行*/
+        text-overflow:ellipsis;/*超出部分文字以...显示*/
+      }
+      .logIn{
+        a{
+          color: white;
+        }
+      }
+      a{
+        width: 58px;
+      }
+      .tools_box{
+        padding-top:10px; 
+        position:absolute;
+        width:260px;
+        right:0px;
+        top:49px;
+        z-index: 16;
+        display: none;
+        .tools{
+          background-color: #fff;
+          border-top: 1px solid #ccc;
+          box-shadow: 0px 1px 5px #bbb;
+          position: relative;
+          .arrow{
+            position: absolute;
+            right: 20px;
+            top: -12px;
+            width: 0; 
+            height: 0; 
+            border-left: 12px solid transparent; 
+            border-right: 12px solid transparent; 
+            border-bottom: 12px solid #ccc;
+            z-index: 16;
+            &::after{
+              content: '';
+              position: absolute;
+              left: -11px;
+              top: 2px;
+              width: 0; 
+              height: 0; 
+              border-left: 11px solid transparent; 
+              border-right: 11px solid transparent; 
+              border-bottom: 11px solid white;
+            }
+          }
+            .fore{
+              display: block;
+              width:100%;
+              height:50px;
+              padding-left:60px;
+              color:@gray-base;
+              line-height: 55px;
+              position: relative;
+              &:hover{
+                color:#0b9d78;
+                i.icon.trips{
+                  .sprite(@icon-trip2);
+                }
+                i.icon.hotels{
+                  .sprite(@icon-hotel2);
+                }
+                i.icon.profile{
+                  .sprite(@icon-profile2);
+                }
+                i.icon.traveller{
+                  .sprite(@icon-traveler2);
+                }
+                i.icon.wallet{
+                  .sprite(@icon-happyeasycash2);
+                }     
+                i.icon.print{
+                  .sprite(@icon-printticket2);
+                }
+                i.icon.security{
+                  .sprite(@icon-security2);
+                }
+                i.icon.cancel{
+                  .sprite(@icon-cancellation2);
+                }
+                i.icon.refer{
+                  margin: 0;
+                  .sprite(@icon-refer2);
+                }
+                i.icon.sign-in{
+                  .sprite(@sign-in2);
+                }
+                i.icon.sign-up{
+                  .sprite(@signup-hover);
+                }
+              }
+              &:not(:first-child){
+                span{
+                  border-top: 1px solid #eee;
+                }
+              }
+              span{
+                display: inline-block;
+                width: 200px;
+                height: 100%;
+              }
+              i.icon{
+                width:25px;
+                height:25px;
+                background-repeat: no-repeat;
+                position: absolute;
+                left: 20px;
+                top: 18px;
+              }
+              i.icon.trips{
+                .sprite(@icon-trip1);
+              }
+              i.icon.hotels{
+                .sprite(@icon-hotel1);
+              }
+              i.icon.profile{
+                .sprite(@icon-profile1);
+              }
+              i.icon.traveller{
+                .sprite(@icon-traveler1);
+              }
+              i.icon.wallet{
+                .sprite(@icon-happyeasycash1);
+              }     
+              i.icon.print{
+                .sprite(@icon-printticket1);
+              }
+              i.icon.security{
+                .sprite(@icon-security1);
+              }
+              i.icon.cancel{
+                .sprite(@icon-cancellation1);
+              }
+              i.icon.refer{
+                margin: 0;
+                .sprite(@icon-refer1);
+              }
+              i.icon.sign-in{
+                .sprite(@sign-in1);
+              }
+              i.icon.sign-up{
+                .sprite(@signup);
+              }
+            }
+
+          }
+      }
+      
+    }
+  }
+  .item-wrap_2{
+    width: 550px;
+    padding-left: 75px;
+  }
+  .itemActive{
+    padding: 0px 10px;
+    a{
+      color: white;
+      border-bottom: 3px solid white;
+    }
+  }
+  .customInfo{
+    position: relative;
+    cursor: pointer;
+    &:hover{
+      .phoneInfo{
+        display: block;
+      }
+    }
+    .phoneInfo{
+      position: absolute;
+      top: 59px;
+      width: 320px;
+      // height: 180px;
+      background: white;
+      border: 1px solid #cccccc;
+      z-index: 100;
+      display: none;
+      .arrow{
+        position: absolute;
+        left: 10px;
+        top: -20px;
+        span{
+          position: absolute;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          &:nth-child(1){
+            left: 0;
+            top: 0;
+            border-width: 10px;
+            border-color: transparent transparent #cccccc transparent;
+          }
+          &:nth-child(2){
+            left: 2px;
+            top: 4px;
+            border-width: 8px;
+            border-color: transparent transparent white transparent;
+          }
+        }
+      }
+      .infoCon{
+        height: 100%;
+        width: 100%;
+        ul{
+          width: 100%;
+          height: 100%;
+          li{
+            width: 100%;
+            height: 60px; 
+            padding-left:60px; 
+            i{
+              position: absolute;
+              left: 15px;
+              top: 25px;
+              width: 22px;
+              height: 20px;   
+            }
+            p{
+              width: 260px;
+              height: 100%;
+              line-height:65px;
+              text-align: left;
+              border-top: 1px solid #cccccc; 
+              a{
+                color: #666;
+                width: 100%;
+                &:hover{
+                  color: #0b9d78;
+                }
+              }
+             
+            }
+            &:hover{
+              i.icon.phone{
+                background: url('../image/phone2.png') no-repeat;
+              }
+              i.icon.mail{
+                background: url('../image/mail2.png') no-repeat;
+              }
+              i.icon.feba{
+                background: url('../image/cus-icon2.png') no-repeat;
+              }
+            }
+            &:nth-child(1){
+              p{
+                border: none;
+                line-height: 0;
+                display: box;
+                box-pack:center;
+                box-orient:vertical;
+                display: -webkit-box;
+                -webkit-box-pack:center;
+                /* autoprefixer: off */
+                -webkit-box-orient: vertical;  //  https://github.com/postcss/autoprefixer/issues/776
+                /* autoprefixer: on */
+                a{
+                  height: 20px;
+                  line-height: 20px;
+                  margin-top: 8px;
+                }
+              }
+              i{
+                background: url('../image/phone1.png') no-repeat;
+              }
+            }
+            &:nth-child(2){
+              i{
+                background: url('../image/mail1.png') no-repeat;
+              }
+            }
+            &:nth-child(3){
+              i{
+                top: 20px;
+                background: url('../image/cus-icon1.png') no-repeat;
+              }
+            }
+           
+          }
+        }
+      }
+    }
+  }
+}
+.share-wrap, .feedback-wrap{
+  position: fixed;
+  left:0;
+  bottom:200px;
+  width:110px;
+  height:26px;
+  z-index: 100;
+  background: rgba(0,0,0,0.80);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.30);
+  border-radius:2px;
+  .tt-wrap, .fb-wrap{
+    display: block;
+    width:100%;
+    height:50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .tt-wrap{
+    border-bottom:1px solid #eee;
+    background-image:url(../image/twitter-icon.png); 
+  }
+  .fb-wrap{
+    background-image: url(../image/facebook-icon.png);
+  }
+}
+.feedback-wrap{
+  left:auto;
+  right:0;
+  cursor: pointer;
+  .text{
+    height: 100%;
+    color:#fff;
+    font-size:14px;
+    line-height: 26px;
+    text-align: center;
+    .icon{
+      display: inline-block;
+      width: 16px;
+      height: 13px;
+      background: url(./images/feedback.png) no-repeat;
+      vertical-align: middle;
+    }
+  }
+}
+.Fb-con{
+  position:fixed;
+  right:-100%;
+  bottom:225px;
+  z-index: 101;
+  width:322px;
+  min-height:400px;
+  background: #FAFAFA;
+  border: 1px solid #CDCDCD;
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.30);
+  .feedform{
+    padding:22px;
+    h2{
+      font-size:16px;
+      font-weight: bold;
+    }
+    p{
+      padding:10px 0;
+    }
+  }
+  .Fb-category{
+    width:120px;
+  }
+  .can, .sub{
+    margin-right:20px; 
+    width:80px;
+    height:30px;
+  }
+  .feedback-wrap{
+    position: absolute;
+    left:0;
+    bottom:-27px;
+    width:110px;
+    height:26px;
+    z-index: 100;
+    background: rgba(0,0,0,0.80);
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.30);
+    border-radius:2px;
+    .text{
+      height: 100%;
+      color:#fff;
+      font-size:14px;
+      line-height: 26px;
+      text-align: center;
+      .icon{
+        display: inline-block;
+        width: 16px;
+        height: 13px;
+        background: url(./images/feedback.png) no-repeat;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+.firstAnn{
+  position: fixed;
+  right: 0;
+  top: 120px;
+  z-index: 10;
+}

@@ -1,0 +1,12 @@
+const config = require('configModule');
+const content = require('./content.ejs'); 
+const noJquery = require('withoutJqueryModule');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let pageTitle = 'HappyEasyGo Black Friday & Cyber Monday Deals and Sales 2018';
+let metaDescription = 'Black Friday & Cyber Monday Sale brings you amazing deals & discounts on flight and hotel bookings online on HappyEasyGo. Book cheap flight tickets & hotels.';
+let metaKeywords = 'best black Friday flight deals, cheapest flight deal on black Friday, flights sale on Cyber Monday, cheapest hotel deal cyber Monday, best black Friday travel deals, 2018 Cyber Monday Sale.';
+module.exports = layout.init({
+  pageTitle, metaKeywords, metaDescription 
+}).run(content(dirsConfig));
+

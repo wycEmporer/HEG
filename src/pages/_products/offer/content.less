@@ -1,0 +1,129 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+body{
+  background-color:@gray-lighter;
+}
+.grayDark{
+  color:@gray-dark;
+}
+.banner{
+  // padding-top:5.209%;
+  width:100%;
+  // background: url(./imgs/offerbanner.png) center center/contain no-repeat ;
+}
+.content{
+  min-height: 500px;
+  .container{
+    padding: 0;
+  }
+}
+.content .nav-tabs{
+  border: none;
+  margin-top: 20px;
+  li{
+    margin-right: 30px;
+    a{
+      background: none;
+      margin: 0;
+      border: none;
+      font-size: 16px;
+      color: #111;
+      font-weight: 700;
+      padding: 5px 10px;
+      &:hover,
+      &:focus{
+        margin: 0;
+        background: none;
+        border: none;
+      }
+    }
+    &.active{
+      a{
+        background: none;
+        border: none;
+        color: #0b9d78;
+        border-bottom: 3px solid #0b9d78;
+      }
+    }
+  }
+}
+
+.activities{
+  padding: 20px 0;
+  .noOffer{
+    text-align: center;
+    p{
+      font-size: 30px;
+      color: #999999
+    }
+    img{
+      display: block;
+      margin: 100px auto 50px;
+    }
+  }
+  ul{
+    li{
+      height: 240px;
+      width: 380px;
+      float: left;
+      margin:0 30px 30px 0;
+      box-shadow: 0px 0px 12px @gray;
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      &:nth-child(3n){
+        margin-right:0; 
+      }
+      .title{
+        position: absolute;
+        width: 100%;
+        height: 40px;
+        background: rgba(0, 0, 0, 0.4);
+        color: white;
+        padding: 0 0 0 15px;
+        font-size: 18px;
+        line-height: 40px;
+        span{
+          float: left;
+        }
+        i{
+          float: right;
+          margin-right: 15px;
+          
+        }
+        .flight{  
+          width: 26px;
+          height: 12px;
+          margin-top: 14px;
+          background: url(./imgs/flight.png) no-repeat;
+        }
+        .hotel{  
+          width: 20px;
+          height: 18px;
+          margin-top: 11px;
+          background: url(./imgs/hotel.png) no-repeat;
+        }
+        .new{
+          width: 80px;
+          height: 40px;
+          margin-right: 0;
+          background: url(./imgs/new.png) no-repeat;
+        }
+      }
+     
+      .article{
+        padding:10px 18px;
+        background-color: #fff;
+        font-size: 14px;
+        color: #111;
+        line-height: 20px;
+        p{  
+          width: 344px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+
+}

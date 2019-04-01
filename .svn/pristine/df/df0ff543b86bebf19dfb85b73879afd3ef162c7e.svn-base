@@ -1,0 +1,312 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+.section {
+  margin-top: 20px;
+  .nav {
+    height: 46px;
+    padding: 16px;
+    background-color: #e1f1ee;
+    border-radius: 4px;
+  }
+  .content{
+     padding: 40px 60px 40px 0px;
+     background-color: #f9fbfb;
+  }
+  .info{
+    padding: 40px;
+    h3, p{
+      line-height: 18px;
+    }
+  }
+  .noteWrap{
+    padding-top: 30px;
+    margin-left: -20px;
+  }
+}
+.conRight{
+  .sideBan{
+    background-color: #f9fbfb;
+    padding: 20px 16px;
+  }
+}
+.hotelInfo{
+  margin-top: 50px;
+  width: 850px;
+  ul{
+    display: flex;
+    li{
+      // height: 200px;
+      background: #F8FBFB;
+      margin-right: 20px;
+      flex: 1;
+      &:last-child{
+        margin-right: 0px;
+      }
+      a{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        &:hover{
+          color: #333333;
+        }
+      }
+      img{
+        width: 100%;
+        // height: 200px;
+      }
+      .info{
+        padding: 10px;
+        p{
+          &:nth-child(1){
+            font-size: 16px;
+            line-height: 24px;
+          }
+          &:nth-child(2){
+            text-align: right;
+            span{
+              font-size: 20px;
+              color: #DC2323;
+              line-height: 30px;
+              font-weight: 900;
+              span{
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.lessHappyGold{
+  margin-top: 40px;
+  width: 850px;
+  .title{
+    font-size: 18px;
+    color: #333333;
+    line-height: 50px;
+    border-bottom: 1px solid #CDCDCD;
+    text-align: left;
+    margin: 0;
+    span{
+      font-size: 30px;
+      color: #d7a328;
+      font-style: italic;
+    }
+  }
+  ul{
+    padding: 15px 0;
+    text-align: left;
+    li{
+      margin-bottom: 15px;
+      p{
+        line-height: 30px;
+        &:nth-child(1){
+          font-size: 18px;
+          color: #333333;
+          font-weight: 700;
+          position: relative;
+          padding-left: 15px;
+          &::before{
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: 7px;
+            width: 0;
+            border: 5px solid black;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-right: 5px solid transparent;
+          }
+        }
+        &:nth-child(2){
+          font-size: 16px;
+          color: #666666;
+        }
+      }
+    }
+  }
+  .goRecharge{
+    text-align: center;
+    a{
+      display: inline-block;
+      width: 210px;
+      height: 40px;
+      padding:8px 12px;
+      color:white;
+      background: @brand-warning;
+      border:1px solid @brand-warning;
+      border-radius: 4px;
+      font-size: 20px;
+    }
+  }
+}
+
+.lotteryModal{
+  background: rgba(0, 0, 0, 0.6);
+  .modal-dialog{
+    width: 600px;
+    height: 415px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)!important;
+    margin: 0;
+  }
+  .modal-content{
+    border: none;
+    box-shadow: none;
+    background: transparent;
+    .modal-header{
+      border: none;
+      padding: 0px;
+      .close{
+        display: inline-block;
+        width: 29px;
+        height: 29px;
+        background: url('./images/guanbi@2x.png') no-repeat;
+        background-size: 100%;
+      }
+    }
+    
+    .modal-body{ 
+      padding: 0px;
+      text-align: center;
+      .title{
+        margin: 0 auto 30px;
+        width: 500px;
+        height: 29px;
+        background: url('./images/title.png') no-repeat;
+        background-size: 100%;
+      }
+      .img{
+        width: 478px;
+        height: 273px;
+        background: url('./images/img.png') no-repeat;
+        background-size: 100%;
+        margin: auto;
+      }
+      .btn{
+        margin: 50px 0px 0px;
+        width: 260px;
+        height: 40px;      
+        background: url('./images/btn.png') no-repeat;
+        background-size: 100%;
+      }
+    }
+  }
+}
+.prizeModal{
+	.modal-dialog{
+		width: 720px;
+		height: 410px;
+		position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)!important;
+		margin: 0px;
+		.modal-content{
+			width: 100%;
+			height: 100%;
+			text-align: center;
+      color: #333333;
+      border: none;
+      background:url(./images/bg-left1.png) left top/144px 203px no-repeat, url(./images/bg-right1.png) right bottom/177px 205px no-repeat #f1f5f7;
+      &.newPam{
+        background:url(./images/bg-left2.png) left top/79px 45px no-repeat, url(./images/bg-right2.png) right bottom/115px 117px no-repeat #f1f5f7;
+        .redeemBtn{
+          background-color: #f23849;
+        }
+      }
+			.modal-header{
+				padding: 0px;
+				position: relative;
+        border: none;
+        padding-top: 26px;
+        // margin-bottom: 15px;
+				.close{
+					width: 29px;
+					height: 29px;
+					background: url('./images/guanbi@2x.png') no-repeat;
+					position: absolute;
+					right: 10px;
+					top: 10px;
+        }
+        .validity{
+          line-height: 30px;
+        }
+			}	
+    }
+    .modal-body{
+      // padding:30px 0 0 0;
+      height: 198px;
+      position: relative;
+    }
+    .imgBox{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .couponBan{
+      border-radius: 4px;
+      overflow: hidden;
+      .couponImg{
+        display: block;
+        width: 280px;
+        height: 170px;
+      }
+      .btnCopy{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        // width:120px;
+        padding: 0 17px;
+        height: 36px;
+        bottom:0;
+        right:0;
+        border-radius: 12px 0 0 0;
+        background-color: #fff;
+        .coupon-value{
+          position: relative;
+          cursor: pointer;
+          font-size:20px;
+          padding: 0 6px;
+          border: 1px dashed  #e51e1e;
+          img{
+            position: absolute;
+            width:21px;
+            right:-16px;
+            top:-8px;;
+          }
+        }
+      }
+    }
+    .redeemBtn{
+      display: block;
+      height: 50px;
+      font-size: 20px;
+      line-height: 50px;
+      color:#fff;
+      cursor: pointer;
+      background-color: #e51e1e;
+    }
+    .footNote{
+      font-size: 14px;
+      color:#999;
+    }
+    .TipsMsg{
+      position: absolute;
+      left:50%;
+      transform: translateX(-50%);
+      top: 145px;
+      width: 180px;
+      padding: 10px;
+      font-size: 12px;
+      color: white;
+      background: rgba(0 , 0, 0, 0.8);
+      border-radius: 4px;
+      display: none;
+    }
+	}
+}

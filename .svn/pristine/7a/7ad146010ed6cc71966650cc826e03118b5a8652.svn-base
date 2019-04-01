@@ -1,0 +1,46 @@
+require('./content.less');
+require('cp');
+require('datepicker/datepicker.js');
+var utils = require('utils');
+var paths = utils.path;
+$('.share .fb').click(function(){
+  FB.ui({
+    method:'share',
+    display:'popup',
+    href:'https://www.happyeasygo.com/offer/index.html'
+  }, function(response){});
+});
+
+function renderView(viewElement, viewHtml, model) {
+  var renderTemp = _.template(viewHtml);
+  viewElement.html(renderTemp(model));
+}
+$(() =>{
+  $.getJSON(paths.getPromotionInfo() + 'type=13&device=1').done((res) => {
+    if(res.success){
+      let model = res.list;
+      model = _.sortBy(model, 'sort');
+      for(let i = 0; i < model.length; i++){
+        let val = model[i];
+        if(!val.use){
+          model.splice(i--, 1);
+          continue;
+        }
+        let monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        try{
+          let dateStrObj = new Date(val.startDate.replace(/-/g, '/'));
+          let dateEndObj = new Date(val.endDate.replace(/-/g, '/'));
+          val.period = (dateStrObj.getDate() + 100).toString().slice(1, 3) + ' ' + monthArr[dateStrObj.getMonth()] + ' '+ dateStrObj.getFullYear() + ' to '+ (dateEndObj.getDate() + 100).toString().slice(1, 3) + ' ' + monthArr[dateEndObj.getMonth()] + ' '+ dateEndObj.getFullYear();
+        }catch(e){
+          val.period = '';
+        }
+      }
+      renderView($('#offerList'), $('#offerListTpl').html(), {model});
+    }
+  });
+
+   // detailedInfo 
+   $('.panel-heading').on('click', function () {
+    $(this).children('i').toggleClass('onOffactive');
+  });
+});

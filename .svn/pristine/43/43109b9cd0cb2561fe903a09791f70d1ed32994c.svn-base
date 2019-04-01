@@ -1,0 +1,6 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+
+module.exports = layout.init({pageTitle: 'Happy Easy Go', }).run(content(dirsConfig));

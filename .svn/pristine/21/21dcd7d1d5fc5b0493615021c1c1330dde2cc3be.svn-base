@@ -1,0 +1,54 @@
+<!-- Modal -->
+<div class="modal prizeModal fade" id='shareModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+        <div class="title fontSz24">
+          <span class="fontB">Republic Day Sale!</span> 
+          <br>
+          Exclusive discount on your first booking with us!
+        </div>
+        <div class="validity colorGray">
+        Validity: <span></span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="imgBox">
+          <div class="couponBan hidden">
+            <div style="position:relative">
+              <img src="" alt="" class="couponImg">
+              <div class="btnCopy">
+                <div class="coupon-value hotel-coupon">
+                  <span></span> 
+                  <img src="<%=require('./images/scissors.png')%>" alt="">
+                </div>
+              </div>
+            </div>
+            <a href="javascript:void(0)" class="redeemBtn GAEV" ga-category="Homepage_popup_coupon_redeem" ga-action="click" ga-label="Flight">
+              Click to Redeem
+            </a>
+          </div>
+          <div class="couponBan hidden">
+            <div style="position:relative">
+              <img src="" alt="" class="couponImg">
+              <div class="btnCopy">
+                <div class="coupon-value hotel-coupon">
+                  <span></span> 
+                  <img src="<%=require('./images/scissors.png')%>" alt="">
+                </div>
+              </div>
+            </div>
+            <a href="javascript:void(0)" class="redeemBtn GAEV" ga-category="Homepage_popup_coupon_redeem" ga-action="click" ga-label="Hotel">
+              Click to Redeem
+            </a>
+          </div>
+        </div>
+        <div class="footNote login">
+           You can check its usage terms and conditions on <a href="/offers/republic-day-sale" class="colorPri">Republic Day Sale</a>  page.
+        </div>
+        <div class="TipsMsg" style="display:none">The coupon code has been copied to your clipboard</div>
+      </div>
+    </div>
+  </div>
+</div>

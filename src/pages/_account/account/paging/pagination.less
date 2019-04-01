@@ -1,0 +1,106 @@
+.pagination-contral{
+  ul{
+    .disabled{
+      a{
+        background-color: transparent;
+      }
+      .icon-first{
+        border-right: 8px solid #0b9d78; 
+      }
+      .icon-prve{
+        border-right: 8px solid #0b9d78; 
+      }
+      .icon-last{
+        border-left: 8px solid #0b9d78; 
+      }
+      .icon-next{
+        border-left: 8px solid #0b9d78; 
+      }
+    }
+    li{
+      
+      a{
+        width: 25px;
+        height: 25px;
+        border: none;
+        font-size: 14px;
+        text-align: center;
+        line-height: 26px;
+        padding: 0px;
+        border-radius: 50%;
+        margin: 0 5px;
+        background: transparent;
+        
+      }
+      .icon{
+          display: inline-block;
+          width: 0; 
+          height: 0; 
+          border-top: 8px solid transparent; 
+          border-bottom: 8px solid transparent; 
+          margin: 4px 10px;
+          border-radius: 0%;
+      }
+      a.icon:focus, 
+      a.icon:hover{
+        background-color: transparent;
+      }
+      .icon-first{
+        border-right: 8px solid #0b9d78; 
+        position: relative;
+        &::after{
+          content: '';
+          width: 2px;
+          height: 14px;
+          position: absolute;
+          left: -3px;
+          top: -7px;
+          background: #0b9d78;
+        }
+        &:hover,
+        &:focus{
+          border-right: 8px solid #0b9d78!important; 
+      }
+        
+      }
+      .icon-prve{
+        border-right: 8px solid #0b9d78; 
+        &:hover,
+        &:focus{
+          border-right: 8px solid #0b9d78!important; 
+      }
+      }
+      .icon-last{
+        border-left: 8px solid #0b9d78; 
+        &:hover,
+        &:focus{
+          border-left: 8px solid #0b9d78!important; 
+        }
+        position: relative;
+        &::after{
+          content: '';
+          width: 2px;
+          height: 14px;
+          position: absolute;
+          left: 1px;
+          top: -7px;
+          background: #0b9d78;
+        }
+      }
+      .icon-next{
+        border-left: 8px solid #0b9d78; 
+        &:hover,
+        &:focus{
+          border-left: 8px solid #0b9d78!important; 
+      }
+      }
+      span{
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border: none;
+        background-color: transparent;
+      }
+    }
+  }
+}

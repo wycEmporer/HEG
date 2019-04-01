@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="content">
+    <h1 class="title">
+      Download free
+    </h1>
+    <p class="underline"></p>
+    <div class="downloadApp">
+      <img class="downAnd" src="<%=require('./imgs/downAnd.png')%>">
+      <img class="downIos" src="<%=require('./imgs/downIos.png')%>">
+      <a href="https://app.adjust.com/2x7p5g" target="_blank"></a>
+    </div>
+    <img class="activity" src="<%=require('./imgs/activity.png')%>">
+    <p class="bottomTest">
+      Best price,WE GUARANTEE THE LOWEST PRICE ON Flight YOU BOOK
+    </p>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const headScript = require('./headScript.ejs');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let metaKeywords = 'Domestic Flight Tickets, Cheap Domestic Flights, Domestic Flight Offers, Flight Deals, Flight Ticket Offers, International Flights, International Flight Booking, Cheap Domestic flight.';
+let metaDescription = 'Book cheapest flight tickets online on happyeasygo.com. Get the best domestic and international Flight booking deals and discounts to fly at the lowest airfares. ';
+module.exports = layout.init({
+  pageTitle: 'Cheap Flights Booking Online | Lowest Air Tickets in India', scriptStr:headScript(), metaDescription, metaKeywords
+}).run(content(dirsConfig));

@@ -1,0 +1,335 @@
+
+@themeColor: #2ca5ea;
+.body{
+	background: #f5f5f5;
+}
+.content{
+	.bannerBox{
+		.banner{
+			position: relative;
+			width:100%;
+			height: 400px;
+			overflow: hidden;
+			min-width: 1200px;
+			img{
+				position: absolute;
+				left:50%;
+				transform: translateX(-50%);
+			}
+		}
+		
+	}
+	.container{
+		padding: 0px;
+		.login_info{
+			width: 100%;
+			height: 120px;
+			padding-left: 40px;
+			margin-top: 20px;
+			.loginInfo{
+				width: 980px;
+				height: 100%;
+				border: 1px solid #ccc;
+				text-align: center;
+				.loginBefore{
+					height: 40px;
+					width: 100%;
+					margin-top: 20px;
+					line-height: 40px; 		
+					a{
+						display: inline-block;
+						width: 210px;
+						height: 100%;
+						font-size: 18px;
+					}
+					.loginIn{
+						background: #ffad3d;
+						color: white;
+					}
+					.loginUp{
+						background: white;
+						color: #ffad3d;
+						border: 1px solid #ffad3d;
+					}
+					span{
+						display: inline-block;
+						width: 100px;
+						height: 100%;
+						font-size: 18px;
+					}
+					.icon{
+						display: inline-block;
+						width: 80px;
+						height: 15px;
+					}
+					.icon-left{
+						background: url('./images/line-left.png');
+						margin-right: 40px;
+					}
+					.icon-right{
+						background: url('./images/line-right.png');
+						margin-left: 40px;
+					}
+				}
+				.loginAfter{
+					div{
+						width: 49%;
+						height: 100%;
+						p{
+							&:nth-child(1){
+								font-size: 16px;
+								height: 40px;
+								line-height: 40px;	
+								margin-top: 20px;
+							}
+							&:nth-child(2){
+								font-size: 30px;
+								height: 40px;
+								line-height: 40px;	
+								.reg_1{
+									color:#dc9841;
+								}
+								.reg_2{
+									color:#666666;
+								}
+								.reg_3{
+									color:#c19d76;
+								}
+								.reg_4{
+									color:#c9c9c9;
+								}
+							}
+						}
+					}
+				}
+				.Describe{
+					font-size: 20px;;
+					text-align: center;
+					line-height: 58px;
+				}
+			}
+			.TdCode{
+				width: 140px;
+				height: 100%;
+				.TdCodeImg{
+					margin: 0 auto;
+					width: 100px;
+					height: 100px;
+					background: url('./images/TdCode.png') no-repeat;
+				}
+				p{
+					text-align: center;
+					font-size: 14px;
+					color: #0b9d78;
+					margin-top: 2px;
+				}
+			}
+		}
+		.wrap{
+			width: 100%;
+			padding: 0px 40px; 
+			text-align: center;
+			.wrap-title{
+				width: 100%;
+				font-size: 35px;
+				margin-top: 50px;
+				height: 50px;
+				position: relative;
+				.icon{
+					display: inline-block;
+					width: 70px;
+					height: 46px;
+					vertical-align: bottom;
+				}
+				.icon-l{
+					background: url('./images//ranking-l.png');
+				}
+				.icon-r{
+					background: url('./images//ranking-r.png') no-repeat;
+				}
+				span{
+					display: inline-block;
+					vertical-align: bottom;
+					line-height: 34px;
+					margin: 0px 10px;
+				}
+				.goHistorial{
+					position: absolute;
+					right: -25px;
+					top: 10px;
+					font-size: 14px;
+					color: #0b9d78;
+				}
+			}
+			.wrap-des{
+				line-height: 40px;
+				font-size: 18px;
+				color: #ed5465;
+			}
+			.Ranking-List{
+				width: 100%;
+				text-align: left;
+				margin: 20px 0px;
+				.list{
+					p{
+						font-size: 18px;
+						line-height: 40px;
+						position: relative;
+						margin-bottom: 20px;
+						&::after{
+							content: '';
+							width: 45px;
+							height: 1px;
+							background: red;
+							position: absolute;
+							left: 0px;
+							bottom: 0px;
+						}
+					}
+					ul{
+						li{
+							.item{
+								width: 100%;
+								height: 50px;
+								margin-bottom: 10px;
+								i{
+									float: left;
+									&:nth-child(1){
+										width: 25px;
+										height: 35px;
+										margin-right: 15px;
+										line-height: 35px;
+										text-align: center;
+										margin-top: 5px;
+									}
+									&:nth-child(2){
+										width: 40px;
+										height: 40px;
+										border-radius: 50%;
+										background: url(./images/header.png) no-repeat;
+										background-size: 100%;
+										margin-right: 10px;
+									}
+								}
+								.icon_1{
+									background: url('./images/Ranking_1.png') no-repeat;
+									background-size: 100%;
+								}
+								.icon_3{
+									background: url('./images/Ranking_2.png') no-repeat;
+									background-size: 100%;
+								}
+								.icon_4{
+									background: url('./images/Ranking_3.png') no-repeat;
+									background-size: 100%;
+								}
+								.icon_5{
+									font-size: 20px;
+									color: #ccc;
+								}
+								.userInfo{
+									width: 400px;
+									height: 50px;
+									line-height: 44px;
+									border-bottom: 1px solid #ccc;
+									text-align: left;
+									padding: 0px 20px 0px 10px;
+									vertical-align: bottom;
+									font-size: 16px;
+									float: left;
+								}
+							}
+						}
+					}
+				}
+				.registerList{
+					width: 500px;
+				}
+				.ordersList{
+					width: 500px;
+				}
+			}
+		}
+		.offersDetails{
+			.title{
+				font-size: 20px;
+				line-height: 50px;
+				padding: 0px 45px;
+				margin-top: 10px;
+				position: relative;
+				&::after{
+					content: '';
+					width: 60px;
+					height: 1px;
+					background: red;
+					position: absolute;
+					left: 45px;
+					bottom: 0px;
+				}
+				a{
+					position: absolute;
+					right: 15px;
+					top: 0px;
+					font-size: 14px;
+					color: #0b9d78;
+				}
+			}
+			.cont{
+				width: 100%;
+				padding: 20px 45px;
+				p{
+					font-size: 14px;
+					line-height: 20px;
+					margin-bottom: 20px;
+				}
+				.font-Bold{
+					margin-bottom: 10px;
+				}
+				ul{
+					padding-left: 20px;
+					li{
+						font-size: 14px;
+						line-height: 20px;
+						margin-bottom: 20px;
+						list-style: disc;
+					}
+				}
+				table{
+					margin: 20px auto;
+					width: 915px;
+					border: 1px solid #fff;
+					th{
+						border: 1px solid #fff;
+						text-align: center;
+						height: 50px;
+						line-height: 32px;
+					}
+					td{
+						border: 1px solid #fff;
+						height: 50px;
+						line-height: 32px;
+					}
+					thead{
+						background: #f4b692;
+						tr{
+							th{
+								border-bottom: 3px solid #fff;
+								&:nth-child(1){
+									width: 135px;
+								}
+							}
+						}
+					}
+					tbody{
+						background: #fbe7db;
+						tr{
+							td{
+								padding-left: 30px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

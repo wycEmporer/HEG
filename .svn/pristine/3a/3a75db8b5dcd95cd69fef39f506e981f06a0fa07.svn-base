@@ -1,0 +1,135 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+
+@themeColor: #2ca5ea;
+@media screen and (max-width:1500px){
+	.add-search1 #searchForm{
+		padding-left:0;
+	}
+}
+.body{
+	background: #FAFAFA 100%;
+}
+.themeColor{
+	color:@themeColor;
+}
+.colorWhite{
+  color: #fff;
+}
+.fontSz26{
+  font-size: 26px;
+}
+.add-search{
+	background:rgba(14, 14, 14, 0.8)!important;
+}
+.line2{
+	display: inline-block;
+	width:140px;
+	height:2px;
+	background-color: @themeColor;
+}
+h1.title{
+	padding-bottom: 10px;
+	font-size: 36px;
+}
+
+.content{
+	position: relative;
+	.container{
+		padding: 0;
+		.wrap{
+			width: 100%;
+			padding: 90px 0px 50px;
+			text-align: center;
+			.title{
+				font-size: 32px;
+				line-height: 35px;
+				height: 35px;
+			}
+			.tableBox{
+				margin: 30px 0; 
+				ul{
+					width: 100%;
+					height: 160px;
+					border: 1px solid #CDCDCD;
+					padding: 25px 0;
+					display: flex;
+					li{
+						font-size: 16px;
+						flex: 1;
+						border-right: 1px dashed #CDCDCD;
+						p{
+							line-height: 20px;
+							&:nth-child(2){
+								font-weight: 700;
+								margin-top: 10px;
+							}
+							&:nth-child(3){
+								line-height: 25px;
+								font-size: 14px;
+							}
+						}
+						&:nth-child(1){
+							position: relative;
+							p{
+								&:nth-child(2){
+									span{
+										display: inline-block;
+										cursor: pointer;
+										border: 1px dashed #0B9D78;
+										padding: 5px 10px;
+										position: relative;
+										line-height: 14px;
+										&::before{
+											content: '';
+											position: absolute;
+											right: -11px;
+											top: -9px;
+											width: 20px;
+											height: 18px;
+											background: url(./images/scissors22.png) no-repeat;
+										}
+									}
+								}
+							}
+							.TipsMsg{
+								position: absolute;
+								left: 50%;
+								top: 120px;
+								transform: translateX(-50%);
+								width: 180px;
+								padding: 10px;
+								font-size: 12px;
+								color: white;
+								background: rgba(0 , 0, 0, 0.8);
+								border-radius: 4px;
+								display: none;
+							}
+						}
+						&:last-child{
+							border: none;
+						}
+					}
+				}
+			}
+			.couponInfo{
+				font-size: 16px;
+				line-height: 18px;
+				text-align: left;
+				.info_title{
+					font-size: 20px;
+					line-height: 18px;
+					p{
+						margin: 30px 0px 15px;
+					}
+				}
+				.list{
+					padding-left: 17px;
+					line-height: 25px;
+					h4{
+						margin-top: 15px;
+					}
+				}
+			}
+		}
+	}
+}

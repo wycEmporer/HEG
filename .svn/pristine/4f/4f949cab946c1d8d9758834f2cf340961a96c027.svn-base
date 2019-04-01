@@ -1,0 +1,6 @@
+require('./content.less');
+require('cp');
+
+import {getBannerInfo, WALLET} from '../_common/index';
+
+getBannerInfo(WALLET);

@@ -1,0 +1,6 @@
+const config = require('configModule');
+const noJquery = require('withoutJqueryModule');
+const content = require('./content.ejs');
+const layout = require('layout-only-header');
+const dirsConfig = config.DIRS;
+module.exports = layout.init({pageTitle: 'Booking Ticket-HappyEasyGo-India\'s Best Flight Booking Site '}).run(content(dirsConfig));

@@ -1,0 +1,627 @@
+<script id="walletTpl" type="text/template">
+  <div class="wallet-wrap">
+    <section class="totalAmount">
+      <h2 class="title">
+        Total Amount
+      </h2>
+      <div class="accountBalance">
+        <div class="wallet-terms">
+          <p class="grayDark terms">
+            Happy Wallet is your personal wallet provided by HappyEasyGo. Every point earned by participating promotional campaigns will
+            be credited to your Happy Wallet account and facilitate on your subsequent flight bookings
+          </p>
+          <div class="termsTrans">
+            <p class="fontSz16 padB20">
+              Happy Wallet is comprised of Happy Gold and Happy Silver.
+            </p>
+            <div class="trans">1
+              <span class="goldColor">Happy Gold</span> = INR 1</div>
+          </div>
+          <p style="padding-top: 8px;">
+            <a href="/wallet-terms/" class="colorWar">Know more</a>
+          </p>
+        </div>
+        <div class="Amount">
+          <div class="brief clearfix">
+            <h3 class="pull-left">
+              Total Amount
+              <span class="colorPri balance">
+                <i class="rs">Rs.</i>
+                {{=(myModel.silver.balance + myModel.gold.happyGoldBalance).toFixed(2).toThree()}}
+              </span>
+            </h3>
+          </div>
+
+          <div class="Adetail row">
+            <div class="col-sm-3 item">
+              <h4 class="fontSz14 fontB">Happy Silver</h4>
+              <div class="colorPri balance padT20">
+                <i class="rs">Rs.</i>
+                {{=myModel.silver.balance.toThree()}}
+              </div>
+
+            </div>
+            <div class="col-sm-6 item">
+              <h4 class="fontSz14 fontB">Happy Gold</h4>
+              <div class="padT20">
+                <!-- <div class="pull-left widthP50">
+                  <div class="colorPri balance">
+                    <i class="rs">Rs.</i>
+                    {{=Math.min(myModel.gold.happyGoldBalance, myModel.maxCashAmount).toThree()}}
+                  </div>
+                  <p >Withdrawal Available</p>
+                </div> -->
+                <!-- <div class="pull-left widthP50"> -->
+                <div class="text-center">
+                  <div class="colorPri balance">
+                    <i class="rs">Rs.</i>
+                    {{=myModel.gold.happyGoldBalance.toThree()}}
+                  </div>
+                  <p>(Balance available for transfer-to-bank-account
+                    <span class="grayBase">
+                      <i class="rs">Rs.</i> {{=myModel.gold.happyRechargeBalance.toThree()}})</span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-sm-3 item">
+              <a href="/account/?src=wallet/withdraw" class="operate Withdraw">Transfer-to-bank</a>
+              <a href="/account/?src=wallet/recharge" class="operate Recharge">Top-up</a>
+            </div>
+          </div>
+          <!-- without Topup -->
+          <!-- <div class="Adetail row">
+            <div class="col-sm-6 item">
+              <div class="colorPri balance">
+                <i class="rs">Rs.</i>
+                {{=myModel.silver.balance.toThree()}}
+              </div>
+              <p >Happy Silver</p>
+            </div>
+            <div class="col-sm-6 item">
+              <div class="colorPri balance">
+                <i class="rs">Rs.</i>
+                {{=myModel.gold.happyGoldBalance.toThree()}}
+              </div>
+              <p >Happy Gold</p>
+            </div>
+          </div> -->
+        </div>
+        <div class="expireWrap">
+          <p class="gray-dark" style="padding-bottom: 4px;">
+            &bull; Additionally,
+            <span class="colorWar">
+              <i class="rs">Rs.</i>
+              {{= myModel.goldRecordAmount.toThree()}}
+            </span> will be activated and added into your Happy Gold balance within one hour once you complete your order payment.
+          </p>
+          <p class="gray-dark">
+            &bull; Happy Gold rewards are not available for transfer-to-bank-account option. The "rewards" are referring to top-up rewards,
+            gift,
+            <br>referral program and other ad hoc promotional events etc.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="tabCon">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="" aria-controls="tabGold" role="tab" data-toggle="tab">Cashback Income Detail</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="warning ">
+                  <th>Income Date</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Activate Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{if(myModel.goldRecordForm.length == 0){}}
+                <tr>
+                  <td>
+                    <small>No new messages</small>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                {{ }else{ }} {{_.each(myModel.goldRecordForm, function(val ,i){ }}
+                <tr>
+                  <td>
+                    <p></p>
+                    <small>{{= new Date(val.lastModifiedTime).toLocaleString()}}</small>
+                  </td>
+                  <td>Cashback</td>
+                  <td>{{=(val.amount || 0).toThree()}}</td>
+                  <td>
+                    <small>{{=val.effectiveDate ? new Date(val.effectiveDate).toLocaleString() : '-'}}</small>
+                  </td>
+                </tr>
+                {{ }) }} {{ } }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="happyWallet">
+      <h2 class="title">
+        Happy Wallet
+      </h2>
+      <div class="accountBalance">
+        <div class="terms">
+          <h3>Happy Sliver</h3>
+          <p class="grayDark">Happy Silver can be used to save your payment when you book your flight as an instant discount cash.</p>
+          <p class="more">
+            <a href="#silverCollapse" data-toggle="collapse" aria-expanded="true" aria-controls="silverCollapse" class="colorWar">Know more</a>
+          </p>
+          <div id="silverCollapse" class="collapse happyCollapse">
+            <p>Happy Silver can be used to deduct the difference of Member Price on Flight Booking. It can be earned through
+              promotional activities: cashback, voucher code redemption, etc.</p>
+            <p>&bull; Now you will get Rs. 2000 instantly when you sign-up on PC or Mobile Site. </p>
+            <p>&bull; It will be valid immediately after you get it and will last for three calendar months</p>
+            <h4 class="colorPri">
+              Guidelines for using Happy Silver
+            </h4>
+            <p>
+              1. Registered member get special discount on happy Silver in their wallet on every Flight booking.
+            </p>
+            <p>
+              2. Happy Silver cannot be used with other promotional offers simultaneously.
+            </p>
+            <p>
+              3. Happy Silver can be earned only through promotional activities.
+            </p>
+            <p>
+              4. Happy Silver can’t be transfered to the bank.
+            </p>
+          </div>
+        </div>
+        <div class="terms">
+          <h3>Happy Gold</h3>
+          <p class="grayDark">Happy Gold can be used to pay for your order. Just like your own cash.</p>
+          <p class="more">
+            <a href="#goldCollapse" data-toggle="collapse" aria-expanded="true" aria-controls="goldCollapse" class="colorWar">Know more</a>
+          </p>
+          <div id="goldCollapse" class="collapse happyCollapse">
+            <p>Happy Gold can be earned by Cancellation & Refund, Promotional activities and Cashback.</p>
+            <p>&bull; It has no usage limits or expiry date.</p>
+            <p>&bull; Open from 2nd Feb: Transfer-to-bank option will be available to Cashback amount from your Wallet.</p>
+            <!-- <p>&bull;  Happy Gold can be recharged at any time.</p> -->
+            <h4 class="colorPri">
+              Guidelines for using Happy Gold
+            </h4>
+            <p>
+              1. Happy Gold can be used for fight booking like real cash.
+            </p>
+            <p>
+              2. While booking through Happy Gold, user is not eligible for any benefits provided by Banks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="tabCon">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#tabGold" aria-controls="tabGold" role="tab" data-toggle="tab">Happy Gold</a>
+          </li>
+          <li role="presentation">
+            <a href="#tabSilver" aria-controls="tabSilver" role="tab" data-toggle="tab">Happy Silver</a>
+          </li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="tabGold">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="warning ">
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{if(myModel.goldForm.length == 0){}}
+                <tr>
+                  <td>
+                    <small>No new messages</small>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                {{ }else{ }} {{_.each(myModel.goldForm, function(val ,i){ }}
+                <tr>
+                  <td>
+                    <p></p>
+                    <small>{{= new Date(val.createTime).toLocaleString()}}</small>
+                  </td>
+                  <td>{{=val.currencyTypeString}}</td>
+                  <td>{{=(val.amount || 0).toThree()}}</td>
+                  <td>{{=(val.balance || 0).toThree()}}</td>
+                </tr>
+                {{ }) }} {{ } }}
+              </tbody>
+            </table>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="tabSilver">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="warning">
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Balance</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{if(myModel.silverForm.length == 0){}}
+                <tr>
+                  <td>
+                    <small>No new messages</small>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                {{ }else{ }} {{_.each(myModel.silverForm, function(val ,i){ }}
+                <tr>
+                  <td>
+                    <p></p>
+                    <small>{{= new Date(val.creattime).toLocaleString()}}</small>
+                  </td>
+                  <td>{{=val.typeString}}</td>
+                  <td>{{=(val.amount || 0).toThree()}}</td>
+                  <td>{{=(val.balance || 0).toThree()}}</td>
+                </tr>
+                {{ }) }} {{ } }}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</script>
+<script id="withdrawalTpl" type="text/template">
+  <section class="withdrawal">
+    <h2 class="title">Transfer-to-bank</h2>
+    <div class="content">
+      <div class="row noteWrap">
+        <div class="col-sm-1">
+          <h3 class="title colorPri fontSz14">
+            NOTE:
+          </h3>
+        </div>
+        <div class="col-sm-10">
+          <div class="terms fontSz14">
+            <h4>Terms &amp; Conditions</h4>
+            <ul>
+              <li>
+                1. A transaction fee,{{=model.conf.feePre}}% for your every transaction will be charged. The minimum transaction fee is Rs.
+                {{=model.conf.minFee}}, if your total withdrawal amount is below Rs. 1000.
+              </li>
+              <li>
+                2. The transfer amount will be credited into your bank account in 7 working days.
+              </li>
+            </ul>
+            <table class="table text-center table-bordered marT10">
+              <tr>
+                <td>Amount limits per transaction</td>
+                <td>Amount limits per day</td>
+                <td>Amount limits in 30 days</td>
+              </tr>
+              <tr>
+                <td class="colorDan">
+                  <i class="rs">Rs.</i> {{=model.conf.preTrans}}</td>
+                <td class="colorDan">
+                  <i class="rs">Rs.</i> {{=model.conf.dayAvail}}</td>
+                <td class="colorDan">
+                  <i class="rs">Rs.</i> {{=model.conf.monthAvail}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <form class="form-horizontal" style="width:516px;">
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            Beneficiary Account No.
+          </label>
+          <div class="col-sm-7">
+            <input type="text" name="cardNo" class="form-control" placeholder="">
+            <p class="checkError hidden">
+              Please enter a valid Card No.
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            Re-Enter Beneficiary Account No:
+          </label>
+          <div class="col-sm-7">
+            <input type="text" name="" class="form-control" id="re_cardNo" placeholder="">
+            <p class="checkError hidden">
+              CardNo do not match
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            Beneficiary account type
+          </label>
+          <div class="col-sm-7">
+            <select name="accountType" class="form-control">
+              <option value="Savings">Savings</option>
+              <option value="Current">Current</option>
+              <option value="Overdraft">Overdraft</option>
+              <option value="Cash Credit">Cash Credit</option>
+              <option value="Loan Account">Loan Account</option>
+              <option value="NRE">NRE</option>
+              <option value="Card Payment">Card Payment</option>
+            </select>
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            IFSC Code:
+          </label>
+          <div class="col-sm-7">
+            <input type="text" name="ifscCode" class="form-control" placeholder="">
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            Bank Name:
+          </label>
+          <div class="col-sm-7">
+            <input type="text" name="bankName" class="form-control" placeholder="">
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            Branch Name:
+          </label>
+          <div class="col-sm-7">
+            <input type="text" name="openBank" class="form-control" placeholder="">
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            Bank Branch Address:
+          </label>
+          <div class="col-sm-7">
+            <input type="text" name="openBankAddress" class="form-control" placeholder="">
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            Beneficiary Name
+          </label>
+          <div class="col-sm-7">
+            <input type="text" name="cardName" class="form-control" placeholder="">
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-5 control-label">
+            Email ID
+          </label>
+          <div class="col-sm-7">
+            <input type="text" name="email" class="form-control" placeholder="">
+            <p class="checkError hidden">
+              Please enter a valid Email ID
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-5 control-label">Mobile</label>
+          <div class="col-sm-7">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="fontSz16" style="padding-top: 3px;"> {{='+' + model.phoneUnit}}</p>
+                <input type="hidden" name="phone" value="{{=model.phoneUnit}}">
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-5 control-label">OTP</label>
+          <div class="col-sm-7">
+            <div class="row">
+              <div class="col-sm-6">
+                <input type="text" name="otp" class="form-control" placeholder="OTP" autocomplete="off">
+              </div>
+              <div class="col-sm-6">
+                <input type="button" class="btn btn-warning" id="withdrawOtp" value="Send OTP">
+              </div>
+              <p class="checkError hidden col-sm-10">Please recheck your OTP code</p>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="form-group">
+          <p class="col-sm-offset-5 col-sm-7 fontSz16 grayDark">
+            Amount available today: Rs. <span class="fontB">{{=model.conf.nowAvail.toThree()}}</span>
+          </p>
+        </div> -->
+        <div class="form-group">
+          <div>
+            <label for="" class="col-sm-5 control-label">
+              Amount
+            </label>
+            <div class="col-sm-5">
+              <input type="text" class="form-control cashAmount" style="width: 138px;" id="withdrawAmount" name="cashAmount" avail="{{=model.conf.nowAvail}}"
+                preTrans="{{=model.conf.preTrans}}" balance="{{=model.goldData.happyGoldBalance}}" feePre="{{=model.conf.feePre}}"
+                minFee="{{=model.conf.minFee}}">
+              <p class="checkError hidden">
+                Minimum amount Rs.100
+              </p>
+            </div>
+          </div>
+
+          <div class="colorDan hidden padT10 col-sm-offset-5 col-sm-7 calWFee" id="calWFee">
+            <div class="">Convinience Fee: Rs.
+              <span class="fee"></span>
+            </div>
+            <div class="">Receiving Amount: Rs.
+              <span class="income"></span>
+            </div>
+          </div>
+          <div class="colorD"></div>
+          <div>
+            <label class="col-sm-offset-4 col-sm-8 control-label" style="text-align: left">Balance available for transfer-to-bank-account Rs. {{=model.goldData.happyRechargeBalance.toThree()}}</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-5 col-sm-7">
+            <button type="button" id="subWithdraw" class="btn-warning btn withdrawalBtn">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</script>
+<script id="rechargeTpl" type="text/template">
+  <section class="withdrawal">
+    <h2 class="title">Top-up</h2>
+    <div class="content">
+      <form action="" class="form-horizontal" style="width:800px;">
+        <div class="form-group">
+          <label for="" class="col-sm-3 control-label">
+            Cardholder's Name
+          </label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control cashAmount" placeholder="" name="name">
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-3 control-label">
+            Max Top-Up Amount
+          </label>
+          <div class="col-sm-4">
+            <span class="form-control" style="border:none; box-shadow: none;"> Rs. {{=maxAmount.toThree()}}</span>
+          </div>
+        </div>
+        <div class="form-group" style="">
+          <label for="" class="col-sm-3 control-label">
+            Top-up Amount
+          </label>
+          <div class="col-sm-9">
+            <div class="row">
+              <div class="col-sm-3">
+                <input type="text" class="form-control cashAmount" placeholder="" id="topupAmount" name="amount" maxlength="8" data-max={{=maxAmount}}>
+              </div>
+              <div class="colorDan col-sm-9" style="line-height: 30px;">
+                <span id="extraAmount" class="hidden" style="font-size: 16px">rewarded extra: 50000</span>
+              </div>
+            </div>
+            <p class="colorDan hidden" id="amountNo">If you recharge amount reaches Rs. 5000, you will get an extra Rs. 50 bonus. </p>
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-3 control-label">
+            Email
+          </label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control cashAmount" placeholder="" value="{{=email}}" name="topUpEmail">
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-3 control-label">
+            Mobile No.
+          </label>
+          <div class="col-sm-4">
+            <div style="width:28%;position: relative;" class="pull-left">
+              <select name="areaCode" id="areaCodeSele_1" class="registerAreaCode form-control" style="display: inline-block; width: 100%;position: absolute;top:0;left:0;opacity:0;">
+                <option value="91">India (+91)</option>
+              </select>
+              <input class="form-control showSelect" readonly style="width: 100%;padding-left: 12px;background-color:#fff;" value="+91">
+              <b style="position: absolute;border-top: 5px solid #333;border-right: 3px solid transparent;border-bottom: 5px solid transparent;border-left: 3px solid transparent;right: 6px;top: 15px;"></b>
+            </div>
+            <div class="pull-left" style="width:72%;">
+              <input type="tel" class="form-control cashAmount" placeholder="" name="topUpMob" maxlength="16">
+            </div>
+            <p class="checkError hidden">
+              You miss this
+            </p>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-3 control-label">
+            Balance
+          </label>
+          <div class="col-sm-4">
+            <span class="form-control" style="border:none; box-shadow: none;">Rs.{{=balance.toThree()}}</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="" class="col-sm-3 control-label">
+            Received Amount
+          </label>
+          <div class="col-sm-4">
+            <span class="form-control" style="border:none; box-shadow: none;" id="receiveAmount">Rs. 0</span>
+          </div>
+        </div>
+        <div class="form-group hidden">
+          <p class="col-sm-offset-3 col-sm-8 grayDark">
+            Top-up more than Rs.5000, you will be rewarded extra 1% Happy Gold e-cash.
+          </p>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-8">
+            <button type="button" id="subRecharge" class="btn-warning btn withdrawalBtn">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</script>

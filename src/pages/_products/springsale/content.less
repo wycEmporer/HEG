@@ -1,0 +1,88 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+
+@themeColor: #2ca5ea;
+
+.body{
+	background: #f5f5f5;
+}
+.themeColor{
+	color:@themeColor;
+}
+.colorWhite{
+  color: #fff;
+}
+.fontSz26{
+  font-size: 26px;
+}
+.wrap{
+	padding: 30px 50px 10px;
+}
+.banner{
+	width:100%;
+	height:400px;
+	overflow: hidden;
+	position: relative;
+	.banImg{
+		position: absolute;
+		left:50%;
+		transform: translateX(-50%);
+	}
+}
+.line2{
+	display: inline-block;
+	width:140px;
+	height:2px;
+	background-color: @themeColor;
+}
+h1.title{
+	padding-bottom: 10px;
+	font-size: 36px;
+}
+.summary{
+	padding-top: 20px;
+	p{
+		line-height: 24px;
+	}
+}
+.couponTable{
+	.title{
+		padding-top:145px;
+	}
+	.tableWrap{
+		.titlebg{
+			background: #e0f1fc;
+		}
+		.infobg{
+			background: #f4fafe;
+		}
+		table{
+			td{
+				width:33.3%;
+			}
+		}
+		.table-bordered, .table-bordered>tbody>tr>td, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>td, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+			border: 2px solid #fff;
+		}
+	}
+}
+
+.tobook{
+	margin: 60px 0;
+	a{
+		width: 320px;
+		height:50px;
+		line-height: 36px;
+	}
+}
+.note{
+	.dur{
+		line-height: 30px;
+	}
+	p{
+		width:940px;
+		margin: 0 auto;
+	}
+}
+.terms{
+	padding: 40px 0;
+}

@@ -1,0 +1,176 @@
+<div class="clearfix" id="newheader">
+  <div class="container" style=''>
+    <a href="/" class="logo pull-left" style="">
+      <img src="/static/images/logo.png" alt="Online Travel Agency" title="Lowest Airfares in India">
+    </a>
+    <ul class="pull-left item-wrap item-wrap_1">
+      <!-- <li>
+        <a href="/" class="item home font-Roman" data-role = 'home'>
+          <span class="text">Home</span></a>
+      </li> -->
+      <li>
+        <a href="/flight/" class="item flight font-Roman" data-role = 'flight'>
+          <span class="text">Flights</span></a>
+      </li>
+      <li>
+        <a href="https://www.happyeasygo.com/hotel" class="item hotels font-Roman" data-role = 'hotels'>
+          <span class="text">Hotels</span></a>
+      </li>
+      <!--<li class='hotel'>
+        <a href="/hotel" class="item hotel font-Roman" data-role = 'hotel'>
+          <span class="text">Hotels</span></a>
+      </li> -->
+      <li>
+        <a href="/offer/" class="item offer font-Roman" data-role = 'offer'>
+          <span class="text">Offers</span></a>
+      </li>
+    </ul>
+    <ul class="pull-right item-wrap item-wrap_2">
+      <li class='referral_li'>
+        <a href="/referral" class="fore referral " data-role='referral' >
+          <i class="icon icon-refer" data-toggle="tooltip" data-placement="bottom" title="Refer & Earn"></i> 
+        </a>
+      </li>
+      <li class='trip' >
+        <a href="/account/?src=trips" class="fore trip" data-role='trip' data-toggle="tooltip" data-placement="bottom" title="My Bookings">
+          <i class="icon icon-trip"></i>
+        </a>
+      </li>
+      <li>
+        <a href="/wallet-terms/" class="item wallet-terms font-Roman" data-role = 'wallet-terms' data-toggle="tooltip" data-placement="bottom" title="Wallet">
+          <i class="icon icon-wallet"></i> 
+        </a>
+      </li>
+      <li class='support_li' >
+          <a href="/support" class="fore support" data-role='support' data-toggle="tooltip"  data-placement="bottom" title="Support">
+            <i class="icon icon-custom"></i>
+          </a>
+      </li>
+      
+
+      <li class='sing'>
+        
+        <div class="sing-box fontB">
+          <span class="logIn  hidden-xs">
+          <a href="/static/tpl/loginTpl.html"  data-toggle="modal" data-target="#login_modal">Sign in</a>
+          </span>
+          <span class="Segmentation hidden-xs" style='margin-right:3px;color:#0b9d78'>/</span>
+          <span class="register  hidden-xs">
+            <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal">Sign up</a>
+          </span>
+        </div>
+        
+        <div class='tools_box'>
+          <div class="tools">
+            <div class='arrow'>
+            </div>
+            <a href="/account/?src=trips" class="fore font-Light">
+              <i class="icon trips"></i>
+              <span>My Trips</span>
+            </a>
+            <a href="/account/?src=hotels" class="fore font-Light">
+              <i class="icon hotels"></i>
+              <span>My Hotels</span>
+            </a>
+            <a href="/account/?src=print" class="fore font-Light">
+              <i class="icon print"></i>
+              <span>Print Ticket</span>
+            </a>
+            <a href="/account/?src=cancellation" class="fore font-Light hidden anchorCancel">
+              <i class="icon cancel"></i>
+              <span>Cancellation</span>
+            </a>
+            <a href="/account/?src=myCoupon" class="fore font-Light hidden anchorCancel">
+              <i class="icon wallet"></i>
+              <span>My Coupons</span>
+            </a>
+            <a href="/account/?src=profile" class="fore font-Light hidden anchorCancel">
+              <i class="icon profile"></i>
+              <span>My Profile</span>
+            </a>
+            <!-- <a href="/account/?src=travellers" class="fore">
+              <i class="fa fa-print fa-lg"></i>
+              Traveller List
+            </a> -->
+            <a href="/account/?src=wallet" class="fore font-Light hidden anchorCancel">
+              <i class="icon wallet"></i>
+              <span>Happy Wallet</span>
+            </a>
+            
+            
+          
+            <!--<a href="/account/?src=security" class="fore font-Light">
+              <i class="icon security"></i>
+              <span>Account Security</span>
+            </a>-->
+            <a href="/referral" class="fore font-Light">
+              <i class="icon refer"></i>
+              <span>Refer &amp; Earn</span>
+            </a>
+            <a href="javascript:void(0)" class="fore font-Light hidden anchorCancel" id="signOut">
+              <i class="icon sign-in"></i>
+              <span>Sign out</span>
+            </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <div class="pull-right">
+    </div>
+  </div>
+</div>
+<div class="feedback-wrap feedback-wrap2" id="">
+  <div class="text">
+  <i class='icon'></i>
+  Feedback</div>
+</div>
+<div class="Fb-con" id="Fb-con">
+  <div class="close" style="margin:6px 10px">
+    <span>&times;</span>
+  </div>
+  <div class="feedform">
+    <form onsubmit="return false">
+      <h2>Have website related feedback
+        <br>or suggestion?</h2>
+      <p>We value our customer experience on our website and app, if you have any suggestion regarding our website please send
+        us your feedback below.</p>
+      <div class="form-group">
+        <label for="username">Name</label>
+        <input type="text" name="name" class="form-control" placeholder="Your name">
+        <div class="checkError hidden">
+          You miss this
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control" placeholder="Your email address">
+        <div class="checkError hidden" >
+          Please enter valid Email address.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="Fb-text">Your Feedback</label>
+        <textarea class="form-control" name="content" rows="3" maxlength="500"></textarea>
+        <div class="checkError hidden">You miss this</div>
+      </div>
+      <button id="Fb_sub" class="btn btn-warning sub">Submit</button>
+      <button id="Fb-cancle" class="btn btn-primary can">Cancel</button>
+    </form>
+  </div>
+  <div class="feedback-wrap" id="feedBackClose">
+    <div class="text">
+    <i class='icon'></i>
+    Feedback</div>
+  </div>
+  
+</div>
+<div class='firstAnn'>
+  <a href="" class="GAEV" ga-category="anniv-link" ga-action="click">
+    <img src="" alt="">
+  </a>
+</div>
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M66LCMH" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->

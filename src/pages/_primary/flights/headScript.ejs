@@ -1,0 +1,20 @@
+<script>
+  function getPathParameter() {
+    var regex = /flights\/([A-Z]{3})-([A-Z]{3})\/(20\d{2}-\d{2}-\d{2})(-(20\d{2}-\d{2}-\d{2}))?/gi;
+    var results = regex.exec(location.href);
+    if (results != null) {
+      return {from: results[1], to: results[2], departDate: results[3], returnDate: results[5]};
+    }
+    return {};
+  }
+  var query = getPathParameter();
+  dataLayer = [{ 
+    'google_tag_params':{
+      'flight_originid':query.from,
+      'flight_destid': query.to,
+      'flight_startdate': query.departDate,
+      'flight_enddate': query.returnDate || '',
+      'page_type': 'SearchResult',
+    }
+  }];
+</script>

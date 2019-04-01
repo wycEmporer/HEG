@@ -1,0 +1,16 @@
+<div class="reset-wrapper ">
+  <div class="logWrap-container">
+    <h1 class="title">FORGOT YOUR PASSWORD?</h1>
+    <p>Enter the email address you used to register or book on HappyEasyGo</p>
+    <p>We'll send you a link to reset your password</p>
+    <form>
+      <div class="email-box">
+        <input  type="text" id="email" class="form-control" placeholder="Your Email Address">
+      </div>
+      <p class="checkFailure hidden"></p>
+      <button type="button"  class="btn btn-large btn-warning resetBtn" id="resetPwdBtn">RESET PASSWORD</button>
+      <p class="privacy">See HappyEasyGo's <a href="/privacy">Privacy policy</a> and <a href="/conditions">terms</a> of use</p>
+    </form>
+  </div>
+</div>
+<!-- only on  "reset password modal" can remove data -->

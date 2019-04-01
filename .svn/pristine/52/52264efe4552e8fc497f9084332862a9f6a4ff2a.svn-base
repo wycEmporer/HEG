@@ -1,0 +1,16 @@
+<div class='searchBox F_HSearchBox'>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#flight" aria-controls="flight" role="tab" data-toggle="tab">Flight</a></li>
+    <li role="presentation"><a href="#hotel" aria-controls="hotel" role="tab" data-toggle="tab">Hotel</a></li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="flight">
+      <%=require('./flightSearch_2/search.ejs')()%>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="hotel">
+       <%=require('./hotelSearch/search.ejs')()%>
+    </div>
+  </div>
+</div>

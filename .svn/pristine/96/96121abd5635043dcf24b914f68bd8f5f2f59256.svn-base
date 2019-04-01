@@ -1,0 +1,325 @@
+.f_A_h-search{
+  padding:10px 0;
+  background:rgba(140,46,9,0.3) ;
+  z-index: 10;
+  width: 100%;
+  position: absolute;
+  #searchForm{
+    min-width: 1200px;
+    position: relative;
+    width: 1200px;
+    height: 69px;
+    margin:auto;
+    .checkError{
+      position:absolute;
+      top:50px;
+      margin-top: 0;
+      left: 0;
+    }
+    nav{
+      float: left;
+      margin:18px 20px 0 0;
+      color:#fff;
+      label{
+        margin-bottom: 0;
+        font-size:12px;
+        font-family: "HelveticaLTPro-Roman";
+        color:#fff;
+        input{
+          margin:0 10px 0 0;
+        }
+        strong{
+          vertical-align: top;
+        }
+      }
+      li{
+        height:14px;
+      }
+      li.oneway{
+        margin-bottom:12px;
+      }
+    }
+    .LS-trip{
+      ::-webkit-input-placeholder{
+        color:#999;
+        opacity:100%;
+        font-size: 14px;
+        font-family: "HelveticaLight";
+      }
+      position: absolute;
+      top: 0;
+      left: 110px;
+      .img-icon{
+        width: 20px;
+        height: 14px;
+        background:url('./images/plane-up.png') no-repeat 100% 100%;
+        position: absolute;
+        top: 28px;
+        right: 10px;
+        z-index: 1;
+      }
+      label{
+        color: white;
+      }
+      .landing{
+        background:url('./images/plane-down.png') no-repeat 100% 100%;
+      }
+      .calendar{
+        background:url('./images/calendar.png') no-repeat 100% 100%;
+        cursor: pointer;
+      }
+      .arrows{
+        width: 20px;
+        height: 60%;
+        background: #fff;
+        top: 20px;
+        p{
+          width: 20px;
+          height: 14px;
+          background:url('./images/up-down-arrow.png') no-repeat 100% 100%;
+          cursor: pointer;
+          position: absolute;
+          top: 25%;
+        }
+      }
+      .section1{
+        float: left;
+        .form-group{
+          float:left;
+          margin:6px 20px 0 0;
+          position: relative;
+          input{
+            width: 180px;
+            height: 30px;
+            line-height: 30px;
+            padding:0 30px 0 10px;
+            color:#999;
+          }
+        }
+        .d-city{
+          margin-right: 0;
+        }
+        .roundIcon{
+          display: inline-block;
+          width: 16px;
+          height: 10px;
+          background: url('./images/roundTrip.png') no-repeat;
+          margin: 37px 7px 0px;
+        }
+      }
+      .section2{
+        float: left;
+        .form-group{
+          float:left;
+          margin:6px 30px 0 0;
+          .time-input{
+            width: 160px;
+            padding:0 10px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 12px;
+          }
+        }
+        .d-date, .r-date{
+          // width:40%;
+          margin-right:20px;
+          position: relative;
+          input{
+            cursor: pointer;
+            background-color:#fff;
+          }
+          }
+          .datepick{
+          position:absolute;
+          top:26px;
+          right:8px;
+          cursor: pointer;
+          opacity: 0;
+          z-index: 2;
+          }
+          .d-date{
+          .icon{
+            display: inline-block;
+            width:20px;
+            height:18px;
+            background-image: url(./images/dapartbg.png);
+            background-repeat: no-repeat;
+          }
+          }
+          .r-date{
+          .icon{
+            display: inline-block;
+            width:20px;
+            height:18px;
+            background-image: url(./images/returnbg.png);
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      .section3{
+        float:left;
+        margin:6px 20px 0 0;
+        .selectItem{
+          float:left;
+          position: relative;
+          width: 150px;
+          margin: 0;
+          #pIcon{
+            vertical-align: 3%;
+          }
+          a.trallerpop{
+            display: block;
+            width:100%;
+            border-radius: 4px;
+            color:rgb(85,85,85);
+            border:1px solid rgb(204, 204, 204);
+            height:30px;
+            line-height: 27px;
+            padding:0 10px 0 10px;
+            background: white;
+          }
+          .SelectWrap{
+            top:40px;
+            left:0;
+            padding:0 10px 10px;
+            width: 333px;
+            max-width: 333px;
+            .fore{
+              width:100%;
+              position: relative;
+              border-bottom:1px solid #eee;
+              p{
+                margin: 10px 0;
+              }
+              #A_passenger,#C_passenger,#I_passenger{
+                border:none;
+                outline: none;
+                width: 78px;
+                height: 30px;
+                line-height: 30px;
+                padding:0 0  0 30px;
+                // font-weight: 500;
+                // font-size: px;
+                // font-family: ;
+              }
+              .img-type{
+                display:inline-block;
+                width: 18px;
+                height: 21px;
+                vertical-align: text-bottom;
+              }
+              .A-type{
+                background:url('./images/adults.png') no-repeat 100% 100%;
+              }
+              .C-type{
+                background:url('./images/children.png') no-repeat 100% 100%;
+              }
+              .I-type{
+                background:url('./images/infants.png') no-repeat 100% 100%;
+              }
+              .minus-plus{
+                width: 64px;
+                height: 22px;
+                position: absolute;
+                top: 30px;
+                right: 0;
+                display:flex;
+                justify-content: space-between;
+                span{
+                  display:inline-block;
+                  width: 22px;
+                  height: 22px;
+                  background-size: 100% 100%;
+                  cursor: pointer;
+                }
+                .minus-img{
+                  background: url('./images/minus.png') no-repeat;
+                }
+                .plus-img{
+                  background: url('./images/plus.png') no-repeat;
+                }
+              }
+            }
+            .S-seat{
+              padding:10px 0 0;
+              .s-seatType{
+                label{
+                  display:block;
+                  margin-bottom:0;
+                }
+                .seat-type{
+                  width: 14px;
+                  height: 14px;
+                }
+                strong{
+                  font-size: 12px;
+                  color:#666;
+                  vertical-align: 30%;
+                }
+              }
+              .s-seatRegular{
+                padding:10px 0 20px;
+                p{
+                  font-size: 12px;
+                  color:#666;
+                  font-family: "HelveticaLTPro-Light";
+                  letter-spacing: 0px;
+                  line-height: 16px;
+                }
+              }
+            }
+            .B-confirm{
+              input[type="button"]{
+                display:block;
+                margin:auto;
+                width: 280px;
+                height: 34px;
+                line-height: 34px;
+                text-align: center;
+                color:#fff;
+                background:#1B2137;
+                border:none;
+              }
+            }
+          }
+        }
+      }
+      .section4{
+        float: left;
+        button{
+          width: 148px;
+          height: 30px;
+          line-height: 30px;
+          padding:0 0;
+          color: white;
+          font-size: 14px;
+          font-family: "HelveticaLTPro-Roman";
+          background: #FC9525;
+        }
+      }
+    }
+  }
+}
+.autoComplete{
+  &:empty{
+    display: none;
+  }
+  max-height: 292px;
+  overflow-y: auto;
+  background-color:#fff;
+  border:1px solid #ccc;
+  box-shadow: 0 3px 3px #aaa;
+  z-index: 10;
+  .item{
+    height:32px;
+    line-height: 32px;
+    padding:0 5px;
+    cursor:pointer;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+   &.active{
+      background-color:#36c;
+    }
+  }
+}

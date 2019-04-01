@@ -1,0 +1,49 @@
+@import "~lessDir/basedir/_variables.less";
+.pay-way-notice{
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 30px;
+  background: #f5f1e5; 
+  padding: 0 20px;
+}
+.pay-way-notice_icon{
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 50%;
+  color:#fff;
+  margin-right: 10px;
+  background-color:#E3A428;
+  text-align: center;
+}
+.pay-way-notice_text{
+
+}
+.pay-way-notice_close{
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  font-size: 13px;
+  text-align: center;
+  background-color: #bcb2a9;
+  border-radius: 50%;
+  cursor: pointer;
+  color:#fff;
+}
+
+.pay-way-channel_notice{
+  font-size: 12px;
+  color: #B57B08;
+}
+
+.pay-wallet-wrap{
+  width:460px;
+  min-height: 40px;
+  padding:8px 20px 0;
+  border:1px solid #999;
+  .goldCheck{
+    margin:0;
+  }
+}

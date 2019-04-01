@@ -1,0 +1,8 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const dirsConfig = config.DIRS;
+const layout = require('layout');
+const scriptStr = '<script async src="https://www.cashfree.com/assets/cashfree.sdk.v1.1.js" type="text/javascript"></script>';
+module.exports = layout.init({
+pageTitle:'Account-HappyEasyGo-India\'s Best Flight Booking Site ', scriptStr
+}).run(content(dirsConfig));

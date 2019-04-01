@@ -1,0 +1,98 @@
+var webpack = require('webpack');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
+var dirVars = require('../base/dir-vars.config.js');
+var pageArr = require('../base/page-entries.config.js');
+var HashOutput = require('webpack-plugin-hash-output');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+var configPlugins = [
+  /* 全局shimming */
+  new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+    'window.jQuery': 'jquery',
+    'window.$': 'jquery',
+    _: 'underscore',
+    underscore: 'underscore',
+    'window._': 'underscore',
+  }),
+  new CleanWebpackPlugin(['build'], {
+    root: dirVars.staticRootDir,
+    verbose: true,
+    dry: false
+  }),
+
+  new CopyWebpackPlugin([
+    {
+ from: path.resolve(dirVars.staticRootDir, './mock'), to: path.resolve(dirVars.staticRootDir, './build/mock'), toType: 'dir' 
+},
+    {
+ from: path.resolve(dirVars.imgsDir), to: path.resolve(dirVars.staticRootDir, './build/static/images'), toType: 'dir' 
+},
+    {
+ from: path.resolve(dirVars.componentsDir, './tpl'), to: path.resolve(dirVars.buildDir, './static/tpl'), toType: 'dir' 
+},
+    {
+ from: path.resolve(dirVars.staticRootDir, './robots.txt'), to: path.resolve(dirVars.buildDir)
+},
+    {
+ from: path.resolve(dirVars.staticRootDir, './favicon.ico'), to: path.resolve(dirVars.buildDir)
+},
+    {
+ from: path.resolve(dirVars.staticRootDir, './google6a458da9ffad634f.html'), to: path.resolve(dirVars.buildDir)
+},
+    {
+ from: path.resolve(dirVars.staticRootDir, './googleac06d5de47c52012.html'), to: path.resolve(dirVars.buildDir)
+},
+    {
+ from: path.resolve(dirVars.staticRootDir, './firebase-messaging-sw.js'), to: path.resolve(dirVars.buildDir)
+}
+  ]),
+  /* 抽取出所有通用的部分 */
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'commons', // 需要注意的是，chunk的name不能相同！！！
+    filename: '[name]/bundle.[chunkhash].js',
+    minChunks: 3,
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'webpack-runtime',
+    filename: 'commons/[name].[hash].js' // 不能用chunkhash, 这个文件肯定会变动, 所以不用chunkhash
+  }),
+  /* 抽取出chunk的css */
+  new ExtractTextPlugin('[name]/styles.[contenthash].css'),
+  /* 配置好Dll */
+  new webpack.DllReferencePlugin({
+    context: dirVars.staticRootDir, // 指定一个路径作为上下文环境，需要与DllPlugin的context参数保持一致，建议统一设置为项目根目录
+    manifest: require('../../manifest.json'), // 指定manifest.json
+    name: 'dll', // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
+  }),
+  new HashOutput({manifestFiles: 'webpack-runtime', }),
+];
+
+pageArr.pagesToPath().forEach((item) => {
+  // let folderName = page.replace(/.*\//, '');
+  const htmlPlugin = new HtmlWebpackPlugin({
+    filename: `${item.name}/index.html`,
+    template: path.resolve(dirVars.pagesDir, `./${item.pathname}/html.js`),
+    chunks: ['webpack-runtime', item.name, 'commons'], //js 来源目录,不写默认全部chunks
+    //hash: true,
+    xhtml: true,
+    //minify:false,
+  });
+  configPlugins.push(htmlPlugin);
+});
+configPlugins.push(
+  new HtmlWebpackPlugin({
+    filename: './index.html',
+    template: path.resolve(dirVars.pagesDir, './_primary/index/html.js'),
+    chunks: ['webpack-runtime', 'index', 'commons'], //js 来源目录,不写默认全部chunks
+    //hash: true,
+    xhtml: true,
+    //minify:false,
+  })
+);
+
+module.exports = configPlugins;

@@ -1,0 +1,118 @@
+<div class="content">
+	<div class='head'>
+		<div class="banner" id="banner">	
+		</div>
+		<div class='Countdown'>
+			<div class='Countdown_time'>
+				<p class='in'>Campaign is live !</p>
+				<p class='end hidden'>Campaign <i class='status'>Ends</i> : <span> <i id='RemainD1_1'></i>d: <i id='RemainH1_1'></i>h: <i id='RemainM1_1'></i>m: <i id='RemainS1_1'></i>s</span></p>
+				<p class='time'>Oct 01st, 00:00:00 -- Oct 19th, 23:59:59</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wrap">
+		<div class="container">
+			<div class='sale_box'>
+				<div class='sale app_sale'>
+					<div class='sale_left pull-left'>
+						<div class='pull-left phoneImg'>
+							<img src="<%= require('./images/phone.png') %>" alt="">
+							<p>Discount on App</p>
+						</div>
+						<div class='clearfix pull-right downLoad' style='padding:0 10px;'>
+							<p>Save <span id='couponPri_1'></span></p>
+							<p class='font-Light clearfix'>
+							  <span class='copyIcon pull-right' data-type='1'></span>
+								<span class='pull-right copyText'>Use Code: 
+								  <span class='font-Bold copyText_2'>HEGAPP</span>
+								</span>
+							</p>
+							<div class='clearfix'>
+								<div class='pull-left' style='width:100px;'>
+									<a href="https://app.adjust.com/2x7p5g" target="_blank" class="GAEV"  ga-category="dussehra-mega-sale" ga-action="click" ga-label="DownloadButton">
+										<img src="<%= require('./images/googleplay.png') %>" style='margin:20px 0px 10px;' alt="">
+									</a>
+									<br>
+									<a href="https://itunes.apple.com/app/id1390426818?mt=8" class="GAEV" target="_blank" ga-category="dussehra-mega-sale" ga-action="click" ga-label="DownloadButton">
+										<img src="<%= require('./images/appstore.png') %>" alt="">
+									</a>
+								</div>
+								<div class="pull-right code">
+									<img src="<%= require('./images/PC_Autumn_Deeplink.png')%>" alt="">
+								</div>
+							</div>
+							<p>Download our mobile App</p>
+						</div>
+					</div>
+					<div class='sale_right pull-right'>
+							<div class='pull-left phoneImg'>			
+							<img src="<%= require('./images/pc.png') %>" alt="">
+							<p>Discount on PC & Mobile Site</p>
+						</div>
+						<div class='clearfix pull-right downLoad' style='padding:0 10px;'>
+							<p>Save <span id='couponPri_2'></span></p>
+							<p class='font-Light clearfix'>
+								<span class='copyIcon pull-right' data-type='2'></span>
+								<span class='pull-right copyText'>Use Code: 
+									<span class='font-Bold copyText_2'>HEGPCM</span>
+								</span>
+							</p>
+							<div class='clearfix'>
+								<div class='clearfix' style='margin:24px 0 34px;'>
+									<a href="/static/tpl/loginTpl.html" style='width:220px;height:40px;line-height:28px;background: #65290C; color:white;font-size: 16px;' data-toggle="modal" data-target="#login_modal" class='btn  GAEV' ga-category="dussehra-mega-sale" ga-action="click" ga-label="SignIn">Sign In</a>
+								</div>
+								<p style='font-size: 14px;color: #666666;'>Have no account? <a href="/static/tpl/register.html" data-toggle="modal" style='font-size: 16px;color:#0b9d78' data-target="#register_modal"  class="GAEV" ga-category="dussehra-mega-sale" ga-action="click" ga-label="SignUp">Sign Up</a></p>
+							</div>
+						</div>
+					</div>
+					<p class='TC'>ON DOMESTIC & INTERNATIONAL FLIGHTS</p>
+					<div class='TipsMsg TipsMsg_1'>
+						Successfully copied use code to the clipboard
+					</div>
+					<div class='TipsMsg TipsMsg_2'>
+						Successfully copied use code to the clipboard
+					</div>
+				</div>
+			</div>
+			<div class='slide-box'>
+				<div class='slide_box'>
+					<div id="" class="zy-Slide">
+						<ul class="vmcarousel-centered-infitine vmc-centered">
+							<li><img src="<%= require('./images/1.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/2.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/3.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/4.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/5.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/6.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/7.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/8.jpg')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/9.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/10.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/11.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/12.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/13.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/14.jpg')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/15.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/16.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/17.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/18.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/19.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/20.png')%>" alt="" width="200"></li>
+							<li><img src="<%= require('./images/21.png')%>" alt="" width="200"></li>
+						</ul>
+					</div>
+					<div class='btn_box'>
+						<a href="/shake" class='btn btn-warning GAEV' ga-category="dussehra-mega-sale" ga-action="click" ga-label="GoForDetail">Go for Details</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+

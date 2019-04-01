@@ -1,0 +1,58 @@
+module.exports = {
+  contentBase: './build/',
+  host: 'localhost.happyeasygo.com',
+  port: 8080,
+  noInfo: true,
+  // inline: true, // 可以监控js变化
+  hot: true, // 热启动
+  compress: true,
+  watchContentBase: false,
+  stats: 'errors-only',
+  historyApiFallback: {rewrites: [
+      {
+        from: /^\/flights\/([A-Za-z]{3})-([A-Za-z]{3})\/(20[0-9]{2})-?([0-9]{2})-?([0-9]{2})$/,
+        to: '/flights/index.html'
+      },
+      {
+        from: /^\/flights\/([A-Za-z]{3})-([A-Za-z]{3})\/(20[0-9]{2})-?([0-9]{2})-?([0-9]{2})-(20[0-9]{2})-?([0-9]{2})-?([0-9]{2})$/,
+        to: '/flights/index.html'
+      }
+    ]},
+  proxy: {
+    '/heg_logs': {
+      target: 'http://192.168.1.23',
+      changeOrigin: true,
+      secure: false
+    },
+    '/api': {
+      target: 'http://192.168.1.217:8080', //http://27.115.108.230:9988
+      // target: 'http://wwwdevelop.happyeasygo.com', //http://27.115.108.230:9988
+      changeOrigin: true,
+      secure: false
+      //http://web.staging.johnable.net/api/web/pay/
+    },
+    '/heg_api': {
+      target: 'http://192.168.1.11:8080',
+      // target: 'http://192.168.1.155:8090',
+      // target: 'http://192.168.1.20:8088',
+      // target: 'http://27.115.108.230:9988',
+      changeOrigin: true,
+      secure: false
+    },
+    '/message_api': {
+      target: 'http://192.168.1.11:8080',
+      changeOrigin: true,
+      secure: false
+    },
+    '/offer_api': {
+      target: 'http://192.168.1.11:8080',
+      changeOrigin: true,
+      secure: false
+    },
+    '/flight_api': {
+      target: 'http://192.168.1.11:8080',
+      changeOrigin: true,
+      secure: false
+    },
+  }
+};

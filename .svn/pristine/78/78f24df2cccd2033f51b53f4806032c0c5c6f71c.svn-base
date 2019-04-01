@@ -1,0 +1,33 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+.activation{
+  width:300px;
+  margin:80px auto;
+  min-height: 300px; 
+  text-align: center;
+  .title{
+    font-size: 20px;
+    line-height: 59px;
+    margin-bottom: 20px;
+    &:before{
+      content:' ';
+      float:left;
+      width:59px;
+      height:59px;
+      background-repeat: no-repeat;
+    }
+    &.success:before{
+      background-image: url(./imgs/icon-face.png);
+    }
+    &.fail:before{
+      background-image: url(./imgs/icon-fail.png);
+    }
+  }
+  p{
+    font-size: 16px;
+    color:@gray-darker;
+    line-height:22px;
+  }
+  .action{
+    margin-top: 20px;
+  }
+}

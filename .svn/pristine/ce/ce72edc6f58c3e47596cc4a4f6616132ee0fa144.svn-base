@@ -1,0 +1,459 @@
+<div class="conentwrapper">
+  <div class="L-content" id="L_content">
+    <div id="carBanner" class="banner-wrap carousel slide" data-ride="carousel" data-interval='5000'>
+      <div class="container carouselControl"></div>
+    </div>
+    <!-- end container -->
+  </div>
+  <div class="container" style="position: relative;">
+    <div class='searchBox1'> 
+      <div class='searchTab'>
+        <ul role="tablist" class="tablist font-Roman">
+          <li class='active flight'><a href="#flightTab" aria-controls="flightTab" role="tab" data-toggle="tab"><i class='icon f-icon'></i>Flights</a></li>
+          <li class='hotel'><a href="#hotelTab" class="red-point" aria-controls="hotelTab" role="tab" data-toggle="tab"><i class='icon h-icon'></i> Hotels</a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+        <div class='searchFrom tab-pane active' id="flightTab">
+          <p class='flight-title'>Book Domestic and International Flights</p>
+          <form id="searchForm" onsubmit="return false;" class='clearfix'>
+            <div class='flightType '>
+              <nav class="L-tripType clearfix">
+                <ul class="clearfix">
+                  <li class="item oneway">
+                      <label for="oneway" class='radio'>
+                        <input type="radio" name="tripType" id="oneway" value="0"  checked='checked' class="trip-type">
+                        <i></i>
+                        <strong class="font-Roman">ONE WAY</strong>
+                    </label>
+                  </li>
+                  <li class="item roundtrip">
+                      <label for="Roundtrip" class='radio'>
+                      <input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+                        <i></i>
+                        <strong class="font-Roman">ROUND TRIP</strong>
+                    </label>
+                  </li>
+                </ul>
+              </nav>
+            </div>  
+            <div class='LS-trip'>
+              <div class="section1 clearfix">
+                <div class="d-city fore form-group">
+                  <label for="D_city" class="font-Roman">From</label>
+                  <input type="text" id="D_city" value="New Delhi" class="form-control" autocomplete="off">
+                  <input type="hidden" id="From" name="from" value="DEL" data-country="India">
+                  <p class="checkError hidden">You missed this</p>
+                  <i class="icon d-city-icon"></i>
+                </div>
+                <div class="fore roundIcon" id='switch_city'>
+                    
+                </div>
+                <div class="a-city fore form-group">
+                  <label for="A_city" class="font-Roman">To</label>
+                  <input type="text" id="A_city" value="Mumbai" class="form-control" autocomplete="off">
+                  <input type="hidden" id="To" name="to" value="BOM" data-country="India">
+                  <p class="checkError hidden">You missed this</p>
+                  <i class="icon a-city-icon"></i>
+                </div>
+              </div>
+          
+              <div class="section2 clearfix">
+                <div class="d-date fore form-group">
+                  <label for="D_date" class="font-Roman">Depart</label>
+                  <div class="timedepart">
+                    <input type="text" readonly="readonly" id="D_date" class="form-control D-date pull-left" placeholder="Choose Date" autocomplete='off'>
+                    <input type="hidden" id="departDate" name="departDate" value="">
+                    <span class='seg pull-left hidden'>-</span>
+                    <input type="text" readonly="readonly" id="R_date" class="form-control r-date pull-left hidden" placeholder=""  autocomplete='off'>
+                    <input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+                  </div>
+                  <i class="icon d-date-icon"></i>
+                </div>
+              </div>
+
+              <div class="section6 clearfix">
+                <div class="item selectItem form-group">
+                  <label for="" class="font-Roman">Passengers | Class</label>
+                  <a href="javascript:void(0)" class="trallerpop " id="p-popover">
+                    <span id="pCount">1</span>&nbsp;<span id="pIcon">Traveler, </span>&nbsp;<span id="pType">Economy</span>
+                    <div class="img-icon arrows">
+                      <p></p>
+                    </div>
+                  </a>
+                  <div class="SelectWrap  bottom popover">
+                    <div class="arrow" style="left: 10%"></div>
+                    <div class="headTop">
+                      <a href="javascript:void(0)" style="position: absolute;top:4px; right:10px;z-index:2;" class="close">&times;</a>
+                    </div>
+                    <div class="clearfix">
+                      <div class="A-passenger fore">
+                        <p>Adults</p>
+                        <span class="img-type A-type"></span>
+                        <input id="A_passenger" type="text" value="1" name="adults" alt="a" class="passenger" autocomplete='off'>
+                        <div class="minus-plus">
+                          <span class="minus-img"></span>
+                          <span class="plus-img"></span>
+                        </div>
+                      </div>
+                      <div class="C-passenger fore">
+                          <p>Children</p>
+                          <span class="img-type C-type"></span>
+                          <input id="C_passenger" type="tel" value="0" name="childs" alt="c" class="passenger" autocomplete='off'>
+                          <div class="minus-plus">
+                            <span class="minus-img"></span>
+                            <span class="plus-img"></span>
+                          </div>
+                      </div>
+                      <div class="I-passenger fore">
+                          <p>Infants</p>
+                          <span class="img-type I-type"></span>
+                          <input id="I_passenger" type="tel" value="0" name="baby" alt="i" class="passenger" autocomplete='off'>
+                          <div class="minus-plus">
+                            <span class="minus-img"></span>
+                            <span class="plus-img"></span>
+                          </div> 
+                      </div>
+                      <div class="S-seat">
+                          <div class="s-seatType">
+                              <label for="economy">
+                                <input type="radio" name="cabinClass" id="economy" value="Economy" checked="checked" class="seat-type">
+                                <strong class="font-Roman">Economy</strong>
+                              </label> 
+                              <label for="business">
+                                <input type="radio" name="cabinClass" id="business" value="Business" class="seat-type">
+                                <strong class="font-Roman">Business</strong>
+                              </label> 
+                              <label for="first">
+                                <input type="radio" name="cabinClass" id="first" value="First" class="seat-type">
+                                <strong class="font-Roman">First</strong>
+                              </label> 
+                              <label for="prenium" class="prenium">
+                                <input type="radio" name="cabinClass" id="prenium" value="Premium Economy" class="seat-type">
+                                <strong class="font-Roman">Premium Economy</strong>
+                              </label> 
+                          </div>
+                          <!--<p class='text'>Children 5 to 14 years old on a separate flight must be 
+                            reserved for their “unaccompanied minors".
+                          </p>-->
+                      </div>
+                      <div class="B-confirm" style="margin: 15px 0px 10px;">
+                        <input id="confirm" type="button" value="Confirm" name="button" />
+                      </div>
+                    </div>
+                  </div>
+                  <i class="icon traller-icon"></i>
+                </div>
+              </div>
+              <div class="section5 pull-right">
+                <button class="btn  GAEV" ga-category="LINK" ga-action="click" ga-label="SearchFlights" id="search_flights">Search</button>
+              </div>
+            </div>
+            <input type="hidden" name="carrier" value="">
+          </form>
+        </div>
+        <div class="tab-pane h-selector" id="hotelTab">
+          <p class='flight-title'>Best hotel deals are only a click away</p>
+          <div class="selector-container">
+            <div class="form-group cityname"> 
+              <label for="cityname" class="font-Roman">Destination, Hotel</label>
+              <input type="text" id="cityname" autocomplete="off">
+              <span class='icon-loading'></span>
+              <div class="search-result">
+                <h2>SEARCH RESULTS</h2>
+                <div class="result-items">
+                  <!--城市名-->
+                </div>
+              </div> 
+              <i class="icon room-icon"></i>
+            </div>
+            <div class="form-group check-in">
+              <label for="check-in" class="font-Roman">Check-In</label>
+              <input type="text" id="check-in" readonly>
+              <input type="hidden" id="in-Date" name="departDate" value="">
+              <i class="icon in-icon"></i>
+            </div>
+            <div class="form-group check-out">
+              <label for="check-out" class="font-Roman">Check-Out</label>
+              <input type="text" id="check-out" readonly>
+              <input type="hidden" id="out-Date" name="departDate" value="">
+              <i class="icon out-icon"></i>
+            </div>
+            <div class="form-group rooms-guest">
+              <label for="room-guest" class="font-Roman">Rooms | guests</label>
+              <input type="text" id="room-guest" value="1 Room, 2 Guests" readonly>
+              <i class="icon guest-icon"></i>
+              <i class="icon-down"></i>
+              <i class="icon-down"></i>
+              <div class="search-result">
+                <div class="search-result-container">
+                  <div class="s-r-item" data-index="0">
+                    <div class="room-result result-item">
+                      <span>Rooms 1</span>
+                      <div class="r-info">
+                        <span>2 Adults 0 Children</span>
+                        <span class="edit">edit</span>
+                      </div>
+                    </div>
+                    <div class="guests-result">
+                      <div class="adult-result result-item">
+                        <span>Adults （+12 yrs）</span>
+                        <div class="clearfix result-info">
+                          <em></em>
+                          <b>2</b>
+                          <i class="add" data-index="1"></i>
+                          <i class="minus" data-index="1"></i>
+                        </div>
+                      </div>
+                      <div class="child-result result-item">
+                        <span>Children （1-12 yrs）</span>
+                        <div class="clearfix result-info">
+                          <em></em>
+                          <b>0</b>
+                          <i class="add" data-index="2"></i>
+                          <i class="minus minus-disabled" data-index="2"></i>
+                        </div>
+                      </div>
+                      <ul class="child-age">
+                      </ul>
+                    </div> 
+                  </div>
+
+                </div>
+                <div class="room-operate">
+                  <button class="add-room">ADD ROOM</button>
+                  <span class="done">Done</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group get-set-go">
+              <button class="btn  go pull-right">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="coupon_Card">
+    <div class="container" style="position: relative;">
+      <div class="ad_box">
+        <a class="pull-left" href="/guarantee">
+          <p class='font-Bold'>BEST PRICE GUARANTEED</p>
+          <p>Find a lower price? We'll refund you 100% of the difference.</p>
+          <i class="icon m-icon"></i>
+        </a>
+        <a class="pull-right" href="/support">
+          <p class='font-Bold'>24×7 SUPPORT</p>
+          <p>We’re always here for you – reach us 24 hours a day, 7 days a week.</p>
+          <i class="icon t-icon"></i>
+        </a>
+      </div>
+      <div class="main">
+        <div class="grid_8">
+          <div class="flexslider" id="couponCard">
+            
+          </div>
+          <input type="button" value="" class="left2">
+          <input type="button" value="" class="right2">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container discoverBox " style="position: relative;">
+    <div class="discover hidden font-Roman">
+      <div class="title">
+        <p class="font-Bold">Discover Hot Destinations</p>
+        <a class="btn pull-right showMoreBtn" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+          show more
+        </a>
+      </div>
+      <div id="discoverCard">
+        
+      </div>
+      
+    </div>
+    <div class="ad">
+      <img class="ad_img" src="" alt="">
+      <div class='load'>
+        <a href="https://itunes.apple.com/app/id1390426818?mt=8" class="pull-left" target='_blank'></a>
+        <a href="https://app.adjust.com/2x7p5g" class="pull-right" target='_blank'></a>
+        
+      </div>
+    </div>
+    <div class="discover nextTrip font-Roman hidden">
+      <div class="title">
+        <p class="font-Bold">Get inspiration for your next trip</p>
+      </div>
+      <div class="discoverCard" id="blogCard">
+        
+      </div>
+    </div>
+  </div>
+  <div class="sendEmail font-Roman">
+    <div class="container clearfix">
+      <div class="pull-left">
+        <p class="font-Bold">Sign up for Exclusive Email-only Coupons</p>
+        <p>Exclusive access to coupons, special offers and promotions.</p>
+      </div>
+      <div class="form-group pull-right clearfix">
+        <input type="text" placeholder="Enter your e-mail address" class="email1 form-control pull-left ">
+        <a class="btn send pull-right" id="exclusiveEmail">Send Me Deals</a>
+        <p class='checkError hidden' style="padding-left:10px;font-weight:400;">Please enter a valid email address.</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+<div class="backTop hidden" id="backTop"></div>
+
+<div id="promotion" class='promotion'>
+  
+</div>
+
+<div class="promotion-wrap" id="promotion-wrap">
+  <div class="promotion-con">
+    <div class="conWrap" style="width:1146px">
+      <div class="register-wrap clearfix">
+        <div class="closed pull-right"></div>
+        <a href="https://app.adjust.com/2x7p5g" target="_blank">
+          <div id="footBanner">
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="discoverCardTpl" type="text/template">
+  <div class="discoverCard" id="">
+    <ul class="clearfix">
+    {{ _.each(myModel,function(val,i){ }}
+      {{ if(i < 6 ) { }}
+      <li>
+        <img src="{{=val.url}}" alt="">
+        <div class="link">
+          <p>{{= val.cityName}}, {{=val.airport}}</p>
+          <p>
+            {{ if(val.airport == "DEL" ) { }}
+              <a href="javascript:;"  onClick ="window.open('https://www.happyeasygo.com/heg_seo/flightDetails.do?from=BOM&to=DEL&date=' + new Date().getFullYear() + '-'+ (new Date().getMonth()- 0 +101).toString().slice(1,3) + '-'+ new Date().getDate(), '_blank')" >flight</a>
+            {{ } else { }}
+              <a href="javascript:;"  onClick ="window.open('https://www.happyeasygo.com/heg_seo/flightDetails.do?from=DEL&to={{=val.airport}}&date=' + new Date().getFullYear() + '-'+ (new Date().getMonth()- 0 +101).toString().slice(1,3) + '-'+ new Date().getDate(), '_blank')" >flight</a>
+            {{  } }}
+            
+            <span>●</span>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_{{= val.cityId}}_{{=val.cityName}}?param={%22name%22:%22{{=val.cityName}}%22,%22code%22:{{= val.cityId}},%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" >Hotel</a>
+          </p>
+        </div>
+      </li>
+      {{ } }}
+    {{ }) }}
+    </ul>
+  </div>
+  <div class="collapse" id="collapseExample">
+    <div class="well2">
+      <ul class="clearfix">
+        {{ _.each(myModel,function(val,i){ }}
+          {{ if(i >= 6 ) { }}
+          <li>
+            <img src="{{=val.url}}" alt="">
+            <div class="link">
+              <p>{{= val.cityName}}, {{=val.airport}}</p>
+              <p>
+                {{ if(val.airport == "DEL" ) { }}
+                  <a href="javascript:;"  onClick ="window.open('https://www.happyeasygo.com/heg_seo/flightDetails.do?from=BOM&to=DEL&date=' + new Date().getFullYear() + '-'+ (new Date().getMonth()- 0 +101).toString().slice(1,3) + '-'+ new Date().getDate(), '_blank')" >flight</a>
+                {{ } else { }}
+                  <a href="javascript:;"  onClick ="window.open('https://www.happyeasygo.com/heg_seo/flightDetails.do?from=DEL&to={{=val.airport}}&date=' + new Date().getFullYear() + '-'+ (new Date().getMonth()- 0 +101).toString().slice(1,3) + '-'+ new Date().getDate(), '_blank')" >flight</a>
+                {{  } }}
+                <span>●</span>
+                <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_{{= val.cityId}}_{{=val.cityName}}?param={%22name%22:%22{{=val.cityName}}%22,%22code%22:{{= val.cityId}},%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')">Hotel</a>
+              </p>
+            </div>
+          </li>
+          {{ } }}
+        {{ }) }}
+      </ul>
+    </div>
+  </div>
+</script>
+<script id="blogCardTpl" type="text/template">
+  <ul class="clearfix">
+    {{ _.each(myModel,function(val,i){ }}
+    <li>
+      <a href="{{=val.linkAddress}}">
+        <img src="{{= val.url}}" alt="">
+        <div class="link">
+          <p>{{=val.subTitle}}</p>
+          <p>
+            {{=val.category}} <span>{{= val.title }}</span>
+          </p>
+        </div>
+      </a>
+    </li>
+    {{ }) }}
+  </ul>
+</script>
+
+<script id="couponCardTpl" type="text/template">
+  <ul class="slides" >
+  {{ _.each(myModel,function(val,i){ }}
+    <li data-index="{{= i}}">
+      <a href="/coupondetails?code={{=val.couponCode}}&type=2">
+       <div class="flex-caption">
+          <p class="p_1 font-Bold">{{=val.title}}</p>
+          <p class="p_2">{{=val.description}}</p>
+          <div class="copy">
+              <span class="copyText">{{=val.couponCode}}</span>
+              <p class="pull-right">Valid till: {{= val.validTill}}</p>
+          </div>
+          <i class='icon c-type {{= val.couponType == 1 ? "icon-f" : "icon-h"}}'> </i>
+          <div class='TipsMsg'>
+            Successfully copied to the clipboard.
+          </div>
+        </div>
+        <div class="flex-img">
+          <img src="{{= val.imgPC}}" alt="">
+        </div>
+      </a>
+    </li>
+  {{ }) }}
+  {{ _.each(myModel,function(val,i){ }}
+    <li data-index="{{= i}}">
+      <a href="/coupondetails?code={{=val.couponCode}}&type=2">
+       <div class="flex-caption">
+          <p class="p_1 font-Bold">{{=val.title}}</p>
+          <p class="p_2">{{=val.description}}</p>
+          <div class="copy">
+              <span class="copyText">{{=val.couponCode}}</span>
+              <p class="pull-right">Valid till: {{= val.validTill}}</p>
+          </div>
+          <i class='icon c-type {{= val.couponType == 1 ? "icon-f" : "icon-h"}}'> </i>
+          <div class='TipsMsg'>
+            Successfully copied coupon code to the clipboard.
+          </div>
+        </div>
+        <div class="flex-img">
+          <img src="{{= val.imgPC}}" alt="">
+        </div>
+      </a>
+    </li>
+  {{ }) }}
+  
+  </ul>
+</script>
+
+
+<div class="modal saveEmailModal fade" id="saveEmailModal" data-backdrop="static" data-keyboard="false" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width: 360px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="msg">
+        <p>Thanks for subscribing. Now, get all travel info & deals at your fingertips!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%=require('../../_component/couponModal/index.ejs')()%>

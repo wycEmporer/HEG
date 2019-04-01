@@ -1,0 +1,147 @@
+.prizeModal{
+	.modal-dialog{
+		width: 720px;
+		height: 410px;
+		position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%)!important;
+		margin: 0px;
+		.modal-content{
+			width: 100%;
+			height: 100%;
+			text-align: center;
+      color: #111;
+      border: none;
+      background:url(./images/bg-left1.png) left top/144px 203px no-repeat, url(./images/bg-right1.png) right bottom/177px 205px no-repeat #f1f5f7;
+      &.newPam{
+        background:url(./images/bg-left.png) left top/79px 45px no-repeat, url(./images/bg-right.png) right bottom/115px 117px no-repeat #f1f5f7;
+        .redeemBtn{
+          background: #f23849;
+        }
+        .mark{
+          display: none;
+        }
+      }
+			.modal-header{
+				padding: 0px;
+				position: relative;
+        border: none;
+        padding-top: 26px;
+        // margin-bottom: 15px;
+				.close{
+					width: 29px;
+					height: 29px;
+					background: url('./images/guanbi@2x.png') no-repeat;
+					position: absolute;
+					right: 10px;
+					top: 10px;
+        }
+        .validity{
+          line-height: 30px;
+        }
+			}	
+    }
+    .modal-body{
+      // padding:30px 0 0 0;
+      height: 198px;
+      position: relative;
+    }
+    .imgBox{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .couponBan{
+      border-radius: 4px;
+      overflow: hidden;
+      & +.couponBan{
+        margin-left: 20px;
+      }
+      .couponImg{
+        display: block;
+        width: 280px;
+        height: 170px;
+      }
+      .mark{
+        width: 80px;
+        height: 30px;
+        line-height: 24px;
+        text-align: center;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: white;
+        color: #333333;
+        font-size: 14px;
+        border-radius: 4px 0px 0 4px;
+        .icon-flight{
+          display: inline-block;
+          width: 16px;
+          height: 12px;
+          background: url(./images/flight.png) no-repeat;
+          vertical-align: middle;
+        }
+        .icon-hotel{
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          background: url(./images/hotel.png) no-repeat;
+          vertical-align: middle;
+        }
+      }
+      .btnCopy{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 140px;
+        height: 39px;    
+        bottom:0;
+        right:0;
+        border-radius: 12px 0 0 0;
+        background-color: #fff;
+        .coupon-value{
+          position: relative;
+          cursor: pointer;
+          font-size:20px;
+          padding: 0 6px;
+          border: 1px dashed  #e51e1e;
+          img{
+            position: absolute;
+            width:16px;
+            height: 14px;
+            right:-10px;
+            top:-8px;;
+          }
+        }
+      }
+    }
+    .redeemBtn{
+      display: block;
+      height: 50px;
+      font-size: 20px;
+      line-height: 50px;
+      color:#fff;
+      cursor: pointer;
+      background: linear-gradient(to right, #7D0AD2,#F17564);
+    }
+    .footNote{
+      font-size: 14px;
+      color:#666;
+    }
+    .TipsMsg{
+      position: absolute;
+      left:50%;
+      transform: translateX(-50%);
+      top: 145px;
+      width: 180px;
+      padding: 10px;
+      font-size: 12px;
+      color: white;
+      background: rgba(0 , 0, 0, 0.8);
+      border-radius: 4px;
+      display: none;
+    }
+	}
+}

@@ -1,0 +1,175 @@
+<div class="container">
+  <div class="content clearfix">
+    <div class="side pull-left">
+      <div class="gua">
+        <a href="/guarantee/">
+          <img src="<%=require('../_imgs/guarantee.jpg')%>" alt="">
+        </a>
+      </div>
+      <div class="searchWrap">
+        <h2>Search flights</h2>
+        <div class="s-content">
+          <form id="searchForm" onsubmit="return false;">
+            <nav class="L-tripType clearfix">
+              <ul class="clearfix">
+                <li class="item oneway">
+                  <label for="oneway">
+                    <input type="radio" name="tripType" id="oneway" value="0" checked class="trip-type" checked="checked">
+                    <strong>One way</strong>
+                  </label>
+                </li>
+                <li class="item roundtrip">
+                  <label for="Roundtrip">
+                    <input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+                    <strong>Round trip</strong>
+                  </label>
+                </li>
+              </ul>
+            </nav>
+            <div class="LS-trip clearfix">
+              <div class="section1 clearfix">
+                <div class="d-city fore form-group">
+                  <label for="D_city">From</label>
+                  <input type="text" id="D_city"  placeholder="New Delhi" class="form-control" autocomplete="off">
+                  <input type="hidden" id="From" name="from" value="DEL" data-country="IN">
+                  <p class="checkError hidden">You missed this</p>
+                </div>
+                <!-- <div class="fore form-group">
+                  <div class="switch-city" id="switch_city">
+                    <i class="fa fa-exchange fa-2x"></i>
+                  </div>
+                </div> -->
+                <div class="a-city fore form-group">
+                  <label for="A_city">To</label>
+                  <input type="text" id="A_city" placeholder="Mumbai" class="form-control" data-ui="DEL" autocomplete="off">
+                  <input type="hidden" id="To" name="to" value="BOM" data-country="IN">
+                  <p class="checkError hidden">You missed this</p>
+                </div>
+              </div>
+              <div class="section2 clearfix">
+                <div class="d-date fore form-group">
+                  <label for="D_date">Depart on</label>
+                  <input type="text" readonly="readonly" id="D_date" class="form-control" placeholder="Choose Date" autocomplete='off'>
+                  <input type="hidden" id="departDate" name="departDate" value="">
+                  <a class="icon datepick"></a>
+                  <p class="checkError hidden">You missed this</p>
+                </div> 
+                <div class="r-date fore form-group hidden">
+                  <label for="R_date">Return on</label>
+                  <input type="text" readonly="readonly" id="R_date" class="form-control" placeholder="Choose Date" autocomplete='off'>
+                  <input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+                  <a class="icon datepick"></a>
+                  <p class="checkError hidden">You missed this</p>
+                </div> 
+              </div>
+              <div class="section3 clearfix">
+                <div class="A-passenger fore">
+                  <label for="A_passenger">Adults</label>
+                  <select id="A_passenger" class="form-control" name="adults">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                  </select>
+                  <p style="visibility: hidden;">above 11 yrs</p>
+                </div>
+                <div class="fore">
+                  <div class="line"></div>
+                </div>
+                <div class="C-passenger fore">
+                  <label for="C_passenger">Children</label>
+                  <select id="C_passenger" class="form-control" name="childs">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                  </select>
+                  <p class="grayDark">2-11 yrs</p>
+                </div>
+                <div class="fore">
+                  <div class="line"></div>
+                </div>
+                <div class="I-passenger fore">
+                  <label for="I_passenger">Infants</label>
+                  <select id="I_passenger" class="form-control" name="baby">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                  </select>
+                  <p class="grayDark">below 2 yrs</p>
+                </div>
+              </div>
+              <div class="section4 hidden" style="position: relative;" >
+                <a href="javascript:void(0)" class="" id="more_options" >
+                  <!-- <i class="fa fa-caret-right fa-lg"></i> -->
+                  <span class="more-op">More options:Class of travel,Airline preference</span>
+                </a>
+                <div class="options clearfix">
+                  <div class="classOP vertical">
+                    <label>Class of travel</label>
+                    <select name="cabinClass" id="" class="form-control">
+                      <option value="Economy">Economy</option>
+                      <option value="Business">Business</option>
+                      <option value="First">First</option>
+                      <option value="Premium Economy">Premium Economy</option>
+                    </select>
+                  </div>
+                  <div class="vertical">
+                    <label>Preferred Airline</label>
+                    <input type="text" id="airline" class="form-control" autocomplete="off">
+                    <input type="hidden" name="airline" value="">
+                  </div>
+                </div>  
+              </div>
+              <div class="section5">
+                  <button class="btn btn-warning" id="search_flights">Search flights</button>
+              </div>
+            </div> <!-- end LS-trip  -->
+            <input type="hidden" name="carrier" value="">
+          </form>
+        </div>
+      </div>
+      <div class="airline">
+       <p class="vendor">Vistara</p>
+        <img src="<%=require('./imgs/vistara.png')%>" class="center-block" alt="" width='124' height="124">
+       
+        <div class="airlineInfo">
+          <h3>Airline Contract Information</h3>
+          <p class="clearfix">
+            <span class="grayDark">Airline Code</span>
+            <span class="">UK</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="pull-right right">
+      <a href="" class="about" id='banner'>
+        
+      </a>
+      <div id="vistara">
+      
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="autoComplete" id="ui-2" style="display: none"></ul>
+
+<script id="vistaraTpl" type="text/template">
+  {{_.each(myModel, function(val, key){}}
+    <h2 class="title">{{=val.class}}</h2>
+    <div class="textContent">
+    {{_.each(val.content, function(value, key){}}
+      {{= value.content}}
+    {{})}}
+    </div>
+  {{})}}
+</script>

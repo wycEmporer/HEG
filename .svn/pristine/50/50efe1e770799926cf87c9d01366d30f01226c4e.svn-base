@@ -1,0 +1,455 @@
+<div class="container" id="container">
+  <div class="row">
+    <div class="conLeft col-sm-9">
+      <div class="flightInfo">
+        <div class="section1 clearfix sec closed" id="section1">
+          <div class="nav clearfix">
+            <div class="num">
+              01
+            </div>
+            <h2 class="til font-Bold">
+              Ticket Details
+            </h2>
+            <div class="viewEdit pull-right fontSz16 colorWar" style="cursor: pointer;">
+              View Detail
+            </div>
+          </div>
+          <div class="content" id="Itinerary">
+
+          </div>
+          <div class="tripSummary" id="tripSummary"></div>
+
+        </div>
+        <div class="section2 clearfix sec open" id="section2">
+          <div class="nav clearfix">
+            <div class="num">02</div>
+            <h2 class="til font-Bold">
+              Product
+            </h2>
+            <div class="viewEdit TD_viewEdit pull-right fontSz16 colorWar hidden" style="cursor: pointer;">
+              Edit
+            </div>
+          </div>
+          <div class="content" id="flightOptions"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="conRight col-sm-3" id="conRight">
+      <div class="item">
+        <h2 class="title">
+          Fare Summary
+        </h2>
+        <div class="sumWrap" id="fareDetailWrap">
+        </div>
+      </div>
+      <div class="item">
+        <h2 class="title">
+          HappyEasyGo offers 
+          <span class="colorWar pull-right fontSz16 editFare">Edit</span>
+        </h2>               
+        <div class="sumWrap hegOffers" id="hegOffers">
+          
+        </div>
+      </div>
+      <div class="item">
+        <div id="hegWallet">
+            <div class="colorPri price">
+          Total Amount
+          </div>
+        </div>
+      </div>
+    </div>    
+  </div>
+</div>
+
+<script id="itineraryTpl" type="text/template">
+  <div class="tripWrap">
+    <div style="padding:10px 0 0 40px;" class='fontSz14'>
+      <span class="colorPri font-Roman">NOTE:</span>
+      Indigo (6E 2000 to 6E 2999) & SpiceJet (SG 8000 to SG 8999) expand to Delhi Airport Terminal-2 (T2) from March 25, 2018. 
+      <a href="/airlines-notification/" class="colorPri" target="_blank">Know more</a>
+    </div>
+    {{_.each(myModel.itineraryArray, function(val, key){ }}
+    <div class="fInfo">
+      <h3 class="title clearfix fontSz16">
+        <span class="ic"></span>
+        <span class="city font-Roman">
+          {{=val.dc}}
+          <i class="fa fa-long-arrow-right"></i>
+          {{=val.ac}} &nbsp;&nbsp;
+        </span>
+        <span class="time font-Light">
+          {{=val.primaryDDate}} &nbsp;&nbsp;
+        </span> 
+        <span class="colorPri">
+          {{=val.fee.r}}
+        </span>
+      </h3>
+      <div class="fInfoI">
+        <div class="halfCircleTop"></div>
+        {{ _.each(val.stopByFlightArray, function(value, i){ }}
+        {{if(i < 1){ }}
+        <div class="fInfoII">
+          <ul class="clearfix fLine font-Light">
+            <li class="vendor">
+              <img src="/static/images/air-logo/{{=value.al}}.png" width="30" onerror="this.src='/static/images/air-logo/default.png" alt="">
+              <span>{{=value.co}}</span>
+              <span>{{=value.fn}}</span>
+              <span></span>
+            </li>
+            <li class="start">
+              <span>{{=value.ddate}}</span>
+              <strong class="fontSz24 marB8">{{=value.ds}} {{=value.dtime}}</strong>
+              <span>{{=value.da}} {{=value.dti}}</span>
+            </li>
+            <li class="through">
+              <div class="line pull-left"></div>
+              <strong class="dur fontSz24 font-Roman pull-left">{{=value.wdt}}</strong>
+              <div class="line pull-left"></div>
+            </li>
+            <li class="end">
+              <span>{{=value.adate}}</span>
+              <strong class="fontSz24 marB8">{{=value.as}} {{=value.atime}}</strong>
+              <span>{{=value.aa}} {{=value.ati}}</span>
+            </li>
+          </ul>
+          <div class="bagInfo">
+            <span>
+              <i class="fa fa-baggage"></i>
+              {{=myModel.baggageInfo[value.flightId].ch}} kgs check-In Baggage,
+              {{=myModel.baggageInfo[value.flightId].ca}} kgs Hand Baggage
+            </span>
+          </div>
+        </div>
+        {{ }else{ }}
+        <div class="layover">
+           <div class="row">
+             <div class="col-sm-offset-1 col-sm-3 line"></div>
+             <div class="layoverTime col-sm-4 fontSz16">
+               layover : {{=value.wt}}
+             </div>
+             <div class="col-sm-3 line"></div>
+           </div>
+        </div>
+        <div class="fInfoII">
+          <ul class="clearfix fLine font-Light">
+            <li class="vendor">
+              <img src="/static/images/air-logo/{{=value.al}}.png" width="30" onerror="this.src='/static/images/air-logo/default.png" alt="">
+              <span>{{=value.co}}</span>
+              <span>{{=value.fn}}</span>
+              <span></span>
+            </li>
+            <li class="start">
+              <span>{{=value.ddate}}</span>
+              <strong class="fontSz24 marB8">{{=value.ds}} {{=value.dtime}}</strong>
+              <span>{{=value.da}} {{=value.dti}}</span>
+            </li>
+            <li class="through">
+              <div class="line pull-left"></div>
+              <strong class="dur fontSz24 pull-left">{{=value.wdt}}</strong>
+              <div class="line pull-left"></div>
+            </li>
+            <li class="end">
+              <span>{{=value.adate}}</span>
+              <strong class="fontSz24 marB8">{{=value.as}} {{=value.atime}}</strong>
+              <span>{{=value.aa}} {{=value.ati}}</span>
+            </li>
+          </ul>
+          <div class="bagInfo">
+            <span>
+              <i class="fa fa-baggage"></i>
+              {{=myModel.baggageInfo[value.flightId].ch}} kgs check-In Baggage,
+              {{=myModel.baggageInfo[value.flightId].ca}} kgs Hand Baggage
+            </span>
+          </div>
+        </div>
+        {{ }; }) }}
+        <div class="halfCircleBot"></div>
+      </div>
+    </div>
+    {{ }) }}
+  </div>
+</script>
+<script id="flightOptionsTpl" type="text/template">
+  <div class="f-optional">
+    {{ _.each(val.fee.fees, function(fee, key){ }} 
+    {{if(fee.type == 1){}}
+    <ul class="clearfix">
+      <li class="fore">
+        <div class="caption">
+          <div class="c-title">
+            {{=fee.title || "The Lowest Price"}}
+          </div>
+        </div>
+        <div class="T_CWrap">
+          {{if(fee.exFee && fee.exFee[0].show){}}
+          <div class="pull-left icon-cash icon-cash-insure"></div>
+          <div class="pull-left">
+            <a tabindex="0" role="button" class="insTc" data-container="body" data-trigger="focus" data-id="{{=val.fn}}" data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+              <span class="colorPri">T&amp;C</span>
+            </a>
+          </div>
+          {{}}}
+        </div>
+      </li>
+      <li class="priceList fore" style="width">
+
+        <div class="payment">
+          <i class="rs">Rs.</i>
+          {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / val.fee.pCount).toThree()}}
+        </div>
+        <div class="order-dis">
+          <div class="price-line">
+            <i class="fa fa-inr"> </i>
+            <strong>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}</strong>
+          </div>
+        </div>
+        <div class="bookWrap text-center">
+          <a class="btn btn-warning font-Roman f-book" data-id="{{=val.fn}}" data-index="{{=key}}" data-type={{=fee.type}}>
+            BOOK
+          </a>
+        </div>
+      </li>
+    </ul>
+    {{ }else if(fee.type == 2){ }}
+    <ul class="clearfix">
+      <li class="fore">
+        <div class="caption member">
+          <div class="c-title">
+            {{=fee.title || "The Lowest Price"}}
+          </div>
+        </div>
+        <div class="T_CWrap">
+          
+          <div class="pull-left icon-cash {{= fee.exFee && fee.exFee[0].show ?'icon-cash-insure' : ''}}"></div>
+          <div class="pull-left">
+            <a tabindex="0" role="button" class="memberPop gray" data-container="body" data-id="{{=val.fn}}" data-index="{{=key}}" data-trigger="focus"
+              data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+              <span class="">T&amp;C</span>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="priceList fore">
+        <div class="payment">
+          <i class="rs">Rs.</i>
+          {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / val.fee.pCount).toThree()}}
+        </div>
+        <div class="order-dis">
+          <div class="price-line">
+            <i class="fa fa-inr"> </i>
+            <strong>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}</strong>
+          </div>
+        </div>
+        <div class="bookWrap font-Roman text-center">
+          <!--<a tabindex="0" role="button" data-container="body" {{=fee.isDisabled? 'data-toggle=popover': ''}} data-html="true" data-trigger="hover"
+            data-placement="bottom" class="btn font-Roman btn-warning f-book {{=fee.isDisabled? 'disable silverPop': ''}}" data-id="{{=val.fn}}"
+            data-index="{{=key}}" data-type={{=fee.type}} data-content="There is not enough Happy Silver in your Happy Wallet Account">
+            BOOK
+          </a>-->
+          <a  class="btn font-Roman btn-warning btn_type2 f-book {{=fee.isDisabled? 'disable silverPop': ''}}" data-id="{{=val.fn}}"
+            data-index="{{=key}}" data-type={{=fee.type}}>
+            BOOK
+          </a>
+          <div class='sliverNoEnough hide'>
+            <i class='arrowPop'></i>
+            {{if (val.isLogin ) { }}
+            <ol class="infoModal-cont  font-Roman">
+              
+              <li>
+                There is not enough Happy Silver in your account to avail Member Discount.
+              </li>
+              {{if (val.referSilver != 0 ) { }}
+              <li>
+                Refer <span class="friNum">{{= Math.ceil(fee.amount/val.referSilver)  }}</span> friends now and earn <span class="amount"> {{= Math.ceil(fee.amount/val.referSilver)*val.referSilver}}</span> Happy Silver.Referral reward credited instantly to your account on every sign up!
+              </li>
+              <li class='infoModal_1'>
+                <a href="/referral" class="a_link" target="_blank">Refer & Earn</a> 
+              </li>
+              {{ }  }}
+            </ol>
+            {{ } else { }}
+            <ol class="infoModal-cont font-Roman">
+              <li>
+                <a href="/static/tpl/loginTpl.html" class="a_link"  data-toggle="modal" data-target="#login_modal">Sign in</a> on your HEG account to quicken your booking process.
+              </li>
+              <li>
+                Don’t have a HEG account yet? <a href="/static/tpl/register.html" class="a_link" data-toggle="modal" data-target="#register_modal">Sign up</a> now!
+              </li>
+            </ol>
+            {{ }  }}
+          </div>
+        </div>
+      </li>
+    </ul>
+    {{ }else{ }}
+    <ul class="clearfix">
+      <li class="fore">
+        <div class="business caption">
+          <div class="c-title">
+            {{= fee.title || "Cashback Price"}}
+          </div>
+        </div>
+        <div class="T_CWrap">
+          <div class="pull-left icon-cash {{= fee.exFee && fee.exFee[0].show ?'icon-cash-insure' : 'icon-cash1'}}"></div>
+          <div class="pull-left">
+            <a tabindex="0" role="button" class="goldbackPop gray" data-container="body" data-id="{{=val.fn}}" data-index="{{=key}}"
+              data-type="{{=fee.type}}" data-trigger="focus" data-toggle="popover" data-html='true' data-placement="bottom"
+              style="outline: none;">
+              <span class="cbTC">{{=fee.cgf ? "Earn cash &nbsp; Free reschedule &nbsp; T&amp;C" : "Earn cash &nbsp; T&amp;C" }}</span>
+            </a>
+          </div>
+        </div>
+      </li>
+      <li class="priceList fore">
+        <div class="payment">
+          <i class="rs">Rs.</i>
+          {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / val.fee.pCount).toThree()}}
+        </div>
+        <div class="order-dis clearfix" style="padding-top: 8px;">
+          <div class='flightItem'>
+            <div class="flightItemA">
+              <span class='earnPrice'>{{=val.earnTitle.titleName}}
+                <i class="rs" style="margin-right: 0">Rs.</i>
+                <span class="cashback" style="display: inline;">{{=Math.round((fee.exFee?fee.exFee[0]:fee).cba / val.fee.pCount).toThree()}}</span>
+              </span>
+              <div class='popoverInfo hide'>
+                <i class='arrowPop'></i>
+                <ol class="infoModal-cont font-Roman">
+                  <li>You will earn Rs.{{=Math.round(val.fee.fees[key].cba / val.fee.pCount).toThree()}} by this booking.</li>
+                  <li>Cashback transferrable to bank account within 1 hour
+                    <a href="/cashback" target="_blank" style='color: white;text-decoration: underline;'>(know More)</a> 
+                  </li>
+                  <li>100% Usage on booking and no expiry date</li>
+                </ol>
+              </div>
+            </div>
+          </div> 
+        </div>
+        
+        <div class="bookWrap text-center ">
+          <a class="btn btn-warning f-book font-Roman" data-id="{{=val.fn}}" data-index="{{=key}}" data-type={{=fee.type}}>
+            BOOK
+          </a>
+        </div>
+      </li>
+    </ul>
+    {{ } }) }}
+  </div>
+</script>
+
+<script id="fareDetailTpl" type="text/template">
+  <div class="sumList">
+    <div class="passSum">
+      <span class="fontB padR10">Traveller</span>
+      <span>{{=model.adults}} Adult(s)</span>
+      {{if(model.childs != 0){ }}
+        <span>{{=model.childs}} Child(ren)</span>
+      {{}}}
+      {{if(model.baby != 0){ }}
+        <span>{{=model.baby}} Infant(s)</span>
+      {{}}}
+    </div>
+  </div>
+  <div class="sumList">
+    <div class="fareSum">
+      <h3 class="title fontSz16 fontB">
+        Fare
+      </h3>
+      <div class="con clearfix">
+        <span class="fontSz16 pull-left">Base fare and taxes</span>
+      </div>
+    </div>
+  </div>
+  <div class="sumList fareDetail fontSz16" style="display: none" id="insureItem">
+    <h3 class="title fontSz16 fontB">
+        Add Ons
+    </h3>
+    <div class="clearfix">
+      <div class="pull-left">Insurance</div>
+    </div>
+  </div>
+  <div class="sumList fareDetail fontSz16">
+    <h3 class="title fontSz16 fontB">
+        HappyEasyGo Coupon
+    </h3>
+  </div>
+</script>
+
+<div class="modal fade" id="bookExpire" role='dialog' tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="modal-content">
+      <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px; display:{{=model.showClose ? 'block' : 'none'}}"><span aria-hidden="true">&times;</span>
+      </div>
+      <div class="modal-header">
+        <h2 class="modal-title colorPri fontSz16">{{=model.title || "Oops!"}}</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <div style="font-size:16px;margin:14px 0;">
+          {{=model.text || "Fare or Seat(s) not available with the airline. <br /> Redirecting to Search Page..."}}
+        </div>
+        {{if(model.btnTex){}}
+          <a href="{{=model.href || ''}}" class="btn btn-warning pull-right">{{=model.btnTex}}</a>
+        {{}}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="login_modal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:440px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="register_modal" data-backdrop="static" data-keyboard="false" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="orderTimeout" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title colorPri fontSz16" id="exampleModalLabel">Session Timed Out</h4>
+      </div>
+      <div class="modal-body clearfix">
+        <p class='orderTimeoutMsg' style="margin-bottom: 10px;"></p>
+        <button type="button" class="btn SearchAgain btn-warning pull-right">Search again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="flightExpire" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title colorPri fontSz16" id="exampleModalLabel">Notice</h4>
+      </div>
+      <div class="modal-body clearfix">
+        <p style="margin-bottom: 10px;">Fare changed. Please search again.</p>
+        <button type="button" class="btn btn-warning pull-right" onclick="window.history.back(-1);">Search again</button>
+      </div>
+    </div>
+  </div>
+</div>

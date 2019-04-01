@@ -1,0 +1,758 @@
+<div class="newFooter">
+  <div class="container cheapBox font-Roman ">
+    <div class="clearfix cheap-box">
+      <div class="cheapTrip pull-left">
+        <p class="title font-Bold">Find Cheap Tickets by Destination</p>
+        <ul class="clearfix ul-1">
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=DEL"  target="_blank" >Flights to Delhi</a>
+          </li>
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=BOM"  target="_blank" >Flights to Mumbai</a>
+          </li>
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=BLR" target="_blank" >Flights to Bangalore</a>
+          </li>
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=CCU" target="_blank" >Flights to Kolkata</a>
+          </li>
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=HYD" target="_blank" >Flights to Hyderabad</a>
+          </li>
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=MAA" target="_blank" >Flights to Chennai</a>
+          </li>
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=PNQ" target="_blank" >Flights to Pune</a>
+          </li>
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=AMD" target="_blank" >Flights to Ahmedabad</a>
+          </li>
+          <li class=''>
+            <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=PAT" target="_blank" >Flights to Patna</a>
+          </li>
+        </ul>
+      </div>
+      <div class="cheapTrip cheapTrip-r pull-right">
+        <p class="title font-Bold">Find Cheap Tickets by Airline</p>
+        <ul class="clearfix">
+          <li class=''>
+          <a href="/airlines/indigo/" >IndiGo</a>
+          </li>
+          <li class=''>
+          <a href="/airlines/jetairways/" >Jet Airways</a>
+          </li>
+          <li class=''>
+          <a href="/airlines/goair/" >GoAir</a>
+          </li>
+          <li class=''>
+          <a href="/airlines/spicejet/" >SpiceJet</a>
+          </li>
+          <li class=''>
+          <a href="/airlines/airasia/" >AirAsia</a>
+          </li>
+          <li class=''>
+          <a href="/airlines/vistara/" >Vistara</a>
+          </li>
+          <li class=''>
+          <a href="/airlines/airindia/" >Air India</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+   
+  </div>
+  <div class="container linkBox font-Roman clearfix">
+    <div class='link_1'>
+      <p class="title font-Bold">OUR PRODUCTS</p>
+      <ul >
+       <li>
+          <a href="/flight">Online Flight Booking</a>
+        </li>
+        <li>
+          <a href="https://hotel.happyeasygo.com/">Online Hotel Booking</a>
+        </li>
+        <li>
+          <a href="https://www.happyeasygo.com/heg_seo/flight.do">Top Airline Routes</a>
+        </li>
+        <li>
+          <a href="https://www.happyeasygo.com/heg_seo/domesticFlight.do">Domestic Airlines</a>
+        </li>
+        <li>
+          <a href="https://hotel.happyeasygo.com/">Hotels in India</a>
+        </li>
+      </ul>
+    </div>
+    <div class='link_2'>
+      <p class="title font-Bold">CORPORATE</p>
+      <ul >
+        <li>
+          <a href="/aboutus/">About Us</a>
+        </li>
+        <li>
+          <a href="/contact/">Contact Us</a>
+        </li>
+        <li>
+          <a href="/Careers/">Careers</a>
+        </li>
+        <li>
+          <a href="https://www.happyeasygo.com/travel-blog/">Blog</a>
+        </li>
+      </ul>
+    </div>
+    <div class='link_3'>
+      <p class="title font-Bold">LEGAL</p>
+      <ul >
+        <li>
+          <a href="/faqs/">FAQs</a>
+        </li>
+        <li>
+          <a href="/conditions/">Terms & Conditions</a>
+        </li>
+        <li>
+          <a href="/privacy/">Privacy</a>
+        </li>
+      </ul>
+    </div>
+    <div class='link_5'>
+      <p class="title font-Bold">MORE LINKS</p>
+      <ul class="clearfix">
+        <li>
+          <a href="/airlines/indigo/">lndiGo</a>
+        </li>
+        <li>
+          <a href="/airlines/jetairways/">Jet Airways</a>
+        </li>
+         <li>
+          <a href="/airlines/goair/">GoAir</a>
+        </li>
+         <li>
+          <a href="/airlines/spicejet/">SpiceJet</a>
+        </li>
+        <li>
+          <a href="/airlines/airasia/">AirAsia</a>
+        </li>
+        <li>
+          <a href="/airlines/vistara/">Vistara</a>
+        </li>
+        <li>
+          <a href="/airlines/airindia/">Air India</a>
+        </li>
+       
+      </ul>
+    </div>
+  </div>
+  <div class="footImg">
+      <div class="container">
+        <div class="footImg_img"></div>
+      </div>
+  </div>
+  <div class="foot"> 
+    <div class="container">
+      <div class="load_info clearfix">
+        <div class="pull-left">
+          <p class="font-Bold title"><strong >Follow Us</strong></p>
+          <p class='clearfix icon'>
+            <a href="https://www.facebook.com/happyeasygo/" target='_blank' class="fb-icon fwIcon"></a>
+            <a href="https://twitter.com/happyeasygo" target='_blank' class="tw-icon fwIcon"></a>
+            <a href="https://www.instagram.com/happyeasygo_india/" target='_blank' class="ins-icon fwIcon"></a>
+            <a href="https://www.youtube.com/channel/UCBlph2534GSN1PDJH9E5ylg" target='_blank' class="tb-icon fwIcon"></a>
+            <a href="https://plus.google.com/+HappyEasyGoIndia" target='_blank' class="gl-icon fwIcon"></a>
+            </p>
+        </div>
+        <div class="pull-right load">
+          <p class="font-Bold title"><strong >Download our mobile Apps</strong></p>
+          <p class='clearfix'>
+            <a href="https://itunes.apple.com/app/id1390426818?mt=8" target="_blank" class="downLink pull-left ">
+                <img src="<%=require('../../less/componentsdir/images/new-app.png')%>" alt="">
+              </a>
+            <a href="https://app.adjust.com/2x7p5g" target="_blank" class=" pull-right">
+              <img src="<%=require('../../less/componentsdir/images/new-google.png')%>" alt="">
+            </a>
+            </p>
+        </div>
+      </div>
+      <div style="line-height: 18px;">
+        <p class="marB20">
+          HappyEasyGo is the manifestation of the dream of affordable travel. Established with the idea of helping people travel far and wide, it has left no stone unturned in making it happen. In a short span, HappyEasyGo has become one of the leading players in the flight booking arena, having built a strong base of loyal customers. You will find unbelievable offers on online flight tickets and hotel booking deals on the HappyEasyGo website and mobile app. This is your one-stop solution for saving big on your business and leisure trips. 
+        </p>
+        
+        <p>Why choose HappyEasyGo? </p> 
+        <p>&bull; Easy Bookings</p>
+        <p>&bull;  Lowest Prices</p>
+        <p>&bull; Jaw-dropping Offers</p>
+        <p class="marB20">&bull; 24X7 Support</p>
+        
+        <p class="marB20">
+        You are always in for a delightful flight and hotel booking experience. Utmost attention is paid to customer satisfaction and Search and book in a jiffy on the HappyEasyGo website or mobile app.
+        </p>
+        <p class="marB20">
+        Embark on that long-overdue international vacation or travel domestic to your favourite destinations; HappyEasyGo has the lowest airfares for you. From cheap hotels to luxurious resorts, you can also find them all in just a few clicks. The lowest price guarantee will help you rest assured that you are getting your money’s worth every time you book with HappyEasyGo. 
+        </p>
+        
+        <p style="padding-bottom: 10px; border-bottom: 1px solid #e6e6e6;">
+        Refer & Earn program helps you make quick money and score additional discounts on your bookings. With cashback offers, you can save even more on your bookings. HappyEasyGo is also consistently rolling out cheap flight and hotel deals that are hard to resist. The support team is available round the clock to help you in case you have any queries or grievances that need addressing
+        </p>
+      </div>
+      <div class="flight_line font-Roman">
+        <ul class="clearfix">
+          <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=DEL"  target="_blank" >Flights to Delhi&nbsp;|&nbsp;</a>
+        </li>
+        <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=BOM"  target="_blank" >Flights to Mumbai&nbsp;|&nbsp;</a>
+        </li>
+        <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=BLR" target="_blank" >Flights to Bangalore&nbsp;|&nbsp;</a>
+        </li>
+        <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=CCU" target="_blank" >Flights to Kolkata&nbsp;|&nbsp;</a>
+        </li>
+        <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=HYD" target="_blank" >Flights to Hyderabad&nbsp;|&nbsp;</a>
+        </li>
+        <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=MAA" target="_blank" >Flights to Chennai&nbsp;|&nbsp;</a>
+        </li>
+        <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=PNQ" target="_blank" >Flights to Pune&nbsp;|&nbsp;</a>
+        </li>
+        <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=AMD" target="_blank" >Flights to Ahmedabad&nbsp;|&nbsp;</a>
+        </li>
+        <li class=''>
+          <a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=PAT" target="_blank" >Flights to Patna</a>
+        </li>
+        </ul>
+        <ul class="clearfix">
+          <li>
+              <a href="https://www.happyeasygo.com/flights/DEL-CCU/"  target="_blank" > <p>New Delhi to Kolkata flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+      
+          <li>
+              <a href="https://www.happyeasygo.com/flights/MAA-BLR/"  target="_blank" > <p>Chennai to Bangalore flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+      
+          <li>
+              <a href="https://www.happyeasygo.com/flights/BLR-MAA/"  target="_blank" > <p>Bangalore to Chennai flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+      
+          <li>
+              <a href="https://www.happyeasygo.com/flights/BLR-HYD/"  target="_blank" > <p>Bangalore to Hyderabad flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+      
+          <li>
+              <a href="https://www.happyeasygo.com/flights/BOM-AMD/"  target="_blank" > <p>Mumbai to Ahmedabad flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+      
+          <li>
+              <a href="https://www.happyeasygo.com/flights/AMD-BLR/"  target="_blank" > <p>Ahmedabad to Bangalore flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+      
+          <li>
+              <a href="https://www.happyeasygo.com/flights/AMD-BOM/" target="_blank" > <p>Ahmedabad to Mumbai flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+      
+          <li>
+              <a href="https://www.happyeasygo.com/flights/MAA-HYD/"  target="_blank" > <p>Chennai to Hyderabad flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+      
+          <li>
+              <a href="https://www.happyeasygo.com/flights/HYD-BLR/"  target="_blank" > <p>Hyderabad to Bangalore flight schedule</p></a>
+          </li>
+        </ul> 
+        <ul class="clearfix">
+          <li>
+            <a href="https://www.happyeasygo.com/flights/AMD-BOM/" target="_blank"  ><p>Ahmedabad  to Mumbai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/AMD-DEL/" target="_blank"  ><p>Ahmedabad   to Delhi flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="ttps://www.happyeasygo.com/flights/AMD-BLR/" target="_blank"  ><p>Ahmedabad  to Bangalore flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/AMD-CCU/" target="_blank"  ><p>Ahmedabad  to Kolkata flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/AMD-HYD/" target="_blank"  ><p>Ahmedabad  to Hyderabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/AMD-MAA/" target="_blank"  ><p>Ahmedabad  to Chennai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/AMD-PNQ/" target="_blank"  ><p>Ahmedabad  to Pune flight schedule&nbsp;|&nbsp;</p></a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/AMD-PAT/" target="_blank"  ><p>Ahmedabad  to Patna flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BLR-BOM/" target="_blank"  ><p>Bangalore    to Mumbai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BLR-DEL/" target="_blank" ><p>Bangalore  to Delhi flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BLR-AMD/" target="_blank"  ><p>Bangalore   to Ahmedabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BLR-CCU/" target="_blank"  ><p>Bangalore  to Kolkata flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BLR-HYD/" target="_blank"  ><p>Bangalore   to Hyderabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BLR-MAA/" target="_blank"  ><p>Bangalore   to Chennai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BLR-PNQ/" target="_blank"  ><p>Bangalore   to Pune flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BLR-PAT/" target="_blank"  ><p>Bangalore   to Patna flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/MAA-BOM/" target="_blank"  ><p>Chennai    to Mumbai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/MAA-DEL/" target="_blank"  ><p>Chennai to    Delhi flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/MAA-AMD/"  target="_blank" ><p>Chennai     to Ahmedabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/MAA-BLR/"  target="_blank" ><p>Chennai     to Bangalore flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/MAA-CCU/"  target="_blank" ><p>Chennai     to Kolkata flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/MAA-HYD/"  target="_blank" ><p>Chennai     to Hyderabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/MAA-PNQ/"  target="_blank" ><p>Chennai     to Pune flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/MAA-PAT/"  target="_blank" ><p>Chennai     to Patna flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+           <a href="https://www.happyeasygo.com/flights/DEL-BOM/"  target="_blank" ><p>Delhi to Mumbai flight schedule&nbsp;|&nbsp;</p>
+           </a>
+          </li>
+          <li>
+           <a href="https://www.happyeasygo.com/flights/DEL-AMD/"  target="_blank" ><p>Delhi to Ahmedabad flight schedule&nbsp;|&nbsp;</p>
+           </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/DEL-BLR/"  target="_blank" ><p>Delhi to Bangalore flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+           <a href="https://www.happyeasygo.com/flights/DEL-CCU/"  target="_blank" ><p>Delhi to Kolkata flight schedule&nbsp;|&nbsp;</p>
+           </a>
+          </li>
+          <li>
+           <a href="https://www.happyeasygo.com/flights/DEL-HYD/"  target="_blank" ><p>Delhi to Hyderabad flight schedule&nbsp;|&nbsp;</p>
+           </a>
+          </li>
+          <li>
+           <a href="https://www.happyeasygo.com/flights/DEL-MAA/"  target="_blank" ><p>Delhi to Chennai flight schedule&nbsp;|&nbsp;</p>
+           </a>
+          </li>
+          <li>
+           <a href="https://www.happyeasygo.com/flights/DEL-PNQ/"  target="_blank" ><p>Delhi to Pune flight schedule&nbsp;|&nbsp;</p>
+           </a>
+          </li>
+          <li>
+           <a href="https://www.happyeasygo.com/flights/DEL-PAT/"  target="_blank" ><p>Delhi to Patna flight schedule&nbsp;|&nbsp;</p>
+           </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/HYD-BOM/"  target="_blank" ><p>Hyderabad to Mumbai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/HYD-DEL/"  target="_blank" ><p>Hyderabad to Delhi flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/HYD-AMD/"  target="_blank" ><p>Hyderabad to Ahmedabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/HYD-BLR/"  target="_blank" ><p>Hyderabad to Bangalore flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/HYD-CCU/"  target="_blank" ><p>Hyderabad to Kolkata flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/HYD-MAA/"  target="_blank" ><p>Hyderabad to Chennai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/HYD-PNQ/"  target="_blank" ><p>Hyderabad to Pune flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/HYD-PAT/"  target="_blank" ><p>Hyderabad to Patna flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/CCU-BOM/"  target="_blank" ><p>Kolkata to Mumbai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/CCU-DEL/"  target="_blank" ><p>Kolkata to Delhi flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/CCU-AMD/"  target="_blank" ><p>Kolkata to Ahmedabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/CCU-BLR/"  target="_blank" ><p>Kolkata to Bangalore flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/CCU-HYD/"  target="_blank" ><p>Kolkata to Hyderabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/CCU-MAA/"  target="_blank" ><p>Kolkata to Chennai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/CCU-PNQ/"  target="_blank" ><p>Kolkata to Pune flight schedule&nbsp;|&nbsp;</p>
+          </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/CCU-PAT/"  target="_blank" ><p>Kolkata to Patna flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BOM-DEL/"  target="_blank" ><p>Mumbai to Delhi flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BOM-AMD/"  target="_blank" ><p>Mumbai to Ahmedabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BOM-BLR/"  target="_blank" ><p>Mumbai to Bangalore flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BOM-CCU/"  target="_blank" ><p>Mumbai to Kolkata flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BOM-HYD/"  target="_blank" ><p>Mumbai to Hyderabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BOM-MAA/"  target="_blank" ><p>Mumbai to Chennai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BOM-PNQ/"  target="_blank" ><p>Mumbai to Pune flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/BOM-PAT/"  target="_blank" ><p>Mumbai to Patna flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PNQ-BOM/"  target="_blank" ><p>Pune to Mumbai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PNQ-DEL/" target="_blank"  ><p>Pune to Delhi flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PNQ-AMD/" target="_blank"  ><p>Pune to Ahmedabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PNQ-BLR/" target="_blank"  ><p>Pune to Bangalore flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PNQ-CCU/" target="_blank"  ><p>Pune to Kolkata flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PNQ-HYD/" target="_blank"  ><p>Pune to Hyderabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PNQ-MAA/" target="_blank"  ><p>Pune to Chennai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PNQ-PAT/" target="_blank"  ><p>Pune to Patna flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PAT-BOM/" target="_blank"  ><p>Patna to Mumbai flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PAT-DEL/" target="_blank"  ><p>Patna to Delhi flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PAT-AMD/" target="_blank"  ><p>Patna to Ahmedabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PAT-BLR/" target="_blank"  ><p>Patna to Bangalore flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PAT-CCU/" target="_blank" ><p>Patna to Kolkata flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PAT-HYD/"  target="_blank" ><p>Patna to Hyderabad flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PAT-MAA/" target="_blank"  ><p>Patna to Chennai flight schedule&nbsp;|&nbsp;</p>
+           </a>
+          </li>
+          <li>
+            <a href="https://www.happyeasygo.com/flights/PAT-PNQ/" target="_blank"  ><p>Patna to Pune flight schedule&nbsp;|&nbsp;</p>
+            </a>
+          </li>
+        </ul>
+        <ul class="clearfix">   
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=CCU" target="_blank" > New Delhi to Kolkata flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=MAA&to=BLR" target="_blank" > Chennai to Bangalore flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BLR&to=MAA" target="_blank" > Bangalore to Chennai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BLR&to=HYD"  target="_blank" > Bangalore to Hyderabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=AMD"  target="_blank" > Mumbai to Ahmedabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=AMD&to=BLR"  target="_blank" > Ahmedabad to Bangalore flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=AMD&to=BOM"  target="_blank" > Ahmedabad to Mumbai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=MAA&to=HYD"  target="_blank" > Chennai to Hyderabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=HYD&to=BLR"  target="_blank" > Hyderabad to Bangalore flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=CCU&to=PNQ"  target="_blank" > Kolkata to Pune flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BLR&to=AMD"  target="_blank" > Bangalore to Ahmedabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PAT&to=CCU"  target="_blank" > Patna to Kolkata flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BLR&to=PNQ"  target="_blank" > Bangalore to Pune flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=AMD"  target="_blank" > New Delhi to Ahmedabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=AMD&to=PNQ"  target="_blank" > Ahmedabad to Pune flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=AMD&to=HYD"  target="_blank" > Ahmedabad to Hyderabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=AMD&to=DEL"  target="_blank" > Ahmedabad to New Delhi flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=CCU&to=PAT"  target="_blank" > Kolkata to Patna flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=MAA"  target="_blank" > Mumbai to Chennai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=BLR"  target="_blank" > Mumbai to Bangalore flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BLR&to=BOM"  target="_blank" > Bangalore to Mumbai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PNQ&to=BLR"  target="_blank" > Pune to Bangalore flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=HYD"  target="_blank" > Mumbai to Hyderabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=DEL"  target="_blank" > Mumbai to New Delhi flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=HYD&to=AMD"  target="_blank" > Hyderabad to Ahmedabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PNQ&to=AMD"  target="_blank" > Pune to Ahmedabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=MAA&to=BOM"  target="_blank" > Chennai to Mumbai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=HYD&to=MAA"  target="_blank" > Hyderabad to Chennai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=HYD&to=CCU"  target="_blank" > Hyderabad to Kolkata flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=BOM"  target="_blank" > New Delhi to Mumbai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=HYD&to=BOM"  target="_blank" > Hyderabad to Mumbai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PNQ&to=HYD"  target="_blank" > Pune to Hyderabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=MAA&to=PNQ"  target="_blank" > Chennai to Pune flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=HYD"  target="_blank" > New Delhi to Hyderabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=AMD&to=MAA"  target="_blank" > Ahmedabad to Chennai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=CCU&to=HYD"  target="_blank" > Kolkata to Hyderabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=MAA&to=CCU"  target="_blank" > Chennai to Kolkata flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PNQ&to=MAA"  target="_blank" > Pune to Chennai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=HYD&to=PNQ"  target="_blank" > Hyderabad to Pune flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=HYD&to=DEL"  target="_blank" > Hyderabad to New Delhi flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=PNQ"  target="_blank" > New Delhi to Pune flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PAT&to=DEL"  target="_blank" > Patna to New Delhi flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=PAT"  target="_blank" > New Delhi to Patna flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=MAA&to=AMD"  target="_blank" > Chennai to Ahmedabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=MAA&to=DEL"  target="_blank" > Chennai to New Delhi flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=MAA"  target="_blank" > New Delhi to Chennai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PNQ&to=DEL"  target="_blank" > Pune to New Delhi flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=CCU&to=MAA"  target="_blank" > Kolkata to Chennai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BLR&to=CCU"  target="_blank" > Bangalore to Kolkata flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=DEL&to=BLR"  target="_blank" > New Delhi to Bangalore flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BLR&to=DEL"  target="_blank" > Bangalore to New Delhi flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=CCU&to=DEL"  target="_blank" > Kolkata to New Delhi flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PAT&to=HYD"  target="_blank" > Patna to Hyderabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=CCU&to=BLR"  target="_blank" > Kolkata to Bangalore flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PAT&to=MAA"  target="_blank" > Patna to Chennai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PNQ&to=BOM"  target="_blank" > Pune to Mumbai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=CCU"  target="_blank" > Mumbai to Kolkata flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=CCU&to=AMD"  target="_blank" > Kolkata to Ahmedabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=HYD&to=PAT"  target="_blank" > Hyderabad to Patna flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=PNQ"  target="_blank" > Mumbai to Pune flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=AMD&to=CCU"  target="_blank" > Ahmedabad to Kolkata flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=CCU&to=BOM"  target="_blank" > Kolkata to Mumbai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PNQ&to=CCU"  target="_blank" > Pune to Kolkata flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BLR&to=PAT"  target="_blank" > Bangalore to Patna flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PAT&to=PNQ"  target="_blank" > Patna to Pune flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PAT&to=BLR"  target="_blank" > Patna to Bangalore flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=MAA&to=PAT"  target="_blank" > Chennai to Patna flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PAT&to=BOM"  target="_blank" > Patna to Mumbai flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=AMD&to=PAT"  target="_blank" > Ahmedabad to Patna flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=BOM&to=PAT"  target="_blank" > Mumbai to Patna flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PAT&to=AMD"  target="_blank" > Patna to Ahmedabad flights&nbsp;|&nbsp;</a></li>
+      
+          <li><a href="https://www.happyeasygo.com/cheap-domestic-flights-booking/flightDetails.do?from=PNQ&to=PAT"  target="_blank" > Pune to Patna flights</a></li>
+        </ul>
+        <ul class="clearfix">
+          <li class='active'>
+            <a href="javascript:;"  onClick="window.open('https://hotel.happyeasygo.com/page/cities_1601_new-delhi?param={%22name%22:%22New%20Delhi%22,%22code%22:1601,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" >Hotels in Delhi&nbsp;|&nbsp; </a>
+          </li>
+          <li class=''>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_44_mumbai?param={%22name%22:%22Mumbai%22,%22code%22:44,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" > Hotels in Mumbai&nbsp;|&nbsp; </a>
+          </li>
+          <li class=''>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_1734_bangalore?param={%22name%22:%22Bangalore%22,%22code%22:1734,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" > Hotels in Bangalore&nbsp;|&nbsp; </a>
+          </li>
+          <li class=''>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_50_kolkata?param={%22name%22:%22Kolkata%22,%22code%22:50,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" > Hotels in Kolkata&nbsp;|&nbsp; </a>
+          </li>
+          <li class=''>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_47_hyderabad?param={%22name%22:%22Hyderabad%22,%22code%22:47,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" > Hotels in Hyderabad&nbsp;|&nbsp; </a>
+          </li>
+          <li class=''>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_45_chennai?param={%22name%22:%22Chennai%22,%22code%22:45,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" > Hotels in Chennai&nbsp;|&nbsp; </a>
+          </li>
+          <li class=''>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_46_pune?param={%22name%22:%22Pune%22,%22code%22:46,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')"> Hotels in Pune&nbsp;|&nbsp; </a>
+          </li>
+          <li class=''>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_49_ahmedabad?param={%22name%22:%22Ahmedabad%22,%22code%22:49,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" > Hotels in Ahmedabad&nbsp;|&nbsp; </a>
+          </li>
+          <li class=''>
+            <a href="javascript:;"  onClick ="window.open('https://hotel.happyeasygo.com/page/cities_64_patna?param={%22name%22:%22Patna%22,%22code%22:64,%22checkIn%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + new Date().getDate() + '%22,%22checkOut%22:%22' + new Date().getFullYear() + '-' + (new Date().getMonth()- 0 +101).toString().slice(1, 3) + '-' + (new Date().getDate()-0+1) + '%22,%22guests%22:[{%22id%22:1,%22adult%22:2,%22child%22:0,%22age%22:[]}]}', '_blank')" > Hotels in Patna</a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+  <div class="foot-info">
+    <p class=" foot_p">Copyright &copy; 2016-2019 Happyeasygo Group. All rights reserved</p>
+    <p class=" foot_p">All product names, logos, brands, trademarks and registered trademarks are property of their respective owners.</p>
+  </div>
+</div>
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="login_modal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:440px;height:410px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px;opacity:1;"><span aria-hidden="true" style='color:#ccc;'>&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="register_modal" data-backdrop="static" data-keyboard="false" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+

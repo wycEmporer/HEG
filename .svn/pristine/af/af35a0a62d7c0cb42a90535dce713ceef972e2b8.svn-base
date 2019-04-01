@@ -1,0 +1,22 @@
+const paths = require('utils').path;
+
+export function getPaymentChannel(){
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url:paths.getPaymentChannel(),
+      type: 'GET',
+      dataType: 'json',
+      headers: {'x-Device': 'PC'}
+    })
+    .done(res => {
+      if(res.success){
+        return resolve(res);
+      }else{
+        return reject();
+      }
+    }).fail(err => {
+      return reject();
+    });
+  });
+  
+}

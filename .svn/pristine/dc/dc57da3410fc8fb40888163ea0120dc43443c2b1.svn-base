@@ -1,0 +1,186 @@
+<div class="container">
+  <div class="content clearfix">
+    <div class="side pull-left">
+      <div class="gua">
+        <a href="/guarantee/">
+          <img src="<%=require('../_imgs/guarantee.jpg')%>" alt="">
+        </a>
+      </div>
+      <div class="searchWrap">
+        <h2>Search flights</h2>
+        <div class="s-content">
+          <form id="searchForm" onsubmit="return false;">
+            <nav class="L-tripType clearfix">
+              <ul class="clearfix">
+                <li class="item oneway">
+                  <label for="oneway">
+                    <input type="radio" name="tripType" id="oneway" value="0" checked class="trip-type" checked="checked">
+                    <strong>One way</strong>
+                  </label>
+                </li>
+                <li class="item roundtrip">
+                  <label for="Roundtrip">
+                    <input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+                    <strong>Round trip</strong>
+                  </label>
+                </li>
+              </ul>
+            </nav>
+            <div class="LS-trip clearfix">
+              <div class="section1 clearfix">
+                <div class="d-city fore form-group">
+                  <label for="D_city">From</label>
+                  <input type="text" id="D_city"  placeholder="New Delhi" class="form-control" autocomplete="off">
+                  <input type="hidden" id="From" name="from" value="DEL" data-country="IN">
+                  <p class="checkError hidden">You missed this</p>
+                </div>
+                <!-- <div class="fore form-group">
+                  <div class="switch-city" id="switch_city">
+                    <i class="fa fa-exchange fa-2x"></i>
+                  </div>
+                </div> -->
+                <div class="a-city fore form-group">
+                  <label for="A_city">To</label>
+                  <input type="text" id="A_city" placeholder="Mumbai" class="form-control" data-ui="DEL" autocomplete="off">
+                  <input type="hidden" id="To" name="to" value="BOM" data-country="IN">
+                  <p class="checkError hidden">You missed this</p>
+                </div>
+              </div>
+              <div class="section2 clearfix">
+                <div class="d-date fore form-group">
+                  <label for="D_date">Depart on</label>
+                  <input type="text" readonly="readonly" id="D_date" class="form-control" placeholder="Choose Date" autocomplete='off'>
+                  <input type="hidden" id="departDate" name="departDate" value="">
+                  <a class="icon datepick"></a>
+                  <p class="checkError hidden">You missed this</p>
+                </div> 
+                <div class="r-date fore form-group hidden">
+                  <label for="R_date">Return on</label>
+                  <input type="text" readonly="readonly" id="R_date" class="form-control" placeholder="Choose Date" autocomplete='off'>
+                  <input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+                  <a class="icon datepick"></a>
+                  <p class="checkError hidden">You missed this</p>
+                </div> 
+              </div>
+              <div class="section3 clearfix">
+                <div class="A-passenger fore">
+                  <label for="A_passenger">Adults</label>
+                  <select id="A_passenger" class="form-control" name="adults">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                  </select>
+                  <p style="visibility: hidden;">above 11 yrs</p>
+                </div>
+                <div class="fore">
+                  <div class="line"></div>
+                </div>
+                <div class="C-passenger fore">
+                  <label for="C_passenger">Children</label>
+                  <select id="C_passenger" class="form-control" name="childs">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                  </select>
+                  <p class="grayDark">2-11 yrs</p>
+                </div>
+                <div class="fore">
+                  <div class="line"></div>
+                </div>
+                <div class="I-passenger fore">
+                  <label for="I_passenger">Infants</label>
+                  <select id="I_passenger" class="form-control" name="baby">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                  </select>
+                  <p class="grayDark">below 2 yrs</p>
+                </div>
+              </div>
+              <div class="section4 hidden" style="position: relative;" >
+                <a href="javascript:void(0)" class="" id="more_options" >
+                  <!-- <i class="fa fa-caret-right fa-lg"></i> -->
+                  <span class="more-op">More options:Class of travel,Airline preference</span>
+                </a>
+                <div class="options clearfix">
+                  <div class="classOP vertical">
+                    <label>Class of travel</label>
+                    <select name="cabinClass" id="" class="form-control">
+                      <option value="Economy">Economy</option>
+                      <option value="Business">Business</option>
+                      <option value="First">First</option>
+                      <option value="Premium Economy">Premium Economy</option>
+                    </select>
+                  </div>
+                  <div class="vertical">
+                    <label>Preferred Airline</label>
+                    <input type="text" id="airline" class="form-control" autocomplete="off">
+                    <input type="hidden" name="airline" value="">
+                  </div>
+                </div>  
+              </div>
+              <div class="section5">
+                  <button class="btn btn-warning" id="search_flights">Search flights</button>
+              </div>
+            </div> <!-- end LS-trip  -->
+            <input type="hidden" name="carrier" value="">
+          </form>
+        </div>
+      </div>
+      <div class="airline">
+        <img src="<%=require('./imgs/inidgo.png')%>" class="center-block" alt="" width='124' height="124">
+        <p class="vendor">Inidgo <br><a href="http://www.goindigo.in">www.goindigo.in</a></p>
+        
+        <div class="airlineInfo">
+          <h3>Airline Contract Information</h3>
+          <p class="clearfix">
+            <span class="pull-left grayDark">Airline Code</span>
+            <span class="pull-right">6E</span>
+          </p>
+          <p class="clearfix">
+            <span class="pull-left grayDark">Phone Number</span>
+            <span class="pull-right">1-800-180-3838</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="pull-right right">
+      <a href="" class="about" id='banner'>
+        
+      </a>
+      <h2 class="title">About Inidgo</h2>
+      <div class="textContent">
+        <p>
+          IndiGo is India's largest airline with a market share of 29.1 per cent as of August, 2013 as well as the country's largest low fare carrier. IndiGo is the fastest growing low cost carrier in the world (source: CAPA). IndiGo has a simple philosophy: offer fares that are always low, flights that are on time, and a courteous, hassle-free travel experience. IndiGo’s On Time Performance is one of the best in India. IndiGo’s Technical Dispatch Reliability is 99.94% making it the airline with the least number of cancellations in India. With its fleet of 70 new Airbus A320 aircraft, the airline offers 447 daily flights connecting 34 destinations - Agartala, Ahmedabad, Bengaluru, Bhubaneswar, Chandigarh, Coimbatore, Chennai, Delhi, Dibrugarh, Goa, Guwahati, Hyderabad, Imphal, Indore, Jaipur, Jammu, Kochi, Kolkata, Lucknow, Mumbai, Nagpur, Patna, Pune, Raipur, Ranchi, Srinagar, Trivandrum, Vadodara & Vishakhapatnam. IndiGo currently operate International flights to 5 destinations, namely, Bangkok, Dubai, Kathmandu, Muscat and Singapore. The first international flight commenced on September 01, 2011. IndiGo is led by its President, Aditya Ghosh and is promoted by InterGlobe Enterprises and Mr. Rakesh Gangwal, an aviation industry veteran and entrepreneur.
+        </p>
+      </div>
+      <h2 class="title">Inidgo Operation</h2>
+      <div class="textContent">
+        <p>
+          InterGlobe Enterprises is a leader in aviation and travel related services‚ growing the market through innovation and service leadership. We build businesses and represent global brands that deliver quality and value. Established in 1989‚ with headquarters in Gurgaon‚ today InterGlobe has a network of 126 offices across 59 cities globally. InterGlobe employs more than 11,000 professionals across its businesses which include IndiGo (InterGlobe Aviation)‚ InterGlobe Technologies‚ InterGlobe Air Transport‚ InterGlobe Technology Quotient‚ InterGlobe Hotels, InterGlobe Retail, and InterGlobe Established. As the youngest, yet fastest growing airline in India, IndiGo has flown over 60 million passengers in seven years. IndiGo is one of the best domestic airlines to book a ticket with. HappyEasyGo’s booking engine searches and lists out the fares in order of the lowest cost so that you can pick the Indigo flight that suits your pocket and your schedule.
+        </p>
+      </div>
+      <h2 class="title">Inidgo Baggage Information</h2>
+      <div class="textContent">
+        <p>
+           Checked Baggage: Domestic and international passengers can carry free checked baggage of 15 kg and 20 kg respectively. The dimensions (L+W+H) of the checked luggage should not exceed 158 cm (62 inches). Any domestic traveller carrying excess baggage will be charged Rs. 250 per kg at the check-in counter.
+                <br/>
+                <br/>
+                Hand Baggage: Passengers can carry a maximum of 7 kg of hand baggage, which includes laptop and duty free shopping bags. The size of the luggage should not exceed the standard dimensions of length 55cm+width 35cm+ height 25cm. Passengers with infants are allowed an additional piece of hand baggage weighing up to 7 kg, not exceeding the standard dimensions. In case, the baggage is found to be overweight at the boarding gate, Rs. 250 per kg will be charged. Passengers who want to take liquids in their hand baggage can do so by keeping two things in mind. First, the maximum volume of the liquid should be 100 ml and second, it should be fitted into a transparent and re-sealable 1 litre plastic bag. It should be noted that on any flights from Jammu and Srinagar airports, no hand luggage is allowed due to airport security regulations.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<ul class="autoComplete" id="ui-2" style="display: none"></ul>

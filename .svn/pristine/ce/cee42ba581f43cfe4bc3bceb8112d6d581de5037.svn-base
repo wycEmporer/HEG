@@ -1,0 +1,1578 @@
+<div class="F-search" id="F_search_result">
+  <div class="container clearfix">
+    <div class="sidebar">
+      <div id="filterBar" class="sidebarInner">
+        <div class="reset clearfix">
+          <h2 class="til font-Bold">Filter Results</h2>
+          <a href="javascript:void(0);" class="reset-all pull-right" id="resetAll">Reset All</a>
+        </div>
+        <div class="price-range-wrap borC  closed clearfix" id="priceWrap">
+        </div>
+        <div class="stops borC closed clearfix" id="stopsWrap">
+        </div>
+        <div class="d-time borC closed clearfix" id="timeWrap">
+        </div>
+        <div class="borC closed" id="referPro">
+        </div>
+        <div class="airlines borC  closed" id="airlinesWrap">
+        </div>
+        <div style="height: 30px;"></div>
+      </div>
+    </div>
+    <!-- end sidebar -->
+    <div class="f-con-wrap" id="f_con_wrap">
+      <div class="progress" style="width:100% ;background-color:#dfdfdf;margin:20px 0;">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+          style="width: 1%" id="progress_bar">
+          <span class="sr-only">45% Complete</span>
+        </div>
+      </div>
+      <div class="journey-wrap clearfix">
+        <ul class="route pull-left" id="city_route"></ul>
+        <div class="right-btn pull-right font-Light">
+          <a href="" data-toggle="modal" data-target="#modify_search_modal" class="no-bg-btn" id="researchBtn">Modify Search</a>
+          <!--<a href="" data-toggle="modal" data-target="#getFareAlert" class="no-bg-btn" id="">Get Fare Alert</a>-->
+          <!-- <a href="javascript:void(0);" class="no-bg-btn" id="shareBtn">Share Itinerary</a> -->
+        </div>
+      </div>
+      <div class="calendar-wrap" style="display: none">
+        <div id="carousel-date" class="carousel slide carousel-con" data-ride="carousel" data-interval="false">
+          <a class="left control-carousel" href="#carousel-date" role="button" data-slide="prev">
+            <span class="iconglyph iconglyph-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <div class="carousel-inner center-block" role="listbox">
+          </div>
+          <!-- Controls -->
+          <a class="right control-carousel" href="#carousel-date" role="button" data-slide="next">
+            <span class="iconglyph iconglyph-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+      <div class="f-content" id="f_content" style="display: none;">
+        <div id="f_title">
+          <ul class="title-line clearfix font-Light">
+            <li class="fore">
+              <div>Airline</div>
+            </li>
+            <li class="fore time-sort">
+              <div class="timeCol">Departure
+                <i class="fa fa-sort"></i>
+              </div>
+              <div class="timeCol">Arrival
+                <i class="fa fa-sort"></i>
+              </div>
+              <div class="timeCol">Duration
+                <i class="fa fa-sort"></i>
+              </div>
+            </li>
+            <li class="fore text-center">
+              <div>Price
+                <i class="fa fa-sort"></i>
+              </div>
+              <div style="margin-left:30px;text-align: left;">
+                Cashback
+                <i class="fa fa-sort"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="flights" id="flights">
+        </div>
+      </div>
+      <div class="f-r-content" id="f_r_content" style="display: none">
+        <div class="selected-wrap" id="selected_wrap">
+          <div class="container">
+            <div class="left-selected"></div>
+            <div class="selected-con">
+              <div class="leave" id="leaveSelected"></div>
+              <div class="return" id="returnSelected"></div>
+              <div class="price-wrap">
+                <div class="price">
+                  <i class="fa fa-inr"></i>
+                  <span id="bookPrice"></span>
+                </div>
+                <div class="discount" id="saveMoney">
+                  <!-- You save Rs.
+                  <span class="colorDanger">0</span> -->
+                </div>
+              </div>
+              <div class="book-wrap">
+                <a href="javascript:void(0);" class="btn btn-warning book-btn" id="bookTicket">BOOK</a>
+                <a class="btn btn-warning book-btn hidden disable" tabindex="0" role="button" data-container="body">
+                  BOOK
+                </a>
+                <div class='sliverNoEnough hide'>
+                  <i class='arrowPop'></i>
+                  <ol class="infoModal-cont loginText  font-Roman">
+                    <li>
+                      There is not enough Happy Silver in your Happy Wallet Account.
+                    </li>
+                  </ol>
+                  <ol class="infoModal-cont unLoginText hidden font-Roman">
+                    <li>
+                      <a href="/static/tpl/loginTpl.html" class="a_link"  data-toggle="modal" data-target="#login_modal">Sign in</a> on your HEG account to quicken your booking process.
+                    </li>
+                    <li>
+                      Don’t have a HEG account yet? <a href="/static/tpl/register.html" class="a_link" data-toggle="modal" data-target="#register_modal">Sign up</a> now!
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flights-wrap clearfix">
+          <div class="f-left pull-left flightColumn" id="departColumn">
+          </div>
+          <div class="f-right pull-right flightColumn" id="returnColumn">
+          </div>
+        </div>
+      </div>
+      <div class="no-result" id="no_result" style="display: none">
+        <div class="wrapper">
+          <img src="<%= require('./images/no-result-lg.gif')%>" alt="">
+          <p class="notice">Sorry,there aren't any flights available for search</p>
+          <a href="javascript:void(0);" onclick="window.location.reload();" class="mybtn">Search again</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end-container -->
+</div>
+
+<div class="backTop hidden" id="backTop"></div>
+
+<script id="priceWrapTpl" type="text/template">
+  {{ for(var i = 0; i < model.length; i++){ }} <div class="clearfix padB14">
+    <div class="clearfix marginB8">
+      <h2 class="til font-Roman">{{= model[i].title}}</h2>
+      <!-- <span class="arrow"></span> -->
+    </div>
+    <div id="{{= model[i].id}}" class="price-range font-Light">
+      <input type="hidden" class="single-slider" value="">
+    </div>
+    </div>
+    {{ } }}
+</script>
+<script id="stopsWrapTpl" type="text/template">
+  {{for(var i = 0; i< model.length; i++){ }} <div class="clearfix padB14">
+    <div class="clearfix marginB8">
+      <h2 class="til font-Roman">{{= model[i].title}}</h2>
+      <!-- <span class="arrow"></span> -->
+    </div>
+    <ul class="stop-item" id="{{= model[i].id}}" data-filter="stops">
+    </ul>
+    </div>
+    {{ } }}
+</script>
+<script id="timeWrapTpl" type="text/template">
+  {{for(var i = 0; i< model.length; i ++){ }} <div class="clearfix padB14">
+    <div class="clearfix marginB8">
+      <h2 class="til font-Roman">{{= model[i].title}}</h2>
+      <!-- <span class="arrow"></span> -->
+    </div>
+    <ul id="{{= model[i].id}}" class="d-time-item font-Light clearfix" data-filter="depart">
+    </ul>
+    </div>
+    {{ } }}
+</script>
+<script id="referProTpl" type="text/template">
+  <div class="padB14 referPro">
+    {{if(!model.isLogin){}}
+    <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal">
+      <img class="sideImg GAAD" src="{{=model.unLoginImgUrl}}" ga="{{=model.ga}}" width="264" alt="">
+    </a>
+    {{ }else{ }}
+    <div class="refer">   
+      <a class="JumpAdd" href="{{=model.url}}">
+        <img class="sideImg GAAD" src="{{=model.loginImgUrl}}" ga="{{=model.ga}}" width="264" alt="">
+      </a>
+      <!-- <div class="linkWrap">
+        <input type="text" class="pull-left" value="{{=model.link}}" id="referLink">
+        <a title="{{=model.link}}" class="pull-left copyBtn" onclick="document.getElementById('referLink').select(); document.execCommand('copy')">Copy</a>
+      </div> -->
+    </div>
+    {{ } }}
+  </div>
+</script>
+<script id="airlinesWrapTpl" type="text/template">
+  {{for(var i = 0; i < model.length; i ++){}} <div class="clearfix padB14">
+    <div class="clearfix marginB8">
+      <h2 class="til font-Roman">{{= model[i].title}}</h2>
+      <a href="javascript:void(0);" id="{{= model[i].showAllId}}" class="show-all pull-left">clear all</a>
+      <!-- <span class="arrow"></span> -->
+    </div>
+    <ul class="airlines-item" id="{{= model[i].id}}" data-filter="airlines">
+    </ul>
+    </div>
+    {{ } }}
+</script>
+<!-- stops model:{0:3444,1:123,2:34423} -->
+<script id="stopsTpl" type="text/template">
+  {{ _.each(model, function(val, i){ }} {{if(i <=1 ){ }} <li class="chkbox" data-code="{{=i}}">
+    <span class="hasStops font-Bold">{{=i}} stop</span>
+    <span class="lowest-price font-Light">
+      <i class="fa fa-inr"></i> {{=val.toThree()}}</span>
+    </li>
+    {{ }else{ }}
+    <li class="chkbox" data-code="{{=i}}">
+      <span class="hasStops font-Bold">{{=i}}+stop</span>
+      <span class="lowest-price font-Light">
+        <i class="fa fa-inr"></i> {{=val.toThree()}}</span>
+    </li>
+    {{ } }} {{ }) }}
+</script>
+<!-- departTime model:{0:{title:before 6am,minPr:12313}}-->
+<script id="departTimeTpl" type="text/template">
+  {{_.each(model, function(val, i){ }}
+  <li class="chkbox clearfix" data-code="{{=i}}">
+    <a href="javascript:void(0)" class="mark-bg mark{{=i}}"></a>
+    <p>{{=val.title}}</p>
+    <p class="lowest-price">
+      <i class="fa fa-inr"></i>{{=val.minPr.toThree()}}</p>
+  </li>
+  {{})}}
+</script>
+<script id="airlineTpl" type="text/template">
+  {{_.each(model, function(val, key){}}
+  <li class="chkbox clearfix" data-code="{{=key}}">
+    <img src="/static/images/air-logo/{{=key}}.png" onerror="this.src='/static/images/air-logo/default.png'" alt="" class="air-logo">
+    <span class="air-name font-Light">{{=val.airlineName}}</span>
+    <!-- <span class="show-only">show only</span> -->
+    <span class="lowest-price">
+      <i class="fa fa-inr"></i> {{=(val.minPr || 0).toThree()}}
+    </span>
+    <b class="chk"></b>
+  </li>
+  {{})}}
+</script>
+<script id="journeyTpl" type="text/template">
+  <li>
+    <span class="city font-Bold">{{=dCity}}</span>
+    <span class="time font-Light">{{=dDate}}</span>
+  </li>
+  <li>
+    <div class="city-arrow {{=tripType}}"></div>
+  </li>
+  <li>
+    <span class="city font-Bold">{{=fCity}}</span>
+    <span class="time">{{=rDate}}</span>
+  </li>
+</script>
+
+<!-- one way -->
+<script id="f_item_tpl" type="text/template">
+  {{if(Object.keys(myModel).length === 0){}}
+  <div class="filterMessage">
+    <h2>We couldn't find flights to match you filters</h2>
+    <button class="f_reset">Reset filter</button>
+  </div>
+  {{ }else{ _.each(myModel, function(val, i){ }}
+  
+  <div class="f-item" id="{{=val.fn}}" data-dt="{{=val.dt}}" data-at="{{=val.at}}">
+    
+    <ul class="brief clearfix">
+      <li class="fore" style="width: 15%">
+        <div class="vendor">
+          <img src="/static/images/air-logo/{{=val.al}}.png" alt="airlogo" width="30" height="30" class="logo" style="margin-right: 15px;" onerror="this.src='/static/images/air-logo/default.png'">
+          <span class="f-name">{{=val.co}}</span>
+          <small>{{=val.fn}}</small>
+        </div>
+      </li>
+      <li class="fore time-sort" style="width: 26%"> 
+        <div class="timeCol" style="width: 26%">
+          <span class="f-time">{{=val.dtime}} - </span>
+        </div>
+        <div class="timeCol" style="width: 25%;text-align: left;">
+          <span class="f-time" style='position: relative;'>{{=val.ftime}} <span style='position: absolute;right: -3px;top: -5px;font-size: 12px;color: #0b9d78;font-weight: 700;'>{{=val.overnight}}</span></span>
+        </div>
+        <div class="timeCol" style="width: 49%">
+          <span class="f-time">{{=val.wdt}}</span>
+          <small class="f-airport">{{=val.stops}}</small>
+        </div>
+      </li>
+      {{if(!val.isIntl){ }}
+      <li class="fore price-sort" style="width: 59%">
+        <div class="price-wrap" style="padding:28px 0px 0px 10px; width:20%">
+          <span class="fontSz12">Original price</span>
+        </div>
+        <div class="fontSz15 fontB" style="width:31%; padding-top: 28px; padding-right:16px;fons-size:15px;">
+          <span class="fontSz16 text-right f-price" style='color:#333' data-price="{{=val.pr}}">
+            <i class="fa fa-inr"></i>
+            <strong class="fpr" style='font-weight:700; {{= val.isLogin &&val.al!="SG" || val.al=="AI"  ? "text-decoration: line-through;" : ""}}'>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}</strong>
+            <a tabindex="0" role="button" class="popDiscount" data-container="body" data-id="{{=val.fn}}" data-trigger="hover"
+            data-toggle="popover" data-index="min" data-html='true' data-placement="bottom" style="outline: none;" >
+            <img src="<%=require('./images/sprite/info_1.png')%>" alt="" style="vertical-align: text-top;">
+            </a>
+          </span>
+        </div>
+        <div class="cashIcon flightItem" style="padding: {{= val.earnTitle.isShow ? '13px 0 0 0' : '25px 0 0 0'}}; width:29%">
+          <div style="margin-bottom:4px;">
+            <a tabindex="0" role="button" class="popDiscount" data-container="body" data-id="{{=val.fn}}" data-trigger="hover"
+            data-toggle="popover" data-index="min" data-html='true' data-placement="bottom" style="outline: none;display:block" >
+              <img class="shake" src="<%=require('./images/sprite/lowest.png')%>" alt="">
+            </a>
+          </div>
+          <div class='flightItemA {{= val.earnTitle.isShow ? "" : "hidden"}}'>
+            <span class='earnPrice'>{{=val.earnTitle.titleName}}
+              <i class="rs">Rs.</i>
+              <span class="cashback" style="display: inline;">{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}}</span>
+            </span>
+            <div class='popoverInfo hide'>
+              <i class='arrowPop'></i>
+              <ol class="infoModal-cont font-Roman">
+                <li>You will earn Rs.{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}} by this booking.</li>
+                <li>Cashback transferrable to bank account within 1 hour
+                  <a href="/cashback" target="_blank" style='color: white;text-decoration: underline;'>(know More)</a> 
+                </li>
+                <li>100% Usage on booking and no expiry date</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="book-wrap text-center" style="padding-top:24px;" >
+          <a class="optionalBook"  style="font-weight: 700;">
+            SELECT
+            <!--<i class="fa fa-angle-down"></i> -->
+          </a>
+        </div>
+      </li>
+      {{ }else if(!val.isLogin && val.isHideMinPr && !val.isIntl){ }} 
+      <li class="fore price-sort" style="width: 59%">
+        <div class="price-wrap" style="padding:28px 0px 0px 10px; width:20%">
+          <span class="f-price font-Roman gray" data-price="{{=val.pr}}">
+            <i class="fa fa-inr fontSz14"></i>
+            <strong class="fpr fontSz14" style='font-weight:400;'>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}</strong>
+          </span>
+          <span class="fontSz12">Original price</span>
+        </div>
+        <div class="fontSz15 fontB" style="width:31%; padding-top: 28px;fons-size:15px;">
+          {{if(val.nopa){}}
+           {{= val.discountTitle}} <i class="fa fa-inr"></i> {{= Math.round(val.minPriceObj.dis / val.fee.pCount).toThree()}}   
+          {{ } }}
+          <a tabindex="0" role="button" class="popDiscount" data-container="body" data-id="{{=val.fn}}" data-trigger="hover"
+            data-toggle="popover" data-index="min" data-html='true' data-placement="bottom" style="outline: none;" >
+              <!-- nopa price detial info -->
+              {{if(val.nopa){}}
+                <img src="<%=require('./images/sprite/info_1.png')%>" alt="">
+              {{ } else { }}
+                <img src="<%=require('./images/sprite/info_2.png')%>" alt="">
+              {{ } }}
+          </a>
+        </div>
+        <div class="cashIcon flightItem" style="padding: {{= val.earnTitle.isShow ? '13px 0 0 0' : '25px 0 0 0'}}; width:29%">
+          <div style="margin-bottom:4px;">
+            <img class="shake" src="<%=require('./images/sprite/lowest.png')%>" alt="">
+          </div>
+          <div class='flightItemA {{= val.earnTitle.isShow ? "" : "hidden"}}'>
+            <span class='earnPrice'>{{=val.earnTitle.titleName}}
+              <i class="rs">Rs.</i>
+              <span class="cashback" style="display: inline;">{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}}</span>
+            </span>
+            <div class='popoverInfo hide'>
+              <i class='arrowPop'></i>
+              <ol class="infoModal-cont font-Roman">
+                <li>You will earn Rs.{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}} by this booking.</li>
+                <li>Cashback transferrable to bank account within 1 hour
+                  <a href="/cashback" target="_blank" style='color: white;text-decoration: underline;'>(know More)</a> 
+                </li>
+                <li>100% Usage on booking and no expiry date</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="book-wrap text-center" style="padding-top:24px;" >
+          <a class="optionalBook"  style="font-weight: 700;">
+            SELECT
+            <!--<i class="fa fa-angle-down"></i> -->
+          </a>
+        </div>
+      </li>
+      {{ }else if(val.isIntl && val.isHideMinPr && !val.isLogin){ }}
+      <li class="fore price-sort" style="width: 59%">
+        <div class="price-wrap" style="padding:28px 0px 0px 10px; width:20%">
+          <span class="f-price font-Roman gray" data-price="{{=val.pr}}">
+            <i class="fa fa-inr fontSz14"></i>
+            <strong class="fpr fontSz14" style='font-weight:400;'>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}</strong>
+          </span>
+          <span class="fontSz12">Original price</span>
+        </div>
+        
+          <div class="fontSz15 fontB" style="width:31%; padding-top: 28px;fons-size:15px;">
+          {{ if(val.nopa) { }}
+            OFF <i class="fa fa-inr"></i> {{= Math.round(val.minPriceObj.dis / val.fee.pCount).toThree()}}   
+            <a tabindex="0" role="button" class="popDiscount" data-container="body" data-id="{{=val.fn}}" data-trigger="hover"
+              data-toggle="popover" data-index="min" data-html='true' data-placement="bottom" style="outline: none;" >
+              <img src="<%=require('./images/sprite/info_1.png')%>" alt="">
+            </a>
+            {{ } }}
+          </div>
+        
+        
+        <div class="cashIcon flightItem" style="padding-top:24px;; width:29%">
+          <div class='flightItemA {{= val.earnTitle.isShow ? "" : "hidden"}}'>
+            <span class='earnPrice'>{{=val.earnTitle.titleName}}
+              <i class="rs">Rs.</i>
+              <span class="cashback" style="display: inline;">{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}}</span>
+            </span>
+            <div class='popoverInfo hide'>
+              <i class='arrowPop'></i>
+              <ol class="infoModal-cont font-Roman">
+                <li>You will earn Rs.{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}} by this booking.</li>
+                <li>Cashback transferrable to bank account within 1 hour
+                  <a href="/cashback" target="_blank" style='color: white;text-decoration: underline;'>(know More)</a> 
+                </li>
+                <li>100% Usage on booking and no expiry date</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="book-wrap text-center" style="padding-top:24px;" >
+          <a class="optionalBook">
+            BOOK
+            <i class="fa fa-angle-down"></i>
+          </a>
+        </div>
+      </li>
+      {{ }else{ }}
+      <li class="fore price-sort" style="width: 59%">
+        <div class="price-wrap" style='padding:28px 0px 0px 10px;width:20%'>
+          <span class="f-price font-Roman" data-price="{{=val.pr}}" style="color:#999;">
+            <i class="fa fa-inr" style='font-size:12px;color:#999'></i>
+            <strong class="fpr" style='font-weight:400;font-size:12px;color:#999;text-decoration: line-through;'>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}</strong>
+          </span>
+        </div>
+        <div class="pull-left" style='width:31%;margin-top:7px;'>
+          <small class="" style="padding: 6px 30px 0px 0px;font-size: 10px;color:#999;">From</small>
+          <div class="price-line" style='color:black;text-decoration: none'>
+            <i class="fa fa-inr"> </i>
+            <strong style='font-weight:900;'>{{=Math.round((val.minPriceObj.bfp + val.minPriceObj.gst) / val.fee.pCount).toThree()}}</strong>
+          </div>
+        </div>
+        <div class="cashIcon flightItem" style="padding-top: 24px;width:29%">
+          <div class='flightItemA {{= val.earnTitle.isShow ? "" : "hidden"}}'>
+            <span class='earnPrice'>{{=val.earnTitle.titleName}}
+              <i class="rs">Rs.</i>
+              <span class="cashback" style="display: inline;">{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}}</span>
+            </span>
+            <div class='popoverInfo hide'>
+              <i class='arrowPop'></i>
+              <ol class="infoModal-cont font-Roman">
+                <li>You will earn Rs.{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}} by this booking.</li>
+                <li>Cashback transferrable to bank account within 1 hour
+                  <a href="/cashback" target="_blank" style='color: white;text-decoration: underline;'>(know More)</a> 
+                </li>
+                <li>100% Usage on booking and no expiry date</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="book-wrap text-center" style='padding-top:24px;' >
+          {{ if(val.isIntl) { }}
+           <a class="optionalBook">
+              BOOK
+              <i class="fa fa-angle-down"></i>
+            </a>
+            {{ } else { }}
+            <a class="optionalBook" data-flightid="{{= val.flightId }}" style="font-weight: 700;">
+             SELECT
+            </a>
+          {{ } }}
+        </div>
+      </li>
+      {{ } }}
+    </ul>
+    
+    <div class="f-optional">
+      {{ _.each(val.fee.fees, function(fee, key){ }} 
+      {{if(fee.type == 1){}}
+      <ul class="clearfix">
+        <li class="fore">
+          <div class="caption">
+            <div class="c-title">
+              {{=fee.title || "The Lowest Price"}}
+            </div>
+          </div>
+          <div class="T_CWrap">
+            {{if(fee.exFee && fee.exFee[0].show){}}
+            <div class="pull-left icon-cash icon-cash-insure"></div>
+            <div class="pull-left">
+              <a tabindex="0" role="button" class="insTc" data-container="body" data-trigger="focus" data-id="{{=val.fn}}" data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+                <span class="colorPri">T&amp;C</span>
+              </a>
+            </div>
+            {{}}}
+          </div>
+        </li>
+        <li class="priceList fore" style="width">
+          {{if(!val.isLogin && val.isHideMinPr && !val.isIntl ){ }}
+          <div class="payment marT10" style="line-height:18px; font-weight:400">
+            <p class="fontSz14">
+              <i class="rs">Rs.</i>
+              {{=Math.round(val.oopr / val.fee.pCount).toThree()}}</p> 
+            <span class="fontSz12">Original price</span>
+          </div>
+          <div class="order-dis">
+            <div class="grayDarker fontSz15 fontB {{= val.nopa ? '' : 'textLeft' }}" style="margin-top:17px">
+              {{if(val.nopa){}}
+                {{= val.discountTitle}} <i class="fa fa-inr"></i>
+                 {{=Math.round((fee.exFee?fee.exFee[0]:fee).dis / val.fee.pCount).toThree()}} 
+              {{ } }}
+              <a tabindex="0" role="button" class="popDiscount" data-container="body" data-id="{{=val.fn}}" data-trigger="hover" data-index="{{=key}}"
+                data-toggle="popover"  data-html='true' data-placement="bottom" style="outline: none;">
+                {{if(val.nopa){}}
+                  <img src="<%=require('./images/sprite/info_1.png')%>" alt="">
+                {{ } else { }}
+                  <img src="<%=require('./images/sprite/info_2.png')%>" alt="">
+                {{ } }}
+              </a>
+            </div>
+          </div>
+          {{ }else if(!val.isLogin && val.isIntl && val.isHideMinPr) { }}
+          <div class="payment marT10" style="line-height:18px; font-weight:400">
+            <p class="fontSz14">
+              <i class="rs">Rs.</i>
+              {{=Math.round(val.oopr / val.fee.pCount).toThree()}}</p> 
+            <span class="fontSz12">Original price</span>
+          </div>
+          <div class="order-dis">
+            <div class="grayDarker fontSz15 fontB {{= val.nopa ? '' : 'textLeft' }}" style="margin-top:17px">
+              {{if(val.nopa){}}
+                OFF <i class="fa fa-inr"></i>
+                {{=Math.round((fee.exFee?fee.exFee[0]:fee).dis / val.fee.pCount).toThree()}} 
+              {{ } }}
+              <a tabindex="0" role="button" class="popDiscount" data-container="body" data-id="{{=val.fn}}" data-trigger="hover" data-index="{{=key}}"
+                data-toggle="popover"  data-html='true' data-placement="bottom" style="outline: none;">
+                <img src="<%=require('./images/sprite/info_1.png')%>" alt="">
+              </a>
+            </div>
+          </div>
+          {{ }else { }}
+          <div class="payment">
+            <i class="rs">Rs.</i>
+            {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / val.fee.pCount).toThree()}}
+          </div>
+          <div class="order-dis">
+            <div class="price-line">
+              <i class="fa fa-inr"> </i>
+              <strong>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}</strong>
+            </div>
+          </div>
+          {{ } }}
+          <div class="bookWrap text-center">
+            <a class="btn btn-warning font-Roman f-book" data-id="{{=val.fn}}" data-index="{{=key}}" data-type={{=fee.type}}>
+              BOOK
+            </a>
+          </div>
+        </li>
+      </ul>
+      {{ }else if(fee.type == 2){ }}
+      <ul class="clearfix">
+        <li class="fore">
+          <div class="caption member">
+            <div class="c-title">
+              {{=fee.title || "The Lowest Price"}}
+            </div>
+          </div>
+          <div class="T_CWrap">
+            
+            <div class="pull-left icon-cash {{= fee.exFee && fee.exFee[0].show ?'icon-cash-insure' : ''}}"></div>
+            <div class="pull-left">
+              <a tabindex="0" role="button" class="memberPop gray" data-container="body" data-id="{{=val.fn}}" data-index="{{=key}}" data-trigger="focus"
+                data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+                <span class="">T&amp;C</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="priceList fore">
+          {{if(!val.isLogin && val.isHideMinPr && !val.isIntl ){ }}
+          <div class="payment marT10" style="line-height:18px; font-weight:400">
+            <p class="fontSz14">
+              <i class="rs">Rs.</i>
+              {{=Math.round(val.oopr / val.fee.pCount).toThree()}}</p> 
+            <span class="fontSz12">Original price</span>
+          </div>
+          <div class="order-dis">
+            <div class="grayDarker fontSz15 fontB {{= val.nopa ? '' : 'textLeft' }}" style="margin-top:17px"> 
+			        {{if(val.nopa){}}
+                {{= val.discountTitle}} <i class="fa fa-inr"></i>
+                 {{=Math.round((fee.exFee?fee.exFee[0]:fee).dis / val.fee.pCount).toThree()}} 
+              {{ } }}
+              <a tabindex="0" role="button" class="popDiscount" data-container="body" data-id="{{=val.fn}}" data-trigger="hover" data-index="{{=key}}"
+                data-toggle="popover"  data-html='true' data-placement="bottom" style="outline: none;">
+                {{if(val.nopa){}}
+                  <img src="<%=require('./images/sprite/info_1.png')%>" alt="">
+                {{ } else { }}
+                  <img src="<%=require('./images/sprite/info_2.png')%>" alt="">
+                {{ } }}
+              </a>
+            </div>
+          </div>
+          {{ }else if(!val.isLogin && val.isIntl && val.isHideMinPr) { }}
+          <div class="payment marT10" style="line-height:18px; font-weight:400">
+            <p class="fontSz14">
+              <i class="rs">Rs.</i>
+              {{=Math.round(val.oopr / val.fee.pCount).toThree()}}</p> 
+            <span class="fontSz12">Original price</span>
+          </div>
+          <div class="order-dis">
+            <div class="grayDarker fontSz15 fontB {{= val.nopa ? '' : 'textLeft' }}" style="margin-top:17px">
+              {{if(val.nopa){}}
+                OFF <i class="fa fa-inr"></i>
+                {{=Math.round((fee.exFee?fee.exFee[0]:fee).dis / val.fee.pCount).toThree()}} 
+              {{ } }}
+              <a tabindex="0" role="button" class="popDiscount" data-container="body" data-id="{{=val.fn}}" data-trigger="hover" data-index="{{=key}}"
+                data-toggle="popover"  data-html='true' data-placement="bottom" style="outline: none;">
+                <img src="<%=require('./images/sprite/info_1.png')%>" alt="">
+              </a>
+            </div>
+          </div>
+          {{ }else { }}
+          <div class="payment">
+            <i class="rs">Rs.</i>
+            {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / val.fee.pCount).toThree()}}
+          </div>
+          <div class="order-dis">
+            <div class="price-line">
+              <i class="fa fa-inr"> </i>
+              <strong>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}</strong>
+            </div>
+          </div>
+          {{ } }}
+          <div class="bookWrap text-center">
+            <!--<a tabindex="0" role="button" data-container="body" {{=fee.isDisabled? 'data-toggle=popover': ''}} data-html="true" data-trigger="hover"
+              data-placement="bottom" class="btn font-Roman btn-warning f-book {{=fee.isDisabled? 'disable silverPop': ''}}" data-id="{{=val.fn}}"
+              data-index="{{=key}}" data-type={{=fee.type}} data-content="There is not enough Happy Silver in your Happy Wallet Account">
+              BOOK
+            </a>-->
+            <a  class="btn font-Roman btn_type2 btn-warning f-book {{=fee.isDisabled? 'disable silverPop': ''}}" data-id="{{=val.fn}}"
+              data-index="{{=key}}" data-type={{=fee.type}}>
+              BOOK
+            </a>
+            <div class='sliverNoEnough hide'>
+              <i class='arrowPop'></i>
+              {{if (val.isLogin ) { }}
+              <ol class="infoModal-cont  font-Roman">
+                
+                <li>
+                  There is not enough Happy Silver in your account to avail Member Discount.
+                </li>
+                {{if (val.referSilver != 0 ) { }}
+                <li>
+                  Refer <span class="friNum">{{= Math.ceil(fee.amount/val.referSilver)  }}</span> friends now and earn <span class="amount"> {{= Math.ceil(fee.amount/val.referSilver)*val.referSilver}}</span> Happy Silver.Referral reward credited instantly to your account on every sign up!
+                </li>
+                <li class='infoModal_1'>
+                  <a href="/referral" class="a_link" target="_blank">Refer & Earn</a> 
+                </li>
+                 {{ }  }}
+              </ol>
+              {{ } else { }}
+              <ol class="infoModal-cont font-Roman">
+                <li>
+                  <a href="/static/tpl/loginTpl.html" class="a_link"  data-toggle="modal" data-target="#login_modal">Sign in</a> on your HEG account to quicken your booking process.
+                </li>
+                <li>
+                  Don’t have a HEG account yet? <a href="/static/tpl/register.html" class="a_link" data-toggle="modal" data-target="#register_modal">Sign up</a> now!
+                </li>
+              </ol>
+              {{ }  }}
+            </div>
+          </div>
+        </li>
+      </ul>
+      {{ }else{ }}
+      <ul class="clearfix">
+        <li class="fore">
+          <div class="business caption">
+            <div class="c-title">
+              {{= fee.title || "Cashback Price"}}
+            </div>
+          </div>
+          <div class="T_CWrap">
+            <div class="pull-left icon-cash {{= fee.exFee && fee.exFee[0].show ?'icon-cash-insure' : 'icon-cash1'}}"></div>
+            <div class="pull-left">
+              <a tabindex="0" role="button" class="goldbackPop gray" data-container="body" data-id="{{=val.fn}}" data-index="{{=key}}"
+                data-type="{{=fee.type}}" data-trigger="focus" data-toggle="popover" data-html='true' data-placement="bottom"
+                style="outline: none;">
+                <span class="cbTC">{{=fee.cgf ? "Earn cash &nbsp; Free reschedule &nbsp; T&amp;C" : "Earn cash &nbsp; T&amp;C" }}</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="priceList fore">
+          <div class="payment">
+            <i class="rs">Rs.</i>
+            {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / val.fee.pCount).toThree()}}
+          </div>
+          <div class="order-dis clearfix" style="padding-top: 8px;">
+            <div class='flightItem'>
+              <div class="flightItemA">
+                <span class='earnPrice'>{{=val.earnTitle.titleName}}
+                  <i class="rs" style="margin-right: 0">Rs.</i>
+                  <span class="cashback" style="display: inline;">{{=Math.round((fee.exFee?fee.exFee[0]:fee).cba / val.fee.pCount).toThree()}}</span>
+                </span>
+                <div class='popoverInfo hide'>
+                  <i class='arrowPop'></i>
+                  <ol class="infoModal-cont font-Roman">
+                    <li>You will earn Rs.{{=Math.round(val.fee.fees[key].cba / val.fee.pCount).toThree()}} by this booking.</li>
+                    <li>Cashback transferrable to bank account within 1 hour
+                      <a href="/cashback" target="_blank" style='color: white;text-decoration: underline;'>(know More)</a> 
+                    </li>
+                    <li>100% Usage on booking and no expiry date</li>
+                  </ol>
+                </div>
+              </div>
+            </div> 
+          </div>
+          
+          <div class="bookWrap text-center ">
+            <a class="btn btn-warning f-book font-Roman" data-id="{{=val.fn}}" data-index="{{=key}}" data-type={{=fee.type}}>
+              BOOK
+            </a>
+          </div>
+        </li>
+      </ul>
+      {{ } }) }}
+    </div>
+
+    <div class="f-detail-anchor">
+      <a data-toggle="modal" data-target="#f_detail_modal" data-id={{=val.fn}}>
+        Flight details
+      </a>
+      {{if(val.isLogin && !val.isIntl || val.al == 'AI' && !val.isIntl){ }}
+      <div class="pull-right">
+        <div class="fontSz18" style='margin-right:240px;'>
+          <strong style='font-weight:900;'>
+          {{if(val.al != 'SG'){ }}
+          <i class="fa fa-inr"> </i>
+          {{=Math.round((val.minPriceObj.bfp + val.minPriceObj.gst) / val.fee.pCount).toThree()}}
+          {{}else{}}
+          OFF <i class="fa fa-inr"></i> {{= Math.round(val.minPriceObj.dis / val.fee.pCount).toThree()}} 
+          {{}}}
+          </strong>
+        </div>
+      </div>
+      {{}}}
+    </div>
+  </div>
+  {{ }) }} {{ } }}
+</script>
+<!-- intlRoundway -->
+<script id="f_Intl_Tpl" type="text/template">
+  {{if(Object.keys(myModel).length === 0){}}
+  <div class="filterMessage">
+    <h2>We couldn't find flights to match you filters</h2>
+    <button class="f_reset">Reset filter</button>
+  </div>
+  {{ }else{ _.each(myModel, function(val, i){ }}
+  <div class="f-item" id="{{=val.id}}" data-dt="{{=val.departFlight.dt}}" data-at="{{=val.departFlight.at}}" data-price="{{=(val.fee.fees[1].bfp + val.fee.gst) / val.fee.pCount}}">
+    <ul class="brief clearfix">
+      <li class="fore" style="width:56%">
+        {{_.each(val.flightGroup, function(flight, idx){ }}
+        <ul class="clearfix intlLine">
+          <li class="fore" style="width:40%">
+            <div class="vendor">
+              <img src="/static/images/air-logo/{{=flight.al}}.png" alt="airlogo" width="30" height="30" class="logo" onerror="this.src='/static/images/air-logo/default.png'">
+              <span class="f-name">{{=flight.co}}</span>
+              <small>{{=flight.fn}}</small>
+            </div>
+          </li>
+          <li class="fore time-sort" style="width:60%">
+            <div class="timeCol">
+              <span class="f-time">{{=flight.dtime}}</span>
+            </div>
+            <div class="timeCol">
+              <span class="f-time">{{=flight.ftime}}</span>
+            </div>
+            <div class="timeCol">
+              <span class="f-time">{{=flight.wdt}}</span>
+              <small class="f-airport">{{=flight.stops}}</small>
+            </div>
+          </li>
+        </ul>
+        {{ }) }}
+      </li>
+
+      <li class="fore price-sort" style="width: 44%;margin-top:17px; " >
+        <div class="price-wrap text-right" style="width:32%">
+          <span class="f-price pull-right" style='padding-top:8px;'>
+            <i class="fa fa-inr"></i>
+            <strong class="fpr">{{=Math.round((val.minPriceObj.bfp + val.minPriceObj.gst) / val.fee.pCount).toThree()}}</strong>
+          </span>
+          <small class="pull-right" style="padding-top: 10px;padding-right: 4px;font-size: 10px;">From</small>
+        </div>
+        <div class="cashIcon" style="padding-top: 8px; width:42%;">
+          <span class="pull-left fontB bgw">Cashback up to</span>
+          <span class="pull-left bgg colorPri">
+            <i class="rs">Rs.</i>
+            <span class="cashback" style="display: inline;">{{=Math.round(_.max(val.fee.fees, function(feee){return feee.cba}).cba / val.fee.pCount).toThree()}}</span>
+          </span>
+        </div>
+        <div class="book-wrap text-center" style="width:26%;">
+          <a class="optionalBook">
+            BOOK
+            <i class="fa fa-angle-down"></i>
+          </a>
+          <!-- <div class="f-residue">
+               {{=val.av}} tickets left
+            </div> -->
+        </div>
+      </li>
+    </ul>
+    <div class="f-optional">
+      {{ _.each(val.fee.fees, function(fee, key){ }} 
+      {{if(fee.type == 1){}}
+      <ul class="clearfix">
+        <li class="fore">
+          <div class="caption">
+            <div class="c-title">
+              {{=fee.title || "The Lowest Price"}}
+            </div>
+          </div>
+          <div class="T_CWrap">
+            {{if(fee.exFee && fee.exFee[0].show){}}
+            <div class="pull-left icon-cash icon-cash-insure"></div>
+            <div class="pull-left">
+              <a tabindex="0" role="button" class="insTc" data-container="body" data-trigger="focus" data-id="{{=val.id}}" data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+                <span class="colorPri">T&amp;C</span>
+              </a>
+            </div>
+            {{}}}
+          </div>
+        </li>
+        <li class="priceList fore">
+          <div class="payment">
+            <i class="rs">Rs.</i>
+            {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / val.fee.pCount).toThree()}}
+          </div>
+          <div class="order-dis">
+            <div class="price-line">
+              <i class="fa fa-inr"> </i>
+              <strong>{{=Math.round((val.fee.obfp + val.fee.ogst) / val.fee.pCount).toThree()}}</strong>
+            </div>
+          </div>
+          <div class="bookWrap text-center">
+            <a class="btn btn-warning f-book" style='line-height:12px' data-id="{{=val.id}}" data-index="{{=key}}" data-type={{=fee.type}}>
+              BOOK
+            </a>
+          </div>
+        </li>
+      </ul>
+      {{ }else if(fee.type == 2){ }}
+      <ul class="clearfix">
+        <li class="fore">
+          <div class="caption member">
+            <div class="c-title">{{=fee.title || "The Lowest Price"}}</div>
+          </div>
+          <div class="T_CWrap">
+            <div class="pull-left icon-cash {{= fee.exFee && fee.exFee[0].show ?'icon-cash-insure' : ''}}"></div>
+            <div class="pull-left">
+              <a tabindex="0" role="button" class="memberPop gray" data-container="body" data-id="{{=val.id}}" data-index="{{=key}}" data-trigger="focus"
+                data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+                <span class="">T&amp;C</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="priceList fore">
+          <div class="payment">
+            <i class="rs">Rs.</i>
+            {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / val.fee.pCount).toThree()}}
+          </div>
+          <div class="order-dis">
+            <div class="price-line">
+              <i class="fa fa-inr"> </i>
+              <strong>{{=Math.round((val.fee.obfp + val.fee.ogst)/val.fee.pCount).toThree()}}</strong>
+            </div> 
+          </div>
+          <div class="bookWrap text-center">
+            <!--<a tabindex="0" role="button" class="btn btn-warning f-book {{=fee.isDisabled? 'disable silverPop': ''}}" style='line-height:12px' data-container="body" {{=fee.isDisabled? 'data-toggle=popover': ''}} data-html=true data-trigger="hover"
+              data-placement="bottom"  data-id="{{=val.id}}"
+              data-index="{{=key}}" data-type={{=fee.type}} data-content="There is not enough Happy Silver in your Happy Wallet Account">
+              BOOK
+            </a>-->
+            <a  class="btn btn-warning btn_type2 f-book {{=fee.isDisabled? 'disable silverPop': ''}}" style='line-height:12px'   data-id="{{=val.id}}"
+              data-index="{{=key}}" data-type={{=fee.type}}>
+              BOOK
+            </a>
+            <div class='sliverNoEnough hide'>
+              <i class='arrowPop'></i>
+              {{if (val.isLogin ) { }}
+              <ol class="infoModal-cont  font-Roman">
+                
+                <li>
+                  There is not enough Happy Silver in your account to avail Member Discount.
+                </li>
+                {{if (val.referSilver != 0 ) { }}
+                <li>
+                  Refer <span class="friNum">{{= Math.ceil(fee.amount/val.referSilver)  }}</span> friends now and earn <span class="amount"> {{= Math.ceil(fee.amount/val.referSilver)*val.referSilver}}</span> Happy Silver.Referral reward credited instantly to your account on every sign up!
+                </li>
+                <li class='infoModal_1'>
+                  <a href="/referral" class="a_link" target="_blank">Refer & Earn</a> 
+                </li>
+                 {{ }  }}
+              </ol>
+              {{ } else { }}
+              <ol class="infoModal-cont font-Roman">
+                <li>
+                  <a href="/static/tpl/loginTpl.html" class="a_link"  data-toggle="modal" data-target="#login_modal">Sign in</a> on your HEG account to quicken your booking process.
+                </li>
+                <li>
+                  Don’t have a HEG account yet? <a href="/static/tpl/register.html" class="a_link" data-toggle="modal" data-target="#register_modal">Sign up</a> now!
+                </li>
+              </ol>
+              {{ }  }}
+            </div>
+          </div>
+        </li>
+      </ul>
+      {{ }else{ }}
+      <ul class="clearfix">
+        <li class="fore">
+          <div class="business caption">
+            <div class="c-title">
+              {{= fee.title || "Cashback Price"}}
+            </div>
+          </div>
+          <div class="T_CWrap">
+            <div class="pull-left icon-cash {{= fee.exFee && fee.exFee[0].show ?'icon-cash-insure' : 'icon-cash1'}}">
+            </div>
+            <div class="pull-left">
+              <a tabindex="0" role="button" class="goldbackPop gray" data-container="body" data-id="{{=val.id}}" data-index="{{=key}}"
+                data-type="{{=fee.type}}" data-trigger="focus" data-toggle="popover" data-html='true' data-placement="bottom"
+                style="outline: none;">
+                <span class="cbTC">{{=fee.cgf ? "Earn cash &nbsp; Free reschedule &nbsp; T&amp;C" : "Earn cash &nbsp; T&amp;C"}}</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="priceList fore">
+          <div class="payment">
+            <i class="rs">Rs.</i>
+            {{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst)/val.fee.pCount).toThree()}}
+          </div>
+          <div class="order-dis clearfix" style="padding-top: 8px;">
+            <span class="pull-left fontS bgw">Cashback</span>
+            <span class="pull-left bgg colorPri">
+              <i class="rs">Rs.</i>
+              <span class="cashback">{{=Math.round((fee.exFee?fee.exFee[0]:fee).cba / val.fee.pCount).toThree()}}</span>
+            </span>
+          </div>
+          <div class="bookWrap text-center">
+            <a class="btn btn-warning f-book" style='line-height:12px' data-id="{{=val.id}}" data-index="{{=key}}" data-type={{=fee.type}}>
+              BOOK
+            </a>
+          </div>
+        </li>
+      </ul>
+      {{ } }) }}
+    </div>
+
+    <div class="f-detail-anchor">
+      <a data-toggle="modal" data-target="#f_detail_modal" data-id={{=val.id}}>
+        Flight details
+      </a>
+      <div class="pull-right hidden">
+      </div>
+    </div>
+  </div>
+  {{ }) }} {{ } }}
+</script>
+<!-- round trip -->
+<script id="selectCityTpl" type="text/template">
+  <div class="vendor">
+    <img src="/static/images/air-logo/{{=model.al}}.png" width="36" height="36" alt="" onerror="this.src='/static/images/air-logo/default.png'">
+    <span>{{=model.co}}</span>
+    <span>{{=model.fn}}</span>
+  </div>
+  <div class="journey">
+    <h3 class="city">{{=model.dc}} - {{=model.ac}}</h3>
+    <span>{{=model.dTime}} - {{=model.aTime}}</span>
+    <span>{{=model.dur}} | {{if(model.sb >1){}} {{=model.sb}} stops {{}else if(model.sb >0){}} {{=model.sb}} stop {{}else{}} non-stop
+      {{}}}
+    </span>
+  </div>
+</script>
+
+<script id="roundFlightTpl" type="text/template">
+  <div class="once-journey">
+    <ul class="route clearfix">
+      <li>
+        <span class="city">{{=myData.dataSum.from}}</span>
+        <small class="time">{{=myData.dataSum.dt}}</small>
+      </li>
+      <li>
+        <div class="city-arrow">
+          <i class="fa fa-long-arrow-right"></i>
+        </div>
+      </li>
+      <li>
+        <span class="city">{{=myData.dataSum.to}}</span>
+      </li>
+    </ul>
+  </div>
+  <ul class="f-til clearfix">
+    <li class="fore0">Airline</li>
+    <li class="fore1">
+      Departure
+      <!-- <i class="fa fa-sort"></i> -->
+    </li>
+    <li class="fore2">
+      Arrival
+      <!-- <i class="fa fa-sort"></i> -->
+    </li>
+    <li class="fore3">Duration</li>
+    <li class="fore4">Price
+      <!-- <i class="fa fa-sort"></i> -->
+    </li>
+    <li>
+      <div class="r-date fore form-group hidden">
+        <label for="R_date">Return on</label>
+        <input type="text" readonly="readonly" id="R_date" class="form-control" placeholder="Choose Date" autocomplete='off'>
+        <input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+        <a class="icon datepick"></a>
+        <p class="checkError hidden">You missed this</p>
+      </div>
+    </li>
+  </ul>
+  <div class="flight-body">
+    {{ if(Object.keys(myData.newData).length === 0){ }}
+    <div class="filterMessage">
+      <h2>We couldn't find flights to match you filters</h2>
+      <button class="f_reset">Reset filter</button>
+    </div>
+    {{ }else{ _.each(myData.newData, function(val, i){ }}
+    <div class="f-item clearfix {{=val.activeClass}}" id="{{=val.fn}}" data-fn="{{=val.fn}}" data-dt="{{=val.dt}}" data-at="{{=val.at}}"
+      data-instantkey="{{=val.fee.instantKey}}">
+      <ul class="brief clearfix">
+        <li class="fore0">
+          <div class="vendor pull-left">
+            <span>
+              <img src="/static/images/air-logo/{{=val.al}}.png" width='28' height='28' class="logo" alt="" onerror="this.src='/static/images/air-logo/default.png'">
+            </span>
+            <p>{{=val.co}}</p>
+            <!-- <small>{{=val.fn}}</small> -->
+          </div>
+        </li>
+        <li class="fore1">
+          <span class="d-time">{{=val.dTime}}</span>
+        </li>
+        <li class="fore2">
+          <span class="a-time">{{=val.fTime}} {{=val.overnight}}</span>
+        </li>
+        <li class="fore3">
+          <span class="d-time">{{=val.wdt}}</span>
+          <small class="num">
+            {{if(val.sb >1){}} {{=val.sb}} stops {{}else if(val.sb >0){}} {{=val.sb}} stop {{}else{}} non-stop {{}}}
+          </small>
+        </li>
+        <li class="fore4">
+          <small class="pull-left" style="padding-right: 2px;padding-top: 4px;">From</small>
+          <div class="pull-left">
+            <span class="price">
+              <i class="fa fa-inr"></i>
+              <strong class="memberP fontB">{{=Math.round((val.minPriceObj.bfp + val.minPriceObj.gst) / val.fee.pCount).toThree()}}</strong>
+            </span>
+            <small class="price-line">
+              <i class="fa fa-inr"> </i>
+              <strong>{{=Math.round(val.oopr / val.fee.pCount).toThree()}}
+              </strong>
+            </small>
+          </div>
+        </li>
+      </ul>
+      <div class="f-optional"></div>
+
+      <div class="f-detail-anchor">
+        <a data-toggle="modal" data-cycle="{{=myData.cycle}}" data-target="#f_detail_modal" data-id="{{=val.fn}}">
+          Flight details
+        </a>
+      </div>
+    </div>
+    {{ });}} {{}}}
+  </div>
+</script>
+
+<script id="f-optionalTpl" type="text/template">
+  <div>
+    {{_.each(model.fee.fees, function(fee, key){ }} 
+    {{if(fee.type === 1){ }}
+    <ul class="clearfix">
+      <li class="caption fore">
+        <div class="c-title">
+          {{= fee.title || "The Lowest Price"}}
+        </div>
+      </li>
+      <li class="priceList fore">
+        <div class="payment colorDan">
+          <i class="fa fa-inr"></i>
+          <strong class="fpr">{{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / model.fee.pCount).toThree()}}</strong>
+        </div>
+        <div class="order-dis">
+          {{if(fee.exFee && fee.exFee[0].show){}}
+          <div class="pull-left icon-cash icon-cash-insure"></div>
+          <div class="pull-left">
+            <a tabindex="0" role="button" class="insTc" data-container="body" data-trigger="focus" data-cycle="{{=model.cycle}}" data-id="{{=model.fn}}" data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+              <span class="colorPri">T&amp;C</span>
+            </a>
+          </div>
+          {{}}}
+        </div>
+      </li>
+      <li class="fore checkWrap">
+        <div class="radioWrap">
+          <input type="radio" checked="checked" name="cashback{{=model.fn}}{{=model.cycle}}" class="isCashback" data-index="{{=key}}" data-type={{=fee.type}}>
+        </div>
+      </li>
+    </ul>
+    {{ }else if(fee.type === 2){ }}
+    <ul class="clearfix">
+      <li class="caption fore">
+        <div class="c-title">
+          {{= fee.title || "The Lowest Price"}}
+        </div>
+      </li>
+      <li class="priceList fore">
+        <div class="payment colorDan">
+          <i class="fa fa-inr"></i>
+          <strong class="memberP">{{=Math.round(((fee.exFee?fee.exFee[0]:fee).bfp + (fee.exFee?fee.exFee[0]:fee).gst) / model.fee.pCount).toThree()}}</strong>
+        </div>
+        <div class="order-dis">
+          <a tabindex="0" role="button" class="memberPop" data-container="body" data-cycle="{{=model.cycle}}" data-id="{{=model.fn}}" data-index="{{=key}}" data-trigger="focus"
+            data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+            <img src="<%=require('./images/member.jpg')%>" alt="">
+            <span class="svTC" style="vertical-align: middle;">T&amp;C</span>
+          </a>
+        </div>
+      </li>
+      <li class="fore checkWrap">
+        <div class="radioWrap">
+          <input type="radio" name="cashback{{=model.fn}}{{=model.cycle}}" class="isCashback" data-index="{{=key}}" data-type={{=fee.type}}>
+        </div>
+      </li>
+    </ul>
+    {{ }else{ }}
+    <ul class="clearfix">
+      <li class="caption fore">
+        <div class="c-title" title="{{= fee.title || 'Cashback Price'}}">
+          {{= fee.title || "Cashback Price"}}
+        </div>
+      </li>
+      <li class="priceList fore">
+        <div class="payment colorDan">
+          <i class="fa fa-inr"></i>
+          {{=Math.round(((fee.exFee?fee.exFee[0]:fee).gst + (fee.exFee?fee.exFee[0]:fee).bfp) / model.fee.pCount).toThree()}}
+        </div>
+        <div class="order-dis">
+          <a tabindex="0" role="button" class="goldbackPop" data-cycle="{{=model.cycle}}" data-container="body" data-id="{{=model.fn}}" data-type="{{=fee.type}}"
+            data-index="{{=key}}" data-trigger="focus" data-toggle="popover" data-html='true' data-placement="bottom" style="outline: none;">
+            <img src="<%=require('./images/cashback.jpg')%>" alt="">
+            <span class="cbTC" style="vertical-align: middle;">T&amp;C</span>
+          </a>
+          <i class="rs colorPri">Rs.</i>
+          <span class="colorPri gback {{='gback' + key}}" id="{{='gback' + key}}">{{=Math.round((fee.exFee?fee.exFee[0]:fee).cba / model.fee.pCount).toThree()}}</span>
+
+        </div>
+      </li>
+      <li class="fore checkWrap">
+        <div class="radioWrap">
+          <input type="radio" name="cashback{{=model.fn}}{{=model.cycle}}" class="cashbackDis isCashback" data-index="{{=key}}" data-type={{=fee.type}}>
+        </div>
+      </li>
+    </ul>
+
+    {{ } }) }}
+  </div>
+</script>
+<!-- flight detail -->
+<script id="detail_con_tpl" type="text/template">
+  <div id="detail_til" class="detail-til clearfix">
+    <div class="route pull-left">
+      <p class="city"> {{=model.dc}}
+        <i class="fa fa-long-arrow-right"></i>
+        {{=model.ac}}
+      </p>
+      <p class="time">{{=model.dDateT}}</p>
+    </div>
+    <div class="book pull-right">
+      <!-- <p class="price">
+        <i class="fa fa-inr"></i> {{= (model.feeDel.gst + model.feeDel.bfp).toThree()}}
+      </p> -->
+      <!-- <p class="per">(per person)</p>  -->
+      <!-- <button class="btn btn-warning detailbtn" data-id={{=model.fn}}>Book</button> -->
+    </div>
+  </div>
+  <div class="detail-wrap">
+    <ul class="detail-tab clearfix">
+      <li class="itinerary active">
+        <a href="#itinerary" data-toggle="tab">Flight Informations</a>
+      </li>
+      <li class="rules">
+        <a href="#fare_rules" data-toggle="tab">Fare &amp; Rules</a>
+      </li>
+    </ul>
+    <div id="detail_con" class="detail-con tab-content">
+      <div id="itinerary" class="f-info-wrap active tab-pane fade in">
+        <p class="padT10 padL10">
+          The baggage information is just for reference. Please Check with airline before check-in. For more information, visit the
+          airline's official website.
+        </p>
+        {{_.each(model.flightGroup, function(value, key){ }}
+        <div class="oneTrip">
+          {{_.each(value.stopByFlightArray, function(val, i){ }} {{ if(i< 1){}} <ul class="f-part clearfix">
+            <li class="fore0">
+              <div class="first-line">
+                <!-- <i class="vendor-ic"></i> -->
+                <img src="/static/images/air-logo/{{=val.al}}.png" alt="" class="vendor-ic" onerror="this.src='/static/images/air-logo/default.png'">
+                <span>{{=val.co}}, {{=val.fn}}</span>
+                <small>Operated by {{=val.co}}</small>
+              </div>
+              <div class="f-info">
+                <span>{{=val.dc}}({{=val.ds}})</span>
+                <small>{{=val.dFullT}}</small>
+                <small>{{=val.da}}(T{{=val.dti}})</small>
+              </div>
+            </li>
+            <li class="fore1">
+              <div class="first-line">
+                <span>Check-in Baggage</span>
+                <small>{{=model.baggageInfo[val.fn].ch}} kg per person</small>
+              </div>
+              <div class="f-info">
+                <div class="air-journey clearfix">
+                  <div class="line"></div>
+                  <div class="icon-plane"></div>
+                  <div class="line"></div>
+                </div>
+              </div>
+            </li>
+            <li class="fore2">
+              <div class="first-line">
+                <span>Cabin Baggage</span>
+                <small>{{=model.baggageInfo[val.fn].ca}} kg per person</small>
+              </div>
+              <div class="f-info">
+                <span>{{=val.ac}}({{=val.as}})</span>
+                <small>{{=val.aFullT}}</small>
+                <small>{{=val.aa}} {{=val.ati}}</small>
+              </div>
+            </li>
+            <li class="fore3">
+              <div class="first-line">
+              </div>
+              <div class="f-info {{=model.fee.r}}">
+                <div class="isRefund">{{=model.fee.r}}</div>
+              </div>
+            </li>
+            </ul>
+            {{ }else{ }}
+            <div class="layover-wrap">
+              <p>
+                <span>Layover: {{=val.co}}({{=val.fn}}) &bull;</span> Time: {{=val.wt}}</p>
+              <p>
+                <small>Connecting flight may depart from different Terminal</small>
+              </p>
+            </div>
+            <ul class="f-part clearfix">
+              <li class="fore0">
+                <div class="first-line">
+                  <!-- <i class="vendor-ic"></i> -->
+                  <img src="/static/images/air-logo/{{=val.al}}.png" alt="" class="vendor-ic" onerror="this.src='/static/images/air-logo/default.png'">
+                  <span>{{=val.co}}, {{=val.fn}}</span>
+                  <small>Operated by {{=val.co}}</small>
+                </div>
+                <div class="f-info">
+                  <span>{{=val.dc}}({{=val.ds}})</span>
+                  <small>{{=val.dFullT}}</small>
+                  <small>{{=val.da}} {{=val.dti}}</small>
+                </div>
+              </li>
+              <li class="fore1">
+                <div class="first-line">
+                  <span>Check-in Baggage</span>
+                  <small>{{=model.baggageInfo[val.fn].ch}} kg per person</small>
+                </div>
+                <div class="f-info">
+                  <div class="air-journey clearfix">
+                    <div class="line"></div>
+                    <div class="icon-plane"></div>
+                    <div class="line"></div>
+                  </div>
+                </div>
+              </li>
+              <li class="fore2">
+                <div class="first-line">
+                  <span>Cabin Baggage</span>
+                  <small>{{=model.baggageInfo[val.fn].ca}} kg per person</small>
+                </div>
+                <div class="f-info">
+                  <span>{{=val.ac}}({{=val.as}})</span>
+                  <small>{{=val.aFullT}}</small>
+                  <small>{{=val.aa}} {{=val.ati}}</small>
+                </div>
+              </li>
+            </ul>
+            {{ } }} {{ }) }}
+        </div>
+        {{ }) }}
+      </div>
+      <div id="fare_rules" class="fare-info-wrap clearfix tab-pane fade">
+        <div class="leftbox">
+          <table class="rules">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Change flight
+                  <small>Per person</small>
+                </th>
+                <th>Cancellation
+                  <small>Per person</small>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td> Airline &amp; HappyEasyGo Fee</td>
+                <td>
+                  <i class="fa fa-inr"> {{=model.rebookinfo.toThree()}}</td>
+                <td>
+                  <i class="fa fa-inr"> {{=model.refundinfo.toThree()}}</td>
+              </tr>
+              <!-- <tr>
+                <td>Airline fee</td>
+                <td><i class="fa fa-inr"> {{=model.rebookinfo.toThree()}}</td>
+                <td><i class="fa fa-inr"> {{=model.refundinfo.toThree()}}</td>
+              </tr> -->
+            </tbody>
+          </table>
+          <div class="notice">
+            <span class="fontB">Note:</span>
+            <span>Happyeasygo will stop accepting cancellation /change request 4 hours before flight departure</span>
+          </div>
+        </div>
+        <div class="pull-left"></div>
+      </div>
+    </div>
+  </div>
+</script>
+
+<div class="modal fade" id="flightExpire" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title colorPri fontSz16" id="exampleModalLabel">Notice</h4>
+      </div>
+      <div class="modal-body clearfix">
+        <p style="margin-bottom: 10px;">Fare changed. Please search again.</p>
+        <button type="button" class="btn btn-warning pull-right" onclick="window.location.reload();">Search again</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade f-detail-modal" id="f_detail_modal" role="dialog" tabindex="-1">
+  <div class="modal-dialog" style="width:870px;" role="document">
+    <div class="modal-content">
+      <div class="modalHeader">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-til">Flight Details</h4>
+      </div>
+      <div class="modalBody clearfix" style="min-height: 300px;">
+        <div class="detail-loading">
+          <img src="/static/images/loading.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modify_search_modal" role="dialog" tabindex="-1">
+  <div class="modal-dialog" style="width:750px;" role="document">
+    <div class="modal-content modify-search-con">
+      <div class="modalHeader">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-til">Modify Search</h4>
+      </div>
+      <div class="searchCon">
+        <form id="searchForm" onsubmit="return false;">
+          <nav class="L-tripType clearfix">
+            <ul>
+              <li class="item oneway">
+                <label for="oneway">
+                  <input type="radio" name="tripType" id="oneway" value="0" checked class="trip-type" checked="checked">
+                  <strong>One way</strong>
+                </label>
+              </li>
+              <li class="item roundtrip">
+                <label for="Roundtrip">
+                  <input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+                  <strong>Round trip</strong>
+                </label>
+              </li>
+            </ul>
+          </nav>
+          <div class="LS-trip">
+            <div class="section1 clearfix">
+              <div class="d-city fore form-group">
+                <label for="D_city">From</label>
+                <input type="text" id="D_city" class="form-control" autocomplete="off">
+                <input type="hidden" id="From" name="from" value="DEL" data-country="India">
+                <p class="checkError hidden">You missed this</p>
+              </div>
+              <div class="fore form-group">
+                <div class="switch-city" id="switch_city">
+                  <i class="fa fa-exchange fa-2x"></i>
+                </div>
+              </div>
+              <div class="a-city fore form-group">
+                <label for="A_city">To</label>
+                <input type="text" id="A_city" class="form-control" data-ui="DEL" autocomplete="off">
+                <input type="hidden" id="To" name="to" value="BOM" data-country="India">
+                <p class="checkError hidden">You missed this</p>
+              </div>
+            </div>
+            <div class="section2 clearfix">
+              <div class="d-date fore form-group">
+                <label for="D_date">Depart on</label>
+                <input type="text" readonly="readonly" id="D_date" class="form-control" placeholder="Choose Date" autocomplete='off'>
+                <input type="hidden" id="departDate" name="departDate" value="">
+                <a class="icon datepick"></a>
+                <p class="checkError hidden">You missed this</p>
+              </div>
+              <div class="r-date fore form-group hidden">
+                <label for="R_date">Return on</label>
+                <input type="text" readonly="readonly" id="R_date" class="form-control" placeholder="Choose Date" autocomplete='off'>
+                <input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+                <a class="icon datepick"></a>
+                <p class="checkError hidden">You missed this</p>
+              </div>
+            </div>
+            <div class="section3 clearfix">
+              <div class="A-passenger fore form-grop">
+                <label for="A_passenger">Adults</label>
+                <select id="A_passenger" class="form-control" name="adults">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                </select>
+                <p style="visibility: hidden;">above 11 yrs</p>
+              </div>
+              <div class="fore">
+                <div class="line"></div>
+              </div>
+              <div class="C-passenger fore form-grop">
+                <label for="C_passenger">Children</label>
+                <select id="C_passenger" class="form-control" name="childs">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                </select>
+                <p>2-11 yrs</p>
+              </div>
+              <div class="fore">
+                <div class="line"></div>
+              </div>
+              <div class="I-passenger fore form-group">
+                <label for="I_passenger">Infants</label>
+                <select id="I_passenger" class="form-control" name="baby">
+                  <option value="0">0</option>
+                  <option value="1">1</option>
+                </select>
+                <p>below 2 yrs</p>
+              </div>
+            </div>
+            <div class="section4" style="position: relative;">
+              <a href="javascript:void(0)" class="" id="more_options">
+                <!-- <i class="fa fa-caret-right fa-lg"></i> -->
+                <span class="more-op">
+                  <span class="fontB">More options:</span>Class of travel,Airline preference</span>
+              </a>
+              <div class="options clearfix">
+                <div class="classOP vertical">
+                  <label>Class</label>
+                  <select name="cabinClass" class="form-control">
+                    <option value="Economy">Economy</option>
+                    <option value="Business">Business</option>
+                    <option value="First">First</option>
+                    <option value="Premium Economy">Premium Economy</option>
+                  </select>
+                </div>
+                <div class="vertical">
+                  <label>Preferred Airline</label>
+                  <input type="text" id="airline" class="form-control" autocomplete="off">
+                  <input type="hidden" name="airline" value="">
+                </div>
+              </div>
+            </div>
+            <div class="section5">
+              <button class="btn btn-warning btn-lg" id="search_flights_btn">Search flights</button>
+            </div>
+          </div>
+          <!-- end LS-trip  -->
+          <input type="hidden" name="carrier" value="">
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="proOpenWrap hidden" id="proOpenWrap">
+  <div class="proOpenCon">
+  </div>
+</div>
+<div class="proWrap hidden" id="proWrap">
+  <div class="proCon">
+    <div class="container">
+      <div class="closed"></div>
+      <div class="registerWrap row">
+        <div class="col-sm-9">
+          <div class="textC fontSz20" style="color:#fff">
+            Register now, and get
+            <span style="color: #000;">
+              <i class="fa fa-inr"></i> 2000</span> Happy Silver for your amazing Member Price.
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal" class="proSign"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  if (document.referrer == '') return;
+  var domain = document.referrer.split('/');
+  if(domain[2].indexOf('tripoto.com') > -1){
+    var img = document.createElement('img');
+    img.setAttribute('src', 'https://www.tripoto.com/url/impression/5c090c77-723c-488f-892c-360eac1e0147345');
+    img.setAttribute('height', '0');
+    img.setAttribute('width', '0')
+    document.body.appendChild(img);
+  }
+})()
+
+</script>
+<%= require('./fareAlert/fareAlert.ejs')() %>

@@ -1,0 +1,104 @@
+<div class="content">
+	<a href='javascript:;' class="bannerBox">
+		<div class="banner" id="banner">	
+		</div>
+	</a>
+	<div class="container">
+		<div class="wrap clearfix">
+			<div class='megaMS'>
+				<p class='title'>Mega Monsoon Sale</p>
+				<div class="megaMS-info">
+					<p>
+						As Monsoon season comes, HappyEasyGo brings you major airlines sale at one platform for selected domestic routes.
+					 It starts at only Rs.699 on selected domestic flights from specific airlines, including IndiGo, SpiceJet and GoAir. 
+					</p>
+					<p>Hurry, offer is valid from 4 Jul to 8 Jul, 2018. Book your tickets now!</p>
+					<h2>How to get offer?</h2>
+					<ul>
+						<li>1. Search flights on www.happyeasygo.com or HappyEasyGo app</li>
+						<li>2. Select flight of the airline you preferred and proceed to booking.</li>
+						<li>3. Apply coupon code: MONSOON, to get extra Rs.200 off on your flight booking. </li>
+					</ul>
+				</div>
+			</div>
+			<!--<div class='detailsAS'>
+				<p class="title">Details of Airlines Sale</p>
+				<div class="detailsAS-info">
+					<div>
+						<h2>SpiceJet</h2>
+						<ul>
+							<li><p>Fares start at Rs.999 (all-inclusive).</p></li>
+							<li><p>Sale period: 4th-8th July, 2018</p></li>
+							<li><p>Travel period: Till 8th October, 2018.</p></li>
+							<li>
+								<p>Terms and Conditions:</p>
+								<ul>
+									<li>The discount is applicable on one-way fares and Direct Domestic flights only</li>
+									<li>Offer can't be clubbed with any other offers and not applicable on group bookings</li>
+									<li>Fares are refundable with a nominal cancellation charge</li>
+									<li>Changeable with change fee and fare adjustment</li>
+									<li>Limited inventory and available on first-come, first- served basis only</li>
+									<li>Black-out dates applicable</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h2>IndiGo</h2>
+						<ul>
+							<li><p>Fares start at Rs.999 (all-inclusive).</p></li>
+							<li><p>Sale period: 4th July to 8th July 2018</p></li>
+							<li><p>Travel period: 4th July to 27th Sep 2018</p></li>
+							<li>
+								<p>Terms and Conditions:</p>
+								<ul>
+									<li>Available on limited seats on selected sectors and flights.</li>
+									<li>
+										The fares paid for tickets purchased under this offer are non-refundable upon 
+										cancellation by the customer. On cancellation, only statutory taxes will be  
+  									refunded.
+									</li>
+									<li>Valid only on non-stop flights operating on domestic network.</li>
+									<li>nvalid on IndiGo’s group bookings.</li>
+									<li>Cannot be clubbed with any other offer or promotion.</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h2>GoAir</h2>
+						<ul>
+							<li><p>Fares start at Rs.999 (all-inclusive).</p></li>
+							<li><p>Sale period: 4th July to 6th July 2018</p></li>
+							<li><p>Travel period:10th July to 30th Sep 2018</p></li>
+							<li>
+								<p>Terms and Conditions:</p>
+								<ul>
+									<li>Available on first come first basis</li>
+									<li>Blackout dates applicable, please check at the time of booking</li>
+									<li>Offer valid across selective fare types and fare products</li>
+									<li>Tickets will be non-transferable/non-refundable</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>-->
+			<div class='termsC'>
+				<p class="title">Terms & Conditions</p>
+				<div class="termsC-info">
+				<ul>
+					<li>This offer is valid from 5th July to 8th July in the year of 2018.</li>
+					<li>This offer can be booked on HappyEasyGo with all prices, including Instant Discount price, Member Discount price, Cashback price and Premium Cashback price.</li>
+					<li>
+						HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part,
+						 this offer by any other offer, whether similar to this offer or not, or to withdraw it altogether, without prior notice.
+					</li>
+					<li>Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon, Haryana, India.</li>
+				</ul>
+				</div>
+			</div> 
+		</div>
+	</div>
+</div>
+

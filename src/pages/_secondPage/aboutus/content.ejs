@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="content">
+  <div class="bannerWrap">
+    <img src="<%=require('./imgs/banner.jpg')%>" alt="" width=1180>
+  </div>
+  <section class="service">
+    <ul class="clearfix">
+      <li>
+        <img src="<%=require('./imgs/icon-happy.png')%>" alt="">
+        <p>HAPPY</p>
+        <p>Enjoy happy moment when you booking</p>
+      </li>
+      <li>
+        <img src="<%=require('./imgs/icon-convenient.png')%>" alt="">
+        <p>CONVENIENCE</p>
+        <p>Easy way to find your cheap ticket</p>
+      </li>
+      <li>
+        <img src="<%=require('./imgs/icon-safe.png')%>" alt="">
+        <p>SECURITY</p>
+        <p>Ensure the safety of your payment</p>
+      </li>
+    </ul>
+  </section>
+  <section class="clearfix aboutTXT">
+    <div class="title">
+      <h2>About us</h2>
+      <img src="<%=require('./imgs/grass.png')%>" alt="">
+    </div>
+    <div class="view" id='view'>
+      
+    </div>
+  </section>
+  <section class="us clearfix" id='aboutUs'>
+    
+  </section>
+  </div>
+</div>
+
+
+<script id="viewTpl" type="text/template">
+	<div class="left pull-left">
+    <img src="<%=require('./imgs/mac.png')%>" alt="">
+  </div>
+  <div class="right pull-right">
+  {{_.each(myModel, function(val, key){}}
+    <p>
+      {{=val.content}}
+    </p>
+  {{})}}
+  </div>
+
+</script>
+
+<script id="aboutUsTpl" type="text/template">
+	<ul>
+    {{_.each(myModel, function(val, key){}}
+      <li>
+        <h3>{{=val.class}}</h3>
+        <p>{{=val.content[0].content}}</p>
+      </li>
+    {{})}}
+  </ul>
+
+</script>

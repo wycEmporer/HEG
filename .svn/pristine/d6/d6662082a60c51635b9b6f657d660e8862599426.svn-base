@@ -1,0 +1,12 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let metaKeywords = 'Cheap Flight Tickets Offers, Deals on Flight Booking, Deals on Hotel Booking, Exclusive Flight Booking Offers, Flight Offers Today, Hotels Offers Today, flight discount codes, best hotel discounts, happyeasygo coupon code';
+let metaDescription = 'Best offers and deals on domestic & international flights booking & hotel booking at happyeasygo. Get instant cash back & Exclusive Flight Booking Offers.';
+
+module.exports = layout.init({
+  pageTitle: 'Cheap Flight Tickets Offers | Discount Coupons Flights & Hotel Booking',
+  metaKeywords,
+  metaDescription,
+}).run(content(dirsConfig));

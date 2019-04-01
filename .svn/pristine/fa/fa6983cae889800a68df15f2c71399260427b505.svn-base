@@ -1,0 +1,268 @@
+<div class="content">
+	<div class="add-search" style="padding:10px 0;">
+		<form id="searchForm" onsubmit="return false;">
+			<nav class="L-tripType clearfix">
+				<ul>
+				<li class="item oneway" >
+					<label for="oneway">
+					<input type="radio" name="tripType" id="oneway" value="0" class="trip-type" checked="checked">
+					<strong class="font-Roman">One way</strong>
+					</label>
+				</li>
+				<li class="item roundtrip">
+					<label for="Roundtrip">
+					<input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+					<strong class="font-Roman">Round trip</strong>
+					</label>
+				</li>
+				</ul>
+			</nav>
+			<div class="LS-trip">
+				<div class="section1 clearfix">
+					<div class="d-city fore form-group">
+						<span class="checkError hidden">You missed this</span>
+						<input type="text" id="D_city" value="New Delhi" class="form-control" autocomplete="off" placeholder="New Delhi">
+						<input type="hidden" id="From" name="from" value="DEL" data-country="IN">
+						<p class="img-icon takeOff"></p>
+					</div>
+					<div class="a-city fore form-group">
+						<span class="checkError hidden">You missed this</span>
+						<input type="text" id="A_city" value="New Delhi" class="form-control" autocomplete="off" placeholder="New Delhi">
+						<input type="hidden" id="To" name="to" value="BOM" data-country="IN">
+						<p class="img-icon landing"></p>
+					</div>
+				</div>
+				<div class="section2 clearfix">
+					<div class="d-date fore form-group">
+						<input type="text" readonly="readonly" id="D_date" class="form-control time-input" placeholder="Choose Date" autocomplete='off'>
+						<input type="hidden" id="departDate" name="departDate" value="">
+						<a class="icon datepick"></a>
+						<span class="checkError hidden">You missed this</span>
+						<p class="img-icon calendar"></p>
+					</div>
+					<div class="r-date fore form-group ">
+						<input type="text" readonly="readonly" id="R_date" class="form-control time-input"  placeholder="" autocomplete='off'>
+						<input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+						<a class="icon datepick"></a>
+						<p class="checkError hidden">You missed this</p>
+						<p class="img-icon calendar"></p>
+					</div>
+				</div>
+				<div class="section3 clearfix">
+					<div class="item selectItem form-group">
+						<a href="javascript:void(0)" class="trallerpop" id="p-popover">
+							<span id="pCount">1</span>&nbsp;<span id="pIcon">|</span>&nbsp;<span id="pType">Ecnomic</span>
+							<div class="img-icon arrows">
+								<p></p>
+							</div>
+						</a>
+						<div class="SelectWrap  bottom popover">
+							<div class="arrow" style="left: 10%;"></div>
+							<div class="headTop">
+								<a href="javascript:void(0)" style="position: absolute;top:4px; right:10px;z-index:2;" class="close">&times;</a>
+							</div>
+							<div class="clearfix">
+								<div class="A-passenger fore">
+									<p>Adults</p>
+									<span class="img-type A-type"></span>
+									<input id="A_passenger" type="text" value="1" name="adults" alt="a" class="passenger" autocomplete='off'>
+									<div class="minus-plus">
+										<span class="minus-img"></span>
+										<span class="plus-img"></span>
+									</div>
+								</div>
+								<div class="C-passenger fore">
+										<p>Children</p>
+										<span class="img-type C-type"></span>
+										<input id="C_passenger" type="tel" value="0" name="childs" alt="c" class="passenger" autocomplete='off'>
+										<div class="minus-plus">
+											<span class="minus-img"></span>
+											<span class="plus-img"></span>
+										</div>
+								</div>
+								<div class="I-passenger fore">
+										<p>Infants</p>
+										<span class="img-type I-type"></span>
+										<input id="I_passenger" type="tel" value="0" name="baby" alt="i" class="passenger" autocomplete='off'>
+										<div class="minus-plus">
+											<span class="minus-img"></span>
+											<span class="plus-img"></span>
+										</div> 
+								</div>
+								<div class="S-seat">
+										<div class="s-seatType">
+												<label for="economy">
+													<input type="radio" name="cabinClass" id="economy" value="Economy" checked="checked" class="seat-type">
+													<strong class="font-Roman">Economy</strong>
+												</label> 
+												<label for="business">
+													<input type="radio" name="cabinClass" id="business" value="Business" class="seat-type">
+													<strong class="font-Roman">Business</strong>
+												</label> 
+												<label for="first">
+													<input type="radio" name="cabinClass" id="first" value="First" class="seat-type">
+													<strong class="font-Roman">First</strong>
+												</label> 
+												<label for="prenium" class="prenium">
+													<input type="radio" name="cabinClass" id="prenium" value="Prenium Economy" class="seat-type">
+													<strong class="font-Roman">Prenium Economy</strong>
+												</label> 
+										</div>
+										<!-- <div class="s-seatRegular">
+											<p>Children 5 to 14 years old on a separate flight must be reserved for their "unaccompanied minors".</p>
+										</div> -->
+								</div>
+								<div class="B-confirm" style="margin-top: 20px;">
+									<input id="confirm" type="button" value="Confirm" name="button" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="section4" >
+					<button class="btn font-Roman GAEV"  ga-category="1s" ga-action="click" ga-label="searchBtn" id="search_flights" style="margin-top: 6px;">Search flights</button>
+				</div>
+				<input type="hidden" name="airline">
+				<input type="hidden" name="carrier">
+			</div>
+		</form>
+	</div>
+	<div class="wrap">
+		<div class="container">
+			<div class='headImg'></div>
+			<div class='msg1'>
+				<p id='Countdown_msg'>Thank You All for being a Part of the HappyEasyGo Anniversary Sale</p>
+				<!--<p class='font-Bold'>starting from July 31st, 00:00:00 to August 31st, 23:59:59</p>
+				<div class='Countdown'>
+					<span class='text'>HRS</span>
+					<span class='time' id="RemainH1_1"></span>  
+					<span class='time' id="RemainH2_1"></span>  
+					<span class='text'>MINS</span>
+					<span class='time' id="RemainM1_1"></span>  
+					<span class='time' id="RemainM2_1"></span> 
+					<span class='text'>SECS</span> 
+					<span class='time' id="RemainS1_1"></span>  
+					<span class='time' id="RemainS2_1"></span>  
+				</div>-->
+				<div class='offerFare'>We are offering fares as low as <span class='font-Roman' style='color:#e8fc04;'><i class='rs'>Rs</i>611</span> for select routes! </div>
+				<p class='font-Roman'>Grab Our Unbelievable Flight Deals And Fly At The Lowest Possible Airfares</p>
+			</div>
+			<div class='bgImg1'>
+				
+				<div class='copyIconBox'>
+					<span class='text'>HEGSEP</span>
+					<i class='pull-right copyIcon GAEV' id='copyIcon2' ga-category="1s" ga-action="click" ga-label="coupon" ga-value="HEGAPP"></i>
+				</div>
+				<div class='copyIconBox'>
+					<span class='text'>HEGAPP</span>
+					<i class='pull-right GAEV copyIcon' id='copyIcon1' ga-category="1s" ga-action="click" ga-label="coupon" ga-value="HEGSEP"></i>
+				</div>
+				<img src="<%= require('./images/coupon1.png') %>" alt="">
+				<div class='TipsMsg'>
+						Successfully copied use code to the clipboard
+				</div>
+			</div>
+			<div class="msg2 font-Roman">
+				<p>That’s Not All We Are Bringing You</p>
+				<p>You Can Also Take Part In The Lottery And Stand A Chance to Win Amazing Prizes.</p>
+				<p>Below is what you can win:</p>
+			</div>
+			<div id="" class="zy-Slide">
+				<section></section>
+				<section></section>
+				<ul>
+					<li><a href="/Anniversary?type=2" class="GAEV" ga-category="1s" ga-action="click" ga-label="happyeasygo"><img src="<%= require('./images/1.png') %>" /></a></li>
+					<li><a href="/Anniversary?type=7" class="GAEV" ga-category="1s" ga-action="click" ga-label="myntra"><img src="<%= require('./images/3.png') %>" /></a></li>
+					<li><a href="/Anniversary?type=9" class="GAEV" ga-category="1s" ga-action="click" ga-label="netmeds"><img src="<%= require('./images/4.png') %>" /></a></li>
+					<li><a href="/Anniversary?type=1" class="GAEV" ga-category="1s" ga-action="click" ga-label="sumsung"><img src="<%= require('./images/5.png') %>" /></a></li>
+					<li><a href="/Anniversary?type=6" class="GAEV" ga-category="1s" ga-action="click" ga-label="treebo"><img src="<%= require('./images/6.png') %>" /></a></li>
+					<li><a href="/Anniversary?type=8" class="GAEV" ga-category="1s" ga-action="click" ga-label="xoxo"><img src="<%= require('./images/7.png') %>" /></a></li>
+					<li><a href="/Anniversary?type=5" class="GAEV" ga-category="1s" ga-action="click" ga-label="zoomcar"><img src="<%= require('./images/8.png') %>" /></a></li>
+					<li><a href="/Anniversary?type=10" class="GAEV" ga-category="1s" ga-action="click" ga-label="Gaana"><img src="<%= require('./images/11.png') %>" /></a></li>
+				</ul>
+			</div>
+			<a href='/Anniversary' class="msg3 GAEV" ga-category="1s" ga-action="click" ga-label="draw-link">
+			</a>
+			<div class="msg4 font-Bold">
+				<p>We Are Also Bringing A Plethora Of Gifts For Our Loyal Customers</p>
+				<p>If you have been a loyal HappyEasyGo customer, you can get:</p>
+			</div>
+			<div class='bgImg2 clearfix'>
+				<ul>
+					<li>
+						<p class='title'>Anniversary gift package.</p>
+						<p class='cont'>Those who registered with HEG before 30th June, 2018 can win special vouchers for discounts on flight ticket bookings. Check your gifts in <a href="/account/?src=myCoupon">My Coupons’ Page</a> now.</p>
+					</li>
+					<li>
+						<p class='title'>Regular campaign rewards & discounts on HappyEasyGo Facebook</p>
+						<p class='cont'>Visit HappyEasyGo facebook account: <a href="https://www.facebook.com/happyeasygo">https://www.facebook.com/happyeasygo/</a> and find exclusive offers from our social channels. </p>
+					</li>
+				</ul>
+			</div>
+			<div class="msg5 font-Bold">
+				<p>Hurry, Plan Your Vacation To Enjoy Our Offer Now. And Grab The Opportunity To Win These Exciting Prizes!</p>
+			</div>
+			
+			
+		</div>
+		<div class='footMsg'>
+			<div class='container'>
+				<div class='msg6 clearfix'>
+					<ul class='msg6Box'>
+						<li>
+							<p class='title font-Roman'>Follow us on</p>
+							<ul class='followUs clearfix'>
+								<li><a href="https://www.facebook.com/happyeasygo/" class="fb-icon fwIcon"></a></li>
+								<li><a href="https://twitter.com/happyeasygo" class="tw-icon fwIcon"></a></li>
+								<li><a href="https://www.instagram.com/happyeasygo_india/" class="ins-icon fwIcon"></a></li>
+								<li><a href="https://plus.google.com/+HappyEasyGoIndia" class="gl-icon fwIcon"></a></li>
+								<li><a href="https://www.youtube.com/channel/UCBlph2534GSN1PDJH9E5ylg" class="tb-icon fwIcon"></a></li>
+								
+							</ul>
+						</li>
+						<li>
+							<p class='title font-Roman'>Download our mobile App</p>
+							<div>
+								<a href="https://app.adjust.com/der8bzo?campaign=Anniversary&adgroup=LandingPage&creative=20180726" target="_blank" class="downLink">
+									<img src="<%=require('./images/google-play.png')%>" alt="">
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="msg7 font-Roman">
+					<p>Copyright  2016-2018 Happyeasygo Group. All rights reserved</p>
+					<p>All brands, logos are trademarks or registered trademarks of their respective owners.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="login_modal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:440px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="register_modal" data-backdrop="static" data-keyboard="false" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

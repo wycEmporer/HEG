@@ -1,0 +1,311 @@
+<script type="text/javascript" language="javascript" 
+src="https://happyeasygo.ameyo.net:8443/app/ameyochatjs/ameyo-emerge-chat.js" 
+async defer></script>
+<script type="text/javascript">
+if(new Date() > new Date('2019/01/28')){
+  var campaignId = '4';
+  var nodeflowId = '3';
+  var ameyoUrl = ' https://happyeasygo.ameyo.net:8443';
+  var ameyo_script = document.createElement('script');
+  ameyo_script.onload = function() {
+    try {
+    initializeChat(campaignId, nodeflowId,ameyoUrl);
+    } catch (err) {
+    console.error( err);
+    }
+  };
+  ameyo_script.src = ameyoUrl+"/ameyochatjs/ameyo-emerge-chat.js";
+  document.getElementsByTagName('head')[0].appendChild(ameyo_script);
+}
+
+</script>
+<div class="banner" id="banner">
+</div>
+<div class="content">
+	<div class="container">
+		<div class="wrap font-Roman clearfix">
+			<div class='searchFlight'>
+				<form class="form-inline clearfix" onsubmit="return false">
+					<div class="form-group  order_info">
+						<input type="text" name='orderId' class="form-control inputin" placeholder="PNR / Order id / Trip ID" value="">
+						<p class="checkError hidden">Please enter a valid PNR / Trip ID.</p>
+					</div>
+					<div class="form-group phone_info">
+						<div class="pull-left" style="position: absolute;left:8px;top:10px;margin-right:10px;">
+							<select name="areaCode" id="" class="registerAreaCode form-control" style="display: inline-block; width: 86px;position: absolute;top:0;left:0;opacity:0;">
+								<option value="91">India (+91)</option>
+							</select>
+							<input class="form-control showSelect" readonly style="width: 86px;height:30px;padding-left: 12px;background-color:#fff;border-radius:2px;border-color: #cdcdcd;" value="+91">
+							<b style="position: absolute;border-top: 5px solid #333;border-right: 3px solid transparent;border-bottom: 5px solid transparent;border-left: 3px solid transparent;right: 6px;top: 15px;"></b>
+						</div>
+						<input type="text" name="phoneNo" class="form-control inputin" placeholder="Contact Number" value="">
+						<p class="checkError hidden">Please enter a valid Mobile No.</p>
+					</div>
+					<div class="form-group">
+						<a href="javascript:;"  id="shareBySms" class="shareBtn font-Bold">View Your Trips</a>
+					</div>
+				</form>
+				<p><a href="/account/?src=trips" target="_blank" class='a_link fontSz14'>Forget your PNR / Trip ID ? Find your trips  here！</a></p>
+			</div>
+			<div class='searchResult' id="carouselInfo">
+				
+			</div>
+			<div class="topics">
+				<p class="title">Topics</p>
+				<div class="cont clearfix" id='questionCont'>
+					
+				</div>
+			</div>
+			<div class="writeToUs hidden">
+				<img src="<%= require('./images/writing.png') %>" alt="" data-toggle="modal" data-target="#proccedModal">
+				<p class="font-Bold">Write To Us</p>
+				<p>If there are any other needs,We do our best service to you</p>
+			</div>
+			<div class="phoneInfo">
+				<p>
+					<i class="icon phone"></i>
+					<span>Call us:</span>
+					<span class="phoneNo"></span>
+				</p>
+				<p>
+					<i class="icon email"></i>
+					<a href="mailto:cs@happyeasygo.com" class="">
+						<span>cs@happyeasygo.com</span>
+					</a> 
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script id="carouselInfoTpl" type="text/template">
+	{{if(myModel.length != 0) { }}
+	<div class='tripInfo'>
+		<div id="carousel" class="carousel slide" data-wrap = "false" data-interval = 'false'>
+			<!-- Wrapper for slides -->
+			<div id="carousel-inner">
+				<div class="carousel-inner"  role="listbox">
+				{{_.each(myModel, function(val,key) { }}
+				<div class="item {{= key == 0 ? 'active' :''}}">
+					<div class="carousel-caption">
+						<a href="/account/?src=trips/{{=val.flightItineraryIdString}}&token={{=val.token}}" target="_blank">
+							<div class="col-header clearfix">
+								<p>
+									<span class="pull-left">Depart: {{=val.departTime_1}}</span>
+									<span class="pull-right">{{=val.duration}} Travellers</span>
+								</p>
+							</div>
+							<div class="col-flightInfo">
+								<ul class="clearfix">
+									<li class="font-Bold">{{=val.bookStatus}}</li>
+									<li>
+										<img src="/static/images/air-logo/{{=(val.travellers).slice(0,2)}}.png" alt="airlogo"  class="logo"  onerror="this.src='/static/images/air-logo/default.png'">
+										<p>{{=val.travellers}}</p>
+									</li>
+									<li>
+										<p>{{=val.departTime_2}}</p>
+										<p class="font-Bold">{{=val.departName}}</p>
+									</li>
+									<li>
+										<p>{{=val.durationTime}}</p>
+										<p></p>
+										<p>{{= val.stop == 0 ? 'Non' :  val.stop}} - Stop</p>
+									</li>
+									<li>
+										<p>{{= val.arriveTime_2}} <span  class="{{=val.isCrossDay? '' : 'hidden' }}"  style='color:#0b9d78;' >+1</span></p>
+										<p class="font-Bold">{{=val.arriveName}}</p>
+									</li>
+								</ul>
+							</div>
+						</a>
+						<div class="btnBox clearfix">
+							<div class="flightBtn pull-left">
+								<button type='button' {{=val.isChangeable ? "" : "disabled" }} target='_blank'  class='btn btn-default f-cancel {{=val.isChangeable ? "" : "disabled" }}' data-isoperateable="{{=val.isChangeable}}" tripid="{{=val.flightItineraryIdString}}" href="javascript:;">Cancel Flight</button>
+								<button  type='button' href="javascript:;" target='_blank' class='btn btn-default f-change {{=val.isChangeable ? "" : "disabled" }}' {{=val.isChangeable ? "" : "disabled" }}  tripid="{{=val.flightItineraryIdString}}" data-isoperateable="{{=val.isChangeable}}">Change Flight</button>
+							</div>
+							<div class="printBtn pull-right">
+								<button type='button' class="btn btn-default {{=( val.isPayable || !val.isTicketNo) ? 'disabled' : '' }}" {{=( val.isPayable || !val.isTicketNo) ? "disabled" : '' }} onclick="if({{= (val.isPayable || !val.isTicketNo)}}){return false}else{ location.href = '/heg_api/itinerary/printItinerary.do?tripId={{= val.flightItineraryIdString}}'}">Print Ticket</button>
+								<button type='button' class="btn btn-default {{=val.status !=4 ? 'disabled' : ''}}" {{=val.status !=4 ? "disabled" : ''}} onclick="if({{= val.status != 4}}){return false}else{ location.href = '/heg_api/itinerary/printInvoice.do?tripId={{=val.flightItineraryIdString}}&mob={{=val.contactMob}}' }">Print invoice</button>
+								<button type='button' class="btn btn-default {{=( val.isPayable || !val.isTicketNo) ? 'disabled' : '' }}" {{=( val.isPayable || !val.isTicketNo) ? "disabled" : ''}} id="emailTrip" href="javascript:;" tripid="{{=val.flightItineraryIdString}}">Email Itinerary</button>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+				{{ }) }}
+				</div>
+			</div>
+			<!-- Controls -->
+			{{if(myModel.length != 1) { }}
+			<a class="left carousel-control" href="#carousel" role="button" data-slide="prev"></a>
+			<a class="right carousel-control" href="#carousel" role="button" data-slide="next"></a>
+			{{ } }}
+		</div>
+	</div>
+	{{ } else { }}
+	<p class="title_1 ">No record found.Please check the information you entered.</p>
+	{{ }  }}
+	
+	
+</script>
+
+<script id="questionContTpl" type="text/template">
+	<div class="panel-group tablist-group pull-left" id="accordion" role="tablist">
+		{{_.each(myModel, function(val,key) { }}
+		<div class="panel panel-default">
+			<div class="panel-heading" role="tab" id="{{= 'collapseListGroupHeading_' + key}}">
+				<h4 class="panel-title">
+					<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="{{= '#collapseListGroup' + key}}" aria-expanded="false" aria-controls="collapseListGroup1">
+						{{= val.class}}
+					</a>
+				</h4>
+			</div>
+			<div id="{{= 'collapseListGroup' + key}}" class="panel-collapse collapse {{= key == 0 ? 'in' :''}}" role="tabpanel" aria-labelledby="{{= 'collapseListGroupHeading_' + key}}">
+					<!-- Nav tabs -->
+				<ul class="nav list-group" role="tablist">
+					{{ _.each(val.node, function(value,index) {  }}
+					<li role="presentation" class="list-group-item {{= (key == 0 && index == 0) ? 'active' : ''}}"><a href="{{= '#' + val.class.slice(0,3) +index}}" aria-controls="{{= val.class.slice(0,3) +index}}" role="tab" data-toggle="tab">{{= value.class}}</a></li>
+					{{ })}}
+				</ul>
+			</div>
+		</div>
+		{{ })}}
+	</div>
+		<!-- Tab panes -->
+	<div class="tab-content pull-right">
+		{{_.each(myModel, function(val,key) { }}
+			{{ _.each(val.node, function(value,index) {  }}
+				<div role="tabpanel" class="tab-pane {{= (key == 0 && index == 0) ? 'active' : ''}}" id="{{= val.class.slice(0,3) +index}}">
+				
+					<div class="panel-group" id="accordion_{{=val.class.slice(0,3) + index}}" role="tablist" aria-multiselectable="true">
+						{{ _.each(value.node, function(item,idx) {  }}
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="{{='heading'+ val.class.slice(0,3) +index + idx}}">
+								<h4 class="panel-title">
+									<a class="font-Bold" role="button" data-toggle="collapse" data-parent="#accordion_{{=val.class.slice(0,3) + index}}" href="{{= '#collapse'+ val.class.slice(0,3) +index + idx}}" aria-expanded="true" aria-controls="{{= '#collapse'+ val.class.slice(0,3) +index + idx}}">
+										{{= item.class}}
+									</a>
+								</h4>
+							</div>
+							<div id="{{= 'collapse' + val.class.slice(0,3) +index + idx}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{='heading'+ val.class.slice(0,3) +index  + idx}}">
+								<div class="panel-body">
+									<p>{{= item.content[0].content}}</p>
+									<div class='fareBtn'>
+										<a href="javascript:;" data-index= '1' data-id= '{{=item.cid}}' class=""><i class="icon icon_helpful"></i> Helpful</a>
+										<a href="javascript:;" data-index= '0' data-id= '{{=item.cid}}'><i class="icon icon_notHelpful"></i> Not Helpful</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						{{ })}}
+					</div>			
+				</div>
+			{{ })}}
+		{{ })}}
+	</div>
+</script>
+
+
+ <div class="modal proccedModal fade " id='proccedModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document" style='width:560px;'>
+    <div class="modal-content font-Roman">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title font-Bold'>Write To Us</p>
+			</div>
+      <div class="modal-body " id=''>
+				<form id='career_Info' method="post" enctype="multipart/form-data">
+          <div class="form-group verify-box">
+            <input type="text" id='name' name='name'  class="form-control" id="name" placeholder='Name'>
+						<p class="checkError hidden">Please enter a valid name</p>
+          </div>
+          <div class="form-group username-box" >
+            <input type="email" id='email' name='email' class="form-control" id="" placeholder='Email Address'>
+						<p class="checkError hidden">Please enter a valid Email Address</p>
+          </div>
+          <div class="form-group mobile-box">
+            <input type="mobile" id='mobile' name='cellphone' class="form-control" id="" placeholder='Mobile Number'>
+						<p class="checkError hidden">Please enter a valid Mobile Number.</p>
+          </div>
+         
+          <div class="form-group location-box clearfix">
+            <div class="select-control pull-left">
+							<input type="text" class="form-control selectBtn" placeholder='Select Issue Category'  readonly>
+							<div class="selectInfo selectInfo_1" id="supportQuest_1">
+					
+							</div>
+							<p class="checkError hidden">Please Select Issue Category</p>
+						</div>
+            <div class="select-control pull-right">
+							<input type="text" class="form-control selectBtn" placeholder='Select Issue' readonly >
+							<div class="selectInfo selectInfo_2" id="supportQuest_2">
+								
+							</div>
+							<p class="checkError hidden">Please Select Issue</p>
+						</div>
+          </div>
+					 <div class="form-group tripId-box hidden">
+            <input type="mobile" id='tripId' name='associatedDocument'  class="form-control" id="" placeholder='Trip ID / Order Id /PNR'>
+						<p class="checkError hidden">Please enter Trip ID / Order Id /PNR.</p>
+          </div>
+          <div class="form-group joinReason-box">
+            <textarea class="form-control" rows="4" id='joinReason' maxlength="500" name='issue' id="" style='resize: vertical;' placeholder='Decribe your issue'></textarea>
+						<span class='textLength'>500</span>
+						<p class="checkError hidden">Please write down your reason</p>
+          </div>
+					<div class="form-group fileUpload-box hidden">
+						<div id="fileUpload" class="demo"></div>   
+						<p class="checkError hidden">Please Upload your attach resume.</p>
+          </div>
+					<div class="form-group text-center btnFrom-group">
+            <a href="javascript:;" type='button' class='btn btn-default font-Bold' data-dismiss="modal">Cancel</a>
+            <a href="javascript:;" id='saveCareeer' type='submit' class='btn btn-success font-Bold'>Submit</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script id="supportQuest_1Tpl" type="text/template">
+	{{_.each(myModel, function(val,key) { }}
+	 	<div class="well">
+			<p class="title font-Bold">{{= val.class }}</p>
+			<ul>
+			{{_.each(val.node, function(value,index) { }}
+				<li>
+					<a href="javascript:;" data-id = '{{=value.cid }}' >{{= value.class}}</a>
+				</li>
+			{{ }) }}
+			</ul>
+		</div>
+	{{ }) }}
+</script>
+<script id="supportQuest_2Tpl" type="text/template">
+	<div class="well">
+		<ul>
+			{{_.each(myModel, function(val,key) { }}
+			<li>
+				<a href="javascript:;" data-id = '{{=val.cid }}'>{{=val.class}}</a>
+			</li>
+			{{ }) }}
+		</ul>
+	</div>
+</script>
+
+
+<div class="modal noChangeModal fade" id='saveSuccModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class="font-Bold">Request with us successfully!</p>
+			</div>
+      <div class="modal-body">
+				<p class='msg'>We have received your request and our customer care is working on it.We will find a solution for you shortly! </p>
+      </div>
+      <div class="modal-footer">
+        <a href='javascript:;' type="button" class="btn btn-default" data-dismiss="modal">OK</a>
+      </div>
+    </div>
+  </div>
+</div>

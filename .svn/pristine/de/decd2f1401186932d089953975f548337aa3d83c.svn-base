@@ -1,0 +1,10 @@
+const config = require('configModule');
+const content = require('./content.ejs'); 
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let pageTitle = 'Diwali Offers 2018 - Amazing discounts on hotel bookings';
+let metaDescription = ' Celebrate Festival of Lights with great hotel booking deals. Use code: HEGHTL & Save Rs.200 on your stay. Book 5-star or cheap hotel in India online with HEG.';
+let metaKeywords = 'Diwali Hotel booking, Diwali Hotel offers, HappyEasyGo Diwali Offers, Diwali 2018 Offers, Book Cheap Hotels, Cheap Hotels on Diwali, Exclusive Hotel Booking Coupons';
+module.exports = layout.init({
+  pageTitle, metaKeywords, metaDescription 
+}).run(content(dirsConfig));

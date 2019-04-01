@@ -1,0 +1,70 @@
+<div class="modal getFareAlert fade" id="getFareAlert" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:550px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:15px; top:10px; z-index: 100; font-size: 30px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Set a Fare Alert for free !</h4>
+      </div>
+      <div class="modal-body clearfix">
+        <div class='Trips'>
+          <div class="from text-right">
+            <p class='fData'></p>
+            <p class='fCity'></p>
+          </div>
+          <div class=" ">
+            <i class='tripIcon'></i>
+          </div>
+          <div class="to  text-left">
+            <p class='tData'></p>
+            <p class='tCity'></p>
+          </div>
+        </div>
+        <div>
+          <form id='loginForm'>
+            <div class="form-group loginHidden emailBox" style='margin:0;'>
+              <input type="email" class="form-control form_control" id='emailInput' placeholder="Email Address" style='width:430px;height:40px;'>
+              <p class="checkError hidden">Please enter a valid email address.</p>
+            </div>
+            <p class='or loginHidden font-Roman'>or</p>
+            <div class="form-group loginHidden phoneBox clearfix" style='position: relative;margin-bottom:30px;'>
+              <div class="areaBox" style="margin-right:10px;">
+                <select name="areaCode" id="loginAreaCodeSele" class="registerAreaCode form-control" style="display: inline-block; width: 70px;height:38px;position: absolute;top:0;left:0;opacity:0;box-shadow:none">
+                  <option value="91">India (+91)</option>
+                </select>
+                <input class="form-control showSelect" readonly style="width: 70px;height:38px;padding-left: 12px;background-color:#fff;border-radius:2px;border:none;" value="+91">
+                <b style="position: absolute;right: 0px;top: 17px;border-top: 5px solid #333;border-right: 3px solid transparent;border-bottom: 5px solid transparent;border-left: 3px solid transparent;"></b>
+              </div>
+              <div class="telBox">
+                <input type="tel" name="phoneNo" id="phoneInput" maxlength="50" size="50" autocomplete="off" class="form-control form_control" placeholder="Phone Number" style='width:100%;height:40px; padding-left: 80px;'>
+              </div>
+              <p class="checkError hidden">Please enter a valid mobile number.</p>
+            </div>
+            <div class="checkbox" style='font-size:14px;'>
+              <label>
+                <input type="checkbox" id='insCheckBox' checked style='bottom:2px;' class='font-Roman'>Get instantly notified by email or SMS when the fare drops.
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" id="fareAlertBtn" class="btn btn-default font-Roman">Subscribe Fare Alert</button>
+        <p class='font-Roman'>By subscribing you accept our <a href="/conditions">terms of use</a> and <a href="/privacy">pricacy policy</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- sub succ -->
+<div class="modal subSuccModal fade" id="subSuccModal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:290px;">
+   
+    <div class="modal-content">
+      <div class="modal-body clearfix">
+        <p class='font-Roman'>Subscribe Successfully!</p>
+      </div>
+    </div>
+  </div>
+</div>

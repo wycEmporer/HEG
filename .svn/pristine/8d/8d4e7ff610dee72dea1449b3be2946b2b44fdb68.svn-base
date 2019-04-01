@@ -1,0 +1,159 @@
+<div class="content">
+  <div class="selector" style="height:60px;position: sticky;top:0; left:0; z-index:1">
+    <div class="selector-container" style="width:1180px; margin:0 auto">
+      <div class="form-group cityname"> 
+        <input type="text" id="cityname" autocomplete="off">
+        <span class='icon-loading'></span>
+        <div class="search-result">
+          <h2>SEARCH RESULTS</h2>
+          <div class="result-items">
+            <!--城市名-->
+          </div>
+        </div> 
+      </div>
+      <div class="form-group check-in">
+        <input type="text" id="check-in" readonly>
+        <!--<i class="icon-date"></i>-->
+      </div>
+      <div class="form-group check-out">
+        <input type="text" id="check-out" readonly>
+        <!--<i class="icon-date"></i>-->
+      </div>
+      <div class="form-group rooms-guest">
+        <input type="text" id="room-guest" value="1 Room,2 Guests" readonly>
+        <i class="icon-down"></i>
+        <i class="icon-down"></i>
+        <div class="search-result">
+          <div class="search-result-container">
+            <div class="s-r-item" data-index="0">
+              <div class="room-result result-item">
+                <span>Rooms 1</span>
+                <div class="r-info">
+                  <span>2 Adults 0 Children</span>
+                  <span class="edit">edit</span>
+                </div>
+              </div>
+              <div class="guests-result">
+                <div class="adult-result result-item">
+                  <span>Adults （+12 yrs）</span>
+                  <div class="clearfix result-info">
+                    <em></em>
+                    <b>2</b>
+                    <i class="add" data-index="1"></i>
+                    <i class="minus" data-index="1"></i>
+                  </div>
+                </div>
+                <div class="child-result result-item">
+                  <span>Children （1-12 yrs）</span>
+                  <div class="clearfix result-info">
+                    <em></em>
+                    <b>0</b>
+                    <i class="add" data-index="2"></i>
+                    <i class="minus minus-disabled" data-index="2"></i>
+                  </div>
+                </div>
+                <ul class="child-age">
+                </ul>
+              </div> 
+            </div>
+
+          </div>
+          <div class="room-operate">
+            <button class="add-room">ADD ROOM</button>
+            <span class="done">Done</span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group get-set-go">
+        <button class="go" style="margin-top:0">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class='bannerBox'>
+    <div class="banner" id="banner">
+    </div>
+    <div class='copyCode'>
+      <p><span>Coupon Code - </span><span id='copyText' class='font-BlackCond GAEV' ga-category="hotel" ga-action="click" ga-label="couponCopy" ga-value="HEGHTL">HEGHTL</span></p>
+      <div class='TipsMsg'>
+        Successfully copied coupon code to the clipboard
+      </div>
+    </div>
+  </div>
+  
+	<div class="container">
+		<div class="wrap">
+			<div class="category">
+				<ul class='clearfix'>
+					<li>
+						<img src="<%= require('./images/Group1.png')%>" alt="">
+						<p>Offer</p>
+						<p>Up to Rs.600 off on hotel booking</p>
+					</li>
+					<li>
+						<img src="<%= require('./images/Group2.png')%>" alt="">
+						<p>Min. Booking Amount</p>
+						<p>Rs.4000</p>
+					</li>
+					<li>
+						<img src="<%= require('./images/Group3.png')%>" alt="">
+						<p>Validity</p>
+						<p>06,Dec 2018 - 16,Dec 2018</p>
+					</li>
+					<li>
+						<img src="<%= require('./images/Group4.png')%>" alt="">
+						<p>Booking Channel</p>
+						<p>Desktop, Mobile site</p>
+					</li>
+				</ul>
+			</div>
+			<div class="otherRules">
+				<div class="tabBar">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="active" role="presentation">
+							<a href="#walletRules" data-toggle="tab" role="tab" aria-controls="walletRules">How to redeem it</a>
+						</li>
+						<!-- <li class="" role="presentation">
+							<a href="#withdrawRules" data-toggle="tab" role="tab" aria-controls="withdrawRules">Withdraw Rules</a>
+						</li> -->
+						<li class="" role="presentation">
+							<a href="#cancelRules" data-toggle="tab" role="tab" aria-controls="cancelRules">Terms & Conditions</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-content tabcon">
+					<div class="tab-pane active" id="walletRules">
+						<ul>
+							<li> Go to the hotels page on the HappyEasyGo website. </li>
+							<li>  Click on the offer to get the coupon code. </li>
+							
+							<li>  Search for the hotel you wish to book. </li>
+							<li>
+								 Enter the coupon code on the booking page and get extra Rs.600  off. 
+							</li>
+							<!-- <li>In case of any disputes, HappyEasyGo’s decision will be final.</li> -->
+						</ul>
+					</div>
+					<div class="tab-pane cancelRules" id="cancelRules">
+						<ul>
+							<li>
+							  The coupon code can be used to save extra Rs.600  on hotel bookings across India. 
+							</li>
+							<li>  The offer is only applicable on bookings made on HappyEasyGo desktop or mobile site. </li>
+							<li>Cancellation charges will be deducted from the cash as well as from happy wallet respectively.</li>
+							<li>
+							  The coupon code is valid from 06,Dec 2018 to 16,Dec 2018. 
+							</li>
+							<li>
+							  HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.
+							</li>
+							<li>
+							  Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon, Haryana, India.
+							</li>
+						</ul>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

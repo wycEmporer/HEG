@@ -1,0 +1,9 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+const metaKeywords = 'Indigo Airlines, Indigo Flight Booking, Indigo Flight Ticket, Indigo Offers, Indigo Cheap flights, Indigo Cheap Tickets, Online Cheap flight booking, Indigo Flight Booking offers, Book Indigo flight Online, Indigo cheap flight tickets, Domestic Airlines';
+const metaDescription = 'Find cheap air ticket offers on IndiGo flights at HappyEasyGo.com. Book IndiGo flights online to grab the best deals for international and domestic routes. ';
+module.exports = layout.init({
+  pageTitle: ' Cheap IndiGo Flight Booking Offers | IndiGo Airlines Ticket Deals', metaKeywords, metaDescription
+}).run(content(dirsConfig));

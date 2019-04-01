@@ -1,0 +1,49 @@
+const {cookieUtil} = require('utils');
+
+export function skyscanerTrack(orderId){
+  let isPro = process.env.NODE_ENV === 'production' && !IS_UAT;
+  if(!isPro) return;
+  let stoName = 'SAT_' + orderId;
+  let isPaySuccess = localStorage.getItem(stoName) === '1';
+  if(isPaySuccess){
+    (function(s, k, y, t, a, g){s['SkyscannerAnalyticsTag']=t;s[t]=s[t]||function(){ (s[t].buffer=s[t].buffer||[]).push(arguments);};s[t].u=y;var l=k.createElement('script'); l.src=y+'/tag.js';l.async=1;var h=k.getElementsByTagName('head')[0];h.appendChild(l); })(window, document, 'https://analytics.skyscanner.net', 'sat');
+
+    window.sat && window.sat('send', 'conversion', {bookingReference: orderId});
+    localStorage.removeItem(stoName);
+  }
+}
+
+export function ixigoTrack(inputTransactionId, inputAmount, inputSegments) {
+  let baseUrl = (process.env.NODE_ENV === 'production' && !IS_UAT) ? 'https://www.ixigo.com' : 'https://build1.ixigo.com';
+  window.ixiTransactionTracker = function(tag) {
+    function updateRedirect(tag, t, p, v, s) {
+      let u = baseUrl + '/ixi-api/tracker/updateConversion/' + tag + '?transactionId=' + t + '&pnr=' + p + '&saleValue=' + v + '&segmentNights=' + s;
+      return '<img style=\'top:-999999px;left:-999999px;position:absolute\' src=\'' + u + '\' />';
+    }
+    var html = updateRedirect(tag, inputTransactionId, '', inputAmount, inputSegments);
+    var temp = document.createElement('div');
+    temp.innerHTML = html;
+    document.body.appendChild(temp);
+  };
+
+  let script = document.createElement('script');
+  script.src = baseUrl + '/ixi-api/tracker/track1021';
+  document.getElementsByTagName('head')[0].appendChild(script);
+  return false;
+}
+
+function wegoTrack(inputTransactionId, inputAmount) {
+  let baseUrl = (process.env.NODE_ENV === 'production' && !IS_UAT) ? 'https://secure.wego.com' : 'https://secure.wegostaging.com';
+  
+  function updateRedirect(t, v, c) {
+    let u = baseUrl + '/analytics/v2/conversions/' + 
+    '?conversion_id=c-wego-happyeasygo.com&comm_currency_code=INR&bv_currency_code=INR&transaction_id=' + t +
+    '&total_booking_value=' + v + '&commission=' + (v*0.02)+'&click_id='+ c +'&status=pending';
+    return '<img style=\'top:-999999px;left:-999999px;position:absolute\' src=\'' + u + '\' />';
+  }
+  var clickId = cookieUtil.getCookie['wego_click_id'];
+  var html = updateRedirect(inputTransactionId, inputAmount, clickId);
+  var temp = document.createElement('div');
+  temp.innerHTML = html;
+  document.body.appendChild(temp);
+}

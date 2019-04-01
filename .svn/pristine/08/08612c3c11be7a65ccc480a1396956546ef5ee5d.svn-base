@@ -1,0 +1,10 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const headScript = require('./headScript.ejs');
+const layout = require('newLayout');
+const dirsConfig = config.DIRS;
+let metaKeywords = ' flight booking, flights, hotel booking, hotels, deals on hotels, cheap flights, cheap air tickets, hotel near me,  discount on hotels, flight booking offer, lowest airfare, happyeasygo.com, happy easy go, travel in India';
+let metaDescription = ' Find the best offers on flight tickets and hotel bookings on HappyEasyGo. Visit for deals on luxury and budget hotels and international and domestic flights.';
+module.exports = layout.init({
+  pageTitle: 'Flights, Hotels, Flight Booking, Hotel Booking | HappyEasyGo', scriptStr:headScript(), metaDescription, metaKeywords
+}).run(content(dirsConfig));

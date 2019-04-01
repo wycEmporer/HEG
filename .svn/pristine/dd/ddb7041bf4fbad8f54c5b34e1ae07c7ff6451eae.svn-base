@@ -1,0 +1,14 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+.pwdForm{
+  width: 50%;
+  margin: 50px auto;
+}
+.title{
+  font-size: 18px;
+  height:32px;
+  line-height: 32px;
+  margin-bottom: 10px;
+}
+#setPwd{
+  width:60%;
+}

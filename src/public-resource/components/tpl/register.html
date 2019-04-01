@@ -1,0 +1,87 @@
+<div class="register-wrapper">
+  <div class="logWrap-container">
+    <div class="checkFailure hidden">
+      <p>Email has already been used</p>
+    </div>
+    <h1 class="title">Create HappyEasyGo Account</h1>
+    <form action="">
+      <dl class="vertical">
+        <dt>
+          <label for="email" class="">E-mail</label>
+        </dt>
+        <dd class="username-box">
+          <input type="email" name="email" id="email" maxlength="50" class="inputin">
+          <p class="checkError hidden">Please enter a valid Email Address</p>
+        </dd>
+        <dt>
+          <label for="Mobile" class="">Mobile Number</label>
+        </dt>
+        <dd class="mobile-box">
+          <div class="clearfix">
+            <div style="width:25%;position: relative;" class="pull-left">
+              <select id="registerAreaCode" class="registerAreaCode" style="position: absolute;top:0;left:0; width: 100%;opacity:0;padding: 5px 10px;">
+                <option value="91">+91</option>
+              </select>
+              <input id="showSelect" readonly class="inputin showSelect" style="width: 100%;padding-left: 12px;background-color:#fff;" value="+91">
+              <b style="position: absolute;border-top: 4px solid #333;border-right: 3px solid transparent;border-bottom: 4px solid transparent;border-left: 3px solid transparent;right: 10px;top: 16px;"></b>
+            </div>
+            <div class="pull-left" style="width:47%;">
+              <input type="tel" name="mobileNo" style="width: 100%;" id="mobileNo" maxlength="14" size="14" value="" class="inputin" autocomplete="off">
+            </div>
+            <div class="pull-left" style="width:28%;">
+              <input type="button" id="sendMbOtp" class="btn btn-primary" value="OTP" style="width: 100%;height: 35px;border-radius: 0; border-left: none;">
+            </div>
+          </div>
+          <p class="checkError hidden">Please enter a valid Mobile No.</p>
+        </dd>
+        <dt>
+          <label for="password">OTP Code</label>
+        </dt>
+        <dd class="verify-box">
+          <input type="text" name="verC" class="inputin" maxlength="30">
+          <p class="checkError hidden">Please enter a valid code</p>
+        </dd>
+        <dt>
+          <label for="password">Password</label>
+        </dt>
+        <dd class="password-box">
+          <input type="password" name="password" id="password" maxlength="30"  class="inputin" autocomplete="disabled">
+          <p class="checkError hidden">Please enter password (6 - 32 characters)</p>
+        </dd>
+        <dt>
+          <label for="password">Confirm Password</label>
+        </dt>
+        <dd class="password2-box">
+          <input type="password" name="password2" id="password2" maxlength="30" onkeydown="if(event.keyCode == 13){this.form.registerBtn.click()}" class="inputin"  autocomplete="new-password">
+          <p class="checkError hidden">entered passwords differ</p>
+        </dd>
+        <dt  class="PicVerific-box1 hidden">
+          <label for="password">Verification Code</label>
+        </dt>
+        <dd class="PicVerific-box hidden">
+          <div class="clearfix">
+            <div class="pull-left" style="width:39%; margin-right:34px;">
+                <input type="text" name="VerifiCode" id="VerifiCode" maxlength="30" onkeydown="if(event.keyCode == 13){this.form.registerBtn.click()}" class="inputin">
+            </div>
+            <div class="pull-left" style="width:105px;height:35px;margin-right:20px">
+              <img id="PicVerific" src='/heg_api/user/validateCode.do' alt="" title="" style="width:100%;cursor: pointer;">
+            </div>
+            <div class="pull-left" style="width:20%;">
+              <input type="button" id="RefreshBtn" class="btn btn-primary" value="Refresh" style="width: 100%;height: 35px;border-radius: 0;">
+            </div>
+          </div>
+          
+          <p class="checkError hidden">Please enter Verification Code</p>
+        </dd>
+        <dd class="persistent-box">
+          <input type="checkbox" checked name="sendmsg" id="persistent_login">
+          <label for="persistent_login">Send me travel orders, deals and news by email</label>
+        </dd>
+        <dd class="submit-box" >
+          <button type="button" name="registerBtn" class="btn btn-warning" id="registerBtn" style="width:100%;">SIGN UP</button>
+        </dd>
+      </dl>
+    </form>
+    <p style="text-align: right"><a href="/static/tpl/loginTpl.html" data-toggle="modal" data-target="#login_modal" id="login-link" class="login-link" style="color: #098566">Have an account? Sign in</a></p>
+  </div>
+</div>

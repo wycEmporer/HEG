@@ -1,0 +1,137 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+body{
+  background-color:@gray-lighter;
+}
+.grayDark{
+  color:@gray-dark;
+}
+.banner{
+  padding-top:5.209%;
+  width:100%;
+  background: url(./imgs/offerbanner.png) center center/contain no-repeat ;
+}
+.content{
+  min-height: 500px;
+}
+.tab{
+  li{
+    a{
+      float:left;
+      width:236px;
+      height:48px;
+      background: url(./imgs/tap-bg.png) no-repeat;
+      color:#fff;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 48px;
+      text-align: center;
+      border-radius: 0 0 6px 6px;
+    }
+  }
+}
+.activities{
+  padding: 20px 0;
+  li{
+    float:left;
+    margin-right: 12px;
+    box-shadow: 0px 0px 12px @gray;
+  }
+  .article{
+    padding:10px 18px;
+    background-color: #fff;
+    .share{
+      padding-bottom: 20px;
+      p{
+        float: left;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+      }
+      a{
+        float:left;
+        width:20px;
+        height:20px;
+        margin-right: 10px;
+      }
+      a.tt{
+        background-image: url(./imgs/tt.png);
+        &:hover{
+          background-image: url(./imgs/tt-hover.png);
+        }
+      }
+      a.fb{
+        background-image: url(./imgs/fb.png);
+        &:hover{
+          background-image: url(./imgs/fb-hover.png);
+        }
+      }
+    }
+  }
+}
+.panel-group{
+  margin-bottom: 0px;
+  margin-top: 30px;
+  .container{
+      position: relative;
+    .panel-heading{
+      position: absolute;
+      right: 18px;
+      top: -32px;
+      width: 30px;
+      height: 30px;
+      // line-height: 70px;
+      z-index: 2;
+      background-color: transparent;
+      border-color: transparent;
+      cursor: pointer;
+      i{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
+        background: url('./imgs/pan-up.png') no-repeat;
+        
+      }
+      .onOffactive{
+        background: url('./imgs/pan-down.png') no-repeat;
+       }
+      
+      }
+      .panel.panel-default{
+        border: none;
+        background: none;
+        box-shadow: none;
+      }
+    .cont{
+      padding: 0px 80px;
+      h2{
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      p{
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 30px;
+        &:first-child{
+         
+        }
+        span{
+          font-size: 16px;
+          font-weight: 700;
+        }
+        a,a:focus{
+          color:#3bb092;
+          text-decoration: underline;
+        }
+      }
+      ul{
+        li{
+          font-size: 16px;
+          line-height: 16px;
+          margin-bottom: 20px;
+
+        }
+      }
+    }
+  }
+}

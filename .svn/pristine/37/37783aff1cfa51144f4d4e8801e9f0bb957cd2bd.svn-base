@@ -1,0 +1,106 @@
+<div class="navbar" id="Lnav">
+  <div class="container">
+    <ul class="pull-left item-wrap">
+      <li>
+        <a href="/flight/" class="item flight">
+          <span class="text">FLIGHT</span></a>
+      </li>
+      <li>
+        <a href="/offer/" class="item coupon">
+          <span class="text">OFFERS</span></a>
+      </li>
+      <li> 
+        <a href="/wallet/" class="item wallet">
+          <span class="text">WALLET</span></a>
+           <a href="/top-up/">
+            <div class="tips font-Roman">
+              <span style="line-height: 26px; text-decoration: underline;">Add money and get 1% extra as reward</span>
+            </div>
+          </a>
+      </li> 
+      <!-- <li>
+        <a href="/srcc-crossroads-2018/" class="item cross">
+          <span class="text">CROSSROADS 2018</span>
+        </a>
+      </li> -->
+    </ul>
+    <ul class="pull-right Lmainmenu">
+      <li class="support hidden-xs hidden-sm">
+        <span class="supportText font-Roman">Support</span>
+        <i class="fa fa-sort-down fa-lg"></i>
+        <div class="tools">
+          <a href="/faqs/" class="fore font-Light">
+            <i class="fa fa-question-circle fa-lg"></i>
+            FAQs
+          </a>
+          <a href="/contact/" class="fore font-Light">
+            <i class="fa fa-phone fa-lg"></i>
+            Contact Us
+          </a>
+          <!-- <a href="##" class="fore">
+            <i class="fa fa-print fa-lg"></i>
+            Compliance
+          </a> -->
+        </div>
+      </li>
+      <li class="logIn font-Roman hidden-xs">
+        <a href="/static/tpl/loginTpl.html"  data-toggle="modal" data-target="#login_modal">Sign in</a>
+      </li>
+      <li class="register font-Roman hidden-xs">
+        <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal">Sign up</a>
+      </li>
+      <!-- <li>
+        <i class="fa fa-globe fa-lg"></i>
+        <span class="menu-text">English</span>
+        <i class="fa fa-sort-down"></i>
+      </li> -->
+      <li class="yours">
+        <i class="fa fa-user-circle-o fa-lg"></i>
+        <span class="menu-text font-Roman">Account Center</span>
+        <i class="fa fa-sort-down fa-lg"></i>
+        <div class="tools">
+          <a href="/account/?src=trips" class="fore font-Light">
+            <i class="icon trips"></i>
+            My Trips
+          </a>
+          <a href="/account/?src=profile" class="fore font-Light">
+            <i class="icon profile"></i>
+            My Profile
+          </a>
+          <!-- <a href="/account/?src=travellers" class="fore">
+            <i class="fa fa-print fa-lg"></i>
+            Traveller List
+          </a> -->
+          <a href="/account/?src=wallet" class="fore font-Light">
+            <i class="icon wallet"></i>
+            Happy Wallet
+          </a>
+          <a href="/account/?src=print" class="fore font-Light">
+            <i class="icon print"></i>
+            Print Ticket
+          </a>
+          <a href="/account/?src=cancellation" class="fore font-Light hidden anchorCancel">
+            <i class="icon cancel"></i>
+            Cancellation
+          </a>
+          <a href="/account/?src=security" class="fore font-Light">
+            <i class="icon security"></i>
+            Account Security
+          </a>
+          <a href="/referral" class="fore font-Light">
+            <i class="icon refer"></i>
+            Refer &amp; Earn
+          </a>
+          <!-- <a href="/static/tpl/loginTpl.html" class="fore hidden-md hidden-lg" data-toggle="modal" data-target="#login_modal">
+            <i class="icon sign-in"></i>
+            Sign in
+          </a>
+          <a href="/static/tpl/register.html" class="fore hidden-md hidden-lg" data-toggle="modal" data-target="#register_modal">
+            <i class="icon sign-up"></i>
+            Sign up
+          </a> -->
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

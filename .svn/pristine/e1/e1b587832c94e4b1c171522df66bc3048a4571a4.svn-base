@@ -1,0 +1,12 @@
+const config = require('configModule');
+const content = require('./content.ejs'); 
+const noJquery = require('withoutJqueryModule');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let pageTitle = 'HappyEasyGo Christmas 2018 Offer | Cheap Flight and Hotels';
+let metaDescription = ' Celebrate Christmas with amazing deals and discounts on flight and hotel bookings online on HappyEasyGo. Book your tickets in advance to avail the lowest prices.';
+let metaKeywords = ' X-mas flight booking, Cheap Flights on Christmas, Pre-Christmas Sale, Flight Booking Sale on Christmas, Christmas Hotel Bookings, Hotel Deals on Christmas';
+module.exports = layout.init({
+  pageTitle, metaKeywords, metaDescription 
+}).run(content(dirsConfig));
+

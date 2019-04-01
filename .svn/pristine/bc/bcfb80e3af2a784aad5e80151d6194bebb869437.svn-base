@@ -1,0 +1,7 @@
+<div class="registerVerify-wrapper">
+  <div class="logWrap-container">
+    <h1 class="title">Verify your email</h1>
+    <p>The validation message has been sent to your mailbox ( <a class="verifyemail" target="_blank"></a> ).Please click the link in the message to complete the verification. <br> The message is valid for 48 hours. Please verify it as soon as possible.</p>
+    <a href="" class="btn btn-large btn-warning verifyBtn" target="_blank">Login Mailbox For Verification</a>
+  </div>
+</div>

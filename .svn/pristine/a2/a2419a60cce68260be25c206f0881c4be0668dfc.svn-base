@@ -1,0 +1,655 @@
+<div class="account-wrap">
+  <div class="container">
+    <div class="aside">
+      <dl class="primaryNav">
+        <dt>Account Center</dt>
+        <dd class="active">
+          <i class="icon trips"></i>
+          <a href="javascript:void(0);" class="icon">My Trips</a>
+        </dd>
+        <dd>
+          <i class="icon hotels"></i>
+          <a href="javascript:void(0);" class="icon">My Hotels</a>
+        </dd>
+        <dd>
+          <i class="icon profile"></i>
+          <a href="javascript:void(0);" class="icon">My Profile</a>
+        </dd>
+        <dd>
+          <i class="icon wallet"></i>
+          <a href="javascript:void(0);" class="icon">Happy Wallet</a>
+        </dd>
+        <dd>
+          <i class="icon coupon"></i>
+          <a href="javascript:void(0);" class="icon">My Coupons</a>
+        </dd>
+        <dd>
+          <i class="icon print"></i>
+          <a href="javascript:void(0);" class="icon">Print Ticket</a>
+        </dd>
+        <dd class="anchorCancel hidden">
+          <i class="icon cancel"></i>
+          <a href="javascript:void(0);" class="icon">Cancellation</a>
+        </dd>
+        <!--<dd>
+          <i class="icon security"></i>
+          <a href="javascript:void(0);" class="icon">Account Security</a>
+        </dd>-->
+      </dl>
+    </div>
+    <div class="rightside" id="rightside">
+
+    </div>
+  </div>
+</div>
+<script id="loadingTpl" type="text/template">
+  <section class="s-common s_loading">
+    <p class="title">Hang on, we are loading </p>
+    <div class="progress" style="width:80%;height:30px;background-color:#dfdfdf">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100"
+        style="width: 100%" id="progress_bar">
+      </div>
+    </div>
+  </section>
+</script>
+<script id="no-login" type="text/template">
+  <section id="no-login" class="s-common" style="display:none">
+    <div class="message">
+      <p>LOOKS LIKE YOU HAVEN'T BOOKED ANY TRIPS YET</p>
+      <p>START EXPLORING</p>
+      <a href="" id="relogin" class="btn btn-warning btn-custom marT50">EXPLORE</a>
+    </div>
+  </section>
+</script>
+<script id="unLoginHotelTpl" type="text/template">
+  <div class="unLogin-wrap">
+    <form onsubmit="return false" class="formField">
+      <p class="notice">Please enter your trip ID to find your Hotel </p>
+      <div class="form-group">
+        <label for="">Contact Phone No</label>
+        <div class="clearfix">
+          <div class="pull-left" style="position: relative;">
+            <select name="areaCode" id="areaCodeSele" class="registerAreaCode form-control" style="display: inline-block; width: 120px;position: absolute;top:0;left:0;opacity:0;">
+              <option value="91">India (+91)</option>
+            </select>
+            <input class="form-control showSelect" style="width: 120px;padding-left: 12px;background-color:#fff;" value="+91">
+            <b style="position: absolute;border-top: 5px solid #333;border-right: 3px solid transparent;border-bottom: 5px solid transparent;border-left: 3px solid transparent;right: 6px;top: 15px;"></b>
+          </div>
+          <div class="pull-left">
+            <input type="tel" name="phoneNo" class="form-control" style="display: inline-block;" placeholder="Contact Phone No">
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Order ID</label>
+        <input type="text" name="tripid" class="form-control" placeholder="Trip ID / Order ID" onkeydown="if(event.keyCode == 13){this.form.orderQueryBtn.click()}">
+      </div>
+      <button type="button" id="hotelOrderQueryBtn" class="btn btn-warning">Submit</button>
+    </form>
+  </div>
+</script>
+<script id="unLogin" type="text/template">
+  <div class="tripsTitle clearfix" id='tripsLogin'>
+    <ul>
+      <li class='active' style='width:138px;' data-form = 'phoneForm'><a href="javascript:;">Mobile Number</a></li>
+      <li data-form = 'emailForm'><a href="javascript:;">Email</a></li>
+    </ul>
+  </div>
+  <div class="unLogin-wrap">
+    <form onsubmit="return false" class="formField phoneForm ">
+      {{if(!model.isLogin){}}
+      <div class="form-group">
+        <div class="clearfix">
+          <div class="pull-left" style="position: relative;margin-right:10px;">
+            <select name="areaCode" id="areaCodeSele" class="registerAreaCode form-control" style="display: inline-block; width: 84px;position: absolute;top:0;left:0;opacity:0;">
+              <option value="91">India (+91)</option>
+            </select>
+            <input class="form-control showSelect" readonly style="width: 84px;height:35px;padding-left: 12px;background-color:#fff;border-radius:2px;" value="+91">
+            <b style="position: absolute;border-top: 5px solid #333;border-right: 3px solid transparent;border-bottom: 5px solid transparent;border-left: 3px solid transparent;right: 6px;top: 15px;"></b>
+          </div>
+          <div class="pull-left">
+            <input type="tel" name="phoneNo" class="form-control" style="width:200px;height:35px;margin-right:15px; display: inline-block;border-radius:2px;" placeholder="Contact Mobile Number">
+          </div>
+          <div class="pull-left">
+            <input type="button" class="btn btn-warning getLoginOTP" data-index="1"
+            style='width:120px;border-radius:2px;font-size:16px;height:35px;' value="OTP">
+          </div>
+        </div>
+      </div>
+      {{ } }}
+      <div class="form-group" style='margin-bottom:0px;'>
+        <input type="text" name="tripid" style='width:430px;height:35px;border-radius:2px;' class="form-control" placeholder="Vertification Code" onkeydown="if(event.keyCode == 13){this.form.orderQueryBtn.click()}">
+      </div>
+      <div class='errorInfo' style='height:20px;margin-bottom:20px;'>
+        <p class="checkError hidden">Please enter a valid code</p>
+      </div>
+      <button type="button" data-type="1" style='width:430px;height:35px;border-radius:2px;font-size:16px;' class="btn orderQueryBtn btn-warning">Confirm</button>
+    </form>
+    <form onsubmit="return false" class="formField emailForm hide">
+      {{if(!model.isLogin){}}
+      <div class="form-group">
+        <div class="clearfix">
+          <div class="pull-left">
+            <input type="tel" name="email" class="form-control" style="width:294px;height:35px;margin-right:15px; display: inline-block;border-radius:2px;" placeholder="Contact Email">
+          </div>
+          <div class="pull-left">
+            <input type="button" class="btn btn-warning getLoginOTP" data-index="2"
+            style='width:120px;border-radius:2px;font-size:16px;height:35px;' value="OTP">
+          </div>
+        </div>
+      </div>
+      {{ } }}
+      <div class="form-group" style='margin-bottom:0px;'>
+        <input type="text" name="tripid" style='width:430px;height:35px;border-radius:2px;' class="form-control" placeholder="Vertification Code" onkeydown="if(event.keyCode == 13){this.form.orderQueryBtn.click()}">
+      </div>
+      <div class='errorInfo' style='height:20px;margin-bottom:20px;'>
+        <p class="checkError hidden">Please enter a valid code</p>
+      </div>
+      <button type="button" data-type="2" style='width:430px;height:35px;border-radius:2px;font-size:16px;' class="btn orderQueryBtn btn-warning">Confirm</button>
+    </form>
+
+  </div>
+</script>
+
+<script id='hotelInfoTpl' type="text/template">
+  <div class='hotelImg'>
+    <a href='{{=myModel[0].href}}?param={{=myModel[0].params}}' onclick="ga('HotelTracker.send', 'event', 'fromFlightDetail', 'clickUrl', '{{=myModel[0].title}}')" >
+      <img src="{{=myModel[0].url}}" alt="" title="{{=myModel[0].title}}">
+    </a>
+  </div>
+</script>
+<!-- trips -->
+<%=require('./htmlTemplate/trips.ejs')()%>
+<!-- hotel -->
+<%=require('./htmlTemplate/hotel.ejs')()%>
+<!-- wallet -->
+<%= require('./htmlTemplate/wallet.ejs')()%>
+<%=require('./htmlTemplate/coupon.ejs')()%>
+<%=require('./htmlTemplate/profile.ejs')()%>
+
+<script id="perIdenTpl" type="text/template">
+  <div class="identityWrap">
+    <section>
+      <h2 class="title">
+        Personal Identity Verification
+      </h2>
+      <div class="common-style content">
+        <div class="declare">
+          <p> Dear member,</p>
+          <p>According to the policy of Reserve Bank of India, we will verify your Personal Identity at the 1st time you top</p>
+          <p>up or withdraw on our website.</p>
+          <p>Please complete your verification by steps below.</p>
+        </div>
+        <div class="formCon clearfix">
+          <p class="padB20">Please take a photo of your personal Identity Card and upload it.</p>
+          <form id="uploadImg">
+            <div class="clearfix">
+              <div class="pull-left inputBox">
+                <input type="file" accept="image/png,image/jpg,image/gif,image/JPEG" id="frontInput">
+                <div class="imgBox" id="frontBox">
+                </div>
+              </div>
+              <div class="pull-right inputBox">
+                <input type="file" accept="image/png,image/jpg,image/gif,image/JPEG" id="backInput">
+                <div class="imgBox" id="backBox">
+                </div>
+              </div>
+            </div>
+            <div class="authOpt">
+              <p class="padT20 padB20 fontSz16">Mobile: {{=model.mobile.replace(/^(\d{3})\d+(\d{4})$/,'$1***$2')}}</p>
+              <div class="row" id="idenOtp">
+                <div class="clearfix">
+                  <div class="col-sm-3">
+                    <input type="text" name="code" class="form-control" placeholder="OTP" autocomplete="off">
+                  </div>
+                  <div class="col-sm-4">
+                    <input type="button" class="btn btn-warning" id="idenOtp" value="Send OTP">
+                  </div>
+                </div>
+                <p class="checkError hidden col-sm-5">Please recheck your OTP code</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-offset-6 padB20">
+                <button id="subImg" class="btn btn-warning" type="button">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+</script>
+
+<script id="securityTpl" type="text/template">
+  <div class="profile-wrap">
+    <section class="profile-info">
+      <h2 class="title">
+        Change Password
+      </h2>
+      <div class="common-style info-content PWDContent">
+        <form class="infoForm form-inline">
+          <div class="form-group" style="margin-right: 10px">
+            <label class="control-label grayDark" style="display: block;">Current Password</label>
+            <input type="password" name="password" class="form-control firstName" maxlength="" placeholder="Current Password">
+            <p class="checkError hidden">minium is 6 letters</p>
+          </div>
+          <div class="form-group" style="margin-right: 10px">
+            <label class="control-label grayDark" style="display: block;">New Password</label>
+            <input type="password" maxlength="" name="" class="form-control middleName" placeholder="New Password">
+            <p class="checkError hidden">minium is 6 letters</p>
+          </div>
+          <div class="form-group" style="margin-right: 10px">
+            <label class="control-label grayDark" style="display: block;">Confirm Password</label>
+            <input type="password" maxlength="128" name="newPassword" class="lastName form-control" placeholder="Confirm Password">
+            <p class="checkError hidden">Passwords do not match</p>
+          </div>
+          <div class="form-group">
+            <button type="button" id="changePwd" style="margin-top:28px;" class="btn btn-warning pull-right">Submit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <section class="profile-info">
+      <h2 class="title">
+        Change Payment Password
+      </h2>
+      <div class="common-style info-content PWDContent">
+        <form class="infoForm form-inline">
+          <div class="form-group" style="margin-right: 10px">
+            <label class="control-label grayDark" style="display: block;">Current Password</label>
+            <input type="password" name="payPassword" class="form-control firstName" maxlength="" placeholder="Current Password">
+            <p class="checkError hidden">minium is 6 letters</p>
+          </div>
+          <div class="form-group" style="margin-right: 10px">
+            <label class="control-label grayDark" style="display: block;">New Password</label>
+            <input type="password" maxlength="" name="" class="form-control middleName" placeholder="New Password">
+            <p class="checkError hidden">minium is 6 letters</p>
+          </div>
+          <div class="form-group" style="margin-right: 10px">
+            <label class="control-label grayDark" style="display: block;">Confirm Password</label>
+            <input type="password" maxlength="" name="newPayPassword" class="lastName form-control" placeholder="Confirm Password">
+            <p class="checkError hidden">Passwords do not match</p>
+          </div>
+          <div class="form-group">
+            <button type="button" id="changePayPwd" style="margin-top:28px;" class="btn btn-warning pull-right">Submit</button>
+          </div>
+          <div>
+            <a href="/passport/?pay=1" target="_blank" class="colorWar">Forgot Password</a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</script>
+
+<script id='flightCouponTpl' type='text/template'>
+  <ul class='clearfix'>
+    {{_.each(myModel, function(val, i){ }}
+    <li>
+      <div class='couponInfo'>
+        <div class='price'>-
+            <i class='rs'>Rs.</i>{{= val.discount}}
+        </div>
+        <p class='code'>{{=val.couponCode}}</p>
+      </div>
+      <a href="/coupondetails?code={{=val.couponCode}}&type=1">
+        <div class='couponTill'>
+          <i class='typeIcon pull-left'></i>
+          <div class='pull-right'>
+            <span class='validity'>Validity till: <span class='font-Bold' style='color:black;'>{{= val.validity}}</span> </span>
+            <i class='moreIcon'></i>
+          </div>
+        </div>
+      </a> 
+    </li>
+    {{ }) }}
+  </ul>
+</script>
+
+<script id='printTpl' type='text/template'>
+  <div class="print-wrap">
+    <form onsubmit="return false" class="formField">
+      <p class="notice">Please enter your trip ID to find your trip </p>
+      <div class="form-group">
+        <label for="">Trip id</label>
+        <input type="text" name="tripid" class="form-control" placeholder="Trip ID / Order ID" onkeydown="if(event.keyCode == 13){this.form.orderQueryBtn1.click()}">
+      </div>
+      <button type="button" id="orderQueryBtn1" class="btn btn-warning">Submit</button>
+    </form>
+  </div>
+
+</script>
+
+<script id="cancelReasonTpl" type="text/template">
+  <ul class='clearfix'>
+    {{_.each(myModel, function(val,idx) { }}
+      <li class="nameItem">
+        <div class="checkbox"> 
+          <label class="fontSz14" title='{{= val.desc}}' data-cause = '{{= val.causeValue}}'>
+            <input type="checkbox">{{= val.desc}}
+          </label>
+        </div>
+      </li>
+    {{ }) }}
+  </ul>
+</script>
+
+<div class="modal fade" id="editPhone" role='dialog' tabindex="-1" aria-hidden="true" aria-labelledby="editPhoneLabel">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" id="editPhoneLabel" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h2 class="modal-title colorPri" style="font-size: 16px;">Edit</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <form class="form-horizontal">
+          <div class="form-group codeVerify clearfix">
+            <div>
+              <div class="col-sm-offset-1 editDiv editDiv1">
+                <div style="position: absolute;">
+                  <select name='areaCode' id="editAreaCode" class="editAreaCode registerAreaCode" style="border:1px solid #333;position: absolute;top:0;left:0; width: 100%;opacity:0;padding: 5px 0;">
+                    <option value="91">+91</option>
+                  </select>
+                  <input id="showSelect" class="inputin showSelect" value="+91">
+                </div>
+                <input id="phoneNum" type="tel" placeholder="Phone Number" maxlength="14" autocomplete="off" value="" size="14">
+                <p class="checkError hidden" style="margin-top: 32px;">Please enter a valid Mobile No.</p>
+              </div>
+              <div class="editDiv2">
+                <input type="button" class="btn btn-warning sendBtn" id="SendCheck" value="Send OTP" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group clearfix">
+            <div class="col-sm-offset-1 editDiv">
+              <input type="tel" name="verifyCode" placeholder="OTP" autocomplete="off" id="phoneCheck">
+              <p class="checkError hidden">Please enter a valid code</p>
+            </div>
+            <div class="editDiv2">
+              <input type="button" class="btn btn-warning editBtn" id="confirmEdit" value="Save" />
+              <input type="button" class="btn btn-primary editBtn" id="CancelEdit" value="Cancel" />
+            </div>
+          </div>
+          <!-- <div class="form-group">
+              
+            </div> -->
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="setPwdModal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:400px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title colorPri" style="font-size: 16px;">Notice</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <p style="margin-bottom: 16px; font-size: 16px;">
+          You haven't payment password now.
+        </p>
+        <a href="/passport/?pay=1" target="_blank" id="setPaymentPwd" class="btn btn-warning pull-right">Set payment password</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" data-backdrop="static" id="withdrawNote" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:400px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title colorPri" style="font-size: 16px;">Notice</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <p style="margin-bottom: 16px; font-size: 16px;">
+          Your request was accepted successfully.
+          <br> Rs.
+          <span class="fee"></span> was charged as a transaction fee and Rs.
+          <span class="income"></span> will be transferred into you Bank account in 7 working days.
+        </p>
+        <a href="javascript:void(0)" data-dismiss="modal" aria-label="Close" class="btn btn-warning pull-right">OK</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="refundApplyModal" data-backdrop="static" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title colorPri" style="font-size: 16px;">Are you sure to procced?</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <form class="form-horizontal">
+          <div class="refundNote">
+
+          </div>
+          <p class='Tips' style='color:#607fa3;margin-bottom: 16px; font-size: 14px;'>
+            <span class='start' style='color:red'>*</span> In case of flown tickets, no refund will be applicable.
+            <span style='color:red' class='start'>*</span>
+          </p>
+          <div class="form-group text-left codeVerify clearfix">
+            <div class="col-sm-10">
+              <div class="row">
+                <div class="col-sm-8">
+                  <input id="canclePhoneOtp" class="form-control" placeholder="" disabled="disabled">
+                </div>
+                <div class="col-sm-4">
+                  <input type="button" class="btn btn-warning" id="getRefundOTP" value="Send OTP">
+                </div>
+              </div>
+              <p class="checkError hidden">Please enter a valid Mobile No.</p>
+            </div>
+          </div>
+          <div class="form-group clearfix">
+            <div class=" col-sm-10">
+              <input type="text" name="verifyCode" class="form-control" placeholder="OTP" autocomplete="off" style="width: 367px">
+
+              <p class="checkError hidden">Please enter a valid code</p>
+            </div>
+          </div>
+          <div class="form-group" style='margin-top:10px;'>
+            <div class=" col-sm-10">
+              <button type="button" class="btn btn-warning" id="comfirmCan" style='width:170px;margin-right:22px;'>Confirm</button>
+              <button type="button" data-id='refundApplyModal' class="btn modelGiveUp btn-primary" style='width:170px;background:#999999;border-color:#999;'>No,give up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="notGoldModal" data-backdrop="static" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title colorPri" style="font-size: 16px;">Insufficient balance of Cashback</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <form class="form-horizontal">
+          <p style="margin-bottom: 10px; font-size: 14px;">
+            The balance of your HappyGold is insufficient for refund.Please top-up <span id='Difference'></span> HappyGold ,then you can apply for refund.
+          </p>
+          <div class="form-group" style='margin-top:20px;text-align:center;'>
+            <div class=" col-sm-12">
+              <a href='/top-up' type="button" class="btn btn-warning" style='width:170px;margin-right:22px;'>Top-up</a>
+              <button type="button" data-id='notGoldModal' class="btn modelGiveUp btn-primary" style='width:170px;background:#999999;border-color:#999;'>No,give up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal cancelOrder fade" id="cancelOrder" data-backdrop="static" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:620px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" style="font-size: 26px;color: #333333;">Cancel Payment</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <p style='line-height:50px;'>We want to know why you cancel your payment so that we can improve our service.</p>
+        <form class="form-horizontal">
+          <div class='cancelReason' id='cancelReason'>
+            
+          </div>
+          <p class=" checkError hidden" style='text-align:center'>Please enter a valid code</p>
+          <div class="form-group" style='margin-top:20px;text-align:center;'>
+            <div class=" col-sm-12">
+              <button type="button" class="btn  btn-primary" style='width:200px;height:34px;color:#999;opacity: 0.99;background: #ECECEC;border-color:#ECECEC;' data-dismiss="modal">Back</button>
+              <button disabled='disabled' id='canCelOrderBtn' type="button" class="btn btn-warning" style='width:200px;height:34px;margin-left:50px;'>Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal profile_info fade" id="profile_info" data-backdrop="static" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:560px;height:341px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title font-Bold" style="font-size: 26px;color: #333333;">Your Profile</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <form class="form-horizontal" id='infoForm1'>
+          <div class="form-group">
+            <input type="text" name='firstName' class="form-control" maxlength='40'  placeholder="Your First Name">
+            <div class="checkError hidden">Please enter a vaild name</div>
+          </div>
+          <div class="form-group">
+            <input type="text" name='lastName' class="form-control"  maxlength='40' placeholder="Your Last Name">
+            <div class="checkError hidden">Please enter a vaild name</div>
+          </div>
+          <div class="form-group sexbir">
+            <select class="form-control" name=sex>
+              <option value="">Gender</option>
+              <option value="0" >Male</option>
+              <option value="1" >Female</option>
+            </select>
+            <input type="text" name='birthday' id="datetimepicker" placeholder='Your Birthday' readonly='readonly' autocomplete="off"  class="form_datetime form-control">
+            <div class="checkError hidden">Please enter a vaild name</div>
+          </div>
+          <div class="form-group" style='margin:30px 0 10px;;text-align:center;'>
+            <div class=" col-sm-12">
+              <button type="button" class="btn  btn-primary" style='width:200px;height:40px;color:#999;opacity: 0.99;background: #ECECEC;font-size:16px;border-color:#ECECEC;' data-dismiss="modal">Back</button>
+              <button id='setUserInfo1' type="button" class="btn btn-warning" style='width:200px;height:40px;margin-left:50px;font-size:16px;'>Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal linkEmail fade" id="link_Email" data-backdrop="static" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:560px;height:276px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title modal_title  font-Bold" style="font-size: 26px;color: #333333;">Verify your identity</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <form class="form-horizontal" id='infoForm2'>
+          <div class="form-group sexbir">
+             <select id="emailAdr_1" class="form-control phoneNo">
+            
+            </select>
+            <input type="button" class="btn btn-warning sendBtn" data-type='1' id="SendCheck_1" value="Send OTP" />
+          </div>
+          <div class="form-group">
+            <input type="text" name='' class="form-control verficCode" autocomplete="off" id='inputKeyup'  placeholder="Verification Code">
+            <div class="checkError hidden">Please enter a vaild OTP</div>
+          </div>
+          
+          <div class="form-group" style='margin:30px 0 10px;;text-align:center;'>
+            <div class=" col-sm-12">
+              <button type="button" class="btn  btn-primary" style='width:200px;height:40px;font-size:16px;color:#999;opacity: 0.99;background: #ECECEC;border-color:#ECECEC;' data-dismiss="modal">Cancel</button>
+              <button id='setUserInfo2' type="button" class="btn btn-warning" style='width:200px;height:40px;font-size:16px;margin-left:50px;'>Next</button>
+            </div>
+          </div>
+        </form>
+        <form class="form-horizontal hidden" id='infoForm3'>
+          <div class="form-group sexbir">
+            <input type="text" name='' class="form-control phoneNo Email_Add" autocomplete="off"  placeholder="Email Address">
+            <input type="button" class="btn btn-warning sendBtn" data-type='2' id="SendCheck_2" value="Send OTP" />
+            <div class="checkError emailError hidden">Please enter a vaild Email</div>
+          </div>
+          <div class="form-group">
+            <input type="text" name='' class="form-control verficCode2" autocomplete="off"   placeholder="Verification Code">
+            <div class="checkError otpError hidden">Please enter a vaild OTP</div>
+          </div>
+          
+          <div class="form-group" style='margin:30px 0 10px;;text-align:center;'>
+            <div class=" col-sm-12">
+              <button type="button" class="btn  btn-primary" style='width:200px;height:40px;color:#999;opacity: 0.99;background: #ECECEC;font-size:16px;border-color:#ECECEC;' data-dismiss="modal">Cancel</button>
+              <button id='setUserInfo3' type="button" class="btn btn-warning" style='width:200px;height:40px;margin-left:50px;font-size:16px;'>Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal changePass fade" id="changePass" data-backdrop="static" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:560px;height:330px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title modal_title  font-Bold" style="font-size: 26px;color: #333333;">Change password</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <form class="form-horizontal" id='infoForm4'>
+          <div class="form-group curPass_box">
+            <input type="password" name='password' class="form-control verficCode" autocomplete="off"  placeholder="Current Password">
+            <div class="checkError hidden">Please enter a vaild Password</div>
+          </div>
+          
+          <div class="form-group newPass_box">
+            <input type="password" name='newPassword' class="form-control verficCode" autocomplete="off"  placeholder="New Password">
+            <div class="checkError hidden">Please enter a vaild Password(6~32 length)</div>
+          </div>
+          
+          <div class="form-group conPass_box">
+            <input type="password" name='' class="form-control conPass verficCode" autocomplete="off"  placeholder="Confim Password">
+            <div class="checkError hidden">Two passwords must be same</div>
+          </div>
+          
+          <div class="form-group" style='margin:30px 0 10px;;text-align:center;'>
+            <div class=" col-sm-12">
+              <button type="button" class="btn  btn-primary" style='width:200px;height:40px;color:#999;opacity: 0.99;font-size:16px;background: #ECECEC;border-color:#ECECEC;' data-dismiss="modal">Cancel</button>
+              <button id='setUserInfo4' type="button" class="btn btn-warning" style='width:200px;height:40px;margin-left:50px;font-size:16px;'>Reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

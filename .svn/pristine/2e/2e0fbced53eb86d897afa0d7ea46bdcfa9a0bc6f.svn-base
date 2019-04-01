@@ -1,0 +1,11 @@
+const config = require('configModule');
+const content = require('./content.ejs'); 
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let pageTitle = 'Spring Break Cheap Flight Deals | Lowest Air Ticket';
+let metaDescription = 'Looking for cheap spring season flights? Flight Coupons and offers through HappyEasyGo make it easy to see the world. Book and save at HappyEasyGo.com.';
+let metaKeywords = 'Spring Break Season, find cheap flights, Cheapest Airfares, Discounts on Flights, Discount on flight tickets, flight Coupons, Spring Break Sale';
+module.exports = layout.init({
+  pageTitle, metaKeywords, metaDescription 
+}).run(content(dirsConfig));
+

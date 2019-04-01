@@ -1,0 +1,248 @@
+<div class="content">
+  <div class="banner" id="">
+    <img src="<%=require('./images/Artboard.jpg')%>" class="banImg" alt="">
+    <div class="bannerContainer">
+      <div class="bottomWrap">
+        <div class="download">
+          <p class="marB20">
+          <span id="chancesFor" class="fontSz16" style="border-right:1px solid #aaa; padding-right: 6px;margin-right: 6px;">
+             <a href="/static/tpl/loginTpl.html" data-toggle="modal" data-target="#login_modal" style='text-decoration: underline;' class="grayDarker GAEV fontB" ga-category="AutumnSale" ga-action="click" ga-label="SignIn" >Sign In</a> / <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal" style='text-decoration: underline;' ga-category="AutumnSale" ga-action="click" ga-label="SignUp"  class="grayDarker GAEV fontB" >Sign Up</a>  
+          </span>
+          <a href="" data-toggle="modal" data-target="#chanceTCModal"  class="fontSz16 GAEV"  style="color:#E64E54;" ga-category="AutumnSale" ga-action="click" ga-label="Howtoearnchance"> How to earn more chances？</a></p>
+          <a href="https://goo.gl/YpaV8P" class="btn btn-warning GAEV" ga-category="AutumnSale" ga-action="click" ga-label="DownloadButton">Download App to Shake</a>
+        </div>
+      </div>
+      <div class="rightWrap">
+        <div class="shake">
+          <p class="fontB text-center marB20">Shake & Win</p>
+        </div>
+        <div id="single-quad" class="carousel slide clearfix" data-ride="carousel" data-shift="1" data-interval='2000'>
+          <div class="carousel-indicators">
+            <p class="active" data-target="#single-quad" data-slide-to="1">Free Air Ticket Coupon</p>
+            <p data-target="#single-quad" data-slide-to="2">₹500 discount voucher for flight bookings</p>
+            <p data-target="#single-quad" data-slide-to="2">Up To 1000 Happy Sliver</p>
+            <p data-target="#single-quad" data-slide-to="2">Zomato Coupon</p>
+            <p data-target="#single-quad" data-slide-to="2">Gaana Plus Coupon</p>
+          </div>
+          <ul class="carousel-inner">
+            <li class="item active">
+              <img src="<%= require('./images/carousel1.png')%>" 
+                class="img-responsive">
+            </li>
+            <li class="item">
+              <img src="<%= require('./images/carousel2.png')%>" 
+                class="img-responsive">
+            </li>
+            <li class="item">
+              <img src="<%= require('./images/carousel3.png')%>" 
+                class="img-responsive">
+            </li>
+            <li class="item">
+              <img src="<%= require('./images/carousel4.png')%>" 
+                class="img-responsive">
+            </li>
+            <li class="item">
+              <img src="<%= require('./images/carousel5.png')%>" 
+                class="img-responsive">
+            </li>
+          
+          </ul>
+
+          <a class="carousel-control" href="#single-quad" data-slide="prev"><i class="fa fa-chevron-left colorPri"></i></a>
+          <a class="carousel-control rt" href="#single-quad" data-slide="next"><i class="fa fa-chevron-right colorPri"></i></a>
+        </div>
+        <div class="qr text-right">
+          <img src="<%=require('./images/PC_Shake_Deeplink.png')%>" class="marB8" alt="" style='width:120px;'>
+          <p class="fontSz16" style="color:#fff">
+          Scan QR Code to Download
+          </p>
+        </div>
+      </div>
+      <div class="leftWrap">
+        <ul class=" clearfix fontSz16" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#rules" class="GAEV" ga-category="AutumnSale" ga-action="click" ga-label="GameRule" aria-controls="rules">
+              <img src="<%=require('./images/categoary.png')%>" alt="">
+              <p class="white marT10 fontSz12">
+                Rules
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="#amazing" class="GAEV" ga-category="AutumnSale" ga-action="click" ga-label="AmazingPrizes">
+            <img src="<%=require('./images/prize.png')%>" alt="">
+            <p class=" white marT10 fontSz12">
+                Prizes
+            </p>
+            </a>
+          </li>
+          <li>
+            <a href="#my" class="GAEV" ga-category="AutumnSale" ga-action="click" ga-label="MyPrizes">
+              <img src="<%=require('./images/time.png')%>" alt="">
+              <p class="white marT10 fontSz12">
+               My Prizes
+              </p>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="notice" class="fontSz20" style="position:absolute;  bottom:140px;padding: 20px 12px; color:#fff; background-color: rgba(0,0,0,0.6);position: absolute; left:50%; transform:translate(-50%,-50%);">
+          This Game is only for App
+      </div>
+    </div>
+  </div>
+  <div class="noop" style="height:40px; line-height:40px;background: rgba(0,0,0,0.80); overflow:hidden;">
+    <div class="container">
+      <div id="prizersView" class="clearfix fontSz16 text-center" style="color:#fff">
+       
+      </div>
+    </div>
+  </div>
+  <div id="tab" class="tab">
+    <div class="tab-bar">
+      <div class="container">
+        <ul class="tab-bar clearfix fontSz16" role="tablist">
+          <li role="presentation" class="active">
+            <a href="#rules" class="gray GAEV" ga-category="AutumnSale" ga-action="click" ga-label="GameRule" aria-controls="rules" data-toggle="tab">Game Rules</a>
+          </li>
+          <li>
+            <a href="#chances" class="gray GAEV" ga-category="AutumnSale" ga-action="click" ga-label="ChancesToPlay" aria-controls="chances" data-toggle="tab">Chances to Play</a>
+          </li>
+          <li>
+            <a href="#amazing" class="gray GAEV"  ga-category="AutumnSale" ga-action="click" ga-label="AmazingPrizes"data-toggle="tab">Amazing Prizes</a>
+          </li>
+          <li>
+            <a href="#my" class="gray GAEV" ga-category="AutumnSale" ga-action="click" ga-label="MyPrizes" data-toggle="tab">My Prizes</a>
+            <a href="javascript:;"><i id="toggleCon" class="fa chevron-down pull-right fontSz24 gray" style="margin:23px 50px 0 0;"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="container">
+      <div class="tab-content">
+        <div id="rules" role="tabpanel" class="tab-pane active" >
+          <div class="lineH24 marB20">
+            <h4 class="fontSz16 fontB padB10">Game Rules:</h4>
+            <ul class="origin fontSz14">
+              <li>
+              You need to log in on the HappyEasyGo Android/iOS app and shake your phone to win free air ticket coupon, Rs.500 discount voucher, up to 1000 Happy Silver, and other exclusive discount coupons offered by our partners like Zoomcar, Treebo Hotels, Xoxoday, Ganna, Zomato and more.
+              </li>
+              <li>         
+              The game is available only on the HappyEasyGo mobile app (Android/iOS). </li>
+              <li>You will have limited chances to play Shake & Win. 
+
+              </li>
+              <li>All prizes you win will be valid for a limited period only.
+              </li>
+            </ul>
+          </div>
+          <div class="lineH24">
+            <h4 class="fontSz16 fontB padB10">Terms & Conditions:</h4>
+            <ul class="origin fontSz14">
+              <li>
+              HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.
+              </li>
+              <li>         
+              Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon, Haryana, India.</li>
+            </ul>
+          </div>
+        </div>
+        <div id="chances" role="tabpanel" class="tab-pane">
+          <div class="lineH24 marB20">
+            <h4 class="fontSz16 fontB padB10">How to get more chances:</h4>
+            <ul class="origin fontSz14 grayDark">
+             <li>
+              <a href="javascript:;" class="colorPri" style="text-decoration: underline;"> Daily log in on HEG app </a>(Android/iOS) +1
+            </li>
+              <li>
+              <a href="/static/tpl/register.html" class="colorPri GAEV" data-toggle="modal" data-target="#register_modal" ga-category="AutumnSale" ga-action="click" ga-label="SignUp"   style="text-decoration: underline;";>Sign Up</a> with HappyEasyGo +1
+              </li>
+              <li>
+                <a href="/" class="colorPri" style="text-decoration: underline;">Book flight tickets</a> +1
+              </li>
+              <li>First
+                <a href="/referral" class="colorPri" style="text-decoration: underline;"> sync your contacts</a> +1
+              </li>
+              <li>
+                <a href="/referral" class="colorPri" style="text-decoration: underline;">Get a referral order</a> +1
+              </li>
+              <li>
+                <a href="/referral" class="colorPri" style="text-decoration: underline;">Get a referral registration</a> +1
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="amazing" role="tabpanel" class="tab-pane">
+        </div>
+        <div id="my" role="tabpanel" class="tab-pane">
+          <table style="width:100%" class="table">
+            <thead class="marB8">
+              <tr>
+                <th class="fontB">Prize Name</th>
+                <th class="fontB">Coupon Code</th>
+                <th class="fontB">T & C / Steps to redeem</th>
+                <th class="fontB">Winning Date</th>
+              </tr>
+              
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<div id="prizeTc" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title fontSz24">Steps to redeem prizes</h4>
+      </div>
+      <div class="modal-body fontSz14">
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal changeTCModal fade" id='chanceTCModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="border:none">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='font-Bold'  style="font-size: 24px; margin:20px auto 0; text-align:center" >How to get more chances:</p>
+			</div>
+      <div class="modal-body" style='padding:0px 15px;'>
+				<div class='Opportunity'>
+          <ul class="origin fontSz14 grayDark">
+             <li>
+              <a href="javascript:;" class="colorPri" style="text-decoration: underline;"> Daily log in on HEG app </a>(Android/iOS) +1
+            </li>
+            <li>
+            <a href="/static/tpl/register.html" class="colorPri GAEV" data-toggle="modal" data-target="#register_modal" ga-category="AutumnSale" ga-action="click" ga-label="SignUp"  style="text-decoration: underline;";>Sign Up</a> with HappyEasyGo +1
+            </li>
+            <li>
+              <a href="/" class="colorPri" style="text-decoration: underline;">Book flight tickets</a> +1
+            </li>
+            <li>First 
+              <a href="/referral" class="colorPri" style="text-decoration: underline;">sync your contacts</a> +1
+            </li>
+            <li>
+              <a href="/referral" class="colorPri" style="text-decoration: underline;">Get a referral order</a> +1
+            </li>
+            <li>
+              <a href="/referral" class="colorPri" style="text-decoration: underline;">Get a referral registration</a> +1
+            </li>
+          </ul>
+				</div>
+				
+      </div>
+      <div class="modal-footer" style="border:none">
+        <a href='javascript:;'  type="button" class="btn btn-default center-block" data-dismiss="modal" style="width: 320px;height:52px;line-height: 43px; margin-bottom:10px; background: #CC2232;border-radius: 4px;color: white;border: none;
+        font-size:20px;">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+html{
+  overflow-y: scroll;
+}
+body{
+  background-color:@gray-lighter;
+}
+.grayDark{
+  color:@gray-dark;
+}
+.warning{
+  color:@brand-warning;
+}
+.content{
+  background-color: #fff;
+}
+.side{
+  width:380px;
+  text-align: center;
+  padding:20px 0;
+  p{
+    color:@brand-warning;
+    font-size: 42px;
+    font-weight: bolder;
+    line-height: 68px;
+  }
+}
+.right{
+  width:754px;
+  padding: 20px 40px 20px 0;
+  .caption{
+    padding: 20px 0 30px;
+    h2{
+      font-size: 30px;
+      text-align: center;
+      line-height: 60px;
+      font-weight: bold;
+    }
+    p{
+      font-size: 24px;
+    }
+  }
+  .section{
+    margin-bottom:20px;
+    h3{
+      background-color:@brand-primary;
+      color:#fff;
+      height:40px;
+      padding:14px;
+      cursor: pointer;
+      &.collapsed:before{
+        content:' ';
+        float:right;
+        width:12px;
+        height:12px;
+        background-image: url(./imgs/arrowRight.png);
+        background-repeat: no-repeat;
+      }
+      &:before{
+        content:' ';
+        float:right;
+        width:12px;
+        height:12px;
+        background-image: url(./imgs/arrowBottom.png);
+        background-repeat: no-repeat;
+      }
+    }
+    .textCon{
+      padding:10px 30px 10px 10px;
+      h4{
+        padding:10px 0;
+        font-weight: bold;
+      }
+      p{
+        padding-bottom: 10px;
+      }
+    }
+  }
+}
+

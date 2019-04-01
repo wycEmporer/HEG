@@ -1,0 +1,262 @@
+<div class="content">
+	<div class='head'>
+		<div class="add-search" style="padding:10px 0;">
+			<form id="searchForm" onsubmit="return false;">
+				<nav class="L-tripType clearfix">
+					<ul>
+					<li class="item oneway" >
+						<label for="oneway">
+						<input type="radio" name="tripType" id="oneway" value="0" class="trip-type" checked="checked">
+						<strong class="font-Roman">One way</strong>
+						</label>
+					</li>
+					<li class="item roundtrip">
+						<label for="Roundtrip">
+						<input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+						<strong class="font-Roman">Round trip</strong>
+						</label>
+					</li>
+					</ul>
+				</nav>
+				<div class="LS-trip">
+					<div class="section1 clearfix">
+						<div class="d-city fore form-group">
+							<span class="checkError hidden">You missed this</span>
+							<input type="text" id="D_city" value="New Delhi" class="form-control" autocomplete="off" placeholder="New Delhi">
+							<input type="hidden" id="From" name="from" value="DEL" data-country="IN">
+							<p class="img-icon takeOff"></p>
+						</div>
+						<div class="a-city fore form-group">
+							<span class="checkError hidden">You missed this</span>
+							<input type="text" id="A_city" value="New Delhi" class="form-control" autocomplete="off" placeholder="New Delhi">
+							<input type="hidden" id="To" name="to" value="BOM" data-country="IN">
+							<p class="img-icon landing"></p>
+						</div>
+					</div>
+					<div class="section2 clearfix">
+						<div class="d-date fore form-group">
+							<input type="text" readonly="readonly" id="D_date" class="form-control time-input" placeholder="Choose Date" autocomplete='off'>
+							<input type="hidden" id="departDate" name="departDate" value="">
+							<a class="icon datepick"></a>
+							<span class="checkError hidden">You missed this</span>
+							<p class="img-icon calendar"></p>
+						</div>
+						<div class="r-date fore form-group ">
+							<input type="text" readonly="readonly" id="R_date" class="form-control time-input"  placeholder="" autocomplete='off'>
+							<input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+							<a class="icon datepick"></a>
+							<p class="checkError hidden">You missed this</p>
+							<p class="img-icon calendar"></p>
+						</div>
+					</div>
+					<div class="section3 clearfix">
+						<div class="item selectItem form-group">
+							<a href="javascript:void(0)" class="trallerpop" id="p-popover">
+								<span id="pCount">1</span>&nbsp;<span id="pIcon">|</span>&nbsp;<span id="pType">Ecnomic</span>
+								<div class="img-icon arrows">
+									<p></p>
+								</div>
+							</a>
+							<div class="SelectWrap  bottom popover">
+								<div class="arrow" style="left: 10%;"></div>
+								<div class="headTop">
+									<a href="javascript:void(0)" style="position: absolute;top:4px; right:10px;z-index:2;" class="close">&times;</a>
+								</div>
+								<div class="clearfix">
+									<div class="A-passenger fore">
+										<p>Adults</p>
+										<span class="img-type A-type"></span>
+										<input id="A_passenger" type="text" value="1" name="adults" alt="a" class="passenger" autocomplete='off'>
+										<div class="minus-plus">
+											<span class="minus-img"></span>
+											<span class="plus-img"></span>
+										</div>
+									</div>
+									<div class="C-passenger fore">
+											<p>Children</p>
+											<span class="img-type C-type"></span>
+											<input id="C_passenger" type="tel" value="0" name="childs" alt="c" class="passenger" autocomplete='off'>
+											<div class="minus-plus">
+												<span class="minus-img"></span>
+												<span class="plus-img"></span>
+											</div>
+									</div>
+									<div class="I-passenger fore">
+											<p>Infants</p>
+											<span class="img-type I-type"></span>
+											<input id="I_passenger" type="tel" value="0" name="baby" alt="i" class="passenger" autocomplete='off'>
+											<div class="minus-plus">
+												<span class="minus-img"></span>
+												<span class="plus-img"></span>
+											</div> 
+									</div>
+									<div class="S-seat">
+											<div class="s-seatType">
+													<label for="economy">
+														<input type="radio" name="cabinClass" id="economy" value="Economy" checked="checked" class="seat-type">
+														<strong class="font-Roman">Economy</strong>
+													</label> 
+													<label for="business">
+														<input type="radio" name="cabinClass" id="business" value="Business" class="seat-type">
+														<strong class="font-Roman">Business</strong>
+													</label> 
+													<label for="first">
+														<input type="radio" name="cabinClass" id="first" value="First" class="seat-type">
+														<strong class="font-Roman">First</strong>
+													</label> 
+													<label for="prenium" class="prenium">
+														<input type="radio" name="cabinClass" id="prenium" value="Prenium Economy" class="seat-type">
+														<strong class="font-Roman">Prenium Economy</strong>
+													</label> 
+											</div>
+											<!-- <div class="s-seatRegular">
+												<p>Children 5 to 14 years old on a separate flight must be reserved for their "unaccompanied minors".</p>
+											</div> -->
+									</div>
+									<div class="B-confirm" style="margin-top: 20px;">
+										<input id="confirm" type="button" value="Confirm" name="button" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section4" >
+						<button class="btn font-Roman GAEV"  ga-category="AutumnSale" ga-action="click" ga-label="searchBtn" id="search_flights" style="margin-top: 6px;">Search flights</button>
+					</div>
+					<input type="hidden" name="airline">
+					<input type="hidden" name="carrier">
+				</div>
+			</form>
+		</div>
+		<div class="banner" id="banner">	
+			
+		</div>
+	</div>
+	
+	<div class="wrap">
+		<div class="container">
+			<p class='title font-Bold'>Book International GoAir Flight Tickets with HappyEasyGo</p>
+			<p class="title_1">GoAir is stepping into the world of international flights, and now you have the chance to explore your favourite global destinations within your budget. 			Book cheap GoAir international flight tickets on HappyEasyGo and embark on a memorable vacation with your family or friends. 
+			</p>
+			<div class="con">
+				<p class="con_title">Phuket</p>
+				<p class="title_1">Phuket, a mesmerising realm of pristine islands, sparkling waters, golden sands and undisturbed greenery, casts a spell on you in a heartbeat. Always a hit 		among honeymooners, nature lovers and party people, this paradise is laden with indulgent spas, luxurious resorts, bustling markets and everything else you look for in a 		holiday destination. 
+				</p>
+				<p class='title_1'>Our flight details: </p>
+				<ul class='ul_1'>
+					<li style='width:110px'>From</li>
+					<li style='width:90px'>To</li>
+					<li style='width:160px'>Dep.(Local)</li>
+					<li style='width:150px'>Arr.(Local)</li>
+					<li style='width:140px'>Frequency</li>
+					<li style='width:180px'>Effective from</li>
+					<li style='width:290px'>Introductory return fare</li>
+				</ul>
+				<div class='table_box clearfix'>
+					<div class="ul_box pull-left">
+						<ul>
+							<li style='width:109px'>Mumbai</li>
+							<li style='width:90px'>Phuket</li>
+							<li style='width:160px'>1:25</li>
+							<li style='width:150px'>7:25</li>
+							<li style='width:140px'>Mon, Wed, Sat</li>
+							<li style='width:179px'>13th Oct'18</li>
+						</ul>
+						<ul>
+							<li style='width:109px'>Phuket</li>
+							<li style='width:90px'>Mumbai</li>
+							<li style='width:160px'>8:30</li>
+							<li style='width:150px'>12:00</li>
+							<li style='width:140px'>Tue, Fri, Sun</li>
+							<li style='width:179px'>12th Oct'18</li>
+						</ul>
+					</div>
+					<div class='introFare pull-right'>Around ₹18,799**</div>
+				</div>
+				<div class='table_box clearfix'>
+					<div class="ul_box pull-left">
+						<ul>
+							<li style='width:109px'>Delhi</li>
+							<li style='width:90px'>Phuket</li>
+							<li style='width:160px'>1:10</li>
+							<li style='width:150px'>7:25</li>
+							<li style='width:140px'>Thu, Sun</li>
+							<li style='width:179px'>11th Oct'18</li>
+						</ul>
+						<ul>
+							<li style='width:109px'>Phuket</li>
+							<li style='width:90px'>Delhi</li>
+							<li style='width:160px'>8:30</li>
+							<li style='width:150px'>11:55</li>
+							<li style='width:140px'>Wed, Sat</li>
+							<li style='width:179px'>13th Oct'18</li>
+						</ul>
+					</div>
+					<div class='introFare pull-right'>Around ₹18,799**</div>
+				</div>
+			</div>
+			<div class="con">
+				<p class="con_title">Malé</p>
+				<p class="title_1">The Maldives is a tropical heaven nestled amidst the waters of the Indian Ocean. It is defined by its vivid coral reefs, scenic beaches, gorgeous lagoons and sun-kissed beaches. Fly off to its capital, Malé, and kick off a truly delightful vacay. 
+				</p>
+				<p class='title_1'>Our flight details: </p>
+				<ul class='ul_1'>
+					<li style='width:110px'>From</li>
+					<li style='width:90px'>To</li>
+					<li style='width:160px'>Dep.(Local)</li>
+					<li style='width:150px'>Arr.(Local)</li>
+					<li style='width:140px'>Frequency</li>
+					<li style='width:180px'>Effective from</li>
+					<li style='width:290px'>Introductory return fare</li>
+				</ul>
+				<div class='table_box clearfix'>
+					<div class="ul_box pull-left">
+						<ul>
+							<li style='width:109px'>Mumbai</li>
+							<li style='width:90px'>Malé</li>
+							<li style='width:160px'>13:30</li>
+							<li style='width:150px'>15:50</li>
+							<li style='width:140px'>Tue, Fri, Sun</li>
+							<li style='width:179px'>14th Oct'18</li>
+						</ul>
+						<ul>
+							<li style='width:109px'>Malé</li>
+							<li style='width:90px'>Mumbai</li>
+							<li style='width:160px'>16:50</li>
+							<li style='width:150px'>20:00</li>
+							<li style='width:140px'>Tue, Fri, Sun</li>
+							<li style='width:179px'>14th Oct'18</li>
+						</ul>
+					</div>
+					<div class='introFare pull-right'>Around ₹19,799**</div>
+				</div>
+				<div class='table_box clearfix'>
+					<div class="ul_box pull-left">
+						<ul>
+							<li style='width:109px'>Delhi</li>
+							<li style='width:90px'>Malé</li>
+							<li style='width:160px'>12:45</li>
+							<li style='width:150px'>16:20</li>
+							<li style='width:140px'>Wed, Sat</li>
+							<li style='width:179px'>17th Oct'18 </li>
+						</ul>
+						<ul>
+							<li style='width:109px'>Malé</li>
+							<li style='width:90px'>Delhi</li>
+							<li style='width:160px'>17:20</li>
+							<li style='width:150px'>22:10</li>
+							<li style='width:140px'>Wed, Sat</li>
+							<li style='width:179px'>17th Oct'18</li>
+						</ul>
+					</div>
+					<div class='introFare pull-right'>Around ₹18,799**</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+</div>
+
+
+
+
+

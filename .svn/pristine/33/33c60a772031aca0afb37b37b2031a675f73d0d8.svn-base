@@ -1,0 +1,209 @@
+
+  .logWrap-container{
+    width:100%;
+    padding:40px 60px 50px 50px
+  }
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+   }
+  .checkFailure{
+    position: absolute;
+    top:0px;
+    height:34px;
+    width:360px;
+    line-height: 34px;
+    text-align: center;
+    color:#fff;
+    background-color: @brand-danger;
+    font-size:14px;
+  }
+  .checkError{
+    color: @brand-danger;
+  }
+  .loginselect{
+    margin-bottom: 10px;
+    .fb{
+      .fb-logo{
+        margin:2px 5px;
+      }
+      display:block;
+      width:205px;
+      height: 40px;
+      background-color:#3b5999;
+      border-radius:5px;
+      font-size: 12px;
+      color:#fff;
+      margin-bottom: 8px;
+      .text{
+        display: inline-block;
+        vertical-align:52%;
+      }
+    }
+    .anchor:hover{
+      cursor:pointer;
+    }
+  }
+  .vertical{
+    dd{
+      margin-bottom: 15px;
+    }
+    .loginselect{
+      label{
+        color:@gray;
+        font-weight: normal;
+        height: 20px;
+        line-height: 20px;
+      }
+    }
+    dd input.inputin{
+      width:100%;
+      height: 35px;
+      padding:5px 10px;
+      outline: none;
+      line-height: 20px;
+      border: 1px solid #999;
+    }
+    a.forgot-link{
+      font-weight: normal;
+      margin-left: 20px;
+      color:#0b9d78;
+    }
+    
+    .persistent-box{
+      input{
+        vertical-align: -12%;
+      }
+      label{
+        font-weight: normal;
+      }
+    }
+  }
+  
+  .footer-nav{
+    padding: 0px 40px;
+    width: 100%;
+    height: 36px;
+    line-height: 36px;
+    font-size: 14px;
+    .register-link{
+      width: 110px;
+    }
+  }
+// login css
+  .login-wrapper{
+    width: 440px;
+    height: 410px;
+    .logWrap-container{
+      padding:0;
+      .checkFailure{
+        left: 40px;
+      }
+      .vertical{
+        .error_info{
+          height: 15px;
+          margin-bottom: 10px;
+        }
+        .persistent-box{
+          margin-bottom: 5px;
+        }
+        dd input.inputin{
+          width:100%;
+          height: 35px;
+          padding:5px 10px;
+          outline: none;
+          line-height: 20px;
+          border: 1px solid #999;
+        }
+        .btn-large{
+          height: 35px;
+          line-height: 24px;
+          width: 100%;
+          font-size: 16px;
+        }
+      }
+      
+    }
+    .nav-tabs{
+      padding: 0px 40px;
+      height: 40px;
+      text-align: center;
+      li{
+        &:nth-child(1){
+          width: 60%;
+        }
+        &:nth-child(2){
+          width: 40%;
+        }
+        a{
+          width: 60%;
+          height: 40px;
+          margin: auto;
+          font-size: 14px;
+        }
+      }
+      .active{
+        a,
+        a:hover,
+        a:focus{
+          border: none;
+          border-bottom: 3px solid #0b9d78;
+          
+        }
+      }
+    }
+    .tab-content{
+      .tab-pane{
+        padding: 30px 40px 0px;
+      }
+    }
+  }
+
+
+.reset-wrapper{
+  .logWrap-container {
+    width: 100%;
+    padding: 40px 25px 50px 40px;
+  }
+  .email-box{
+    margin-top: 40px;
+    input{
+      padding:5px 10px;
+      width:360px;
+      height:40px;
+    }
+  }
+  .resetBtn{
+    margin:42px auto 10px;
+    font-weight: bold;
+  }
+  p.privacy{
+    color:@gray-light;
+    a{
+      color:@brand-primary;
+    }
+  }
+}
+.log-loading{
+  img{
+    display: block;
+    margin:150px auto;
+  }
+}
+.registerVerify-wrapper{
+  min-height: 300px;
+  .title{
+    background:url(../../imgs/icon-face.png) no-repeat left center/30px 30px;
+    padding-left: 40px;
+    line-height: 40px;
+    height: 40px;
+  }
+  .verifyemail{
+    color:@brand-primary;
+  }
+  p{
+    background-color:@gray-lighter;
+    padding:6px 10px;
+    line-height: 20px;
+    margin-bottom: 40px;
+  }
+}

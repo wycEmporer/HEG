@@ -1,0 +1,12 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let metaKeywords = 'Flight booking offers, Hotels deals, Hotel booking offers, flight ticket offers, flight offers, domestic flight offers, hotel booking offers, discount on flight booking, deals on flight booking, deals on hotel booking, exclusive flight booking offers';
+let metaDescription = 'Cheap flights ticket booking & online hotel booking. Get discount coupons for flight booking & deals on hotel rooms. Grab domestic flight & hotels offers.';
+
+module.exports = layout.init({
+  pageTitle: 'Flight booking offers, Hotels deals, Hotel booking offers',
+  metaKeywords,
+  metaDescription,
+}).run(content(dirsConfig));

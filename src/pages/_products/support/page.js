@@ -1,0 +1,478 @@
+require('./content.less');
+require('cp');
+import {cookieUtil, path, accountPath} from 'utils';
+const isLogin = cookieUtil.getCookie('uuid') == null ? false : true;
+import {getBannerInfo, WALLET} from 'pagesDir/_component/getBannerInfo/index';
+import * as formReg from 'formVerify';
+require('../_common/fileUpload/css/zyUpload.css');
+import {ZYFILE} from '../_common/fileUpload/js/zyFile';
+require('../_common/fileUpload/js/zyUpload.js');
+
+$(() =>{
+
+  let delegate = {
+    QuestModel :[],
+    issueId :'',
+    triplist:[]
+  };
+  // getBannerInfo(WALLET);
+  loadAreaCode();
+  function renderView(viewElement, viewHtml, model) {
+    var renderTemp = _.template(viewHtml);
+    viewElement.html(renderTemp(model));
+  }
+  // if(isLogin){
+  //   $('.phoneInfo').removeClass('hidden');
+  // }
+ 
+
+  $.ajax({
+    // url: paths.getNodeList() + '?cId=82',
+    url:path.getNodeList() + '?cId=176',
+    type: 'GET',
+    dataType: 'jsonp'
+  }).done(res =>  {
+    if(res.list.length != 0){
+      var model = res.list[0].node;
+      renderView($('#questionCont'), $('#questionContTpl').html(), {'myModel': model });
+    }
+  });
+
+
+  function loadAreaCode(){
+    $.ajax({
+      url: path.areaCodeQuery(),
+      type: 'GET',
+      dataType: 'json',
+      cache: true,
+    }).done(res => {
+      if(res.success){
+        var $areaCode = $('.registerAreaCode');
+        var optionArr = [];
+        res.list.forEach(function(val, key){
+          if(val.regionCode == 91){
+            var option = `<option value="${val.regionCode}" selected>${val.countryName +' (+'+ val.regionCode})</option>`;
+          } else {
+            var option = `<option value="${val.regionCode}">${val.countryName +' (+'+ val.regionCode}) </option>`;
+          }
+          optionArr.push(option);
+        });
+        $areaCode.html(optionArr.join(''));
+      }
+    });
+  }
+  $(document).on('click', '.fareBtn a', function(){
+    if($(this).siblings('a').hasClass('active') || $(this).hasClass('active')) return false;
+    $(this).addClass('active').siblings('a').removeClass('active');  
+    
+    var contentMangementId = $(this).data('id');  
+    var isHelp = Boolean($(this).data('index'));
+    var data = {
+      contentMangementId,
+      isHelpful:isHelp
+    };
+    $.ajax({
+      url: path.saveHelpful(),
+      type: 'POST',
+      dataType: 'json',
+      data:JSON.stringify(data),
+      contentType:'application/json',
+      cache: true,
+    }).done(res => {
+      if(res.success){
+        
+      }
+    });
+  });
+
+
+  $(document).on('click', '.selectBtn', function(){
+    $(this).siblings('.selectInfo').slideToggle();  
+  });
+  $(document).on('click', '.list-group-item', function(){
+    $(this).addClass('active').parents('.panel-default').siblings('.panel-default').find('.list-group-item').removeClass('active');  
+  });
+ 
+  
+  
+  $(document).on('click', '.selectInfo ul li a', function(){
+    var text = $(this).text();
+    $(this).parents('.selectInfo').siblings('.selectBtn').val(text);
+    // $(this).parents('.selectInfo').slideToggle();
+  });
+
+  $('.selectBtn').blur(function(){
+    $(this).siblings('.selectInfo').slideUp();  
+  });
+
+  $(document).on('click', '.selectInfo_1 ul li a', function(){
+    $(this).parents('.select-control').siblings('.select-control').find('input').val('');
+    var cid = $(this).data('id');
+    var pTitle = $(this).parents('.well').find('p').text();
+    if(pTitle == 'Flights' || pTitle == 'Hotels'){
+      $(this).parents('form').find('.tripId-box').removeClass('hidden');
+    } else {
+      $(this).parents('form').find('.tripId-box').addClass('hidden');
+    }
+    var data =  {};
+    getQuest();
+    function getQuest () {
+      for (let i = 0; i < delegate.QuestModel.length; i++) {
+        var element = delegate.QuestModel[i].node;
+        for (let j = 0; j < element.length; j++) {
+          if(element[j].cid == cid) {
+            data = element[j].node;
+            return false;
+          }  
+        }
+      }
+    }
+    renderView($('#supportQuest_2'), $('#supportQuest_2Tpl').html(), {'myModel': data });
+  });
+  $(document).on('click', '.selectInfo_2 ul li a', function(){    
+    delegate.issueId = $(this).data('id');
+  });
+
+  $(document).on('click', '#shareBySms', function(){
+    var paramsData = {};
+    var supportId = $(this).parents('form').find('[name=orderId]').val().trim();
+    let areaCode = $(this).parents('form').find('[name=areaCode]').val();
+    var phoneNo =  $(this).parents('form').find('[name=phoneNo]').val().trim();
+    var phone =  areaCode +' '+ phoneNo;
+    paramsData = {
+      phone : phone,
+      id : supportId
+    };
+
+    if(checkForm(this.form)){
+
+      sessionStorage.setItem('emailOrPhone', phone);
+      $.ajax({
+        url: path.getOrderBySupport(),
+        type: 'POST',
+        dataType: 'json',
+        contentType:'application/json',
+        data:JSON.stringify(paramsData),
+      }).done(function (res) {
+        if(res.success) {
+          var model = res.data;
+         if(model != null){
+            model.forEach(function(value){
+              var time = String(new Date(value.departDateTime-9000000)).split(' ');
+              var arriveTime = String(new Date(value.arriveDateTime-9000000)).split(' ');
+              value.departTime_1= time[0] + ',' + time[2] +' ' + time[1] + ' ' + time[3];
+              value.departTime_2 =Number(time[4].split(':')[0]) >= 12 ? time[4].slice(0, 5) + ' pm' :  time[4].slice(0, 5) + ' am';
+              value.arriveTime_2 = Number(arriveTime[4].split(':')[0]) >= 12 ? arriveTime[4].slice(0, 5) + ' pm' :  arriveTime[4].slice(0, 5) + ' am';
+              value.durationTime = durationTime((value.arriveDateTime- value.departDateTime)/1000);
+              value.stop = value.travellers.split(',').length - 1;
+              value.isCrossDay = time[2] == arriveTime[2] ? false : true;
+              value.isTicketNo =  !!value.ticketsinfo[0][0].ticketno;
+              var isOperateable = false;
+              value.travellerinfo.forEach(function(val){
+                val.Tstatus = value.bookStatus;
+                val.pNR = val.pnr;
+                if(!!Number(val.status)){
+                  isOperateable = true;
+                }
+              });
+              value.isOperateable = isOperateable;
+              value.isChangeable = value.refundable && value.isOperateable && value.isTicketNo;
+              value.contactMob = phone;
+              value.id = value. flightItineraryIdString;
+              if(value.bookStatus == 'Issued') {
+                value.bookStatusText = 'Ticket Issued';
+              } else if(value.bookStatus == 'Paid'){
+                value.bookStatusText = 'Payment Received: Ticket will be issued within 1 hour';
+              } else {
+                value.bookStatusText = value.bookStatus;
+              }
+            });
+            function durationTime (data) {
+              
+              var H = parseInt(data/3600); 
+              var M = parseInt((data-H*3600)/60);
+              var time_2 = H + 'h ' + M + 'm';  
+              return time_2;  
+            }
+
+            sessionStorage.setItem('o_d', JSON.stringify(model));
+            // $('.phoneInfo').removeClass('hidden');
+          }else {
+            model = [];
+          } 
+          renderView($('#carouselInfo'), $('#carouselInfoTpl').html(), {'myModel': model });
+        }
+      }).fail(function (err) {
+        console.log(err);
+      });
+    }
+    function checkForm(){
+      var flag = true;
+      let phoneOnOff = true;
+  
+      if(areaCode == '91'){
+        if(phoneNo.length != 10){
+          phoneOnOff = false;
+        } 
+      } else if(areaCode == '86'){
+        if( phoneNo.length != 11){
+          phoneOnOff = false;
+        } 
+      }
+      $('.form-inline').find('.checkError').addClass('hidden');
+      if( !formReg.PNR.test(supportId) ){
+        $('.form-inline').find('.order_info .checkError').removeClass('hidden');
+        flag = false;
+      }
+      if(!formReg.mobReg.test(phoneNo) || !phoneOnOff){
+        $('.form-inline').find('.phone_info .checkError').removeClass('hidden');
+        flag = false;
+      }
+      return flag;
+    }
+  });
+
+
+$(document).on('click', '#viewHotels', function(){
+  let supportId = $(this).parents('form').find('[name=orderId]').val().trim();
+  let areaCode = $(this).parents('form').find('[name=areaCode]').val();
+  var phoneNo =  $(this).parents('form').find('[name=phoneNo]').val().trim();
+  let phone =  areaCode +' '+ phoneNo;
+  if(checkForm(this.form)){
+    $.ajax({
+      url:'/api/web/orders/orders_fly?params={"bookingNoAndConfirmId":"'+ supportId +'","phone":"' + phone + '"}',
+      type: 'GET',
+      dataType: 'json'
+    }).done(res =>  {
+      var model = res;
+      var payStatus = ['', 'To be paid', 'Pending', 'Booking Comfirmed', 'Completed', 'Canceled'];
+      if(model.length != 0) {
+        _.each(model, function(value){
+          value.snapshot2 = JSON.parse(value.snapshot);
+          value.payStatus = payStatus[value.status];
+          value.CheckInDate = checkDate(value.checkInDate);
+          value.CheckOutDate = checkDate(value.checkOutDate);
+        });
+      }
+      function checkDate(date) {
+        let checkdate = new Date(date).toString().slice(0, 15);
+        let checkdate2 = checkdate.slice(0, 3) +', ' + checkdate.slice(8, 10) + ' ' + checkdate.slice(4, 8) + ' ' +checkdate.slice(11);
+        return checkdate2;
+      }
+      renderView($('#carouselInfo'), $('#hotelInfoTpl').html(), {'myModel': model });
+    });
+  }
+  function checkForm(){
+    var flag = true;
+    let phoneOnOff = true;
+
+    if(areaCode == '91'){
+      if(phoneNo.length != 10){
+        phoneOnOff = false;
+      } 
+    } else if(areaCode == '86'){
+      if( phoneNo.length != 11){
+        phoneOnOff = false;
+      } 
+    }
+    $('.form-inline').find('.checkError').addClass('hidden');
+    if( !formReg.PNR.test(supportId) ){
+      $('.form-inline').find('.order_info .checkError').removeClass('hidden');
+      flag = false;
+    }
+    if(!formReg.mobReg.test(phoneNo) || !phoneOnOff){
+      $('.form-inline').find('.phone_info .checkError').removeClass('hidden');
+      flag = false;
+    }
+    return flag;
+  }
+});
+
+  $('#proccedModal').on('shown.bs.modal', function () {
+    $.ajax({
+      // url: paths.getNodeList() + '?cId=82',
+      url:path.getNodeList() + '?cId=177',
+      type: 'GET',
+      dataType: 'jsonp'
+    }).done(res =>  {
+      if(res.list.length != 0){
+        delegate.QuestModel = res.list[0].node;
+        renderView($('#supportQuest_1'), $('#supportQuest_1Tpl').html(), {'myModel': delegate.QuestModel });
+      }
+    });
+  });
+  $('#proccedModal').on('hidden.bs.modal', function () {
+    $('#career_Info')[0].reset();
+    $('#career_Info').find('.checkError').addClass('hidden');
+  });
+
+  $('body').on('click', '#emailTrip', function(){
+    var tripid = $(this).attr('tripid');
+    $.get(accountPath.emailItinerary(tripid), function(res){
+      if(res.success){
+        alert('Itinerary sent via email. Kindly check your inbox or spam folder.');
+      }else{
+        alert(res.msg);
+      }
+    });
+  });
+
+
+  // cancel 
+  $(document).on('click', '.f-cancel', function(){
+    if(!$(this).data('isoperateable')){
+      return false;
+    }
+
+    let tripid = $(this).attr('tripid');
+    
+    window.open('/account/?src=cancel/tripid=' + tripid);
+    return false;
+  });
+
+  $(document).on('click', '.f-change', function(){
+    if(!$(this).data('isoperateable')){
+      return false;
+    }
+    let tripid = $(this).attr('tripid');
+    window.open('/account/?src=change/tripid=' + tripid) ;
+    return false;
+  });
+
+  $(document).on('click', '#saveCareeer', function(){
+    if(checkForm(this.form)){
+      var myForm = document.getElementById('career_Info');
+     
+      var formData = new FormData(myForm);
+      var file = document.querySelector('#fileImage');
+   
+      if(file.files.length == 0 ){
+        formData.delete('file');
+      }
+      formData.append('issueId', delegate.issueId);
+    
+      $.ajax({
+        url: path.saveFeedback(),
+        type: 'POST',
+        data: formData,                   
+        dataType: 'JSON',
+        cache: false,                    
+        processData: false,             
+        contentType: false,           
+      }).done(function (res) {
+        if(res.succ){
+          $('#proccedModal').modal('hide');
+          $('#saveSuccModal').modal('show');
+          $('#proccedModal').on('hidden.bs.modal', function (){
+            $('body').addClass('modal-open');
+            $('body').css('padding-right', '17px');
+          });		
+        } else {
+          $('#career_Info').find('.fileUpload-box .checkError').text(res.msg).removeClass('hidden');
+        }
+        
+      }).fail(function (err) {
+       
+      });
+    }
+    function checkForm(){
+      var flag = true;
+      $('#career_Info').find('.checkError').addClass('hidden');
+      // var emailReg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+  
+      if($('#name').val().trim() == ''){
+        $('#career_Info').find('.verify-box .checkError').removeClass('hidden');
+        flag = false;
+      }
+      if(!formReg.emailReg.test($('#email').val().trim())){
+        $('#career_Info').find('.username-box .checkError').removeClass('hidden');
+        flag = false;
+      }
+      if(!formReg.mobReg.test($('#mobile').val().trim())){
+        $('#career_Info').find('.mobile-box .checkError').removeClass('hidden');
+        flag = false;
+      }
+      
+      if($('.location-box .selectBtn').val().trim() == ''){
+        $('#career_Info').find('.location-box .checkError').removeClass('hidden');
+        flag = false;
+      }
+      if(!$('.tripId-box').hasClass('hidden') && !formReg.PNR.test($('#tripId').val().trim())){
+        $('#career_Info').find('.tripId-box .checkError').removeClass('hidden');
+        flag = false;
+      }
+      if($('#joinReason').val().trim() == '' || $('#joinReason').val().trim().length > 500 ){
+        $('#career_Info').find('.joinReason-box .checkError').removeClass('hidden');
+        flag = false;
+      }      
+      return flag;
+    }
+  });
+
+  $('#joinReason').keyup(function(){
+    var textLength = $(this).val().trim().length;
+    $('.textLength').text(500-textLength);
+    
+  });
+
+
+});
+
+
+// 上传文件
+$(function(){ 
+  $('#fileUpload').zyUpload({
+    width            :   '100%',                 
+    // height           :   '100px',                 
+    // itemWidth        :   "120px",                 
+    // itemHeight       :   "100px",                 
+    url              :   '/heg_api/join/saveCareer.do',  
+    multiple         :   false,                   
+    dragDrop         :   true,                   
+    del              :   true,                   
+    finishDel        :   false,  				  
+    fileType         :   ['png', 'jpeg', 'jpg', 'bmp'],
+    onSelect: function(files, allFiles){                   
+      
+    },
+    onDelete: function(file, surplusFiles){                  
+      
+    },
+    onSuccess: function(file){                  
+      
+    },
+    onFailure: function(file){                  
+      
+    },
+    onComplete: function(responseInfo){         
+      
+    }
+  }, ZYFILE);
+});
+
+$.getJSON(path.getSiteInfo()).then((res) =>{
+  if(res.code === 0){
+    var phoneArr = res.webSiteInfo.websitePhone;
+    $('.phoneNo').html(phoneArr);
+  }
+});
+
+// copy code
+$(document).on('click', '.copyText', function(e) {
+  e.stopPropagation();
+  var val = $(this).siblings('span')[0];
+  window.getSelection().selectAllChildren(val);
+  document.execCommand('Copy');
+  const TipsMsg = $(this).parents('.pull-left')
+    .siblings('.TipsMsg')[0];
+    $ (TipsMsg).fadeIn(500).delay(2000).fadeOut(1000);
+});
+$(document).on('click', '.copyText-h', function(e) {
+  e.stopPropagation();
+  var val = $(this).siblings('span')[0];
+  window.getSelection().selectAllChildren(val);
+  document.execCommand('Copy');
+  const TipsMsg = $(this).parents('.carousel-inner')
+    .siblings('.TipsMsg')[0];
+    $ (TipsMsg).fadeIn(500).delay(2000).fadeOut(1000);
+});

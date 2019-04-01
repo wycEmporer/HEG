@@ -1,0 +1,2081 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+// html{
+//    overflow-y:scroll;
+// }
+@ggcolor:#cde7e0;
+body{
+  background-color:@gray-lighter;
+  position: relative;
+}
+.fontSz14{
+  font-size: 14px;
+}
+.fontSz16{
+  font-size: 16px;
+}
+.fontB{
+  font-weight: bold;
+}
+.widthP50{
+  width:50%;
+}
+.padT20{
+  padding-top: 20px;
+}
+.padB20{
+  padding-bottom: 20px;
+}
+.popover{
+  background-color: #000;
+  opacity: .8 !important;
+  color:#fff;
+  .arrow:after{
+    border-bottom-color:#000 !important;
+    opacity: .8;
+  }
+  .dashBorder{
+    padding-top: 8px;
+    border-top: 1px dashed #ddd;
+  }
+}
+.account-wrap{
+  .container{
+    width:1200px;
+    padding-top: 20px;
+  }
+  .aside{
+    float:left;
+    width:286px;
+    background-color: #fff;
+    margin-right: 22px;
+  }
+  .primaryNav{
+    dt{
+      line-height: 26px;
+      font-size: 14px;
+      padding: 7px 30px;
+      // margin-bottom: 30px;
+      border-bottom:1px solid @gray-lighter;
+      &:before{
+        content:' ';
+        float:left;
+        width:26px;
+        height:26px;
+        margin-right: 20px;
+        background-image: url(./imgs/icon-classification.png);
+      }
+    }
+    dd{
+      padding: 7px 30px;
+      height: 40px;
+      &.active{
+        background-color:@brand-warning;
+        i.icon.trips{
+            background-image: url(./imgs/icon-trip2.png);
+        }
+        i.icon.hotels{
+          background-image: url(./imgs/icon-hotel2.png)
+        }
+        i.icon.profile{
+            background-image: url(./imgs/icon-profile2.png);
+        }
+        i.icon.traveller{
+            background-image: url(./imgs/icon-traveler2.png);
+        }
+        i.icon.wallet{
+            background-image: url(./imgs/icon-happyeasycash2.png);
+        }
+        i.icon.coupon{
+          background-image: url(./imgs/icon-coupon2.png);
+        }
+        i.icon.print{
+            background-image: url(./imgs/icon-printticket2.png);
+        }
+        i.icon.cancel{
+            background-image: url(./imgs/icon-cancellation2.png);
+        }
+        i.icon.security{
+          background-image: url(./imgs/icon-security2.png);
+        }
+      }
+      a{
+        display:block;
+        line-height: 26px;
+        font-size: 14px; 
+      }
+    }
+    i.icon{
+      width:25px;
+      height:25px;
+      float:left;
+      background-repeat: no-repeat;
+      margin-right:20px;
+    }
+    i.icon.trips{
+        background-image: url(./imgs/icon-trip1.png);
+    }
+    i.icon.hotels{
+      background-image: url(./imgs/icon-hotel1.png)
+    }
+    i.icon.profile{
+        background-image: url(./imgs/icon-profile1.png);
+    }
+    i.icon.traveller{
+        background-image: url(./imgs/icon-traveler1.png);
+    }
+    i.icon.wallet{
+        background-image: url(./imgs/icon-happyeasycash1.png);
+    }
+    i.icon.coupon{
+      background-image: url(./imgs/icon-coupon1.png);
+    }
+    i.icon.print{
+        background-image: url(./imgs/icon-printticket1.png);
+    }
+    i.icon.cancel{
+        background-image: url(./imgs/icon-cancellation1.png);
+    }
+    i.icon.security{
+      background-image: url(./imgs/icon-security1.png);
+    }
+  }
+  .rightside, .s-common{
+    min-height: 300px;
+    float:left;
+    width:872px;
+    h2.title{
+      height:40px;
+      padding:14px 10px;
+      font-size: 14px;
+      color:@brand-primary;
+      border-bottom:1px solid @gray-lighter;
+      background-color: #f8f8f8;
+    }
+    overflow: hidden;
+    .content{
+      background-color: #fff;
+    }
+  }
+  .unLogin-wrap{
+    .formField{
+      background-color: #fff;
+      padding:40px 20px 30px;
+      .notice{
+        font-size: 16px;
+        color:@brand-warning;
+        line-height: 30px;
+      }
+      .form-control{
+        width:240px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+  }
+  .s_loading{
+    .progress{
+      margin:0 auto;
+      border-radius: 12px;
+    }
+    .title{
+      margin:40px auto;
+      text-align: center;
+      font-size:26px;
+    }
+  }
+  .no-login,.f-detail,.s_loading{
+    width:872px;
+    .message{
+      margin:60px auto;
+      text-align:center;
+      p{
+        font-size:20px;
+        line-height: 32px;
+      }
+      .marT50{
+        margin-top: 50px;
+      }
+      .btn-custom{
+        background-color:@brand-warning;
+      }
+    }
+  }
+}
+.tripsTitle{
+  font-size: 18px;
+  border-bottom:1px solid @gray-lighter;
+  background-color: #f8f8f8;
+  padding: 0 20px;
+  ul{
+    li{
+      float: left;
+      height:45px;
+      width: 90px;
+      line-height: 45px;
+      margin-right: 30px;
+      a{
+        display: inline-block;
+        height: 45px;
+        &:hover,&:focus{
+          color: #000;
+        }
+      }
+      &:first-child{
+        width: 120px;
+        a{
+          position: relative;
+          i{
+            position: absolute;
+            right: -32px;
+            top: 8px;
+            width: 30px;
+            height: 20px;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 20px;
+            background: red;
+            color: white;
+            font-size: 14px;
+          }
+        }
+      }
+      &:last-child{
+        a{
+          color: #999;
+          &:hover,&:focus{
+            color: #999;
+          }
+        }
+      }
+    }
+    .active{
+      a{
+        color: #0b9d78;
+        font-weight: 700;
+        border-bottom: 3px solid #0b9d78;
+        &:hover,&:focus{
+          color: #0b9d78;
+        }
+      }
+    }
+  }
+}
+
+.noList{
+  padding: 51.5px 0;
+  text-align: center;
+  background-color: #fff;
+  p{
+    line-height: 18px;
+    font-size: 14px;
+  }
+  a{
+    margin-top: 20px;
+  }
+}
+.list-wrap{
+  border-bottom:1px solid @gray-light;
+  .query-form{
+    padding: 20px;
+    .group{
+      float: left;
+      width:160px;
+      margin-right: 10px;
+      label{
+        float: left;
+        padding:0 10px 0 16px; 
+        line-height: 26px;
+        font-weight: normal;
+        padding-right: 8px;
+        text-align: right;
+      }
+      .trip-query{
+        float: left;
+        width:100%;
+        border:none;
+        border: 1px solid @gray-light;
+        outline: none;
+        height: 35px;
+        padding-left: 10px;
+        input{
+          width:94%;
+          border:none;
+          outline:none;
+          line-height:33px;
+        }
+        select{
+          width:100%;
+          line-height: 26px;
+          height: 32px;
+          border-radius:4px;
+          padding-left: 4px;
+        }
+        &.select{
+          border:none;
+          select{
+            width:80%;
+          }
+        }
+        .icon{
+          display: inline-block;
+          width:20px;
+          height:20px;
+          background-image: url(./imgs/icon-search.png);
+          cursor:pointer;
+        }
+      }
+      button{
+        width: 120px;
+        height: 35px;
+      }
+      &:last-child{
+        width: 120px;
+        margin-left: 15px;
+      }
+    }
+    .hotel-group{
+      width: 50%;
+      label{
+        width:118px;
+      }
+      button{
+        width:100%;
+      }
+      .checkDate{
+        cursor: pointer;
+      }
+      .icon_datepick{
+        position: absolute;
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+        background-image: url(./imgs/calendar.png);
+        background-repeat: no-repeat;
+        top: 6px;
+        right: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+  .tab-info{
+    p{
+      width: 100%;
+      padding:0px 20px;
+      line-height: 40px;
+      border-top: 1px solid #ccc;
+      border-bottom: 1px solid #ccc;
+      font-size: 16px;
+      span{
+        color: #0b9d78;
+      }
+    }
+  }
+  .noOrderList{
+    margin: 100px auto 300px;
+    width: 290px;
+    height: 154px;
+    background:url('./imgs/noList.png') no-repeat;
+  }
+  .loadTimeOut{
+    background: url('./imgs/loadMore.png') no-repeat;
+  }
+  .orders{
+    a.order-item{
+      display: block;
+      padding:16px 20px;
+      color:@gray-darker;
+      border-top: 1px solid #ccc;
+      cursor: pointer;
+      &.Completed,&.Refunded,&.Timeout{
+        .c-month{
+          background-color: @gray !important;
+        }
+        .status-btn{
+          background-color: @gray !important;
+        }
+      }
+      &.Tobepaid{
+        .status-btn{
+          background-color: @brand-warning !important;
+        }
+        .cancel-btn{
+          width: 120px;
+          height: 30px;
+          background: #ECECEC;
+          border-radius: 4px;
+          line-height: 30px;
+          text-align: center;
+          margin-top: 10px;
+          color: #999999;
+          z-index: 10;
+        }
+      }
+      &:first-child{
+        border-top:none;
+      }
+      &:hover{
+        background-color:lighten(desaturate(@brand-primary,30%),56%);
+      }
+      li{
+        float:left;
+        &.fore0{
+          width:27%;
+          padding:14px 90px 10px 30px;
+        }
+        &.fore1{
+          width:46%;
+          padding:20px 0;
+          border-left:1px dashed #ccc;
+          border-right:1px dashed #ccc;
+        }
+        &.fore2{
+          width:27%;
+          padding:14px 0 0 70px;
+        }
+        .icHotel{
+          width: 37px;
+          height: 31px;
+          background:url(./imgs/icon-calendar-normal.png) no-repeat;
+        }
+      }
+      .card{
+        width:86px;
+        height:90px;
+        text-align:center;
+        border-radius:10px;
+        overflow: hidden;
+        .c-month{
+          background-color:@brand-danger;
+          height:26px;
+          line-height: 26px;
+          color:contrast(@gray-base);
+          font-size:10px;
+        }
+        .c-data{
+          background: radial-gradient(circle at center, #fff,@ggcolor),@gray-lighter;
+          height:64px;
+          padding-top:10px;
+        }
+        .day{ 
+          display: block;
+          color:@gray-dark;
+          font-size:20px;
+          font-weight:bold;
+        }
+        .week{
+          display: block;
+          height:24px;
+          line-height: 24px;
+          color:@gray-light;
+          font-size: 14px;
+          font-weight:500;
+        }
+      }
+      .f-route{
+        text-align:center;
+        .citys{
+          margin-bottom: 18px;
+        }
+        span.dc,span.ac{
+          font-size: 16px;
+          font-weight: bold;
+          margin:0 20px;
+        }
+        .passengers{
+          padding:0 20px;
+          font-size: 14px;
+          color:@gray-light;
+        }
+      }
+      .other-info{
+        .status-btn{
+          width:120px;
+          height:28px;
+          text-align:center;
+          line-height: 30px;
+          background-color: @brand-primary;
+          color:#fff;
+          border-radius:4px;
+        }
+        .info{
+          margin:10px 0;
+          color:@gray-light;
+        }
+        .id,.data{
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.f-detail{
+  h3{
+    font-size: 14px;
+  }
+  .payWrap{
+    padding:10px 20px;
+    .form-gro{
+      margin-bottom: 5px;
+      input{
+        border:1px solid #ccc;
+      }
+    }
+    .form-con{
+      width:100%;
+      height:36px;
+      background-color: #fff;
+      padding:10px;
+      &[readonly]{
+        background-color: #eee;
+      }
+    }
+  }
+  .paySummary{
+    .paySession{
+      background-color: #ffefd8;
+      margin-left: -40px;
+      margin-right: -40px;
+      text-align: center;
+    }
+  }
+  .payTypes{
+    .nav-tabs{
+      border-bottom: 1px solid @brand-primary;
+      &>li.active>a{
+        color:#fff;
+        background-color: @brand-primary;
+        border: none;
+      }
+      &>li>a:hover{
+        background-color: @brand-primary;
+        color:#fff;
+        border: none;
+      }
+      &>li>a{
+        background-color: @gray-lighter;
+        padding: 10px 22px;
+        border:none;
+        min-width: 100px;
+        text-align: center;
+
+      }
+      &>li{
+        margin-bottom: 0;
+      }
+    }
+    .cardWrap{
+      padding: 20px 0 30px;
+      .cardGather{
+        padding-bottom: 20px;
+        i{
+          float: right;
+          width:234px;
+          height: 20px;
+          background: url('./imgs/gather.png');
+        } 
+      }
+      input,select{
+        width: 100%;
+        height: 36px;
+        padding: 0 10px;
+      }
+    }
+    .bankWrap{
+      padding: 20px 0 10px;
+    }
+    .bankList{
+      label{
+        width: 100%;
+        border: 1px solid #999;
+        padding: 8px 18px;
+      }
+      input[type=radio]{
+        float: left;
+      }
+      .bankIcon{
+        display: block;
+        float: left;
+        width: 120px;
+        height: 20px;
+        margin-left: 20px;
+      }
+    }
+    .otherList{
+      select{
+        width: 100%;
+        height: 38px;
+        padding: 0 10px;
+      }
+    }
+    .upi{
+      padding: 20px 0 10px;
+      input{
+        height: 36px;
+        width: 300px;
+        padding-left: 10px;
+      }
+    }
+  }
+} 
+.common-style{
+  background-color: #fff;
+}
+.hotelInfo{
+  margin-bottom: 20px;
+  ul{
+    display: flex;
+    li{
+      // height: 200px;
+      background: #F8FBFB;
+      margin-right: 20px;
+      flex: 1;
+      &:last-child{
+        margin-right: 0px;
+      }
+      a{
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        &:hover{
+          color: #333333;
+        }
+      }
+      img{
+        width: 100%;
+        // height: 200px;
+      }
+      .info{
+        padding: 10px;
+        p{
+          &:nth-child(1){
+            font-size: 16px;
+            line-height: 24px;
+          }
+          &:nth-child(2){
+            text-align: right;
+            span{
+              font-size: 20px;
+              color: #DC2323;
+              line-height: 30px;
+              font-weight: 900;
+              span{
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.returnPre{
+  width: 100%;
+  height: 120px;
+  margin-bottom: 20px;
+  background: url(./imgs/background.png) no-repeat;
+  padding: 20px 10px 20px 20px;
+  position: relative;
+  .pull-left{
+    p{
+      font-size: 20px;
+      color: #FFFFFF;
+      line-height: 30px;
+      font-weight: 700;
+      span{
+        color: #FDE742;
+      }
+      &:nth-child(3){
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+  }
+  .pull-right{
+    width: 300px;
+    text-align: center;
+    position: absolute;
+    right: 60px;
+    top: 20px;
+    .share{
+      line-height: 25px;
+      font-size: 16px;
+      color: #FFFFFF;
+      position: relative;
+      margin-top: 5px;
+      &::before{
+        content: '';
+        position: absolute;
+        left: 50px;
+        top: 13px;
+        width: 40px;
+        height: 0;
+        border-bottom: 1px solid white;
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        right: 50px;
+        top: 13px;
+        width: 40px;
+        height: 0;
+        border-bottom: 1px solid white;
+      }
+    }
+    ul{
+      li{
+        float: left;
+        width: 33.3%;
+        position: relative;
+        img{
+          width: 30px;
+          height: 30px;
+        }
+        p{
+          color: white;
+          margin-top: 10px;
+        }
+        .copyText{
+          position: absolute;
+          left: 99999px;
+          top: 0;
+        }
+      }
+    }
+    .TipsMsg{
+      position: absolute;
+      right: 30px;
+      top: 105px;
+      width: 180px;
+      padding: 10px;
+      font-size: 12px;
+      color: white;
+      background: rgba(0 , 0, 0, 0.8);
+      border-radius: 4px;
+      display: none;
+    }
+  }
+}
+.flight-info{
+  .f-detail{
+    padding: 10px 0;
+    h3.tripTil{
+      padding-left: 20px;
+    }
+  }
+  .f-info{
+    padding: 10px 0px;
+    .til{
+      padding-left: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      .time{
+        font-size: 16px;
+        font-weight: normal;
+        color: @gray;
+      }
+    }
+    .vendor,.start,.through,.end,.baggage{
+      float:left;
+      span,small{
+        display: block;
+      }
+    }
+    .vendor{
+      width:18%;
+      padding-left:50px;
+    }
+    .vendor,.start,.end{
+      span{
+        font-size: 16px;
+      }
+      small{
+        color: @gray;
+      }
+    }
+    .start{
+      width:26%;
+      text-align: right;
+    }
+    .through{
+      width:10%;
+      text-align: center;
+      padding-top: 20px;
+    }
+    .end{
+      width: 26%;
+    }
+    .layover{
+      padding:6px 0;
+      .line{
+          float: left;
+          width: 34%;
+          height:10px;
+          border-bottom:1px solid #ccc;
+      }
+      .layoverTime{
+        float:left;
+        width:20%;
+        text-align: center;
+      }
+    }
+    
+    .baggage{
+      margin-left: 10px;
+      .icon{
+        float: left;
+        padding-top:2px;
+        margin-left: -12px;
+      }
+      h3{
+        font-weight: 700;
+        line-height: 1.3;
+      }
+    }
+  }
+}
+.services-info{
+  .operateNav{
+    width: 50%;
+    padding:26px 20px;
+
+    a.operations{
+      float:left;
+      width: 118px;
+      border:1px solid @brand-primary;
+      border-radius:4px;
+      padding:6px 12px;
+      font-size: 14px;
+      text-align: center;
+      margin-right:12px;
+      cursor:pointer;
+      color:@brand-primary;
+      &.active,&:hover{
+        background-color: @brand-primary;
+        color:#fff;
+      }
+    }
+  }
+  .f-operate{
+    width: 50%;
+    padding:20px 16px;
+    border-left: 1px solid @gray-lighter;
+    .fore{
+      float:left;
+      width:50%;
+      text-align: center;
+      span{
+        display: block;
+      }
+    }
+    .f-cancel, .f-change{
+      margin-bottom: 6px;
+    }
+  }
+}
+.passenger-info{
+  .travellerList{
+    padding:10px 20px;
+  }
+  h3{
+    font-size:14px;
+    padding:10px 0;
+  }
+  table.default{
+    width:100%;
+    thead{
+      tr{
+        height:40px;
+        line-height: 40px;
+        background-color: @ggcolor;
+        border: 1px solid @ggcolor;
+        th{
+          padding-left:20px;
+        }
+      }
+    }
+    tbody{
+      tr{
+        height:50px;
+        border: 1px solid @ggcolor;
+        border-top:none;
+        td{
+          padding-left:20px;
+        }
+        .status{
+          width:112px;
+          height:32px;
+          line-height: 32px;
+          // text-align: center;
+          // border-radius:4px;
+          // background-color:@brand-primary;
+          color:@brand-primary;
+          font-weight: bold;
+          &.Refunded,&.Changed{
+          color:@gray;
+          }
+        }
+      }
+    } 
+  }
+}
+.hotelOrderInfo{
+  padding: 20px 30px;
+}
+.hotelDetail{
+  .borderB{
+    border-bottom:1px solid #cdcdcd;
+  }
+  .pad8{
+    padding: 8px 0;
+  }
+  .statusBtn{
+    position:absolute;
+    right: 20px;
+    top: 20px;
+    width:100px;
+    height:24px;
+    color:#fff;
+    line-height: 24px;
+    text-align: center;
+    background-color: @brand-primary;
+    &.graybg{
+      background-color: #ccc;
+    }
+    &.warnbg{
+      background-color: @brand-warning;
+    }
+  }
+  ul.orderGuest{
+    .roomNo{
+      font-size: 16px;
+      text-align: center;
+      width:120px;
+      height:30px;
+      line-height: 30px;
+      background-color:rgba(11,157,120,0.10);
+      margin-bottom: 10px;
+      margin-left: -20px;
+    }
+    .guest{
+      // padding-left:50px;
+      .guestName{
+        width:48%;
+        margin-right: 4%;
+        padding: 8px 0;
+        &:nth-of-type(2n){
+          margin:0;
+        }
+      }
+      .child{
+        &:before{
+          content:'';
+          float: left;
+          margin-right: 6px;
+          margin-top:2px;
+          width: 12px;
+          height:14px;
+          background-image: url(./imgs/icon-children-normal.png);
+          background-repeat: no-repeat;
+        }
+      }
+      .adult{
+        &:before{
+          content:'';
+          float: left;
+          margin-right: 6px;
+          margin-top:2px;
+          width: 12px;
+          height:14px;
+          background-image: url(./imgs/icon-Adults-normal.png);
+          background-repeat: no-repeat;
+        }
+      }
+    }
+    
+  }
+}
+.hotelPolicy{
+  ul.pol-info{
+    
+    li{
+      height: 46px;
+      line-height: 46px;
+      margin-right: 30px;
+    }
+    .icon-box{
+      width: 46px;
+      height:46px;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+      background-position: center;
+      &.icon-clock{
+        background-image: url(./imgs/Hotel_Policies_check_in_out.png);
+      }
+      &.icon-room{
+        background-image: url(./imgs/Hotel_Policies_room.png);
+      }
+      &.icon-floor{
+        background-image: url(./imgs/Hotel_Policies_floors.png);
+      }
+    }
+  }
+  ul.pol-text{
+    padding-left: 20px;
+    li{
+      list-style: disc outside;
+      margin-bottom: 16px;
+    }
+  }
+}
+
+.payment-info{
+  .p-wrap{
+    padding:20px;
+    dl{
+      width:100%;
+      border:1px solid @gray-light;
+      dt{
+        height:30px;
+        line-height: 30px;
+        padding:0 20px;
+        background-color: @gray-light;
+      }
+      dd{
+        .col{
+          float:left;
+          width:16.6%;
+          height:66px;
+          text-align: center;
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+}
+.add-ons{
+  .p-wrap{
+    padding:20px;
+    table{
+      border: 1px solid #ccc;
+      th{
+       border-bottom: none;
+       text-align: center;
+       background-color: #cccccc;
+       height: 30px;
+      }
+      td{
+        height: 50px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+.amendment-info{
+  .a-wrap{
+    padding:20px 20px 30px;
+    li{
+      padding:5px 0;
+      a{
+        color:@brand-primary;
+      }
+    }
+  }
+}
+.contact-info{
+  .c-wrap{
+    padding:20px 20px 30px;
+    dt,dd{
+      float:left;
+      padding:6px 0;
+    }
+    dt{
+      min-width:120px;
+      margin-right: 10px;
+    }
+    dd{
+      min-width:200px;
+    }
+  }
+}
+.cancellist-info{
+  tr.inactive{
+    color: #999;
+    .status{
+      color: #999 !important;
+    }
+    input{
+      display: none;
+    }
+  }
+  label{
+    position: relative;
+    font-weight: 400;
+    padding-left: 20px;
+    line-height: 20px;
+    .refundList{
+      position: absolute;
+      margin-left: -20px;
+    }
+  }
+}
+.reason-info{
+  .reason-wrap{
+    padding:20px 30px;
+    label{
+      display: block;
+      position:relative;
+      font-weight: 400;
+      line-height: 20px;
+      padding-left: 20px;
+      input[name="reason"]{
+        position:absolute;
+        margin-left:-20px;
+      }
+    }
+  }
+}
+.refund-info{
+  .refund-wrap{
+    padding:20px 0;
+    font-size: 14px;
+  }
+  .til{
+    line-height: 30px;
+    font-size: 14px;
+    padding-left: 20px;
+  }
+  .explain{
+    padding-left: 40px;
+    p{
+      line-height: 30px;
+    }
+  }
+  .newRefund{
+    padding:0px 20px;
+    margin-top: 10px;
+    p{
+      line-height: 30px;
+    }
+    ul{
+      li{
+        line-height: 25px;
+      }
+    }
+  }
+  .Tips{
+    color: #607fa3;
+    .start{
+      color: red;
+    }
+  }
+
+}
+.agreerefund{
+  width: 100%;
+  padding: 15px 20px;
+  background: white;
+}
+.confirm-info{
+  padding:20px 30px;
+  .btn{
+    // float:right;
+    width:140px;
+    padding:10px 0;
+    margin-left: 20px;
+    cursor:pointer;
+  }
+}
+.profile-wrap{
+  .info-content{
+    padding:10px;
+    .info-title{
+      height:88px;
+      padding:10px 20px;
+      &::before{
+        content:'';
+        float:left;
+        width:60px;
+        height:60px;
+        background: url(./imgs/man.png) no-repeat;
+        background-size: 100%;
+      }
+      .ownname{
+        float:left;
+        width:60%;
+        font-size: 14px;
+        padding-left: 20px;
+        p{
+          line-height: 17px;
+          color: #999999;
+          &:nth-child(1){
+            font-size: 20px;
+            color: #333;
+            font-weight: 700;
+            line-height: 30px;
+            
+            span:nth-child(2){
+              position: relative;
+              pointer-events: none;
+              &::after{
+                content: '';
+                position: absolute;
+                right: -30px;
+                top: 5px;
+                width: 20px;
+                height: 20px;
+                background: url(./imgs/icon-modify.png) no-repeat;
+                cursor: pointer;
+                pointer-events: auto;
+             }
+            }
+          }
+        }
+      }
+      .btn-box{
+        float:left;
+        padding:8px 0;
+        button{
+          width:80px;
+          margin-left: 8px;
+        }
+      }
+      
+    }
+    .info-title_1{
+      &::before{
+        background: url(./imgs/noper.png) no-repeat;
+      }
+    }
+    .info-title_2{
+      &::before{
+        background: url(./imgs/woman.png) no-repeat;
+      }
+    }
+    .info-box{
+      width: 100%;
+      padding:0px 15px 15px;
+      .info{
+        width:380px;
+        height: 50px;
+        .phone_info{
+          p{
+            height: 25px;
+            width: 270px;
+            line-height: 25px;
+            font-size: 16px;
+            color: #333333;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            &:nth-child(1){
+              font-size: 14px;
+              color: #999999;
+            }
+          }
+        }
+        .btn{
+          width: 90px;
+          margin-top: 9px;
+          border-radius: 2px;
+        }
+        .disabled{
+          background: #999;
+          color: white;
+          border-color: #999;
+          cursor: not-allowed;
+        }
+        .changePass_btn{
+          background: white;
+          border: 1px solid #FFAD3C;
+          color: #FFAD3C;
+          font-weight: 700;
+        }
+      }
+      .p_1,
+      .p_2,
+      .p_3{
+        padding-left: 25px;
+        position: relative;
+        &::before{
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 2px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+      .p_1{
+        &::before{
+          background: url(./imgs/icon-mobile.png) no-repeat;
+        }
+      
+      }
+      .p_2{
+        &::before{
+          top: 6px;
+          background: url(./imgs/icon-mail.png) no-repeat;
+        }
+      }
+      .p_3{
+        &::before{
+          top: 3px;
+          background: url(./imgs/icon-loginpas.png) no-repeat;
+        }
+      }
+    }
+    .infoForm{
+      padding:0 10px 0px;
+      label{
+        padding-top:10px;
+        margin-bottom: 5px;
+      }
+      .form-group{
+        height:86px;
+      }
+      .fore{
+        position: relative;
+        input,select{
+          margin-left: 20px;
+          border:none;
+          border-bottom: 1px solid @gray-light;
+          outline: none;
+          padding:4px;
+        }
+        #OTP{
+          width: 80px;
+          position: absolute;
+          left:300px;
+          top:-10px;
+        }
+        .Icode{
+         width:50px; 
+        }
+      }
+    }
+  }
+  .PWDContent{
+    min-height: 80px;
+    padding-top:0;
+  }
+  
+}
+.change-wrap{
+  padding:20px;
+  background:#fff;
+  min-height: 400px;
+  .item{
+    padding:10px 0;
+    .fore{
+      float:left;
+      width:200px;
+      height:40px;
+      font-size: 14px;
+      padding:10px;
+      border:1px solid @brand-primary;
+      border-radius: 4px;
+      margin-right: 10px;
+      word-break:break-all;
+      overflow: hidden;
+      white-space:nowrap;
+    }
+    .checkbox{
+      margin-top: 5px;
+    }
+    .d-date{
+      width:200px;
+      input{
+        cursor:pointer;
+        background-color: #fff;
+      }
+    }
+    .flightNo{
+      width:200px;
+    }
+    button{
+      float:right;
+      margin:20px;
+    }
+  }
+}
+section{
+  margin-bottom: 20px;
+}
+.wallet-wrap{
+  .accountBalance{
+    background-color: #fff;
+    padding: 20px;
+    .wallet-terms{
+      padding-bottom: 20px;
+      .termsTrans{
+        text-align: center;
+        width:60%;
+        margin:20px auto;
+      }
+      .trans{
+        font-size: 20px;
+        padding:20px 0;
+        border-top: 2px solid @brand-warning;
+        border-bottom: 1px solid @brand-warning;
+      }
+      .goldColor{
+        color:#cfb26d;
+      }
+      .silverColor{
+        color:#d1cfcf;
+      }
+    }
+    .expireWrap{
+      padding: 10px 0 0;
+      font-size: 14px;
+    }
+  }
+  .totalAmount{
+    .terms{
+      font-size: 14px;
+      line-height: 18px;
+    }
+    .Amount{
+      border:1px solid @gray-lighter;
+      .brief{
+        padding:20px;
+        margin: 0 20px;
+        border-bottom: 1px solid @gray-lighter;
+        h3{
+          font-size: 16px;
+        }
+        .balance{
+          font-weight: bold;
+        }
+      }
+    }
+    .Adetail{
+      padding: 20px 0;
+      .item{
+        &:first-child{
+          border-right: 1px solid @gray-lighter;
+        }
+        height:80px;
+        padding-bottom:20px;
+        text-align: center;
+      }
+
+      .balance{
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 26px;
+        margin-bottom: 10px;
+      }
+      .operate{
+        display: block;
+        padding:10px 0;
+        color:@brand-warning;
+        border:1px solid @brand-warning;
+        border-radius: 4px;
+        margin:0 20px 10px;
+        font-size: 14px;
+      }
+    }
+  }
+  .happyWallet{
+    h3{
+      font-weight: bold;
+      color:@gray-dark;
+      line-height: 20px;
+      font-size: 14px;
+    }
+    
+    .more{
+      padding:10px 0;
+    }
+    .happyCollapse{
+      margin-bottom: 10px;
+      p{
+        line-height: 20px;
+      }
+      h4{
+        line-height: 26px;
+      }
+    }
+  }
+  .tabCon{
+    .nav-tabs{
+      li.active{
+        a{
+          background-color: @brand-warning;
+          color:#fff;
+        }
+      }
+
+    }
+    .tab-content{
+      background-color: #fff;
+      table{
+        // width:100%;
+        thead{
+          color: @brand-warning;
+        }
+        th,td{
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+.withdrawal{
+  .content{
+    padding: 30px 0 ;
+    form{
+      margin: 0 100px 0;
+    }
+    .noteWrap{
+      padding-bottom: 30px;
+    }
+    h3.title{
+      text-align: right;
+    }
+    .terms{
+      line-height: 30px;
+    }
+  }
+  
+  .form-group{
+    button{
+      width:160px;
+    }
+    // input.cashAmount{
+    //   width:160px;
+    // }
+    label{
+      color:@gray-dark;
+    }
+  }
+}
+.identityWrap{
+  .content{
+    padding: 0 20px;
+  }
+  .declare{
+    padding: 20px 0;
+    p{
+      line-height: 24px;
+    }
+  }
+  .formCon{
+    .inputBox{
+      width:400px;
+      height:200px;
+      position: relative;
+      border:1px dashed #ccc;
+      input{
+        width:50%;
+        height:40px;
+        // opacity: 0;
+        // cursor:pointer;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform:translate(-50%, -50%);
+      }
+    }
+    .imgBox{
+      position: absolute;
+      background-color: #fff;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      img{
+        width:100%;
+      }
+      &:hover{
+        p{
+          display: block;
+        }
+      }
+      p{
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width:100%;
+        height: 30px;
+        background-color: #000;
+        text-align: center;
+        color:#fff;
+        font-size: 16px;
+        cursor: pointer;
+        line-height: 30px;
+        display: none;
+      }
+    }
+  }
+}
+#editPhone{
+  background:rgba(0,0,0,0.5);
+  min-width: 500px;
+  .modal-dialog{
+    margin:200px auto;
+    #showSelect{
+      width:30%;
+      padding: 5px 0;
+      background-color:#fff;
+    }
+    input{
+      border:none;
+      outline: none;
+    }
+    #phoneNum{
+      // width:83%;
+      padding:5px 0;
+      margin-left: 51px;
+      position: absolute;
+    }
+    #phoneCheck{
+      padding:5px 0 5px 28%;
+      width:105%;
+    }
+    #sendCheck{  
+      width:100px;
+      position:absolute;
+    }
+    .editBtn{
+      width: 80px;
+    }
+    .sendBtn{
+      width:162px;
+    }
+    .editDiv{
+      border-bottom:1px solid #ddd;
+      height: 32px;
+      width: 186px;
+      float: left;
+    }
+    .editDiv1{
+      padding-left:0;
+    }
+    .editDiv2{
+      float: right;
+      margin-right:70px;
+    }
+  }
+}
+#editPhone.fade{
+  opacity:1 !important;
+}
+.myCoupon-wrap{
+  width: 100%;
+  background: white;
+  padding: 20px 60px 50px;
+  .nav-tabs{
+    border: none;
+    margin-bottom: 30px;
+    li{
+      float: right;
+      margin-left: 20px;
+      font-size: 16px;
+      a{
+        width: 120px;
+        height: 34px;  
+        line-height: 14px;
+        text-align: center; 
+        border: 1px solid #0B9D78;
+        border-radius: 2px;
+        color: #0B9D78;
+        background: white;
+        margin: 0;
+      }
+    }
+    li.active{
+      a{
+        border: 1px solid #0B9D78;
+        color: white;
+        background: #0B9D78;
+      }
+    }
+  }
+  .noCoupon{
+    width: 565px;
+    height: 260px;
+    margin: 150px auto;
+    background: url('./imgs/noCoupon.png') no-repeat;
+  }
+  .noCoupon_2{
+    color: #999;
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+  }
+  .flightCoupon{
+    ul{
+      width: 100%;
+      li{
+        width: 361px;
+        height: 202px;
+        border: 1px dashed #979797;
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        margin-bottom: 20px;
+        &::before{
+          content: '';
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          width: 11px;
+          height: 20px;
+          background: url(./imgs/right.png) no-repeat;
+        }
+        &:hover{
+          .flightImg{
+            background: url(./imgs/flight_2.png) no-repeat;
+          }
+          .sponImg{
+            background: url(./imgs/spon_2.png) no-repeat;
+          }
+          .hotelImg{
+            background: url(./imgs/hotel-coupon_2.png) no-repeat;
+          }
+        }
+        .flightImg{
+          width: 100%;
+          height: 90px;
+          background: url(./imgs/flight.png) no-repeat;
+        }
+        .hotelImg{
+          width: 100%;
+          height: 90px;
+          background: url(./imgs/hotel-coupon.png) no-repeat;
+        }
+        .sponImg{
+          width: 100%;
+          height: 90px;
+          background: url(./imgs/spon.png) no-repeat;
+        }
+        .info{
+          width: 100%;
+          height: 110px;
+          .pull-left{
+            width: 120px;
+            height: 100%;
+            font-size: 49px;
+            color: #FFAD3D;
+            // line-height: 130px;
+            text-align: center;
+            padding-top: 25px;
+            span{	
+              font-size: 16px;
+            }
+          }
+          .pull-right{
+            width: 235px;
+            height: 100%;
+            text-align: left;
+            padding: 10px 0px 0 0;
+            p{
+              &:nth-child(1){
+                font-size: 18px;
+                line-height: 17px;
+                height: 34px;
+              }
+              &:nth-child(2){
+                font-size: 14px;
+                color: #666666;
+                margin-top: 3px;
+              }
+            }
+          }
+        }
+        .copyBox{
+          position: absolute;
+          left: 125px;
+          bottom: 14px;
+          span{
+            border: 1px dashed #FFAD3D;
+            padding: 5px 10px;
+            position: relative;
+            cursor: pointer;
+            &::before{
+              content: '';
+              position: absolute;
+              right: -7px;
+              top: -6px;
+              width: 13px;
+              height: 11px;
+              background: url(./imgs/scissors.png) no-repeat;
+            }
+          }
+         
+          .TipsMsg{
+            position: absolute;
+            left: 0px;
+            top: 30px;
+            width: 180px;
+            padding: 10px;
+            font-size: 12px;
+            color: white;
+            background: rgba(0 , 0, 0, 0.8);
+            border-radius: 4px;
+            display: none;
+            z-index: 10;
+          }
+        }			
+        .goSearch{
+          position: absolute;
+          right: 25px;
+          bottom: 10px;
+          width: 93px;
+          height: 30px;
+          line-height: 30px;
+          background: #FFAD3D;
+          border-radius: 4px;
+          font-size: 16px;
+          color: #FFFFFF;
+          text-align: center;
+        }
+        &:nth-child(odd){
+          float: left;
+        }
+        &:nth-child(even){
+          float: right;
+        }
+      }
+    }
+  }
+  .panel-group{
+    margin-bottom: 0px;
+    margin-top: 10px;
+    position: relative;
+    .panel-heading{
+      padding: 0;
+      height: 35px;
+      border-bottom: 1px solid #ccc;
+      background: none;
+      span{
+        float: left;
+        font-size: 16px;
+        color: #666666;
+      }
+      a{
+        float: right;
+        width: 30px;
+        height: 35px;
+        z-index: 2;
+        background-color: transparent;
+        border-color: transparent;
+        cursor: pointer;
+        padding-top: 4px;
+        i{
+          display: inline-block;
+          width: 18px;
+          height: 10px;
+          background:url('./imgs/pan-up.png') no-repeat;  
+        }
+        .onOffactive{
+          background: url('./imgs/pan-down.png') no-repeat;
+        }
+      }
+    }
+    .panel.panel-default{
+      border: none;
+      background: none;
+      box-shadow: none;
+    }
+    .cont{
+     padding-top: 30px;
+     li{
+        position: relative;
+        color: #999;
+        a{
+          .font-BlackCond{
+            color: #999;
+          }
+        }
+      }
+      .copyBox{
+        span{
+          pointer-events: none;
+          border-color: #999;
+          &::before{
+            background: url(./imgs/scissors2.png) no-repeat;
+          }
+        }
+      }
+      .goSearch{
+        pointer-events: none;
+        background: #999;
+      }
+    }
+  }
+}
+.print-wrap{
+  width: 100%;
+  background: white;
+  padding: 20px;
+  p{
+    line-height: 30px;
+    font-size: 17px;
+    color: #ffad3d;
+  }
+  div{
+    label{
+      line-height: 20px;
+    }
+    input{
+      width: 220px;
+      border-radius: 2px;
+    }
+  }
+}
+.cancelOrder{
+  .modal-dialog{
+    .modal-content{
+      .modal-header{
+        padding-left: 20px;
+      }
+      .modal-body{
+        padding: 0px 20px 20px;
+        .cancelReason{
+          ul{
+            li{
+              float: left;
+              width: 250px;
+              height: 18px;
+              margin:0px  30px 20px 0px;
+              
+              .checkbox{
+                padding-top: 0;
+                label{
+                  width: 250px;
+                  height: 18px;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.profile_info{
+  top: 50%;
+  bottom: 0;
+  transform: translate(0,-50%);
+  .modal-dialog{
+    .modal-content{
+      .modal-header{
+        padding-left: 20px;
+        height: 62px;
+        line-height: 62px;
+        font-size: 24px;
+        color: #333333;
+        border: none;
+      }
+      .modal-body{
+        padding: 0px 20px 20px;
+        .form-group{
+          margin: 0;
+          margin-top: 20px;
+          margin-bottom: 0px;
+          input{
+            height: 36px;
+          }
+        }
+        .sexbir{
+          select{
+            width: 110px;
+            height: 36px;
+            float: left;
+            padding: 0 10px;
+          }
+          input{
+            float: right;
+            width: 398px;
+            margin-left: 10px;
+          }
+        }
+        .form_datetime[readonly]{
+          background: none;
+        }
+      }
+    }
+  }
+}
+.linkEmail{
+  top: 50%;
+  bottom: 0;
+  transform: translate(0,-50%);
+  .modal-dialog{
+    .modal-content{
+      .modal-header{
+        padding-left: 20px;
+        height: 62px;
+        line-height: 62px;
+        font-size: 24px;
+        color: #333333;
+        border: none;
+      }
+      .modal-body{
+        padding: 0px 20px 20px;
+        .form-group{
+          margin: 0;
+          margin-top: 20px;
+          margin-bottom: 0px;
+          input{
+            height: 36px;
+          }
+        }
+        .sexbir{
+          .phoneNo{
+            float: left;
+            width: 398px;
+            height: 36px;
+          }
+          .sendBtn{
+            float: right;
+            width: 110px;
+            height: 36px;
+            margin-left: 10px;
+            background: #0B9D78;
+            color: white;
+            border-color: #0B9D78;
+          }
+        }
+      }
+    }
+  }
+}
+.changePass{
+  top: 50%;
+  bottom: 0;
+  transform: translate(0,-50%);
+  .modal-dialog{
+    .modal-content{
+      .modal-header{
+        padding-left: 20px;
+        height: 62px;
+        line-height: 62px;
+        font-size: 24px;
+        color: #333333;
+        border: none;
+      }
+      .modal-body{
+        padding: 0px 20px 20px;
+        .form-group{
+          margin: 0;
+          margin-top: 20px;
+          margin-bottom: 0px;
+          input{
+            height: 36px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title><% if (pageTitle) { %><%= pageTitle %><% } %></title>
+<% if(scriptStr){ %> <%= scriptStr %> <% }%>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" /> 
+<meta name="keywords" content="<% if(metaKeywords) { %><%=metaKeywords %> <% }else{ %><%="cheap air tickets, cheap flight tickets, cheap tickets, cheap ticket, online ticket booking, cheap air fare, flight booking, flight tickets, air flight booking, cheap flight ticket, cheap flights, cheap flights domestic india, domestic flights offers，India travel, travel in India,  flight, Mumbai To Delhi Flights, Delhi To Mumbai Flights"%><%}%>">
+<meta name="description" content="<% if(metaDescription) { %><%=metaDescription %> <% }else{ %><%="Happy Easy Go is an India Based Online Travel Agency which providing Flight Tickets with Lowest Airfare. Book now and Save your Wallet today on our official website!"%><%}%>">
+<meta name="renderer" content="webkit" />
+<link href="/favicon.ico" rel="icon" type="image/x-icon" />
+<link rel="stylesheet" type="text/css" href="<%= BUILD_FILE.dll.css + '?v=4.0' %>">
+<script type="text/javascript" src="<%= BUILD_FILE.dll.js + '?v=4.1' %>"></script>
+<!--[if lt IE 10]>
+  <script src="<%= BUILD_FILE.js.xdomain %>" slave="<%= SERVER_API_URL %>cors-proxy.html"></script>
+  <script src="<%= BUILD_FILE.js.html5shiv %>"></script>
+<![endif]-->
+
+<script>
+  function getCookie(name){
+  var arr, reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+  if(arr=document.cookie.match(reg))
+  return unescape(arr[2]);
+  else
+  return null;
+  }
+window.dataLayer = [{
+'userId': getCookie('uuid') || '',
+}];
+</script>
+<%if(!IS_UAT){%>
+<!-- Google Tag Manager -->
+<script>
+  (function(w, d, s, l, i){
+    w[l]=w[l]||[];
+    w[l].push({'gtm.start':new Date().getTime(), event:'gtm.js'});
+    var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+    j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-M66LCMH');
+</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google Analytics -->
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-93580804-3', 'auto', 'HotelTracker');
+// ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+<%}%>
+
+<script>
+  (function(w, d, $){
+    window['hegTrackCallback'] = function(obj){
+      obj = obj || {};
+      var sendData = {};
+      $.extend(sendData, obj);
+      $.ajax({
+          url: '/heg_logs/saveTrackLogs.do',
+          data: JSON.stringify(sendData),
+          type: 'POST',
+          headers:{
+            'Content-Type': 'application/json',
+            'x-Device': 'pc'
+          }
+      }).then(function(rsp){
+        // console.log('');
+      }).fail(function(err){
+        // console.log(err);
+      });
+    };
+  })(window, document, dll(0));
+  
+</script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-messaging.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyBiEGv1209MguMH9Jt42gf7LiVSa63uTp0",
+    authDomain: "happyeasygo-2018in.firebaseapp.com",
+    databaseURL: "https://happyeasygo-2018in.firebaseio.com",
+    projectId: "happyeasygo-2018in",
+    storageBucket: "happyeasygo-2018in.appspot.com",
+    messagingSenderId: "676670711123"
+  };
+  firebase.initializeApp(config);
+  const messaging= firebase.messaging();
+
+  getToken(messaging);
+  messaging.onMessage(function(payload) {
+    var option = payload.notification;
+    var notification = new Notification(option.title, option);
+  });
+  function getToken(messaging) {
+    messaging.requestPermission().then(function () {
+      // TODO(developer): Retrieve an Instance ID token for use with FCM.
+      // Get Instance ID token. Initially this makes a network call, once retrieved
+      // subsequent calls to getToken will return from cache.
+      messaging.getToken().then(function (currentToken) {
+        if (currentToken) {
+          fetch('/message_api/appNotificationUser/addServiceNo.do', {method:'POST',body:JSON.stringify({deviceNo:currentToken,device:'PC'}),headers:{'content-type': 'application/json'}});
+        } else {
+          // Show permission request.
+          console.log('No Instance ID token available. Request permission to generate one.');
+        }
+      }).catch(function (err) {
+        console.log('An error occurred while retrieving token. ', err);
+      });
+      // ...
+    }).catch(function (err) {
+      console.log('Unable to get permission to notify.', err);
+    });
+    // Callback fired if Instance ID token is updated.
+    messaging.onTokenRefresh(function () {
+      messaging.getToken().then(function (refreshedToken) {
+        console.log('Token refreshed.');
+        // Indicate that the new Instance ID token has not yet been sent to the
+        // app server.
+        fetch('/message_api/appNotificationUser/addServiceNo.do', {method:'POST',body:JSON.stringify({deviceNo:currentToken,device:'PC'}),headers:{'content-type': 'application/json'}});
+      }).catch(function (err) {
+        console.log('Unable to retrieve refreshed token ', err);
+      });
+    });
+  }
+</script>
+
+<script type="text/javascript">
+  // business = {
+  //   action : 'ORDER',
+  //   channel : 'PC0001',
+  //   uid : getCookie('uid') ||  '123456789012345678',
+  //   phone_num : '18888888888',
+  //   order_id : 'order_12345678'
+  // };
+
+  // serverHost = "//stalker.qisec.cn";
+  // (function() {
+  //   var s = document.createElement('script');
+  //   s.type = "text/javascript";
+  //   s.charset = "utf-8";
+  //   s.async = "true";
+  //   s.src = "//stalker.qisec.cn/stalker.js";
+  //   var p = document.getElementsByTagName('script')[0];
+  //   p.parentNode.insertBefore(s, p);
+  // })();
+</script>

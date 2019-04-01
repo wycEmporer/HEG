@@ -1,0 +1,243 @@
+<div class="container">
+  <div class="content">
+    <section class="title">
+      <h2>International –Apollo terms &amp; conditions</h2>
+    </section>
+    <section class="terms">
+      <table class="table1" border="0">
+        <tr class="tr-title">
+            <td class="border">Particulars</td>
+            <td>Features</td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Age</td>
+            <td class="td2-border">Policy covers all persons in age group of 91 days to 70 years.</td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Coverage Type</td>
+            <td class="td2-border">Individual</td>
+        </tr>
+        <tr class="tr-title">
+            <td class="border">Benefits</td>
+            <td>
+              <table>
+                <tr>
+                  <td>Sum Insured</td>
+                  <td>Deductible</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Medical Expenses</td>
+            <td>
+              <table>
+                <tr>
+                  <td>$50,000</td>
+                  <td>$100</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Dental Treatment</td>
+            <td>
+                <table>
+                  <tr>
+                    <td>$250</td>
+                    <td>$100</td>
+                  </tr>
+                </table>
+              </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Medical Evacuation</td>
+          <td>
+              <table>
+                <tr>
+                  <td>Included</td>
+                  <td></td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Repatriation of Mortal Remains</td>
+          <td>
+              <table>
+                <tr>
+                  <td>$7,500</td>
+                  <td>Nil</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Personal Accident</td>
+          <td>
+              <table>
+                <tr>
+                  <td>$10,000</td>
+                  <td>Nil</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Personal Accident  - Common Carrier</td>
+          <td>
+              <table>
+                <tr>
+                  <td>$5,000</td>
+                  <td>Nil</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Total Loss of Checked-in Baggage</td>
+            <td>
+                <table>
+                  <tr>
+                    <td>$500</td>
+                    <td>$50</td>
+                  </tr>
+                </table>
+              </td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Delay of Checked-in Baggage</td>
+            <td>
+                <table>
+                  <tr>
+                    <td>$200</td>
+                    <td>12 Hrs</td>
+                  </tr>
+                </table>
+              </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Loss of Passport</td>
+          <td>
+              <table>
+                <tr>
+                  <td>$200</td>
+                  <td>$30</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Personal Liability</td>
+            <td>
+              <table>
+                <tr>
+                  <td>$100,000</td>
+                  <td>Nil</td>
+                </tr>
+              </table>
+          </td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Hijack Daily Allowance</td>
+            <td>
+                <table>
+                  <tr>
+                    <td>50; max $250</td>
+                    <td>12 Hrs</td>
+                  </tr>
+                </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Trip Delay</td>
+          <td >
+              <table>
+                <tr >
+                  <td>25; max $100</td>
+                  <td>12 Hrs</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Compassionate Visit / Emergency Hotel Expenses</td>
+            <td>
+                <table>
+                  <tr>
+                    <td>$1,000</td>
+                    <td>10%</td>
+                  </tr>
+                </table>
+              </td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Emergency Travel Family</td>
+            <td>
+                <table>
+                  <tr>
+                    <td>$1,000</td>
+                    <td>Nil</td>
+                  </tr>
+                </table>
+              </td>
+        </tr>
+        <tr class="tr-fi">
+            <td class="border">Financial Emergency Cash</td>
+            <td>
+                <table>
+                  <tr>
+                    <td>-</td>
+                    <td>Nil</td>
+                  </tr>
+                </table>
+              </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Trip Cancellation</td>
+          <td>
+              <table>
+                <tr>
+                  <td>-</td>
+                  <td>Nil</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Trip Curtailment</td>
+          <td>
+              <table>
+                <tr>
+                  <td>-</td>
+                  <td>Nil</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi">
+          <td class="border">Missed Connection</td>
+          <td>
+              <table>
+                <tr>
+                  <td>-</td>
+                  <td>Nil</td>
+                </tr>
+              </table>
+            </td>
+        </tr>
+        <tr class="tr-fi last-tr">
+            <td class="border">Hospital Daily Allowance</td>
+            <td>
+                <table>
+                  <tr class="last-tr">
+                    <td>-</td>
+                    <td>48 Hrs</td>
+                  </tr>
+                </table>
+            </td>
+        </tr>   
+      </table>
+    </section>
+  </div>
+</div>

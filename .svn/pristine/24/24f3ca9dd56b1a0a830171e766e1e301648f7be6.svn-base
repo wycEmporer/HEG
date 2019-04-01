@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="content">
+    <h1 class="title">
+      CONTACT US
+    </h1>
+    <section class="clearfix">
+      <div class="left pull-left">
+        <h3>
+          LOCATION
+        </h3>
+        <!--<p>
+          <a href="" id="companyName" style="color:#fff"></a>
+        </p>-->
+        <div id="" class="text-center" style="color: #fff; width:300px; margin:0 auto;line-height:20px;">
+          <p >First Floor, Plot No.883, Phase V, Udyog Vihar,</p>
+          <p>Gurugram, Haryana-122016</p>
+        </div>
+        <div class="info-title">For Customer Service please send your Email to:
+          <br>
+          <a href="javascript:void(0);" class="email">
+            <div class="cont">
+              <p>cs@happyeasygo.com</p>
+              <!--<p>or call us at <span class='phoneNo'></span></p>-->
+            </div>
+          </a>
+        </div>
+        <div class="info-title">For Feedback &amp; Suggestion please send your Email to:
+          <br>
+              <a href="javascript:void(0);" class="email">
+            <div class="cont">
+              <p>feedback@happyeasygo.com</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="info-title">For Business &amp; Marketing Cooperation please send your Email to:
+          <br>
+              <a href="javascript:void(0);" class="email">
+            <div class="cont">
+              <p>sales@happyeasygo.com</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="right pull-left">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.2002235337295!2d77.08488318526744!3d28.503623112526046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1946ebc8f25b%3A0x670c2512a0644c6e!2sHappyEasyGo!5e0!3m2!1sen!2sjp!4v1517211591984"
+          width="600" height="314" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+    </section>
+  </div>
+</div>

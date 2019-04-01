@@ -1,0 +1,105 @@
+<div class="searchNav">
+  <form class="container" id="searchForm">
+    <ul class="clearfix tripType">
+      <li class="item pull-left oneway">
+        <label>
+          <input type="radio" name="tripType" value="0" id="oneway" class="" checked="checked">
+          One way
+        </label>
+      </li>
+      <li class="item roundtrip pull-left">
+        <label>
+          <input type="radio" name="tripType" id="Roundtrip" value="1"  class="">
+          Round trip 
+        </label>
+      </li>
+    </ul>
+    <ul class="seaInput clearfix">
+      <li class="item city form-group pull-left">
+        <input type="text" id="D_city" value="New Delhi" class="form-control" autocomplete="off">
+        <input type="hidden" id="From" name="from" data-country="IN" value="DEL">
+        <p class="checkError hidden">
+          You missed this
+        </p>
+      </li>
+      <li class="item city form-group pull-left">
+        <input type="text" id="A_city" value="Mumbai" class="form-control" autocomplete="off">
+        <input type="hidden" id="To" name="to" data-country="IN" value="BOM">
+        <p class="checkError hidden" >
+          You missed this
+        </p>
+      </li>
+      <li class="item form-group pull-left">
+        <input type="text" readonly="readonly" value="" id="D_date" class="D_date form-control" autocomplete='off'>
+        <input type="hidden" name="departDate" id="departDate">
+      </li>
+      <li class="item form-group pull-left">
+        <input type="text" readonly="readonly" id="R_date" class="R_date form-control"  autocomplete='off'>
+        <input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+        <a class="icon datepick"></a>
+      </li>
+      <li class="item selectItem form-group pull-left">
+        <a href="javascript:void(0)" class="trallerpop" id="p-popover"> <span id="pCount">1</span> Traveller(s)</a>
+        <div class="SelectWrap  bottom popover">
+          <div class="arrow" style="left: 50%;"></div>
+          <div class="headTop">
+            <a href="javascript:void(0)" style="position: absolute;top:4px; right:10px;" class="close">&times;</a>
+          </div>
+          <div class="clearfix">
+            <div class="A-passenger fore">
+              <label for="A_passenger">Adults</label>
+              <select id="A_passenger" class="" name="adults">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+              </select>
+              <p style="display: none;">above 11 yrs</p>
+            </div>
+            <div class="C-passenger fore">
+              <label for="C_passenger">Children</label>
+              <select id="C_passenger" class="" name="childs">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+              </select>
+              <p>2-11 yrs</p>
+            </div>
+            <div class="I-passenger fore">
+              <label for="I_passenger">Infants</label>
+              <select id="I_passenger" class="" name="baby">
+                <option value="0">0</option>
+                <option value="1">1</option>
+              </select>
+              <p>below 2 yrs</p>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="item cabinItem form-group pull-left">
+        <select name="cabinClass" class="form-control">
+          <option value="Economy">Economy</option>
+          <option value="Business">Business</option>
+          <option value="First">First</option>
+          <option value="Premium Economy">Premium Economy</option>
+        </select>
+      </li>
+      <li class="item form-group pull-left">
+        <button type="button" class="btn btn-warning" id="search_flights">Search flights</button>
+      </li>
+    </ul>
+    <input type="hidden" name="airline">
+    <input type="hidden" name="carrier">
+  </form>
+</div>

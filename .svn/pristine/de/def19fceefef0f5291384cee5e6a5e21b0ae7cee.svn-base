@@ -1,0 +1,10 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const headScript = require('./headScript.ejs');
+const layout = require('newLayout');
+const dirsConfig = config.DIRS;
+let metaKeywords = 'flights, flight booking, cheap air ticket, cheap flights, flight tickets, lowest airfare, cheap flight ticket, flight ticket booking, flight ticket offers,  domestic flight booking, international flight booking, domestic flight ticket, international flight ticket, cheap domestic flight, online flight booking';
+let metaDescription = 'Book cheap flight tickets at lowest airfares. Enjoy discounts & offers on online international & domestic flight bookings. Best rates for flights & air tickets.';
+module.exports = layout.init({
+  pageTitle: 'Flight Ticket Booking, Cheap Flights, Online Air Tickets', scriptStr:headScript(), metaDescription, metaKeywords
+}).run(content(dirsConfig));

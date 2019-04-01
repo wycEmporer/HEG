@@ -1,0 +1,1271 @@
+<div class="content">
+  <div class="container">
+    <div class="wrap">
+      <div class="listWrap">
+        <div class="item">
+          <h2 class="title">
+            SpiceJet
+            <br>
+            <span class="line2"></span>
+          </h2>
+          <div class="conList">
+            <p class="fontSz14">
+                From 25th March, 2018 operations (departure and arrival) of all SpiceJet flights from Delhi to Ahmedabad, Cochin, Goa, Gorakhpur, Patna, Pune and Surat will now take place from Terminal 2 (T2), Indira Gandhi International Delhi Airport. These flights will carry flight numbers from SG-8000 to SG-8999. <a class="colorPri" href="http://www.spicejet.com/SpiceJet-Delhi-Terminal2.aspx">know more</a>
+            </p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="conList">
+            <table class="table table-bordered" style="width: 100%;">
+              <tbody>
+                <tr>
+                  <td colspan="9" id="t2Title" class="connectingtitle" style="background: #ccc !important"> Flights Schedules - Direct flights ( Same Aircraft ) </td>
+                </tr>
+                <tr style="height:30px !important; background-color: #e6f5f1" class="colorPri">
+                  <th style="width:15% !important;"> Flight No </th>
+                  <th style="width:15% !important;"> Origin </th>
+                  <th style="width:15% !important;"> Destination </th>
+                  <th style="width:10% !important;"> Departure </th>
+                  <th style="width:10% !important;"> Arrival </th>
+                  <th style="width:15% !important;"> Frequency </th>
+                  <th style="width:10% !important;"> Effective From </th>
+                  <th style="width:10% !important;"> Effective Till </th>
+                </tr>
+                <tr>
+                  <td> SG 8194</td>
+                  <td>Ahmedabad</td>
+                  <td>Delhi</td>
+                  <td>6:05 AM</td>
+                  <td>7:45 AM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8912</td>
+                  <td>Ahmedabad</td>
+                  <td>Delhi</td>
+                  <td>7:40 PM</td>
+                  <td>9:15 PM</td>
+                  <td>Tue</td>
+                  <td>25 Mar 18</td>
+                  <td>15 Apr 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8912</td>
+                  <td>Ahmedabad</td>
+                  <td>Delhi</td>
+                  <td>7:40 PM</td>
+                  <td>9:25 PM</td>
+                  <td>Mon/Wed/Thu/Fri/Sat/Sun</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8912</td>
+                  <td>Ahmedabad</td>
+                  <td>Delhi</td>
+                  <td>6:10 PM</td>
+                  <td>7:55 PM</td>
+                  <td>Tue</td>
+                  <td>16 Apr 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8913</td>
+                  <td>Delhi</td>
+                  <td>Ahmedabad</td>
+                  <td>6:20 AM</td>
+                  <td>7:50 AM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8193</td>
+                  <td>Delhi</td>
+                  <td>Ahmedabad</td>
+                  <td>6:50 PM</td>
+                  <td>8:25 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8211</td>
+                  <td>Delhi</td>
+                  <td>Goa</td>
+                  <td>8:20 AM</td>
+                  <td>11:00 AM</td>
+                  <td>Sat</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8171</td>
+                  <td>Delhi</td>
+                  <td>Goa</td>
+                  <td>11:30 AM</td>
+                  <td>2:05 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8144</td>
+                  <td>Delhi</td>
+                  <td>Goa</td>
+                  <td>5:55 PM</td>
+                  <td>8:35 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8561</td>
+                  <td>Delhi</td>
+                  <td>Kochi</td>
+                  <td>6:30 AM</td>
+                  <td>9:45 AM</td>
+                  <td>Tue</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8561</td>
+                  <td>Delhi</td>
+                  <td>Kochi</td>
+                  <td>7:20 AM</td>
+                  <td>10:35 AM</td>
+                  <td>Mon/Wed/Thu/Fri/Sat/Sun</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8480</td>
+                  <td>Delhi</td>
+                  <td>Patna</td>
+                  <td>7:10 PM</td>
+                  <td>8:50 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8185</td>
+                  <td>Delhi</td>
+                  <td>Pune</td>
+                  <td>8:45 AM</td>
+                  <td>10:55 AM</td>
+                  <td>Mon/Tue/Wed/Thu/Fri/Sun</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8938</td>
+                  <td>Delhi</td>
+                  <td>Pune</td>
+                  <td>4:55 PM</td>
+                  <td>7:05 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8189</td>
+                  <td>Delhi</td>
+                  <td>Pune</td>
+                  <td>12:30 AM</td>
+                  <td>2:45 AM</td>
+                  <td>Mon/Thu/Sat/Sun</td>
+                  <td>15 Apr 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8473</td>
+                  <td>Delhi</td>
+                  <td>Surat</td>
+                  <td>5:45 AM</td>
+                  <td>7:45 AM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8478</td>
+                  <td>Delhi</td>
+                  <td>Surat</td>
+                  <td>2:40 PM</td>
+                  <td>4:25 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8212</td>
+                  <td>Goa</td>
+                  <td>Delhi</td>
+                  <td>11:30 AM</td>
+                  <td>2:10 PM</td>
+                  <td>Sat</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8172</td>
+                  <td>Goa</td>
+                  <td>Delhi</td>
+                  <td>2:35 PM</td>
+                  <td>5:15 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8145</td>
+                  <td>Goa</td>
+                  <td>Delhi</td>
+                  <td>9:05 PM</td>
+                  <td>11:59 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8562</td>
+                  <td>Kochi</td>
+                  <td>Delhi</td>
+                  <td>11:05 AM</td>
+                  <td>2:20 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8481</td>
+                  <td>Patna</td>
+                  <td>Delhi</td>
+                  <td>9:35 PM</td>
+                  <td>11:25 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8937</td>
+                  <td>Pune</td>
+                  <td>Delhi</td>
+                  <td>7:20 AM</td>
+                  <td>9:40 AM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8184</td>
+                  <td>Pune</td>
+                  <td>Delhi</td>
+                  <td>4:05 PM</td>
+                  <td>6:15 PM</td>
+                  <td>Mon/Tue/Wed/Thu/Fri/Sun</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8190</td>
+                  <td>Pune</td>
+                  <td>Delhi</td>
+                  <td>3:15 AM</td>
+                  <td>4:55 AM</td>
+                  <td>Mon/Thu/Sat/Sun</td>
+                  <td>15 Apr 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8474</td>
+                  <td>Surat</td>
+                  <td>Delhi</td>
+                  <td>8:15 AM</td>
+                  <td>9:55 AM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+                <tr>
+                  <td> SG 8479</td>
+                  <td>Surat</td>
+                  <td>Delhi</td>
+                  <td>4:55 PM</td>
+                  <td>6:40 PM</td>
+                  <td>Daily</td>
+                  <td>25 Mar 18</td>
+                  <td>27 Oct 18</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        
+        <div class="item">
+          <h2 class="title">
+            IndiGo
+            <br>
+            <span class="line2"></span>
+          </h2>
+          <div class="conList">
+            <p class="fontSz14">All IndiGo flights between 6E 2000 to 6E 2999 will depart from and arrive at Terminal 2, Delhi, starting 25th
+              March, 2018. All such IndiGo flights between Delhi and the following destinations will depart from and arrive at Terminal 2, I.G.I Airport: Amritsar, Bagdogra, Bengaluru, Bhubaneswar, Chennai, Raipur, Srinagar, Udaipur, Vadodara and Visakhapatnam. Here are the original and revised flight numbers:</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="conList">
+            <table id="flightTerminal" class="table table-bordered">
+              <thead>
+                <tr class="colorPri" style="background-color: #e6f5f1">
+                  <th>
+                    Old flight number
+                  </th>
+                  <th>
+                    New Flight number
+                  </th>
+                  <th>Frequency</th>
+                  <th>Sector</th>
+                  <th>Dep. Time</th>
+                  <th>Arr. Time</th>
+                  <th>Delhi Terminal</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <p class="fontSz14">
+                Note:- All other domestic flights will continue to operate from Terminal 1D and International flights from Terminal 3, Delhi.
+            </p>
+          </div>
+        </div>
+        <script>
+          var flightChangedata = [{
+              "oldFlightNum": "108",
+              "newFlightNum": "2108",
+              "frequency": ".....6.",
+              "sector": "BLRDEL",
+              "depTime": "10:30:00 AM",
+              "arrTime": "01:20:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "123",
+              "newFlightNum": "2123",
+              "frequency": ".....6.",
+              "sector": "DELBLR",
+              "depTime": "03:50:00 PM",
+              "arrTime": "06:35:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "126",
+              "newFlightNum": "2126",
+              "frequency": "1.34567",
+              "sector": "DELBLR",
+              "depTime": "04:00:00 PM",
+              "arrTime": "06:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "131",
+              "newFlightNum": "2131",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "09:00:00 PM",
+              "arrTime": "11:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "131",
+              "newFlightNum": "2131",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "08:45:00 PM",
+              "arrTime": "11:40:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "132",
+              "newFlightNum": "2132",
+              "frequency": "1.34567",
+              "sector": "BLRDEL",
+              "depTime": "06:05:00 AM",
+              "arrTime": "08:50:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "132",
+              "newFlightNum": "2132",
+              "frequency": "1234567",
+              "sector": "DELSXR",
+              "depTime": "10:10:00 AM",
+              "arrTime": "11:30:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "132",
+              "newFlightNum": "2132",
+              "frequency": ".2.....",
+              "sector": "BLRDEL",
+              "depTime": "05:30:00 AM",
+              "arrTime": "08:20:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "133",
+              "newFlightNum": "2133",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "05:10:00 AM",
+              "arrTime": "07:55:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "148",
+              "newFlightNum": "2148",
+              "frequency": "1234567",
+              "sector": "DELSXR",
+              "depTime": "03:05:00 PM",
+              "arrTime": "04:35:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "197",
+              "newFlightNum": "2197",
+              "frequency": "1234567",
+              "sector": "SXRDEL",
+              "depTime": "05:05:00 PM",
+              "arrTime": "06:50:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "197",
+              "newFlightNum": "2197",
+              "frequency": "1234567",
+              "sector": "DELVTZ",
+              "depTime": "07:25:00 PM",
+              "arrTime": "09:35:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "201",
+              "newFlightNum": "2201",
+              "frequency": "1234567",
+              "sector": "DELRPR",
+              "depTime": "12:30:00 PM",
+              "arrTime": "02:15:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "203",
+              "newFlightNum": "2203",
+              "frequency": "1234567",
+              "sector": "DELSXR",
+              "depTime": "12:45:00 PM",
+              "arrTime": "02:15:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "204",
+              "newFlightNum": "2204",
+              "frequency": "1234567",
+              "sector": "RPRDEL",
+              "depTime": "02:50:00 PM",
+              "arrTime": "04:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "211",
+              "newFlightNum": "2211",
+              "frequency": "1234567",
+              "sector": "DELBBI",
+              "depTime": "03:35:00 PM",
+              "arrTime": "05:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "246",
+              "newFlightNum": "2246",
+              "frequency": "1.34567",
+              "sector": "BLRDEL",
+              "depTime": "01:00:00 PM",
+              "arrTime": "03:55:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "256",
+              "newFlightNum": "2256",
+              "frequency": "123.567",
+              "sector": "BBIDEL",
+              "depTime": "09:35:00 AM",
+              "arrTime": "12:15:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "273",
+              "newFlightNum": "2273",
+              "frequency": "1.34567",
+              "sector": "DELBLR",
+              "depTime": "10:10:00 PM",
+              "arrTime": "12:55:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "273",
+              "newFlightNum": "2273",
+              "frequency": ".2.....",
+              "sector": "DELBLR",
+              "depTime": "10:00:00 PM",
+              "arrTime": "12:45:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "289",
+              "newFlightNum": "2289",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "10:10:00 PM",
+              "arrTime": "01:00:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "297",
+              "newFlightNum": "2297",
+              "frequency": "1.34567",
+              "sector": "DELBLR",
+              "depTime": "09:35:00 AM",
+              "arrTime": "12:20:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "297",
+              "newFlightNum": "2297",
+              "frequency": ".2.....",
+              "sector": "DELBLR",
+              "depTime": "09:00:00 AM",
+              "arrTime": "11:45:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "305",
+              "newFlightNum": "2305",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "09:15:00 PM",
+              "arrTime": "12:05:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "306",
+              "newFlightNum": "2306",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "05:05:00 PM",
+              "arrTime": "07:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "314",
+              "newFlightNum": "2314",
+              "frequency": "1234567",
+              "sector": "BBIDEL",
+              "depTime": "06:25:00 PM",
+              "arrTime": "08:55:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "367",
+              "newFlightNum": "2367",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "08:30:00 AM",
+              "arrTime": "11:20:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "393",
+              "newFlightNum": "2393",
+              "frequency": "1234567",
+              "sector": "DELRPR",
+              "depTime": "08:30:00 AM",
+              "arrTime": "10:15:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "398",
+              "newFlightNum": "2398",
+              "frequency": "1234567",
+              "sector": "DELIXB",
+              "depTime": "12:25:00 PM",
+              "arrTime": "02:30:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "423",
+              "newFlightNum": "2423",
+              "frequency": "1.34567",
+              "sector": "DELBLR",
+              "depTime": "01:00:00 PM",
+              "arrTime": "03:40:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "443",
+              "newFlightNum": "2443",
+              "frequency": "1234567",
+              "sector": "DELMAA",
+              "depTime": "09:55:00 AM",
+              "arrTime": "12:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "454",
+              "newFlightNum": "2454",
+              "frequency": "1.34567",
+              "sector": "RPRDEL",
+              "depTime": "07:40:00 PM",
+              "arrTime": "09:35:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "454",
+              "newFlightNum": "2454",
+              "frequency": ".2.....",
+              "sector": "RPRDEL",
+              "depTime": "07:10:00 PM",
+              "arrTime": "09:10:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "458",
+              "newFlightNum": "2458",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "06:25:00 AM",
+              "arrTime": "09:10:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "475",
+              "newFlightNum": "2475",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "04:00:00 AM",
+              "arrTime": "06:50:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "484",
+              "newFlightNum": "2484",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "11:30:00 PM",
+              "arrTime": "02:20:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "486",
+              "newFlightNum": "2486",
+              "frequency": "1234567",
+              "sector": "RPRDEL",
+              "depTime": "09:40:00 AM",
+              "arrTime": "11:35:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "487",
+              "newFlightNum": "2487",
+              "frequency": "1234567",
+              "sector": "MAADEL",
+              "depTime": "10:50:00 AM",
+              "arrTime": "01:40:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "488",
+              "newFlightNum": "2488",
+              "frequency": "1234567",
+              "sector": "BDQDEL",
+              "depTime": "09:15:00 PM",
+              "arrTime": "10:50:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "489",
+              "newFlightNum": "2489",
+              "frequency": "1234567",
+              "sector": "BBIDEL",
+              "depTime": "05:15:00 AM",
+              "arrTime": "07:45:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "519",
+              "newFlightNum": "2519",
+              "frequency": "1234567",
+              "sector": "DELMAA",
+              "depTime": "09:45:00 PM",
+              "arrTime": "12:40:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "524",
+              "newFlightNum": "2524",
+              "frequency": "1234567",
+              "sector": "DELATQ",
+              "depTime": "05:15:00 AM",
+              "arrTime": "06:25:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "525",
+              "newFlightNum": "2525",
+              "frequency": "1234567",
+              "sector": "ATQDEL",
+              "depTime": "06:55:00 AM",
+              "arrTime": "08:10:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "554",
+              "newFlightNum": "2554",
+              "frequency": "1234567",
+              "sector": "SXRDEL",
+              "depTime": "10:55:00 AM",
+              "arrTime": "12:40:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "606",
+              "newFlightNum": "2606",
+              "frequency": "1234567",
+              "sector": "DELMAA",
+              "depTime": "07:15:00 AM",
+              "arrTime": "10:20:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "637",
+              "newFlightNum": "2637",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "06:50:00 PM",
+              "arrTime": "09:35:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "646",
+              "newFlightNum": "2616",
+              "frequency": "1234567",
+              "sector": "BBIDEL",
+              "depTime": "04:20:00 PM",
+              "arrTime": "07:00:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "652",
+              "newFlightNum": "2652",
+              "frequency": "1234567",
+              "sector": "MAADEL",
+              "depTime": "05:00:00 AM",
+              "arrTime": "07:50:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "694",
+              "newFlightNum": "2694",
+              "frequency": "1234567",
+              "sector": "SXRDEL",
+              "depTime": "03:05:00 PM",
+              "arrTime": "04:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "694",
+              "newFlightNum": "2694",
+              "frequency": "1234567",
+              "sector": "DELMAA",
+              "depTime": "06:05:00 PM",
+              "arrTime": "09:05:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "695",
+              "newFlightNum": "2695",
+              "frequency": "1234567",
+              "sector": "MAADEL",
+              "depTime": "08:30:00 AM",
+              "arrTime": "11:25:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "698",
+              "newFlightNum": "2698",
+              "frequency": "12345.7",
+              "sector": "MAADEL",
+              "depTime": "03:15:00 PM",
+              "arrTime": "06:10:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "698",
+              "newFlightNum": "2698",
+              "frequency": "1234567",
+              "sector": "DELBDQ",
+              "depTime": "07:10:00 PM",
+              "arrTime": "08:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "698",
+              "newFlightNum": "2698",
+              "frequency": ".....6.",
+              "sector": "MAADEL",
+              "depTime": "03:35:00 PM",
+              "arrTime": "06:25:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "701",
+              "newFlightNum": "2701",
+              "frequency": "123.567",
+              "sector": "DELBBI",
+              "depTime": "06:45:00 AM",
+              "arrTime": "09:00:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "702",
+              "newFlightNum": "2702",
+              "frequency": "1234567",
+              "sector": "DELBDQ",
+              "depTime": "05:10:00 AM",
+              "arrTime": "06:40:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "704",
+              "newFlightNum": "2704",
+              "frequency": "1234567",
+              "sector": "MAADEL",
+              "depTime": "10:50:00 PM",
+              "arrTime": "01:50:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "719",
+              "newFlightNum": "2719",
+              "frequency": "1234567",
+              "sector": "DELVTZ",
+              "depTime": "05:20:00 AM",
+              "arrTime": "07:30:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "746",
+              "newFlightNum": "2746",
+              "frequency": "12.4.6.",
+              "sector": "DELUDR",
+              "depTime": "07:55:00 AM",
+              "arrTime": "09:15:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "746",
+              "newFlightNum": "2746",
+              "frequency": "..3.5.7",
+              "sector": "DELUDR",
+              "depTime": "07:50:00 AM",
+              "arrTime": "09:15:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "747",
+              "newFlightNum": "2747",
+              "frequency": "1234567",
+              "sector": "UDRDEL",
+              "depTime": "02:10:00 PM",
+              "arrTime": "03:35:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "751",
+              "newFlightNum": "2751",
+              "frequency": "1234567",
+              "sector": "DELUDR",
+              "depTime": "01:25:00 PM",
+              "arrTime": "02:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "757",
+              "newFlightNum": "2757",
+              "frequency": "1234567",
+              "sector": "DELRPR",
+              "depTime": "06:50:00 AM",
+              "arrTime": "08:40:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "772",
+              "newFlightNum": "2772",
+              "frequency": "1234567",
+              "sector": "VTZDEL",
+              "depTime": "06:30:00 PM",
+              "arrTime": "09:00:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "783",
+              "newFlightNum": "2783",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "06:25:00 PM",
+              "arrTime": "09:20:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "808",
+              "newFlightNum": "2808",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "06:55:00 PM",
+              "arrTime": "09:50:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "839",
+              "newFlightNum": "2839",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "03:15:00 PM",
+              "arrTime": "06:05:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "841",
+              "newFlightNum": "2841",
+              "frequency": "1234567",
+              "sector": "DELBBI",
+              "depTime": "10:50:00 PM",
+              "arrTime": "01:00:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "859",
+              "newFlightNum": "2859",
+              "frequency": "1234567",
+              "sector": "DELMAA",
+              "depTime": "08:25:00 AM",
+              "arrTime": "11:20:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "894",
+              "newFlightNum": "2894",
+              "frequency": "1234567",
+              "sector": "IXBDEL",
+              "depTime": "06:25:00 PM",
+              "arrTime": "08:40:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "894",
+              "newFlightNum": "2894",
+              "frequency": "1234567",
+              "sector": "DELATQ",
+              "depTime": "09:30:00 PM",
+              "arrTime": "10:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "895",
+              "newFlightNum": "2895",
+              "frequency": "1234567",
+              "sector": "ATQDEL",
+              "depTime": "11:15:00 PM",
+              "arrTime": "12:30:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "907",
+              "newFlightNum": "2907",
+              "frequency": "1234567",
+              "sector": "MAADEL",
+              "depTime": "05:15:00 PM",
+              "arrTime": "08:05:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "943",
+              "newFlightNum": "2943",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "10:10:00 AM",
+              "arrTime": "01:00:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "963",
+              "newFlightNum": "2963",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "07:40:00 PM",
+              "arrTime": "10:25:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "976",
+              "newFlightNum": "2976",
+              "frequency": "1234567",
+              "sector": "MAADEL",
+              "depTime": "06:30:00 AM",
+              "arrTime": "09:20:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "977",
+              "newFlightNum": "2977",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "10:40:00 PM",
+              "arrTime": "01:25:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "978",
+              "newFlightNum": "2978",
+              "frequency": "1.34567",
+              "sector": "BLRDEL",
+              "depTime": "02:30:00 PM",
+              "arrTime": "05:25:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "985",
+              "newFlightNum": "2985",
+              "frequency": "1234567",
+              "sector": "DELMAA",
+              "depTime": "06:20:00 AM",
+              "arrTime": "09:15:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "3591",
+              "newFlightNum": "2591",
+              "frequency": "1234567",
+              "sector": "BDQDEL",
+              "depTime": "07:10:00 AM",
+              "arrTime": "08:40:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "3646",
+              "newFlightNum": "2646",
+              "frequency": "1234567",
+              "sector": "IXBDEL",
+              "depTime": "12:25:00 PM",
+              "arrTime": "02:50:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "3752",
+              "newFlightNum": "2752",
+              "frequency": "1234567",
+              "sector": "MAADEL",
+              "depTime": "06:45:00 PM",
+              "arrTime": "09:40:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "3988",
+              "newFlightNum": "2988",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "04:55:00 PM",
+              "arrTime": "07:55:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "5013",
+              "newFlightNum": "2013",
+              "frequency": "1234567",
+              "sector": "DELBBI",
+              "depTime": "09:00:00 AM",
+              "arrTime": "11:10:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "5263",
+              "newFlightNum": "2263",
+              "frequency": "1234567",
+              "sector": "DELIXB",
+              "depTime": "02:00:00 PM",
+              "arrTime": "04:05:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "5405",
+              "newFlightNum": "2405",
+              "frequency": "1234567",
+              "sector": "BBIDEL",
+              "depTime": "09:50:00 PM",
+              "arrTime": "12:20:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6064",
+              "newFlightNum": "2064",
+              "frequency": "1234567",
+              "sector": "DELBDQ",
+              "depTime": "02:10:00 PM",
+              "arrTime": "03:40:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6065",
+              "newFlightNum": "2065",
+              "frequency": "1.34567",
+              "sector": "BLRDEL",
+              "depTime": "12:30:00 PM",
+              "arrTime": "03:20:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6162",
+              "newFlightNum": "2162",
+              "frequency": "1234567",
+              "sector": "DELMAA",
+              "depTime": "08:35:00 PM",
+              "arrTime": "11:30:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6228",
+              "newFlightNum": "2228",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "07:10:00 AM",
+              "arrTime": "09:55:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6299",
+              "newFlightNum": "2299",
+              "frequency": "1234567",
+              "sector": "UDRDEL",
+              "depTime": "09:00:00 PM",
+              "arrTime": "10:25:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6299",
+              "newFlightNum": "2299",
+              "frequency": "1234567",
+              "sector": "UDRDEL",
+              "depTime": "07:15:00 PM",
+              "arrTime": "08:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6376",
+              "newFlightNum": "2376",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "12:05:00 AM",
+              "arrTime": "02:50:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6409",
+              "newFlightNum": "2409",
+              "frequency": "1234567",
+              "sector": "RPRDEL",
+              "depTime": "11:10:00 AM",
+              "arrTime": "01:05:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6512",
+              "newFlightNum": "2512",
+              "frequency": "1234567",
+              "sector": "BDQDEL",
+              "depTime": "04:15:00 PM",
+              "arrTime": "05:50:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6512",
+              "newFlightNum": "2512",
+              "frequency": "1234567",
+              "sector": "DELBBI",
+              "depTime": "06:25:00 PM",
+              "arrTime": "08:35:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6667",
+              "newFlightNum": "2667",
+              "frequency": "1234567",
+              "sector": "DELMAA",
+              "depTime": "04:20:00 PM",
+              "arrTime": "07:15:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6695",
+              "newFlightNum": "2615",
+              "frequency": "1.34567",
+              "sector": "DELBLR",
+              "depTime": "11:00:00 AM",
+              "arrTime": "01:45:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6726",
+              "newFlightNum": "2726",
+              "frequency": "1234567",
+              "sector": "VTZDEL",
+              "depTime": "08:55:00 AM",
+              "arrTime": "11:40:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6726",
+              "newFlightNum": "2716",
+              "frequency": "1234567",
+              "sector": "BLRDEL",
+              "depTime": "08:00:00 PM",
+              "arrTime": "10:50:00 PM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6929",
+              "newFlightNum": "2929",
+              "frequency": "1234567",
+              "sector": "DELBLR",
+              "depTime": "07:55:00 AM",
+              "arrTime": "10:40:00 AM",
+              "DelhiTerminal": "2"
+            },
+            {
+              "oldFlightNum": "6999",
+              "newFlightNum": "2912",
+              "frequency": "1234567",
+              "sector": "DELRPR",
+              "depTime": "05:30:00 PM",
+              "arrTime": "07:15:00 PM",
+              "DelhiTerminal": "2"
+            },
+          ]
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

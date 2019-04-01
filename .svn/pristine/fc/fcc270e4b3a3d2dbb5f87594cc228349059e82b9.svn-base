@@ -1,0 +1,151 @@
+require('./content.less');
+const cookieUtil = require('cp').cookieUtil;
+require('../../_component/searchBar/content.js');
+
+const utils = require('utils');
+const paths = utils.path;
+const isLogin = cookieUtil.getCookie('uuid') == null ? false : true;
+import * as formReg from 'formVerify';
+import { getBannerInfo, REFERRAL } from '../_common/index';
+let happysilverAmount = '';
+$(() => {
+  getBannerInfo(REFERRAL);
+  
+  $.ajax({
+    url: paths.getPromotionInfo() + 'type=27&device=1'+ '&addr=referral',
+    type: 'GET',
+    dataType: 'json',
+  }).then(res => {
+    if(res.success){
+      var url = res.list[0].landingPageUrl;
+      $('#referImg').attr('src', url);
+    } 
+  });
+  $('#webShare, .facebook').on('click', function (e) {
+    if (!isLogin) {
+      $('[data-target="#login_modal"]').click();
+      e.preventDefault();
+    }
+  });
+
+  
+  $('#shareBySms').on('click', function () {
+    if (!isLogin) {
+      $('[data-target="#login_modal"]').click();
+      return;
+    }
+    $(this).parents('.form-inline').find('.checkError').addClass('hidden');
+    let $input = $(this).parent('.form-inline').find('input');
+    let data = $input.val();
+    if (!formReg.mobCommerReg.test(data) || data == '') {
+      $(this).parents('.form-inline').find('.checkError').removeClass('hidden');
+      return;
+    }
+    // data = data.slice(0, 5);
+    
+    $.ajax({
+      url: paths.newShareBySms() + '?acId=0',
+      data: 'phone=' + data,
+      type: 'GET',
+      headers: { 'x-Device': 'PC' },
+      // contentType: 'application/json',
+      dataType: 'json',
+    }).done(res => {
+      let modal = $('#responseModal');
+      modal.find('.modal-title').html('SMS Invitation');
+      if(res.success){
+        modal.find('.modal-body p').html('Your invitation has been sent. <br /> <br /> <span class="colorWar">Rs.'+ happysilverAmount+'</span> will be credited into your <br /> account  instantly once the recipient signs up on APP with your referral code');
+      }else {
+        modal.find('.modal-body p').html(res.msg);
+      }
+      
+      modal.modal('show');
+    }).fail(res => {
+      let modal = $('#responseModal');
+      modal.find('.modal-title').html('Invitation Failed');
+      modal.find('.modal-body p').html('Your invitation hasn\'t been sent successfully. <br /> Please try again.');
+      modal.modal('show');
+    });
+
+  });
+
+  var userId = getCookie('uid');
+ 
+  if(isLogin){
+    $.ajax({
+      url: paths.getInviteInfo(),
+      type: 'POST',
+      headers: { 
+        'x-Device': 'PC',
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+      data:JSON.stringify({userId:userId}),
+      dataType: 'json',
+    }).done(res => {
+      $('#webShare').attr('href', 'https://web.whatsapp.com/send?text=' + encodeURIComponent(res.whatsappMsg));
+      $('.copyText').text(res.messager);
+      if (!isLogin) {
+        var text = 'Refer via social channels';
+        $('.webShareText').text(text).removeClass('webShareText_login');
+      } else {
+        var text = 'Your Code [' + res.inviteCode + ']';
+        $('.webShareText').text(text).addClass('webShareText_login');
+      }
+      if(res.referType == 2) {
+        
+        happysilverAmount = `${res.happysilverAmount} Happy Gold`;
+        $('#price_1').text(happysilverAmount);
+      } else{
+        happysilverAmount = `${res.happysilverAmount} Happy Silver`;
+        $('#price_1').text(happysilverAmount);
+      }
+      if(res.oneLevelReferType == 2) {
+        $('#price_2').text(`${res.oneLevelSilverAmount} Happy Gold`);
+      } else{
+        $('#price_2').text(`${res.oneLevelSilverAmount} Happy Silver`);
+      }
+      $('#price_3').text(`${res.happygoldAmount} Happy Gold`);
+      $('#price_4').text(`${res.oneLevelGoldAmount} Happy Gold`);
+    });
+  } else {
+    $.ajax({
+      url: paths.getInviteInfo_v4(),
+      type: 'POST',
+      headers: { 
+        'x-Device': 'PC',
+        'Content-Type': 'application/json;charset=UTF-8'
+      },
+      dataType: 'json',
+    }).done(res => {
+     
+      var text = 'Refer via social channels';
+      $('.webShareText').text(text).removeClass('webShareText_login');
+     
+      if(res.referType == 2) {
+        $('#price_1').text(`${res.happysilverAmount} Happy Gold`);
+      } else{
+        $('#price_1').text(`${res.happysilverAmount} Happy Silver`);
+      }
+      if(res.oneLevelReferType == 2) {
+        $('#price_2').text(`${res.oneLevelSilverAmount} Happy Gold`);
+      } else{
+        $('#price_2').text(`${res.oneLevelSilverAmount} Happy Silver`);
+      }
+      $('#price_3').text(`${res.happygoldAmount} Happy Gold`);
+      $('#price_4').text(`${res.oneLevelGoldAmount} Happy Gold`);
+    });
+  }
+
+  
+  var href = 'https://www.facebook.com/sharer.php?u='+encodeURIComponent('https://goo.gl/WTxgoW')+'&t='+encodeURIComponent(document.title);
+  $('.refways .facebook').attr('href', href);
+
+
+  $(document).on('click', '.webShareText_login , .facebook', function(){
+    var val =$(this).parents('.form-inline').siblings('.copyText')[0];
+    window.getSelection().selectAllChildren(val);
+    document.execCommand('Copy' );
+    const TipsMsg = $(this).parents('.form-inline').siblings('.TipsMsg')[0];
+    $ (TipsMsg).fadeIn(500).delay(2000).fadeOut(1000);
+  });
+});

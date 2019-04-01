@@ -1,0 +1,50 @@
+<script id="profileTpl" type="text/template">
+  <div class="profile-wrap ">
+    <section class="profile-info">
+      <h2 class="title">
+        Profile
+      </h2>
+      <div class="common-style info-content">
+        <div class=" {{= sex == null ? 'info-title' : (sex == 1 ? 'info-title info-title_1' : 'info-title info-title_2' )  }} ">
+          <div class="ownname">
+            <p><span>{{=firstName}} </span><span  id='editProfile'> {{=lastName}}</span></p>
+            <p>{{=birthDate}}</p>
+            <p>{{=userName}}</p>
+          </div>
+        </div>
+        <div class='info-box clearfix'>
+          <div class='info pull-left'>
+            <div class='phone_info pull-left'>
+              <p class='p_1'>Your Mobile Number</p>
+              <p class='phone_No'>{{=cellphone}}</p>
+            </div>
+            <a type="button" id='phone_OTP'  class="btn disabled btn-warning pull-right" value=''>Verified </a>
+          </div>
+          <div class='info pull-right'>
+            <div class='phone_info pull-left'>
+              <p class='p_2'>Your Email</p>
+              <p>{{=email}}</p>
+            </div>
+            <a type="button" id='linkEmail' class="btn btn-warning pull-right" data-toggle="modal" data-target="">{{=btnText}}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="profile-info ">
+      <h2 class="title">
+        Account Security
+      </h2>
+      <div class="common-style info-content">
+        <div class='info-box clearfix' style='height:300px;'>
+          <div class='info pull-left'>
+            <div class='phone_info pull-left'>
+              <p class='p_3'>Login Password</p>
+              <p>keep your password confidential </p>
+            </div>
+            <a type="button" class="btn btn-warning pull-right changePass_btn" data-toggle="modal" data-target="#changePass">Change</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</script>

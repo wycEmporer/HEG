@@ -1,0 +1,85 @@
+export default function travellerHold(travellerObj) {
+  $('.travellerHis input').on('click', function(){
+    let $passengerInfos = $(this).parents('.listWrap').find('.passengerInfo');
+
+    let userId = $(this).data('id');
+    if(this.checked){
+      let $emptyInput;
+      if($passengerInfos.length == 1){
+        $emptyInput = $passengerInfos;
+        $(this).parents('.nameItem').siblings().find('input[type=checkbox]').prop('checked', false);
+      }else{
+        $emptyInput =  $passengerInfos.filter(function(index){
+          return !$(this).data('id');
+        }).eq(0);
+        if($emptyInput.length == 0){
+          alert('The order is available for ('+ $passengerInfos.length +') passenger(s) only. If you wish to add more passengers, please modify your search criteria. Sorry for the inconvenience.');
+          return false;
+        }
+      }
+      let type = $(this).data('type');
+      let travellerInfo = _.find(travellerObj[type], function(val){
+        return val.id == userId;
+      });
+
+      $emptyInput.data('id', userId);
+      
+      $emptyInput.find('select.sex').find('option[value='+(travellerInfo.sex+1)+']').prop('selected', true);
+      $emptyInput.find('input.Fname').val(travellerInfo.passengerFirstName);
+      $emptyInput.find('input.Lname').val(travellerInfo.passengerLastName);
+      if(!!travellerInfo.birthDate){
+        let day = travellerInfo.birthDate.slice(0, 2);
+        let month = travellerInfo.birthDate.slice(3, 5);
+        let year = travellerInfo.birthDate.slice(6, 10);
+        $emptyInput.find('select.day').find('option[value='+day+']').prop('selected', true);
+        $emptyInput.find('select.month').find('option[value='+month+']').prop('selected', true);
+        $emptyInput.find('select.year').find('option[value='+year+']').prop('selected', true);
+      }
+      
+    }else{
+
+      let $fullInput =  $passengerInfos.filter(function(index){
+        return $(this).data('id') == userId;
+      });
+      $fullInput.data('id', null);
+      $fullInput.find('select.sex').find('option[value=0]').prop('selected', true);
+      $fullInput.find('input.Fname').val('');
+      $fullInput.find('input.Lname').val('');
+      $fullInput.find('select.day').find('option[value=0]').prop('selected', true);
+      $fullInput.find('select.month').find('option[value=0]').prop('selected', true);
+      $fullInput.find('select.year').find('option[value=0]').prop('selected', true);
+    }
+  });
+  $('.traMore').on('click', function(){
+    $(this).find('i').toggleClass('fa-caret-up');
+    $(this).parents('.travellerHisWrap').toggleClass('collapseWrap');
+  });
+
+  $('.passengerInfo input, .passengerInfo select').on('blur', function(){
+    let $passengerInfo = $(this).parents('.passengerInfo');
+    if(checkCon(this)){
+      $passengerInfo.data('id', null);
+    }else{
+      let id = $passengerInfo.data('id') ? $passengerInfo.data('id') : 111;
+      $passengerInfo.data('id', id);
+    }
+  });
+  function checkCon(that){
+    let $passengerInfo = $(that).parents('.passengerInfo');
+    let $inputs = $passengerInfo.find('input');
+    let $selects = $passengerInfo.find('select');
+    for(var i = 0; i < $inputs.length; i ++){
+      if($inputs[i].value.length > 0){
+        return false;
+      }
+    }
+    for(var i = 0; i < $selects.length; i ++){
+      if($selects[i].value != 0){
+        return false;
+      }
+    }
+
+    return true; // passengerInfo is empty
+  }
+
+}

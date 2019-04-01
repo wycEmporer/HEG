@@ -1,0 +1,60 @@
+<div class="content">
+	<div class="banner" id="">	
+		
+	</div>
+
+	<div class="container">
+		<div class="wrap clearfix">
+			<div id='TCinfo'>
+				
+			</div>
+			
+			<div class='showImg'>
+				<ul>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
+			<div class='departNum clearfix'>
+				<span><i></i></span>
+				<span><i class='depar_num'></i>  Open Positions</span>
+				<span><i></i></span>
+			</div>
+			<div class='MTF' id='MTF'>
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script id="TCinfoTpl" type="text/template">
+{{_.each(myModel, function(val, key){}}
+	<p class='title font-Bold'>{{= val.class}}</p>
+	<div class='TC'>
+		{{_.each(val.content, function(item, key){}}
+			<p>{{=item.content}}</p>
+		{{})}}	
+	</div>
+{{})}}
+</script>
+
+
+<script id="MTFTpl" type="text/template">
+	<ul>
+		{{_.each(myModel, function(val, key){}}
+		<li>
+			<div class='mtf_left'>
+				<p>{{= val.departmentName}}</p>
+			</div>
+			<div class='mtf_right'>
+				{{_.each(val.joinUsMessages, function(item, key){}}
+				<p> <a href="/CareersDetail?id={{=item.id}}">{{=item.position}}</a></p>
+				<p>{{=item.workPlace}}</p>
+				{{})}}
+			</div>
+		</li>
+		{{})}}
+	</ul>
+</script>

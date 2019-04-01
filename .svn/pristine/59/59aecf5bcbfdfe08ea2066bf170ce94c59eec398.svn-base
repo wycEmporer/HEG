@@ -1,0 +1,184 @@
+<!--secondNav your Documents -->
+  <ul class="edit-wrapper clearfix">
+    <li class="item">
+      <h2 class="title">Your Passport</h2>
+      <a href="" class="btn btn-warning edit-btn" id="passPortBtn">Edit</a>
+    </li>
+    <li class="item">
+      <h2 class="title">Your Passport</h2>
+      <a href="" class="btn btn-warning edit-btn" id="passPortBtn">Edit</a>
+    </li>
+  </ul>
+  <!-- Passport Information -->
+  <div class="editing-wrapper hidden">
+    <h1 class="title">
+      Your Passport Information
+    </h1>
+    <section class="edit-item">
+      <h3 class="til">
+        Your name as on the passport
+      </h3>
+      <div class="form-field">
+        <span class="fore">
+          <select name="sex" id="">
+            <option value="title">title</option>
+            <option value="mr">Mr</option>
+            <option value="ms">Ms</option>
+            <option value="mrs">Mrs</option>
+          </select>
+        </span>
+        <span class="fore">
+          <input type="text" placeholder="First Name" >
+        </span>
+        <span class="fore">
+          <input type="text" placeholder="Middle Name">
+          <div class="errorMsg"></div>
+        </span>
+        <span class="fore">
+          <input type="text" placeholder="last Name">
+          <div class="errorMsg">This first name is required</div>
+        </span>
+      </div>
+    </section>
+    <section class="edit-item">
+      <h3 class="til">
+        Passport details
+      </h3>
+      <div class="form-field">
+        <span class="fore">
+          <select name="sex" id="">
+            <option value="title">Country</option>
+            <option value="mr">India</option>
+            <option value="ms">china</option>
+            <option value="mrs">America</option>
+          </select>
+        </span>
+        <span class="fore">
+          <input type="text" placeholder="Passport No">
+          <div class="errorMsg">The document no is require</div>
+        </span>
+      </div>
+    </section>
+    <section class="edit-item">
+      <h3 class="til">
+        Date of Birth
+      </h3>
+      <div class="form-field">
+        <span class="fore">
+          <select name="day" id="">
+            <option value="title">Day</option>
+            <option value="mr">India</option>
+            <option value="ms">china</option>
+            <option value="mrs">America</option>
+          </select>
+        </span>
+        <span class="fore">
+          <select name="month" id="">
+            <option value="title">Month</option>
+            <option value="mr">India</option>
+            <option value="ms">china</option>
+            <option value="mrs">America</option>
+          </select>
+        </span>
+        <span class="fore">
+          <select name="year" id="">
+            <option value="title">Year</option>
+            <option value="mr">India</option>
+            <option value="ms">china</option>
+            <option value="mrs">America</option>
+          </select>
+        </span>
+      </div>
+    </section>
+    <section class="edit-item">
+      <div class="form-field">
+        <span class="fore">
+          <a class="btn btn-warning edit-btn">Save</a>
+        </span>
+        <span class="fore">
+          <a class="btn btn-warning edit-btn">Cancle</a>
+        </span>
+      </div>
+    </section>
+  </div>
+  <!-- visa Information -->
+  <div class="editing-wrapper hidden">
+    <h1 class="title">
+      Your visa Information
+    </h1>
+    <section class="edit-item">
+      <h3 class="til">
+        Passport details
+      </h3>
+      <div class="form-field">
+        <span class="fore">
+          <select name="sex" id="">
+            <option value="title">Country</option>
+            <option value="mr">India</option>
+            <option value="ms">china</option>
+            <option value="mrs">America</option>
+          </select>
+        </span>
+        <span class="fore">
+          <input type="text" placeholder="Passport No">
+          <div class="errorMsg">The document no is require</div>
+        </span>
+      </div>
+    </section>
+    <section class="edit-item">
+      <h3 class="til">
+        Date of Birth
+      </h3>
+      <div class="form-field">
+        <span class="fore">
+          <select name="day" id="">
+            <option value="title">Day</option>
+            <option value="mr">India</option>
+            <option value="ms">china</option>
+            <option value="mrs">America</option>
+          </select>
+        </span>
+        <span class="fore">
+          <select name="month" id="">
+            <option value="title">Month</option>
+            <option value="mr">India</option>
+            <option value="ms">china</option>
+            <option value="mrs">America</option>
+          </select>
+        </span>
+        <span class="fore">
+          <select name="year" id="">
+            <option value="title">Year</option>
+            <option value="mr">India</option>
+            <option value="ms">china</option>
+            <option value="mrs">America</option>
+          </select>
+        </span>
+      </div>
+    </section>
+    <section class="edit-item">
+      <div class="form-field">
+        <span class="fore">
+          <a class="btn btn-warning edit-btn">Save</a>
+        </span>
+        <span class="fore">
+          <a class="btn btn-warning edit-btn">Cancle</a>
+        </span>
+      </div>
+    </section>
+  </div>
+  <!-- has added -->
+  <ul class="edit-wrapper clearfix edited hidden">
+    <li class="item">
+      <h2 class="title">Your Passport</h2>
+      <p class="passport-brief"> jiack</p>
+      <p class="passport-brief">America 12321321</p>
+      <a href="" class="btn btn-warning edit-btn" id="passPortBtn">Edit</a>
+    </li>
+    <li class="item">
+      <h2 class="title">Your Passport</h2>
+      <p class="passport-brief"> jiack</p>
+      <p class="passport-brief">America 12321321</p>
+      <a href="" class="btn btn-warning edit-btn" id="passPortBtn">Edit</a>
+    </li>
+  </ul>

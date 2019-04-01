@@ -1,0 +1,487 @@
+require('datepicker/datepicker.js');
+/**
+ * 日期控件
+ * @param  inDate     入住时间
+ * @param  outDate   离开时间
+ */
+function datepicker(dateIn, dateOut) {
+  var inDate = dateIn ? new Date(dateIn) : new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+  var outDate = dateOut ? new Date(dateOut) : new Date(new Date().getTime() + 2 * 24 * 60 * 60 * 1000);
+
+  
+  
+  $('#check-in').datepicker({
+    format: 'D, dd M, yyyy',
+    startDate: new Date(new Date().getTime() + 24 * 60 * 60 * 1000),
+    // autoclose: true,
+    // container: '.selector-container',
+    minDate:'0',
+    // templates: {
+    //   leftArrow: '&lt;',
+    //   rightArrow: '&gt;'
+    // }
+    onClose:function(selectedDate){
+      selectedDate = (selectedDate == '') ? 0 : selectedDate;
+      $('#check-out').datepicker('option', 'minDate', selectedDate);
+    },
+  });
+  
+  $('#check-out').datepicker({
+    format: 'D, dd M, yyyy',
+    startDate: new Date(inDate.getTime() + 24 * 60 * 60 * 1000),
+    // autoclose: true,
+    // container: '.selector-container',
+    minDate:'0',
+    // templates: {
+    //   leftArrow: '&lt;',
+    //   rightArrow: '&gt;'
+    // }
+  });
+  $('#check-in').datepicker('setDate', inDate);
+  $('#check-out').datepicker('setDate', outDate);
+
+  // $('#check-in').on('change', function (e) {
+  //   var date = new Date($(this).val()).getTime();
+  //   var out_date = new Date($('#check-out').val()).getTime();
+  //   if (date >= out_date) {
+  //     $('#check-out').datepicker('setDate', new Date(date + 24 * 60 * 60 * 1000));
+  //   }
+  //   $('#check-out').datepicker('setStartDate', new Date(date + 24 * 60 * 60 * 1000));
+
+  // });
+
+}
+
+/**
+ * 格式化日期
+ * @param {} date
+ */
+function format(date) {
+  var newDate = new Date(date);
+  var year = newDate.getFullYear();
+  var mouth = newDate.getMonth() + 1;
+  var day = newDate.getDate();
+  var days = day < 10 ? '0' + day : day;
+  if (mouth < 10) {
+    return year + '-0' + mouth + '-' + days;
+  } else {
+    return year + '-' + mouth + '-' + days;
+  }
+}
+
+  /**
+ * 日期如果超期，初始化时间
+ * 比较日期若存在,就和比较日期比较，日期往后推一天
+ * @param {*} date 日期
+ * @param {*} cdate 比较的日期
+ */
+
+function initDate(date, cdate) {
+  var time = date ? new Date(date).getTime() : new Date().getTime() + 24 * 3600 * 1000;
+  var compareTime = cdate ? new Date(cdate).getTime() : new Date().getTime() + 24 * 3600 * 1000;
+  var correctTime = cdate ? new Date(new Date(cdate).getTime() + 24 * 3600 * 1000).getTime() : new Date(new Date().getTime() + 24 * 3600 * 1000);
+  if (time <= compareTime) {
+    return format(correctTime);
+  }
+  return date;
+}
+
+function nodeDom(str, tem) {
+  // console.log(str)
+  // console.log(tem);
+  let regStr = '(' + tem + ')([\\s\\S]*)';
+  // console.log(regStr);
+  let reg = new RegExp(regStr, 'i');
+  // console.log(reg);
+  let regMatch = str.match(reg);
+  // console.log(regMatch);
+
+  if (regMatch !== null) {
+    var replaceReturn = '';
+    for (var j = 1, lenJ = regMatch.length; j < lenJ; j++) {
+      if (regMatch[j].toLowerCase() == tem.toLowerCase()) {
+        replaceReturn += '<b style="color:#FC9525;">$' + j + '</b>';
+      } else {
+        replaceReturn += '$' + j;
+      }
+    }
+    let repl = str.replace(reg, replaceReturn);
+    // console.log(repl);
+    return repl;
+  } else {
+    return str;
+  }
+}
+
+/**
+ * 匹配酒店或者城市
+ * @param {} obj
+ */
+function matchHotelOrCity(obj) {
+  $('#cityname').on('input', function (e) {
+
+    if ($(this).val().length > 2) {
+      var self = this;
+      $('.icon-loading').show();
+      e.stopPropagation();
+      e.preventDefault();
+      obj.name = '';
+      obj.code = '';
+      obj.flag = 'city';
+      obj.cityId = '';
+      obj.cityName = '';
+      isinput = true;
+      obj.index++;
+      var city = encodeURIComponent($(this).val());
+      $.ajax({
+        url: '/api/web/city?name=' + city + '&index=' + obj.index,
+        type: 'GET',
+        success: function (res) {
+          if (res.cityHotelList) {
+            if (res.index == obj.index) {
+              obj.downIndex = 0;
+              $('.icon-loading').hide();
+              $('#cityname').parent().find('.result-items').empty();
+              res.cityHotelList.map(function (e, i) {
+                var cName = e.flag == 'hotel' ? ',' + e.cityName : '';
+                var count = e.flag == 'city' ? '(' + e.hotelCount + ' ' + 'hotel)' : '';
+                var tarVal = $(self).val();
+                // console.log(nodeDom(e.name, tarVal));
+                $('#cityname').parent().find('.result-items')
+                  .append('<div class="result-item city-result" data-code=' + e.code
+                    + ' data-id="' + e.cityId + '" data-name="' + e.cityName + '" data-text="' + e.name + '">' +
+                    '<span>' + nodeDom(e.name, tarVal) + cName + ', India</span>' +
+                    '<i>' + count + ' ' + e.flag + '</i>' +
+                    '</div>');
+
+              });
+              $('#cityname').parent().find('.search-result').show();
+            }
+          } else {
+            $('#cityname').parent()
+              .find('.search-result').show()
+              .find('.result-items').html('<div class="no-found">' +
+              'No match found for the search'
+              + '</div>');
+            $('.icon-loading').hide();
+          }
+        },
+        error: function (err) {
+          $('#cityname').parent().find('.result-items').empty();
+        }
+      });
+    } else {
+      $('.search-result').hide();
+    }
+
+  }).on('keyup', function (e) {
+    e.stopPropagation();
+    switch (e.keyCode) {
+      case 40:
+        var len = $('.city-result').length;
+        if (obj.downIndex < len - 1) {
+          obj.downIndex++;
+          $('.city-result').each(function (i, e) {
+            $(e).removeClass('active');
+            if (i == obj.downIndex) {
+              $(e).addClass('active');
+            }
+          });
+        }
+        break;
+      case 38:
+        if (obj.downIndex > 0) {
+          obj.downIndex--;
+          $('.city-result').each(function (i, e) {
+            $(e).removeClass('active');
+            if (i == obj.downIndex) {
+              $(e).addClass('active');
+            }
+          });
+        }
+        break;
+      case 13:
+        $('#cityname').val($('.city-result.active').find('span').text());
+        obj.name = $('.city-result.active').data('text');
+        obj.flag = $('.city-result.active').find('i').text();
+        obj.code = $('.city-result.active').data('code');
+        obj.cityId = $('.city-result.active').data('id');
+        obj.cityName = $('.city-result.active').data('name');
+        $('#cityname').parent().find('.result-items').empty();
+        $('.search-result').hide();
+    }
+  }).on('focus', function (e) {
+    e.stopPropagation();
+    // $(this).val("");
+    // $(this).trigger('input')
+    $(this).trigger('select');
+  }).on('click', function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+  });
+  $('.search-result').on('click', '.city-result', function (e) {
+    $('#cityname').val($(this).find('span').text());
+    obj.name = $(this).data('text');
+    obj.flag = $(this).find('i').text();
+    obj.code = $(this).data('code');
+    obj.cityId = $(this).data('id');
+    obj.cityName = $(this).data('name');
+    $('#cityname').parent().find('.result-items').empty();
+    $('.search-result').hide();
+  }).on('mouseenter', '.city-result', function (e) {
+    e.stopPropagation();
+    $(this).addClass('active');
+    $(this).siblings().each(function (i, e) {
+      $(e).removeClass('active');
+    });
+    $('.city-result').each(function (i, e) {
+      if ($(e).hasClass('active')) {
+        obj.downIndex = i;
+      }
+    });
+  });
+}
+
+  /**
+ * 选择房间
+ */
+function selectRoom(guests) {
+  $('.rooms-guest').on('click', function (e) {
+    e.stopPropagation();
+    $(this).find('.search-result').show();
+  });
+  $('.search-result').on('click', '.add', function (e) {
+    e.stopPropagation();
+    var roomIndex = +$(this).parents('.s-r-item').data('index');
+    switch ($(this).data('index')) {
+      case 1:
+        guests[roomIndex].adult++;
+        if (guests[roomIndex].adult == 6) {
+          $(this).addClass('add-disabled');
+        }
+        $(this).parent().find('.minus').removeClass('minus-disabled');
+        $(this).parent().find('b').text(guests[roomIndex].adult);
+        break;
+      case 2:
+        $(this).parent().find('.minus').removeClass('minus-disabled');
+        guests[roomIndex].child++;
+        guests[roomIndex].age.push(1);
+        if (guests[roomIndex].child == 4) {
+          $(this).addClass('add-disabled');
+        }
+        $(this).parent().find('b').text(guests[roomIndex].child);
+        $(this).parents('.guests-result').find('.child-age').append('<li class="child-age-item clearfix" data-index="' + guests[roomIndex].child + '">' +
+          '<h1>Age of Child ' + guests[roomIndex].child + '</h1>' +
+          '<i class="selected">1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>10</i><i>11</i><i>12</i></li>');
+        break;
+      default:
+        break;
+    }
+    var guestNum = 0;
+    guests.forEach(function (e, i) {
+      guestNum += (e.adult + e.child);
+    });
+    $(this).parents('.s-r-item').find('.r-info span:first-child').text(guests[roomIndex].adult + ' Adults ' + guests[roomIndex].child + ' Children');
+    var str1 = guests.length > 1 ? 'Rooms' : 'Room';
+    var str2 = guestNum > 1 ? 'Guests' : 'Guest';
+    $('#room-guest').val(guests.length + ' ' + str1 + ',' + guestNum + ' ' + str2);
+  }).on('click', '.minus', function (e) {
+    e.stopPropagation();
+    var roomIndex = +$(this).parents('.s-r-item').data('index');
+    switch ($(this).data('index')) {
+      case 1:
+        guests[roomIndex].adult--;
+        if (guests[roomIndex].adult == 1) {
+          $(this).addClass('minus-disabled');
+        }
+        $(this).parent().find('.add').removeClass('add-disabled');
+        $(this).parent().find('b').text(guests[roomIndex].adult);
+        break;
+      case 2:
+        $(this).parent().find('.add').removeClass('add-disabled');
+        guests[roomIndex].child--;
+        guests[roomIndex].age.pop();
+        if (guests[roomIndex].child == 0) {
+          $(this).parent().find('b').text('0');
+          $(this).addClass('minus-disabled');
+        } else {
+          $(this).parent().find('b').text(guests[roomIndex].child);
+        }
+        $(this).parents('.guests-result').find('.child-age').find('li:last-child').remove();
+        break;
+      default:
+        break;
+    }
+    var guestNum = 0;
+    guests.forEach(function (e, i) {
+      guestNum += (e.adult + e.child);
+    });
+    $(this).parents('.s-r-item').find('.r-info span:first-child').text(guests[roomIndex].adult + ' Adults ' + guests[roomIndex].child + ' Children');
+    var str1 = guests.length > 1 ? 'Rooms' : 'Room';
+    var str2 = guestNum > 1 ? 'Guests' : 'Guest';
+    $('#room-guest').val(guests.length + ' ' + str1 + ',' + guestNum + ' ' + str2);
+  }).on('click', '.child-age i', function (e) {
+    e.stopPropagation();
+    var roomIndex = +$(this).parents('.s-r-item').data('index');
+    $(this).siblings().each(function (i, e) {
+      $(e).removeClass('selected');
+    });
+    $(this).addClass('selected');
+    var index = +$(this).parent().data('index');
+    guests[roomIndex].age[index - 1] = +$(this).text();
+  }).on('click', '.edit', function (e) {
+    e.stopPropagation();
+    $('.s-r-item').each(function (i, e) {
+      $(e).find('.guests-result').hide();
+      $(e).find('.r-info').show();
+    });
+    $(this).parent().hide();
+    $(this).parents('.s-r-item').find('.guests-result').show();
+  }).on('click', '.remove', function (e) {
+    e.stopPropagation();
+    var index = $(this).parents('.s-r-item').data('index');
+    $('.s-r-item').each(function (i, e) {
+      var f = $(e).data('index');
+      if (f > index) {
+        $(e).data('index', f - 1);
+      }
+    });
+    $(this).parents('.s-r-item').remove();
+    guests.splice(index, 1);
+    var guestNum = 0;
+    guests.forEach(function (e, i) {
+      guestNum += (e.adult + e.child);
+    });
+    var str1 = guests.length > 1 ? 'Rooms' : 'Room';
+    var str2 = guestNum > 1 ? 'Guests' : 'Guest';
+    $('#room-guest').val(guests.length + ' ' + str1 + ',' + guestNum + ' ' + str2);
+  });
+  $('.add-room').on('click', function (e) {
+    e.stopPropagation();
+    e.preventDefault();
+    $('.s-r-item').each(function (i, e) {
+      $(e).find('.guests-result').hide();
+      $(e).find('.r-info').show();
+    });
+    $('.search-result-container').append('<div class="s-r-item" data-index="' + guests.length + '"><div class="room-result result-item"><span>Rooms ' + (guests.length + 1) + '</span><span class="remove">remove</span>'
+      + '<div class="r-info"><span>2 Adults X 0 Children</span><span class="edit">edit</span></div></div>'
+      + '<div class="guests-result"><div class="adult-result result-item"><span>Adult （+12 yrs）</span><div class="clearfix result-info"><em></em><b>2</b><i class="add" data-index="1">'
+      + '</i><i class="minus" data-index="1"></i></div></div><div class="child-result result-item"><span>Children （1-12 yrs）</span><div class="clearfix result-info">'
+      + '<em></em><b>0</b><i class="add" data-index="2"></i><i class="minus minus-disabled" data-index="2"></i></div></div><ul class="child-age"></ul></div> </div>');
+    var id = guests[guests.length - 1].id + 1;
+    guests.push({
+    id: id, adult: 2, child: 0, age: []
+    });
+    var guestNum = 0;
+    guests.forEach(function (e, i) {
+      guestNum += (e.adult + e.child);
+    });
+    var str1 = guests.length > 1 ? 'Rooms' : 'Room';
+    var str2 = guestNum > 1 ? 'Guests' : 'Guest';
+    $('#room-guest').val(guests.length + ' ' + str1 + ',' + guestNum + ' ' + str2);
+  });
+  $('.done').on('click', function (e) {
+    e.stopPropagation(e);
+    $('.search-result').hide();
+  });
+}
+
+var common = {
+  datepicker: datepicker,
+  format: format,
+  selectRoom: selectRoom,
+  initDate: initDate,
+  matchHotelOrCity: matchHotelOrCity,
+};
+
+
+/**
+ * *********************************************************
+ * 
+ */
+$('a[href="#hotelTab"]').on('click', function(){
+  $(this).removeClass('red-point');
+});
+$(document).click(function (e) {
+  $('.user-select-down').hide();
+  $('.search-result').hide();
+});
+$('.search-result').on('click', function (e) {
+  e.stopPropagation();
+});
+var isinput = false;
+var cityOrHotel = {
+  name: 'New Delhi',
+  code: '1601',
+  flag: 'city',
+  index: 0,
+  downIndex: 0,                    //酒店或者城市下拉索引
+  cityName: '',
+  cityId: ''
+};
+/**
+ * 日期控件
+ */
+common.datepicker();
+
+$('#cityname').val('New Delhi');
+/**
+ * 选择房间
+ */
+var guests = [{
+id: 1, adult: 2, child: 0, age: []
+}];
+common.selectRoom(guests);
+$('#room-guest').val('1 Room,2 Guests');
+common.matchHotelOrCity(cityOrHotel);
+
+var alreadyCalled = false;
+function goToSearch(){
+  if(alreadyCalled) return;
+  alreadyCalled = true;
+  //判断城市是否选择 
+  if (!cityOrHotel.name && !cityOrHotel.code || !$('#cityname').val()) {
+    $('#cityname').val('New Delhi');
+    cityOrHotel.name = 'New Delhi';
+    cityOrHotel.code = '1601';
+    cityOrHotel.flag = 'city';
+    cityOrHotel.cityName = '',
+      cityOrHotel.cityId = '';
+  }
+  var param = {
+    name: cityOrHotel.name,
+    code: cityOrHotel.code,
+    checkIn: common.format(new Date($('#check-in').val())),
+    checkOut: common.format(new Date($('#check-out').val())),
+    guests: guests
+  };
+  var str1 = cityOrHotel.cityName ? cityOrHotel.cityName.toLowerCase().replace(/[^0-9a-z\s\t\n]/ig, ' ').replace(/\s+/g, '-') : '';
+
+  let city = new RegExp(/city$/, 'g');
+  let hotel = new RegExp(/hotel$/, 'g');
+  if (cityOrHotel.flag.match(city)) {
+    param.top_price = undefined;
+    param.bottom_price = undefined;
+    var str = param.name.toLowerCase().replace(/[^0-9a-z\s\t\n]/ig, ' ').replace(/\s+/g, '-');
+    location.href = 'https://hotel.happyeasygo.com/page/cities_' + param.code + '_' + str + '?param=' + JSON.stringify(param);
+  } else if (cityOrHotel.flag.match(hotel)) {
+    param.cityName = cityOrHotel.cityName;
+    param.cityId = cityOrHotel.cityId;
+    var str = param.name ? param.name.toLowerCase().slice(0, 4).replace(/[^0-9a-z]/ig, '') : '';
+    location.href = 'https://hotel.happyeasygo.com/page/cities_' + cityOrHotel.cityId + '_' + str1 + '/hotel_' + param.code + '_' + str + '?param=' + JSON.stringify(param);
+  }
+}
+$('.selector-container button.go').on('click', function(e){
+  e.preventDefault();
+  setTimeout(goToSearch, 1000);
+  ga('HotelTracker.send', 'event', 'flightPage', 'click', 'hotelsSearch', {hitCallback: goToSearch});
+});
+
+$('#cityname').on('blur', function (e) {
+  if (!$(this).val()) {
+    $('#cityname').val('New Delhi');
+    cityOrHotel.name = 'New Delhi';
+    cityOrHotel.code = '1601';
+    cityOrHotel.flag = 'city';
+  }
+});

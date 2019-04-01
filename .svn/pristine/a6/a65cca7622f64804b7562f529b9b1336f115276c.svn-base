@@ -1,0 +1,376 @@
+<script id="hotelsListTpl" type="text/template">
+  <h2 class="title">
+    Trips you've booked
+  </h2>
+  {{ if(model.length == 0){ }}
+  <div class="noList">
+    <p>It seems that you have no trip on our site now.</p>
+    <p>Start exploring</p>
+    <a href="https://hotel.happyeasygo.com" class="btn btn-warning"> Exploring</a>
+  </div>
+  {{ }else{ }}
+  <div class="list-wrap content">
+    <form class="query-form">
+      <div class="clearfix marB8">
+        <div class="group hotel-group fontSz14">
+          <label for="name">Hotel</label>
+          <div class="trip-query" style="width:280px; border:none; border-bottom: 1px solid #ccc;">
+            <input type="text" name="hotelName">
+          </div>
+        </div>
+        <div class="group hotel-group" style="width:300px;">
+          <label></label>
+          <div class="trip-query select">
+            <select name="state">
+              <option value="">ALL</option>
+              {{ _.each(model.stateArr,function(val,i){ }}
+              <option value="{{=val}}">{{=val}}</option>
+              {{ }) }}
+            </select>
+            <a href="javascript:;" class="fontSz14 hotelQueryReset padL10 hidden">reset</a>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="group hotel-group fontSz14">
+          <label for="tripID">Check-in Date</label>
+          <div class="trip-query clearfix" style="border:none; width: 280px;"> 
+            <div class="pull-left" style="position: relative;width: 120px;border-bottom:1px solid #ccc;">
+              <input type="text" readonly="readonly" id="checkDate1" class="checkDate" autocomplete="off" style="width:100%">
+              <input type="hidden" id="checkInDate1" name="checkInDate1">
+              <i class="icon_datepick"></i>
+            </div>
+            <div class="pull-left" style="width:12px; height:16px;border-bottom: 1px solid #999; margin:0 8px;">
+            </div>
+            <div class="pull-left" style="position: relative; width: 120px;border-bottom:1px solid #ccc;">
+              <input type="text" readonly="readonly" id="checkDate2" class="checkDate" autocomplete="off" style="width:100%">
+              <input type="hidden" id="checkInDate2" name="checkInDate2">
+              <i class="icon_datepick"></i>
+            </div>
+          </div>
+        </div>
+        <div class="group hotel-group" style="width:300px;">
+          <label></label>
+          <div class="trip-query" style="border:none">
+            <button type="button" id="hotelSearch" class="btn btn-warning">Search</button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <div class="orders clearfix">
+      {{ _.each(model,function(val,i){}}
+      <a href="/account/?src=hotels/{{=val.bookingNo}}" class="order-item {{=val.btnColor}}"
+      bookingNo="{{=val.bookingNo}}" hotelName="{{=val.hotelName}}" checkInDate="{{=val.checkInDate}}" state="{{=val.status}}">
+        <ul class="clearfix">
+          <li class="fore0">
+            <div class="text-center">
+              <div class="marB8">
+                <i class="icHotel center-block"></i>
+              </div>
+              <div class="c-data colorPri">
+                <p class="data fontB">{{=val.date+'-'+val.month+'-'+val.year}}</p>
+                <p class="week">{{=val.week}}</p>
+              </div>
+            </div>
+          </li>
+          <li class="fore1">
+            <div class="h-info text-center">
+              <div class="fontSz18 padB10">
+                {{=val.hotelName}}
+              </div>
+              <div class="fontB padB10">
+                <span>{{=val.checkInDate}}</span> -- <span>{{=val.checkOutDate}}</span>
+              </div>
+              <p class="passengers">
+                {{=val.travellers}}
+              </p>
+            </div>
+          </li>
+          <li class="fore2">
+            <div class="other-info">
+              <div class="status-btn marB8">
+                {{=val.status}}
+              </div>
+              <p class="gray fontSz12">
+                Order ID
+                <span>{{=val.bookingNo}}</span>
+              </p>
+              <p class="">
+                <span class="colorDan fontSz20 fontB"><i class="fa fa-inr"></i> {{=val.price}}</span>
+              </p>
+            </div>
+          </li>
+        </ul>
+      </a>
+      {{ }) }}
+    </div>
+  </div>
+  {{}}}
+</script>
+
+<script id="h_detail_template" type="text/template">
+  {{ if(model.status == 1){ }}
+  <section>
+    <h2 class="title">
+      Payment Information
+    </h2>
+    <div class="f-detail common-style">
+      <div class="payWrap" id="paymentInfo">
+      </div>
+    </div>
+  </section>
+  {{ } }} 
+  <section class="passenger-info">
+    <h2 class="title" style="position: relative">ORDER INFORMATION 
+    </h2>
+    <div class="common-style hotelOrderInfo">
+      <div class="clearfix">
+        <span class="pull-right">Booked on {{=model.orderDate +'-'+model.orderMonth +'-'+model.orderYear}}</span>
+      </div>
+      <div class="text-center">
+        <p class="fontSz18 marB20 fontB">{{=model.hotelName}}</p>
+        <p class="fontSz16 marB20">CHECK IN {{=model.checkIn}} - CHECK OUT {{=model.checkOut}}</p>
+        {{if(model.supplierConfirmId){}}
+        <p class="fontSz14 marB8">
+        Confirm Num：{{=model.supplierConfirmId}}
+        </p>
+        {{}}}
+        <p class="fontSz14">
+          <span class="colorDan">
+          {{=model.cancelInfo.cancelType ? model.cancelInfo.ratePlanCancellationPolicy : 'Non Refundable' }}   
+          </span>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="contact-info">
+    <h2 class="title">HOTEL DETAILS
+      <p class="pull-right">
+        <span class="grayDark">
+          Order ID:
+        </span>
+        <span class="grayDark fontB">{{=model.bookingNo}}</span>
+      </p>
+    </h2>
+    <div class="c-wrap common-style hotelDetail" style="position:relative;padding-bottom:0">
+      <h3 class="fontB padB10 fontB">{{=model.hotelName}}</h3>
+      <p class="gray marB20">{{=model.address}}</p>
+      <div class="statusBtn {{=model.statusClass}}">
+      {{=model.statusStr}}
+      </div>
+      <table style="width:100%;" class="borderB marB20">
+        <colgroup style="width:30%;"></colgroup>
+        <colgroup style="width:30%;"></colgroup>
+        <colgroup style="width:24%;"></colgroup>
+        <colgroup style="width:16%;"></colgroup>
+        <thead>
+          <tr>
+            <th class="gray" style="line-height:26px">
+              CHECK-IN
+            </th>
+            <th class="gray">
+              CHECK-OUT
+            </th>
+            <th></th>
+            <th>
+              {{=model.guests}}Guest(s)
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="pad8">
+              <p>{{=model.checkIn}} ({{=model.checkInTime}})</p>
+            </td>
+            <td>
+              <p>{{=model.checkOut}} ({{=model.checkOutTime}})</p>
+            </td>
+            <td>
+              <p>{{=model.countDays}} Night(s)</p>
+            </td>
+            <td>
+              <p class="gray">(Adult-{{=(model.adult + 100).toString().slice(1) }} Child-{{=(model.child + 100).toString().slice(1)}})</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="borderB marB20">
+        <p class="gray fontSz14">Room Type</p>
+        <div class="clearfix pad8 fontSz16">
+          <p class="pull-left" title="{{=model.ratePlanName}}" style="width:80%; overflow:hidden;text-overflow: ellipsis;white-space:nowrap">{{=model.ratePlanName}} {{=model.breakfastStr}}</p>
+          <p class="pull-right" style="margin-right:63px;">{{=model.room}} Room(s)</p>
+        </div>
+      </div>
+      <div class="borderB marB20">
+        <p class="gray fontSz14">Contact Info</p>
+        <div class="pad8 fontSz16 clearfix">
+          <span class="pull-left" style="width:33%;">{{=model.contact}}</span>
+          <span class="pull-left text-center" style="width:33%;">+{{=model.contactInfo.contactNumber}}</span>
+          <span class="pull-left text-right" style="width:33%;">{{=model.contactInfo.email}}</span>
+        </div>
+      </div>
+      <div class="marB20">
+        <h3 class="gray fontSz14 padB10">Guest Details</h3>
+        <ul class="orderGuest clearfix">
+          {{_.each(model.guestArr, function(val, i){ }}
+          <li class="marB20">
+            <div class="roomNo">
+              Room{{=val.id}}
+            </div>
+            <div class="guest clearfix">
+                {{if(model.orderFrom > 1){  }}
+                <div class="pull-left borderB guestName">
+                  <p class="adult fontSz16">
+                    {{=val.contact.length}} {{=val.contact.length>1? 'Guests' : 'Guest'}} 
+                  </p>
+                </div>
+                {{}else{ _.each(val.contact, function(v, k){ }}
+                <div class="pull-left borderB guestName">
+                  <p class="{{=v.age ? 'child' : 'adult'}} fontSz16">
+                    {{=v.call + ' ' + v.firstName + ' ' + v.lastName}}
+                  </p>
+                </div>
+                {{}) } }}
+            </div>
+          </li>
+          {{ }) }}
+        </ul>
+      </div>
+    </div>
+  </section>
+  {{if(model.payWay !== 'null'){}}
+  <section class="contact-info">
+    <h2 class="title">TRANSACTION DETAILS</h2>
+    <div class="common-style c-wrap fontSz16">
+      <div class="clearfix padB10">
+        <div class="pull-left">
+        Price <span class="gray">({{=model.room}} Rooms * {{=model.countDays}} Nights)</span>
+        </div>
+        <div class="pull-right">
+          <span class="fontB">
+          <i class="fa fa-inr fontSz14"></i>
+          {{=(model.priceObj.basePrice || 0).toThree()}}
+          </span>
+        </div>
+      </div>
+      <div class="clearfix padB10">
+        <div class="pull-left">
+        GST
+        </div>
+        <div class="pull-right">
+          <span  class="fontB">
+          <i class="fa fa-inr fontSz14"></i>
+          {{=(model.priceObj.gst || 0).toThree()}}
+          </span>
+        </div>
+      </div>
+      <div class="clearfix padB10">
+        <div class="pull-left">
+        Service Charge
+        </div>
+        <div class="pull-right">
+          <span  class="fontB">
+          <i class="fa fa-inr fontSz14"></i>
+          {{=(model.priceObj.serviceCharge || 0).toThree()}}
+          </span>
+        </div>
+      </div>
+      <div class="clearfix padB10">
+        {{if(model.priceObj.disCount > 0){ }}
+        <div class="pull-left">
+        Promo Discount
+        </div>
+        <div class="pull-right">
+          <span  class="fontB">
+          -<i class="fa fa-inr fontSz14"></i>
+          {{=(model.priceObj.disCount || 0).toThree()}}
+          </span>
+        </div>
+        {{}else{ }}
+        <div class="pull-left">
+        Tax <span class="gray">(hotel service charge)</span>
+        </div>
+        <div class="pull-right">
+          <span  class="fontB">
+          -<i class="fa fa-inr fontSz14"></i>
+          {{=(model.priceObj.disCount || 0).toThree()}}
+          </span>
+        </div>
+        {{}}}
+      </div>
+      {{if(model.coupon){}}
+      <div class="clearfix padB10">
+        <div class="pull-left">
+        Coupon
+        </div>
+        <div class="pull-right">
+          <span class="fontB">
+          -<i class="fa fa-inr fontSz14"></i>
+          {{=model.coupon.toThree()}}
+          </span>
+        </div>
+      </div>
+      {{}}}
+      <div class="clearfix padB10">
+        <div class="pull-left">
+        Total <span class="gray">({{=model.room}} Rooms * {{=model.countDays}} Nights)</span> 
+        </div>
+        <div class="pull-right">
+          <span class="colorDan fontB">
+          <i class="fa fa-inr fontSz14"></i>
+          {{=model.price.toThree()}}
+          </span>
+        </div>
+      </div>
+      <div class="clearfix">
+        <div class="pull-left">
+          Payment Method
+        </div>
+        <div class="pull-right">
+         {{=model.payWayStr}}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{}}}
+  <section class="contact-info hotelPolicy hidden">
+    <h2 class="title">HOTEL POLICIES</h2>
+    <div class="common-style c-wrap fontSz16">
+      <ul class="pol-info clearfix marB20">
+        <li class="pull-left">
+          <div class="icon-box icon-clock pull-left"></div>
+          <div class="pull-left">
+          Check In {{=model.checkInTime}}
+          </div>
+        </li>
+        <li class="pull-left">
+          <div class="icon-box icon-clock pull-left"></div>
+          <div class="pull-left">
+          Check Out {{=model.checkOutTime}}
+          </div>
+        </li>
+        <li class="pull-left">
+          <div class="icon-box icon-room pull-left"></div>
+          <div class="pull-left">
+          Rooms 9
+          </div>
+        </li>
+        <li class="pull-left">
+          <div class="icon-box icon-floor pull-left"></div>
+          <div class="pull-left">
+            Floors 11
+          </div>
+        </li>
+      </ul>
+      <ul class="pol-text">
+        <li>
+          The primary guest must be at least 18 years of age to check into this hotel(s).
+        </li>
+        <li>
+        As per Government regulations, It is mandatory for all guests above 18 years of age to carry a valid photo identity card & address proof at the time of check-in. In case, check-in is denied by the hotel(s) due to lack of required documents, you cannot claim for the refund & the booking will be considered as NO SHOW.</li>
+        <li>
+        Unless mentioned, the tariff does not include charges for optional room services (such as telephone calls, room service, mini bar, snacks, laundry extra bed etc.). In case, such additional charges are levied by the hotel(s), we shall not be held responsible for it.</li>
+      </ul>
+    </div>
+  </section>
+</script>

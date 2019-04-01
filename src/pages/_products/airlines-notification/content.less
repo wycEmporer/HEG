@@ -1,0 +1,59 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+
+.colorWhite{
+  color:#fff;
+}
+.colorGold{
+    color: #e08e19;
+}
+a.colorGold{
+  &:hover,&:active,&:focus{
+    color: #ffdb96;
+  }
+}
+.line2{
+  display: inline-block;
+  width: 140px;
+  height:2px;
+  background-color: @brand-primary;
+}
+.banner{
+  height: 242px;
+  position: relative;
+  overflow: hidden;
+  img{
+    position: absolute;
+    left:50%;
+    transform:translateX(-50%);
+  }
+}
+.wrap{
+  padding: 40px 20px 0;
+}
+.listWrap{
+  padding-bottom: 30px;
+  .item{
+    padding-bottom: 30px;
+    h2.title{
+      margin-bottom: 16px;
+      font-size: 36px;
+    }
+  }
+}
+.textSty{
+  height: 126px;
+  padding: 53px 0;
+  background: #e7e2e1;
+}
+.imgSty{
+  overflow: hidden;
+  height:194px; 
+}
+.conList{
+  li{
+    line-height: 24px;
+  }
+  th, td{
+    text-align: center;
+  }
+}

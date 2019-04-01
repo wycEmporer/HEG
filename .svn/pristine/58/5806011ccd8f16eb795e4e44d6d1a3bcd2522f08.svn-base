@@ -1,0 +1,163 @@
+<div class="container">
+  <div class="row">
+    <div class="conLeft col-sm-12">
+      <div class="section">
+        <div class="nav">
+          <h2 class="colorPri fontSz18">
+            Payment
+          </h2>
+        </div>
+        <div class="content font-Roman clearfix" id="contentWap"></div>
+      </div>
+    </div>
+    <!--<div class="conRight col-sm-3">
+      <div class="sideBan">
+        <img src="<%=require('./images/side-banner.png')%>" alt="" width="248">
+      </div>
+    </div>-->
+  </div>
+</div>
+
+<script id="payStatusTpl" type="text/template">
+  <div class="clearfix">
+    <div class="pull-left" style="width:270px;text-align:center;">
+      {{if(status == 2){}}
+      <img src="<%=require('./images/fail.png')%>" alt="">
+      {{ }else if(status == 1) { }}
+        <img src="<%=require('./images/succ.png')%>" alt="">
+      {{  } else { }}
+        <img src="<%=require('./images/load.png')%>" alt="">
+      {{ } }}
+    </div>
+    <div class="pull-left fontSz14" style="padding: 20px 0 0 0px;width:850px;">
+      <h3 class="title fontSz14">
+        Dear Customer :
+      </h3>
+      <div class="marT10">
+        {{if(status == 1){}}
+        <span class="grayDarker">
+          Congratulations on your successful payment for Order ID: <a href="{{=returnUrl}}" target="_blank" class="colorPri " style="text-decoration: underline;line-height: 24px;">{{=orderId}}</a> . You can go to My Trips and use your Order ID to check the status of your booking. 
+        </span>
+        {{ }else if(status == 2) { }}
+          <span class="grayDarker">
+          The payment for Order ID: <a href="{{=returnUrl}}" target="_blank" class="colorPri " style="text-decoration: underline;line-height: 24px;">{{=orderId}}</a> has failed. Kindly check the bank account information and your network connection. You can go to My Trips and use your Order ID to check the status of your booking.  
+        </span>
+        {{  } else { }}
+          <span class="grayDarker">
+          - Please wait while the payment information for Order ID: <a href="{{=returnUrl}}" target="_blank" class="colorPri" style="text-decoration: underline;line-height: 24px;">{{=orderId}}</a> is being updated. <br>- Your booking details will be sent via SMS and Email. Kindly check your inbox or spam folder. <br> - You can go to My Trips and use your Order ID to check the status of your booking. 
+        </span>
+        {{ } }}
+        
+      </div>
+    </div>
+  </div>
+  {{ if(status == 1) { }}
+    <div class='hotelInfo  pull-right' id='hotelInfo'>
+        
+    </div>
+  {{ } else { }}
+    <div class='lessHappyGold pull-right'>
+      <p class='title font-Bold'>Pay <span>Less</span> with Happy Gold  <a class='pull-right font-Roman' id="goDetail" style='margin-top:4px;' href="/top-up" target="_blank">Details ></a></p>
+      <ul>
+        <li>
+          <p>More Savings</p>
+          <p>Maximum <span id="maxSliver" style="color:#d7a328"></span><span  style="color:#d7a328">%</span> cash reward when you top-up your account with Happy Gold.</p>
+        </li>
+        <li>
+          <p>Quicker Payments</p>
+          <p>The order amount can be paid in full using Happy Gold, and it only takes a moment.</p>
+        </li>
+        <li>
+          <p>No Waiting</p>
+          <p>Instant refund in case of ticket cancellation or non-issuance of ticket due to any other reason.</p>
+        </li>
+      </ul>
+      <div class="goRecharge marginB">
+        <a href="/account/?src=wallet/recharge&cpm=TP03" id="topUp"  target="_blank">Top-up Now</a>
+      </div>
+    </div>
+  {{ } }}
+</script>
+
+<script id='hotelInfoTpl' type="text/template">
+  <div class='hotelImg'>
+    <a href='{{=myModel[0].href}}?param={{=myModel[0].params}}' onclick="ga('HotelTracker.send', 'event', 'fromFlightDetail', 'clickUrl', '{{=myModel[0].title}}')" >
+      <img src="{{=myModel[0].url}}" alt="" title="{{=myModel[0].title}}">
+    </a>
+  </div>
+</script>
+
+<!-- Modal -->
+<div class="modal prizeModal fade" id='shareModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+        <div class="title fontSz24">
+          <span class="fontB">Congratulations!</span> You get the following discount prizes.
+        </div>
+        <div class="validity colorGray">
+        Validity: <span></span>day
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="imgBox">
+          <div class="couponBan">
+            <div style="position:relative">
+              <img src="<%=require('./images/f-hotel@2x.png')%>" alt="" class="couponImg">
+              <div class="btnCopy">
+                <div class="coupon-value hotel-coupon">
+                  <span></span> 
+                  <img src="<%=require('./images/scissors.png')%>" alt="">
+                </div>
+              </div>
+            </div>
+            <a href="javascript:void(0)" class="redeemBtn">
+              Click to Redeem
+            </a>
+          </div>
+        </div>
+        <div class="footNote login" style="display:none">
+            Prizes have been sent to your account. 
+            Go to <a href="/account/?src=myCoupon" class="colorPri">My coupons</a> to claim.
+        </div>
+        <div class="footNote unlogin" style="display:none">
+          The prize has been sent to account: 15264859@qq.com. <a href="/account/?src=myCoupon" class="colorPri">Log in</a> using the initial password in your inbox and go to <span class="grayDarker">My coupons</span>  to claim.
+        </div>
+        <div class="TipsMsg" style="display:none">The coupon code has been copied to your clipboard</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="bookExpire" role='dialog' tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="modal-content">
+      <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px; display:{{=model.showClose ? 'block' : 'none'}}"><span aria-hidden="true">&times;</span>
+      </div>
+      <div class="modal-header">
+        <h2 class="modal-title colorPri fontSz16">{{=model.title || "Oops!"}}</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <div style="font-size:16px;margin:14px 0;">
+          {{=model.text || "Fare or Seat(s) not available with the airline. <br /> Redirecting to Search Page..."}}
+        </div>
+        {{if(model.btnTex){}}
+          <a href="{{=model.href || ''}}" class="btn btn-warning pull-right">{{=model.btnTex}}</a>
+        {{}}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="login_modal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:440px;height:410px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px;opacity:1;"><span aria-hidden="true" style='color:#ccc;'>&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>

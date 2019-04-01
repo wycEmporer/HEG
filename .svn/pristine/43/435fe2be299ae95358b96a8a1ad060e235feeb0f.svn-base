@@ -1,0 +1,311 @@
+require('cp');
+require('lessDir/base.less');
+require('./content.less');
+require('dataFormat');
+import './sticky.js';
+const utils = require('utils');
+const paths = utils.path;
+const queryObj = utils.parseQueryStr();
+const cookieUtil = utils.cookieUtil;
+import { farePop } from './farePop/farePop.js';
+import flightModel from './flightModel.js';
+import * as popContent from './popContent';
+import {bookTicket} from './bookTicket';
+
+let flightObj = null;
+let delegate = {
+  isLogin: !!cookieUtil.getCookie('uuid'),
+  silverBalance: 0,
+  token:'',
+  getSilverIsEnough : 0
+};
+
+function renderView(viewElement, viewHtml, model) {
+  var renderTemp = _.template(viewHtml);
+  viewElement.html(renderTemp(model));
+}
+
+function itineraryController(model, baggageInfo) {
+  let myModel = flightModel(model);
+  myModel.baggageInfo = baggageInfo;
+  let viewHtml = $('#itineraryTpl').html();
+  renderView($('#Itinerary'), viewHtml, { myModel });
+
+  $('#section1')
+    .removeClass('closed')
+    .addClass('open');
+}
+function flightOption(val){
+  let viewHtml = $('#flightOptionsTpl').html();
+  renderView($('#flightOptions'), viewHtml, { val });
+  popContent.popDiscount();
+  popContent.insureTc();
+  popContent.popGold();
+  popContent.memberPop();
+  $('.silverPop').popover();
+}
+function getBaggageInfo(flightInfo){
+
+  var queryData = {
+    flightNo: flightInfo.fn,
+    departDateTime: flightInfo.ddts,
+    discountPrice: Math.floor(flightInfo.opr / flightInfo.fee.pCount),
+    refundable: true,
+    isIntl: false
+  };
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url: paths.fareBaggageQueryUrl(),
+      type: 'GET',
+      data: queryData,
+      dataType: 'json',
+      cache: true
+    }).done(function(res) {
+      return resolve(res.baggageInfo);
+      
+    });
+  });
+  
+}
+
+function fareController(model) {
+  let fareEle = $('#fareDetailWrap');
+  let fareTpl = $('#fareDetailTpl').html();
+  renderView(fareEle, fareTpl, { model});
+}
+function book(requestFromClient){
+  $('.f-book').on('click', function(){
+    let index = $(this).data('index');
+    let type = $(this).data('type');
+    if($(this).hasClass('disable')){
+      return false;
+    }
+    bookTicket(index, type, flightObj, requestFromClient, delegate.token);
+  });
+}
+
+function getFlightInfo(token) {
+  return new Promise((resolve, reject) => {
+    $.ajax({
+      url:'/heg_api/order/getCheckFlight.do',
+      method:'post',
+      contentType:'application/json',
+      data:JSON.stringify({token:token}),
+      dataType: 'json'
+    })
+    .done(res => {
+      return resolve(JSON.parse(res.data));
+    });
+  });
+}
+function getSilver(){
+  return new Promise((resolve, reject) => {
+    if (delegate.isLogin) {
+      $.ajax({
+        url: paths.getSilverUrl(),
+        type: 'GET',
+        dataType: 'json'
+      }).done(function(result) {
+        if (!result || !result.success) {
+          return resolve(0);
+        }
+        return resolve(result.balance);
+        // delegate.silverBalance = result.balance;
+      });
+    }else{
+      return resolve(0);
+    }
+  });
+}
+
+async function randerPage(){
+  let data = await getFlightInfo(queryObj.token);
+  
+  delegate.silverBalance = await getSilver();
+  delegate.token = data.token;
+  flightObj = data.departFlight;
+  let flight = data.departFlight;
+  flight.fee.fees[1].isDisabled = delegate.isLogin ? Math.abs(flight.fee.fees[1].dis) > delegate.silverBalance : Math.abs(flight.fee.fees[1].dis) > Number(sessionStorage.getItem('registerSilver'));
+  flight.fee.fees[1].amount = Math.abs(flight.fee.fees[1].dis) - delegate.silverBalance;
+  let baggageInfo = await getBaggageInfo(flight);
+  delegate.getSilverIsEnough =  Math.abs(flight.fee.fees[1].dis);
+  flight.isLogin = delegate.isLogin;
+  
+  itineraryController(flight, baggageInfo);
+  flightOption(flight);
+  fareController(data.requestFromClient);
+  book(data.requestFromClient);
+}
+
+randerPage();
+
+$(document).on('click', '#section1 .viewEdit', function() {
+  $(this)
+  .toggleClass('Viewtext')
+  .parents('.sec')
+  .removeClass('closed')
+  .addClass('open')
+  .find('.content')
+  .slideToggle(400);
+  $(this).text('View Detail');
+  $('.Viewtext').text('View');
+});
+
+$(document).on('shown.bs.popover', '.popDiscount', function(event) {
+  let button = $(event.target);
+  let model = flightObj;
+  let token = delegate.token;
+  let index = button.data('index');
+  let feeObj = model.fee.fees[index].exFee ? model.fee.fees[index].exFee[0] : model.fee.fees[index];
+
+  $('.popover .viewOpr').text(Math.round(model.oopr / model.fee.pCount).toThree());
+  $('.popover .viewSell').text(Math.round((feeObj.bfp + feeObj.gst) / model.fee.pCount).toThree());
+  $('.popover .viewDis').text(Math.round(feeObj.dis / model.fee.pCount).toThree());
+
+  $.ajax({
+    url: paths.getVisitNum(),
+    type: 'post',
+    data: {
+      token: token,
+      type: 6
+    },
+    dataType: 'json',
+    headers: { 'x-Device': 'PC' }
+  })
+    .done(function(data) {})
+    .fail(function() {});
+});
+$(document).on('shown.bs.popover', '.memberPop', function(event) {
+  let button = $(event.target);
+  let index = button.data('index');
+  var token = delegate.token;
+  let model = flightObj;
+  var fee =  model.fee.fees[index].exFee ? model.fee.fees[index].exFee[0] : model.fee.fees[index];
+  var payPrice = Math.round((fee.bfp + fee.gst) / model.fee.pCount);
+  var dis = (fee.dis / model.fee.pCount).toFixed(1) + '*' + model.fee.pCount;
+  $('.popover .silverDis').text(dis.toThree());
+  $('.popover .silverPr').text(payPrice.toThree());
+  
+  if (delegate.isLogin) {
+    let silverBalance = delegate.silverBalance;
+    $('.popover .silverSlot').html('3. You still have <i class="rs colorDan">Rs.</i> <span class="originPr colorDan">' + silverBalance.toThree() + '</span> Happy Silver in your Happy Wallet account.');
+  }
+  if(fee.show){
+    let insureTcStr = fee.tc;
+    insureTcStr = insureTcStr.split('<br>').map(v => '<p class="fontSz12 marB8 font-Roman">'+v+'</p>').join('');
+    $('.popover .memberPopTc').append(`<div class="dashBorder">${insureTcStr}</div>`);
+  }
+  $.ajax({
+    url: paths.getVisitNum(),
+    type: 'post',
+    data: {
+      token: token,
+      type: 2
+    },
+    dataType: 'json',
+    headers: {'x-Device': 'PC'}
+  })
+    .done(function(data) {})
+    .fail(function() {});
+});
+$(document).on('shown.bs.popover', '.goldbackPop', function(event) {
+  let button = $(event.target);
+  let type = button.data('type');
+  let index = button.data('index');
+  var token = delegate.token;
+  let model = flightObj;
+
+  var fee = model.fee.fees[index].exFee ? model.fee.fees[index].exFee[0] : model.fee.fees[index];
+  var cba = Math.round(fee.cba / model.fee.pCount);
+  var payPrice = Math.round((fee.bfp + fee.gst) / model.fee.pCount);
+
+  $('.popover .originPr').text(payPrice.toThree());
+  if (type == 4) {
+    $('.popover .noFee').html('4. FREE MODIFICATION - You are allowed to make changes in your flight once.');
+  }
+  if(fee.show){
+    let insureTcStr = fee.tc;
+    insureTcStr = insureTcStr.split('<br>').map(v => '<p class="fontSz12 marB8 font-Roman">'+v+'</p>').join('');
+    $('.popover .popGoldTc').append(`<div class="dashBorder">${insureTcStr}</div>`);
+  }
+
+  $('.popover .cashbackPr').text(cba.toThree());
+  // $(".popover .leftPr").text(model.pr.toThree());
+  $.ajax({
+    url: paths.getVisitNum(),
+    type: 'post',
+    data: {
+      token: token,
+      type: index+1
+    },
+    dataType: 'json',
+    headers: { 'x-Device': 'PC' }
+  })
+    .done(function(data) {})
+    .fail(function() {});
+});
+$(document).on('shown.bs.popover', '.insTc', function(event) {
+  let button = $(event.target);
+  let token = delegate.token;
+  let model = flightObj;
+
+  let insureTcStr = model.fee.fees[0].exFee[0].tc;
+  insureTcStr = insureTcStr.split('<br>').map(v => '<p class="fontSz12 marB8 font-Roman">'+v+'</p>').join('');
+  $('.popover .insureTc').append(insureTcStr);
+  $.ajax({
+    url: paths.getVisitNum(),
+    type: 'post',
+    data: {
+      token: token,
+      type: 5
+    },
+    dataType: 'json',
+    headers: { 'x-Device': 'PC' }
+  })
+    .done(function(data) {})
+    .fail(function() {});
+});
+let visitNumOnoff = false;
+$('#flightOptions').on('mouseenter', '.flightItemA', function() {
+  var pops = $(this).children('.popoverInfo');
+  $('.popoverInfo').addClass('hide');
+  pops.removeClass('hide');
+  var token = delegate.token;
+  if (visitNumOnoff) {
+    $.ajax({
+      url: paths.getVisitNum(),
+      type: 'post',
+      data: {
+        token: token,
+        type: 1
+      },
+      dataType: 'json',
+      headers: {'x-Device': 'PC'}
+    })
+      .done(function(data) {})
+      .fail(function() {});
+  } else {
+    visitNumOnoff = true;
+  }
+});
+
+
+$('#flightOptions').on('mouseleave', '.flightItemA', function() {
+  var pops = $(this).children('.popoverInfo');
+  pops.addClass('hide');
+});
+
+$('#flightOptions').on('mouseenter', '.bookWrap .btn_type2', function() {
+  if(!$(this).hasClass('disable')) return false; 
+  var pops = $(this).siblings('.sliverNoEnough');
+  $('.sliverNoEnough').addClass('hide');
+  pops.removeClass('hide');
+});
+$('#flightOptions').on('mouseleave', '.bookWrap', function() {
+  var pops = $(this).children('.sliverNoEnough');
+  pops.addClass('hide');
+});
+$(document).on('click', function(e) {
+  e.stopPropagation();
+  $('.flightItemA .popoverInfo').addClass('hide');
+});

@@ -1,0 +1,36 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+body{
+  background-color:@gray-lighter;
+}
+.content{
+  background-color:#fff;
+  padding:16px 20px;
+  h2.title{
+    font-weight: bold;
+    color:@brand-primary;
+  }
+  section{
+    padding: 10px 30px;
+    h3{
+      font-weight: bold;
+      line-height: 14px;
+      cursor: pointer;
+      &:before{
+        content:' ';
+        float:left;
+        width:3px;
+        height:12px;
+        margin-right: 4px;
+        background-color: @brand-warning;
+      }
+    }
+    .collapse{
+      border-bottom: 1px dashed @gray-light;
+    }
+  }
+  p{
+    color:@gray-dark;
+    line-height: 20px;
+    margin: 10px 4px;
+  }
+}

@@ -1,0 +1,56 @@
+require('cp');
+const utils = require('utils'); 
+const queryObj = utils.parseQueryStr();
+const paths = utils.path;
+const IS_PROD = (process.env.NODE_ENV === 'production' && !IS_UAT) ? 'PROD' :'TEST';
+
+if(queryObj.paytype == 3){
+  var url = paths.paymentO();
+  var sendParams = {id: queryObj.id};
+}else{
+  var url = paths.paymentOldUrl();
+  var sendParams = {orderId: queryObj.orderId};
+}
+$.ajax({
+  url: url,
+  data: JSON.stringify(sendParams),
+  type: 'POST',
+  contentType: 'application/json',
+  dataType: 'json',
+}).done(function(result) {
+  if (result.code === 1) {
+    $.getScript('https://www.cashfree.com/assets/cashfree.sdk.v1.1.js', function() {
+      (function(data) {
+        var callback = function(event) {
+          var eventName = event.name;
+          switch (eventName) {
+            case 'PAYMENT_REQUEST':
+              console.log(event.message);
+              break;
+            default:
+              console.log(event.message);
+          }
+        };
+        var config = {};
+        config.layout = {
+ view: 'popup', width: '650' 
+};
+        config.mode = IS_PROD; //use PROD when you go live
+        var response = CashFree.init(config);
+        if (response.status == 'OK') {
+          CashFree.makePayment(data, callback);
+        } else {
+          //handle error
+          console.log(response.message);
+        }
+      })(result.msg);
+    });
+  } else if(result.code === 0) {
+    // $(_this).removeClass('progress-dynamic');
+    location.href = paths.returnUrl(postData.orderId);
+  } else if(result.code === 2){
+    
+  } 
+}).fail(function(error) {
+
+});

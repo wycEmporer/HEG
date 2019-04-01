@@ -1,0 +1,11 @@
+const config = require('configModule');
+const content = require('./content.ejs'); 
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let pageTitle = 'Flight Booking Offers | Spring Air Ticket Sale 2018';
+let metaDescription = 'HappyEasyGo allows you to plan your travel in the most convenient way. It offers the best deals on Flight Bookings through coupons. Offer valid till April 2018.';
+let metaKeywords = 'Spring Travel Offer, Flight Booking Offers, Air Ticket Sale, HappyEasyGo App Offers, HappyEasyGo Flight, Spring flight Booking Sale, Spring offers on Flight';
+module.exports = layout.init({
+  pageTitle, metaKeywords, metaDescription 
+}).run(content(dirsConfig));
+

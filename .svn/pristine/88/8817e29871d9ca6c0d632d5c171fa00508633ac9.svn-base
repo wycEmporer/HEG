@@ -1,0 +1,73 @@
+<div class="selector" style="height:80px;z-index:1">
+  <div class="selector-container" style="width:1200px; margin:0 auto">
+    <div class="form-group cityname"> 
+      <label for="cityname">City, Hotel</label>
+      <input type="text" id="cityname" autocomplete="off">
+      <span class='icon-loading'></span>
+      <div class="search-result">
+        <h2>SEARCH RESULTS</h2>
+        <div class="result-items">
+        </div>
+      </div> 
+    </div>
+    <div class="form-group check-in">
+    <label for="check-in">Check-In</label>
+      <input type="text" id="check-in" readonly>
+      <!--<i class="icon-date"></i>-->
+    </div>
+    <div class="form-group check-out">
+    <label for="check-out">Check-Out</label>
+      <input type="text" id="check-out" readonly>
+      <!--<i class="icon-date"></i>-->
+    </div>
+    <div class="form-group rooms-guest">
+     <label for="room-guest">Rooms/guests</label>
+      <input type="text" id="room-guest" value="1 Room,2 Guests" readonly>
+      <i class="icon-down"></i>
+      <i class="icon-down"></i>
+      <div class="search-result">
+        <div class="search-result-container">
+          <div class="s-r-item" data-index="0">
+            <div class="room-result result-item">
+              <span>Rooms 1</span>
+              <div class="r-info">
+                <span>2 Adults 0 Children</span>
+                <span class="edit">edit</span>
+              </div>
+            </div>
+            <div class="guests-result">
+              <div class="adult-result result-item">
+                <span>Adults （+12 yrs）</span>
+                <div class="clearfix result-info">
+                  <em></em>
+                  <b>2</b>
+                  <i class="add" data-index="1"></i>
+                  <i class="minus" data-index="1"></i>
+                </div>
+              </div>
+              <div class="child-result result-item">
+                <span>Children （1-12 yrs）</span>
+                <div class="clearfix result-info">
+                  <em></em>
+                  <b>0</b>
+                  <i class="add" data-index="2"></i>
+                  <i class="minus minus-disabled" data-index="2"></i>
+                </div>
+              </div>
+              <ul class="child-age">
+              </ul>
+            </div> 
+          </div>
+
+        </div>
+        <div class="room-operate">
+          <button class="add-room">ADD ROOM</button>
+          <span class="done">Done</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group get-set-go">
+      <button class="go GAEV" ga-category="searchBar" ga-action="click" ga-label="searchHotel" style="margin-top:20px">Search</button>
+    </div>
+  </div>
+</div>

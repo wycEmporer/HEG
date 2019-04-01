@@ -1,0 +1,116 @@
+
+@themeColor: #2ca5ea;
+.body{
+	background: #f5f5f5;
+}
+.content{
+	.container{
+		.wrap{
+			width: 900px;
+			margin: 20px auto;
+			.title{
+				width: 100%;
+				height: 50px;
+				padding: 0px 20px;
+				border: 1px solid #ccc;
+				line-height: 50px;
+				background: #e1f1ee;
+				color: #0b9d78;
+				font-size: 18px;
+			}
+			.table-head{
+				width: 100%;
+				height: 40px;
+				border: 1px solid #ccc;
+				border-top: none;
+				font-size: 18px;
+				span{ 
+					display: inline-block;
+					height: 100%;
+					text-align: center;
+					line-height: 40px;
+					&:nth-child(1){
+						width: 234px;
+						border-right: 1px solid #ccc;
+					}
+					&:nth-child(2){
+						width: 659px;
+
+					}
+				}
+			}
+			.rank-table{
+				text-align: center;
+				font-size: 18px;
+				table{
+					tbody{
+						tr{
+							background: #f9fbfb;
+							td{
+								height: 100px;
+								vertical-align: middle;
+								&:nth-child(1){
+									width: 234px;
+								}
+								&:nth-child(2){
+									width: 145px;
+									padding-left: 43px;
+									text-align: left;
+									p{
+										line-height: 15px;
+										position: relative;
+										&::after{
+											content: '';
+											width: 3px;
+											height: 100%;
+											background: red;
+											position: absolute;
+											left: -10px;
+											top: 0;
+										}
+										&:nth-child(1){
+											margin-bottom: 18px;
+										}
+									}
+								}
+								&:nth-child(3){
+									div{
+										width: 100%;
+										height: 37px;
+										vertical-align: bottom;
+										i{
+											display: inline-block;
+											&:nth-child(1){
+												width: 22px;
+												height: 28px;
+												margin-right: 15px;
+												background: url('./images/Goldmedal.png') no-repeat;
+											}
+											&:nth-child(2){
+												width: 25px;
+												height: 25px;
+												border-radius: 50%;
+												background: url(./images/header.png) no-repeat;
+												background-size: 100%;
+												margin-right: 10px;
+											}
+										}
+										.userInfo{
+											display: inline-block;
+											width: 300px;
+											height: 37px;
+											line-height: 45px;
+											border-bottom:1px solid #ccc; 
+											text-align: left;
+											padding:0px  20px 0px 10px;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

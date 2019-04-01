@@ -1,0 +1,307 @@
+<div class="content">
+	<div class='head'>
+		<div class="add-search" style="padding:10px 0;">
+			<form id="searchForm" onsubmit="return false;">
+				<nav class="L-tripType clearfix">
+					<ul>
+					<li class="item oneway" >
+						<label for="oneway">
+						<input type="radio" name="tripType" id="oneway" value="0" class="trip-type" checked="checked">
+						<strong class="font-Roman">One way</strong>
+						</label>
+					</li>
+					<li class="item roundtrip">
+						<label for="Roundtrip">
+						<input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+						<strong class="font-Roman">Round trip</strong>
+						</label>
+					</li>
+					</ul>
+				</nav>
+				<div class="LS-trip">
+					<div class="section1 clearfix">
+						<div class="d-city fore form-group">
+							<span class="checkError hidden">You missed this</span>
+							<input type="text" id="D_city" value="New Delhi" class="form-control" autocomplete="off" placeholder="New Delhi">
+							<input type="hidden" id="From" name="from" value="DEL" data-country="IN">
+							<p class="img-icon takeOff"></p>
+						</div>
+						<div class="a-city fore form-group">
+							<span class="checkError hidden">You missed this</span>
+							<input type="text" id="A_city" value="New Delhi" class="form-control" autocomplete="off" placeholder="New Delhi">
+							<input type="hidden" id="To" name="to" value="BOM" data-country="IN">
+							<p class="img-icon landing"></p>
+						</div>
+					</div>
+					<div class="section2 clearfix">
+						<div class="d-date fore form-group">
+							<input type="text" readonly="readonly" id="D_date" class="form-control time-input" placeholder="Choose Date" autocomplete='off'>
+							<input type="hidden" id="departDate" name="departDate" value="">
+							<a class="icon datepick"></a>
+							<span class="checkError hidden">You missed this</span>
+							<p class="img-icon calendar"></p>
+						</div>
+						<div class="r-date fore form-group ">
+							<input type="text" readonly="readonly" id="R_date" class="form-control time-input"  placeholder="" autocomplete='off'>
+							<input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+							<a class="icon datepick"></a>
+							<p class="checkError hidden">You missed this</p>
+							<p class="img-icon calendar"></p>
+						</div>
+					</div>
+					<div class="section3 clearfix">
+						<div class="item selectItem form-group">
+							<a href="javascript:void(0)" class="trallerpop" id="p-popover">
+								<span id="pCount">1</span>&nbsp;<span id="pIcon">|</span>&nbsp;<span id="pType">Ecnomic</span>
+								<div class="img-icon arrows">
+									<p></p>
+								</div>
+							</a>
+							<div class="SelectWrap  bottom popover">
+								<div class="arrow" style="left: 10%;"></div>
+								<div class="headTop">
+									<a href="javascript:void(0)" style="position: absolute;top:4px; right:10px;z-index:2;" class="close">&times;</a>
+								</div>
+								<div class="clearfix">
+									<div class="A-passenger fore">
+										<p>Adults</p>
+										<span class="img-type A-type"></span>
+										<input id="A_passenger" type="text" value="1" name="adults" alt="a" class="passenger" autocomplete='off'>
+										<div class="minus-plus">
+											<span class="minus-img"></span>
+											<span class="plus-img"></span>
+										</div>
+									</div>
+									<div class="C-passenger fore">
+											<p>Children</p>
+											<span class="img-type C-type"></span>
+											<input id="C_passenger" type="tel" value="0" name="childs" alt="c" class="passenger" autocomplete='off'>
+											<div class="minus-plus">
+												<span class="minus-img"></span>
+												<span class="plus-img"></span>
+											</div>
+									</div>
+									<div class="I-passenger fore">
+											<p>Infants</p>
+											<span class="img-type I-type"></span>
+											<input id="I_passenger" type="tel" value="0" name="baby" alt="i" class="passenger" autocomplete='off'>
+											<div class="minus-plus">
+												<span class="minus-img"></span>
+												<span class="plus-img"></span>
+											</div> 
+									</div>
+									<div class="S-seat">
+											<div class="s-seatType">
+													<label for="economy">
+														<input type="radio" name="cabinClass" id="economy" value="Economy" checked="checked" class="seat-type">
+														<strong class="font-Roman">Economy</strong>
+													</label> 
+													<label for="business">
+														<input type="radio" name="cabinClass" id="business" value="Business" class="seat-type">
+														<strong class="font-Roman">Business</strong>
+													</label> 
+													<label for="first">
+														<input type="radio" name="cabinClass" id="first" value="First" class="seat-type">
+														<strong class="font-Roman">First</strong>
+													</label> 
+													<label for="prenium" class="prenium">
+														<input type="radio" name="cabinClass" id="prenium" value="Prenium Economy" class="seat-type">
+														<strong class="font-Roman">Prenium Economy</strong>
+													</label> 
+											</div>
+											<!-- <div class="s-seatRegular">
+												<p>Children 5 to 14 years old on a separate flight must be reserved for their "unaccompanied minors".</p>
+											</div> -->
+									</div>
+									<div class="B-confirm" style="margin-top: 20px;">
+										<input id="confirm" type="button" value="Confirm" name="button" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="section4" >
+						<button class="btn font-Roman GAEV"  ga-category="AutumnSale" ga-action="click" ga-label="searchBtn" id="search_flights" style="margin-top: 6px;">Search flights</button>
+					</div>
+					<input type="hidden" name="airline">
+					<input type="hidden" name="carrier">
+				</div>
+			</form>
+		</div>
+		<div class="banner" id="banner">	
+		</div>
+		<div class='Countdown'>
+			<div class='Countdown_time'>
+				<p class='in'>Campaign is live !</p>
+				<p class='end hidden'>Campaign Ends : <span> <i id='RemainD1_1'></i>d: <i id='RemainH1_1'></i>h: <i id='RemainM1_1'></i>m: <i id='RemainS1_1'></i>s</span></p>
+				<p class='time'>Sept 13th, 00:00:00 -- Sept 30th, 23:59:59</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wrap">
+		<div class="container">
+			<div class='sale app_sale'>
+				<div class='sale_left pull-left'>
+					<img src="<%= require('./images/phone.png') %>" alt="">
+					<p>Discount on App</p>
+					<div class='clearfix' style='padding:0 10px;'>
+						<div class='pull-left'>
+							<a href="https://app.adjust.com/2x7p5g" target="_blank" class="GAEV"  ga-category="AutumnSale" ga-action="click" ga-label="DownloadButton">
+								<img src="<%= require('./images/googleplay.png') %>" style='margin-bottom:10px;' alt="">
+							</a>
+							<br>
+							<a href="https://itunes.apple.com/app/id1390426818?mt=8" class="GAEV" target="_blank" ga-category="AutumnSale" ga-action="click" ga-label="DownloadButton">
+								<img src="<%= require('./images/appstore.png') %>" alt="">
+							</a>
+						</div>
+						<div class="pull-right code">
+							<img src="<%= require('./images/PC_Autumn_Deeplink.png')%>" alt="">
+						</div>
+					</div>
+					<p>Download our mobile App</p>
+				</div>
+				<div class='sale_right pull-right'>
+					<ul class='clearfix'>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.300</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGSEP1</span>
+								<span class='copyIcon GAEV'  ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>< 5,000</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.350</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGSEP2</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>5,000-6,999</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.550</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGSEP3</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>7,000-9,999</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.800</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGSEP4</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>10K +</span></p>
+						</li>
+					</ul>
+					<p class='bottom_title'>—— ON DOMESTIC & INTERNATIONAL FLIGHTS ——</p>
+					<div class='TipsMsg'>
+						Successfully copied use code to the clipboard
+				  </div>
+				</div>
+			</div>
+			
+			<div class='sale app_sale'>
+				<div class='sale_left pull-left'>
+					<img src="<%= require('./images/pc.png') %>" alt="">
+					<p>Discount on PC & Mobile Site</p>
+					<div class='clearfix' style='margin-top:20px;'>
+						<a href="/static/tpl/loginTpl.html" style='width:160px;' data-toggle="modal" data-target="#login_modal" class='btn btn-warning GAEV' ga-category="AutumnSale" ga-action="click" ga-label="SignIn">Sign In</a>
+					</div>
+					<p>Have no account? <a href="/static/tpl/register.html" data-toggle="modal" style='color:#0b9d78' data-target="#register_modal"  class="GAEV" ga-category="AutumnSale" ga-action="click" ga-label="SignUp">Sign Up</a></p>
+				</div>
+				<div class='sale_right pull-right'>
+					<ul class='clearfix'>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.250</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGAUT1</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>< 5,000</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.300</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGAUT2</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>5,000-6,999</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.500</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGAUT3</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>7,000-9,999</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.700</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGAUT4</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>10K +</span></p>
+						</li>
+					</ul>
+					<p class='bottom_title'>—— ON DOMESTIC & INTERNATIONAL FLIGHTS ——</p>
+					<div class='TipsMsg'>
+						Successfully copied use code to the clipboard
+				  </div>
+				</div>
+			</div>
+			<div class='slide_box'>
+				<div class='title clearfix'>
+					<img class='pull-left' src="<%= require('./images/yao.png')%>" alt="">
+					<span class='pull-left fontB' style="font-style:italic">Shake & Win</span>
+				</div>
+				<p class='p_1'><span>SHAKE</span> your phone to win <span>AMAZING PRIZES!</span></p>
+				<div id="" class="zy-Slide">
+					<ul class="vmcarousel-centered-infitine vmc-centered">
+						<li><img src="<%= require('./images/1.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/2.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/3.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/4.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/5.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/6.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/7.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/8.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/9.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/10.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/11.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/12.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/13.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/14.png')%>" alt="" width="200"></li>
+					</ul>
+				</div>
+				<div class='btn_box'>
+					<a href="/shake" class='btn btn-warning GAEV' ga-category="AutumnSale" ga-action="click" ga-label="GoForDetail">Go for Details</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+

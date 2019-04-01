@@ -1,0 +1,64 @@
+
+<div class="content">
+	<div class="container">
+		<div class="wrap">
+			<div class="title font-Bold">History of winners</div>
+			<div class="table-head">
+				<span>Data</span>
+				<span>winners</span>
+			</div>
+			<div class='rank-table' id='historyTable'>
+				
+			</div>
+			<div id="paginationContral" class='pagination-contral pull-right'></div>
+    </div>
+	</div>
+</div>
+
+<script id="historyTableTpl" type="text/template">
+  <table class="table table-bordered">
+			<tbody>
+				{{_.each(myModel, function(val, key){}}
+				<tr>
+					<td>{{=val.rankingDate}}</td>
+					<td>
+						<p>Register</p>
+						<p>Orders</p>
+					</td>
+					<td>
+						<div>
+							<i class-'icon_1'></i>
+							<i class-'icon_2'></i>
+							<div class='userInfo'>
+									{{if(val.historyList[0] == 'undefined' ){}}
+									<span></span>
+									<span class='pull-right'></span>
+									{{ }else{ }}
+									<span>{{= val.historyList[0].userName }}</span>
+									<span class='pull-right'>{{= val.historyList[0].quantity }}</span>
+									{{ } }}
+							</div> 
+						</div>
+						<div>
+							<i class-'icon_1'></i>
+							<i class-'icon_2'></i>
+							<div class='userInfo'>
+								{{if(val.historyList[1] == undefined ){}}
+								<span></span>
+								<span class='pull-right'></span>
+								{{ }else{ }}
+								<span>{{= val.historyList[1].userName }}</span>
+								<span class='pull-right'>{{= val.historyList[1].quantity }}</span>
+								{{ } }}
+							</div>
+						</div>
+					</td>
+				</tr>
+				{{ }) }}
+			</tbody>
+		</table>
+</script>
+
+
+
+ 

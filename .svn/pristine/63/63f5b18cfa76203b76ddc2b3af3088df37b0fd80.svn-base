@@ -1,0 +1,103 @@
+const cookieUtil = require('cp').cookieUtil;
+require('lessDir/base.less');
+require('./content.less');
+require('./cityLaye/cityLayer.js');
+import { ENGINE_METHOD_ALL } from 'constants';
+import '../_common/hotel_search';
+
+require('./loopbanner/index');
+
+var utils = require('utils');
+var paths = utils.path;
+const isLogin = cookieUtil.getCookie('uuid') == null ? false : true;
+
+if (utils.parseQueryStr().referer) {
+  cookieUtil.setCookie('referer', utils.parseQueryStr().referer);
+}
+
+// get coupon Info
+$(() =>{
+  function renderView(viewElement, viewHtml, model) {
+    var renderTemp = _.template(viewHtml);
+    viewElement.html(renderTemp(model));
+  }
+  getaddOfferInfo();
+  function getaddOfferInfo(){
+    $.ajax({
+      url: paths.getPromotionInfo() + 'type=24&device=1',
+      cache: true,
+      dataType: 'json',
+      type: 'GET',
+    }).done(res => {
+      if (res.success) {
+        getCouponInfo(res.list);      
+      }
+    }).fail(res => {
+      
+    });
+  }
+
+  function getCouponInfo(list){
+    $.ajax({
+      url: paths.getCouponInfo(),
+      type: 'post',
+      data: JSON.stringify({
+        'device':1, 
+        'page':1, 
+        'pageSize':4
+      }),
+      dataType: 'json',
+      headers: {
+        'x-Device': 'PC',
+        'Content-Type':'application/json'
+      },
+    }).done(function (res) {
+      if(res.success){
+        var model = {};
+        model.data  = res.data;
+        model.data.forEach(function(v, i){
+          v.couponValidity = Math.ceil((new Date(v.endDate) - new Date())/1000/60/60/24 + 1 );
+        });
+        model.list =list;
+        renderView($('#couponCard'), $('#couponCardTpl').html(), {'myModel': model });
+      }
+    }).fail(function (err) {
+      console.log(err);
+    });
+  }
+
+  $(document).on('click', '.copyIcon', function(){
+    var val =$($(this).siblings('.code')[0]).children('.couponCode')[0];
+    window.getSelection().selectAllChildren(val);
+    document.execCommand('Copy' );
+    const TipsMsg = $(this).siblings('.TipsMsg')[0];
+    $ (TipsMsg).fadeIn(500).delay(2000).fadeOut(1000);
+  });
+  $(document).on('click', '.goCouponDetail', function(){
+    var type = $(this).parents('li').data('type');
+    if(type == 2) {
+      sessionStorage.setItem('itemRole', 'hotel');
+    }
+  });
+
+
+  });
+//set time and city
+$(() => {
+  
+    function callback(url) {
+      window.location.href = url;
+    }
+    
+    // detailedInfo 
+    $('.panel-heading').on('click', function () {
+      $(this).children('i').toggleClass('onOffactive');
+    });
+
+    $('#moreOffers').on('click', function(e){
+      $('.offerItem').toggleClass('offerItemActive');
+      $('.Instructions i').toggleClass('directionActive');
+    });
+  
+});
+

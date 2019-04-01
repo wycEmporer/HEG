@@ -1,0 +1,327 @@
+<div class="container">
+  <div class="ct-box">
+    <div class="header">
+      <h2 class="fontSz24 marT10 marB8">
+        Happy Easy Go
+      </h2>
+      <h5 class="fontSz14 marB8">
+        order Id: <span id="showOrderId"></span>
+      </h5>
+      <h4 class="fontSz16" id="showAmount">
+        Amount:INR ...
+      </h4>
+    </div>
+
+    <div class="cont">
+      <h5 class="marB8 fontSz14">
+        Choose your payment mode
+      </h5>
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Credit card
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+              <div class="credit-form">
+                <div class="cf-box">
+                  <form autocomplete="off">
+                    <div class="c_group">
+                      <div>
+                        <input type="text" class="c_num form-control" maxlength="20" placeholder="Enter card number">
+                      </div>
+                      <div class="checkError hidden">Please enter a valid card number</div>
+                    </div>
+                    <div class="c_group">
+                      <div>
+                        <input type="text" class="c_holder form-control" placeholder="Enter card holder's name">
+                      </div>
+                      <div class="checkError hidden">Please enter a valid name</div>
+                    </div>
+                    <div class="row">
+                      <div class="mm-3 c_group">
+                        <div>
+                          <select name="" class="c_month form-control">
+                            <option value="">MM</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                          </select>
+                        </div>
+                        <div class="checkError hidden">You miss this</div>
+                      </div>
+                      <div class="mm-3 c_group">
+                        <div>
+                          <select class="c_year form-control">
+                            <option value="">YYYY</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                            <option value="2035">2035</option>
+                            <option value="2036">2036</option>
+                            <option value="2037">2037</option>
+                            <option value="2038">2038</option>
+                            <option value="2039">2039</option>
+                            <option value="2040">2040</option>
+                            
+                          </select>
+                        </div>
+                        <div class="checkError hidden">You miss this</div>
+                      </div>
+                      <div class="mm-3 c_group">
+                        <div>
+                          <input type="text" class="c_cvv form-control" maxlength="20" placeholder="CVV">
+                        </div>
+                        <div class="checkError hidden">You miss this</div>
+                      </div>
+                    </div>
+                    <div class="c_group">
+                      <button type="button" class="btn btn-warning creditPay fontSz16" index="1" style="width:100%;">Pay</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                aria-controls="collapseTwo">
+                Debit card
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+              <div>
+                <div>
+                  <form autocomplete="off">
+                    <div class="c_group">
+                      <div>
+                        <input type="text" class="c_num form-control" maxlength="20" placeholder="Enter card number">
+                      </div>
+                      <div class="checkError hidden">Please enter a valid card number</div>
+                    </div>
+                    <div class="c_group">
+                      <div>
+                        <input type="text" class="c_holder form-control" placeholder="Enter card holder's name">
+                      </div>
+                      <div class="checkError hidden">Please enter a valid name</div>
+                    </div>
+                    <div class="row">
+                      <div class="mm-3 c_group">
+                        <div>
+                          <select name="" class="c_month form-control">
+                            <option value="">MM</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                          </select>
+                        </div>
+                        <div class="checkError hidden">You miss this</div>
+                      </div>
+                      <div class="mm-3 c_group">
+                        <div>
+                          <select class="c_year form-control">
+                            <option value="">YYYY</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                            <option value="2035">2035</option>
+                            <option value="2036">2036</option>
+                            <option value="2037">2037</option>
+                            <option value="2038">2038</option>
+                            <option value="2039">2039</option>
+                            <option value="2040">2040</option>
+                          </select>
+                        </div>
+                        <div class="checkError hidden">You miss this</div>
+                      </div>
+                      <div class="mm-3 c_group">
+                        <div>
+                          <input type="text" class="c_cvv form-control" maxlength="20" placeholder="CVV">
+                        </div>
+                        <div class="checkError hidden">You miss this</div>
+                      </div>
+                    </div>
+                    <div class="c_group">
+                      <button type="button" class="btn btn-warning creditPay fontSz16" index="2" style="width:100%;">Pay</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false"
+                aria-controls="collapseThree">
+                Net banking
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+              <div>
+                <div>
+                  <form id="bankType">
+                    <div class="bankList c_group">
+                      <div class="checkError hidden" style="margin:0 0 8px;">
+                        Please choose a bank
+                      </div>
+                      <ul class="row">
+                      </ul>
+                    </div>
+                    <div class="otherList c_group">
+                      <div>
+                        <select class="form-control">
+                        </select>
+                      </div>
+                    </div>
+                    <div class="c_group">
+                      <button type="button" class="btn btn-warning creditPay fontSz16" index="3" style="width:100%;">Pay</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false"
+                aria-controls="collapseFour">
+                Mobile Wallet
+              </a>
+            </h4>
+          </div>
+          <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+            <div class="panel-body">
+              <div class="credit-form">
+                <div class="cf-box">
+                  <form id="walletType">
+                    <div class="bankList c_group">
+                      <div class="checkError hidden" style="margin:0 0 8px;">
+                        Please choose a mode
+                      </div>
+                      <ul class="row">
+                      </ul>
+                    </div>
+                    <div class="c_group">
+                      <button type="button" class="btn btn-warning creditPay fontSz16" index="4" style="width:100%;">Pay</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingFive">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false"
+                aria-controls="collapseFive">
+                UPI
+              </a>
+            </h4>
+          </div>
+          <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+            <div class="panel-body">
+              <div class="">
+                <div class="upi">
+                  <form id="upiType">
+                    <div class="c_group">
+                      <p class="padB10">Enter your Virtual Payment Address (
+                      <span class="fontB">VPA</span>)</p>
+                      <input type="text" class="form-control" placeholder="Ex: username@upi">
+                      <div class="checkError hidden">
+                        Please enter a valid VPA
+                      </div>
+                    </div>
+                    
+                    <div class="c_group">
+                      <button type="button" class="btn btn-warning creditPay fontSz16" index="6" style="width:100%;">Pay</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading" role="tab" id="headingSix">
+            <h4 class="panel-title">
+              <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false"
+                aria-controls="collapseSix">
+                Paypal
+              </a>
+            </h4>
+          </div>
+          <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
+            <div class="panel-body">
+              <div class="padT10 padB10 marT10 marB20"></div>
+              <div class="c_group">
+                <button type="button" class="btn  creditPay btn-warning fontSz16" index="7" style="width:100%;">Pay</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

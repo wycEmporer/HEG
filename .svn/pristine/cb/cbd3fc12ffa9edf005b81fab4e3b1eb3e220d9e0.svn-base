@@ -1,0 +1,12 @@
+const config = require('configModule');
+const content = require('./content.ejs'); 
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let metaKeywords = 'Invite your friends, Happyeasygo Referal Program, Invite and Earn, Earn with your friends';
+let metaDescription = 'Invite your friends to sign up and earns INR 2000. And you earn INR 500 by their first registration with Happyeasygo!';
+
+module.exports = layout.init({
+  pageTitle: ' Connect with friends on Happyeasygo | Refer &amp; Earn',
+  metaDescription,
+  metaKeywords,
+}).run(content(dirsConfig));

@@ -1,0 +1,453 @@
+
+<div class="content">
+	<div class="container">
+		<div class="wrap">
+			<div class="anniverBox">
+				<div class='ann_left pull-left'>
+					<div class='anniver'>
+						<div class="num_box">
+							<div class="num"></div>
+							<div class="num"></div>
+							<div class="num"></div>
+						</div>
+					</div>
+					<div class='Handle up'></div>
+					<div id='lotteryNum' class='lotteryNum'>
+					
+					</div>
+					<a href="##" class='startBtn GAEV' id='lotterBtn' ga-category="anniversary" ga-action="click" ga-label="start"></a>
+				</div>
+				<div class='ann_right pull-right'>
+					<div class='Prize' id='Prize'>
+					
+					</div>
+			
+				</div>
+			</div>
+			<div class='anniverDetails'>
+         <p class='details font-Bold'>Terms&Conditions</p>
+         <p class='title font-Bold'>HappyEasyGo 1st Anniversary Celebration had ended.</p>
+				 <p class='title font-Bold'>You can take part in the lottery and stand a chance to win amazing prizes.</p>
+				 <p class='infoItem font-Bold'>We are giving away several awesome free gifts and here’s what you can win:</p>
+				 <ul class='prizeUl'>
+				 		<li>Samsung Galaxy S8</li>
+				 		<li>Free flight tickets</li>
+				 		<li>₹500 discount voucher for flight bookings</li>
+				 		<li>Happy Silver Random Amount:₹1000(Max)~₹5(Min) </li>
+				 		<li>Zoomcar voucher worth ₹1000 </li>
+				 		<li>Treebo voucher for flat 33% off on your hotel booking</li>
+				 		<li>Myntra voucher worth ₹200 (Valid for select styles with a minimum order of ₹999)</li>
+				 		<li>Xoxoday voucher for 25% discount on all activities and experiences (Applicable on minimum bookings of ₹1000)</li>
+				 		<li>Netmeds voucher for 20% discount on all medicines and 20% Super Cash</li>
+				 		<li>Gaana Plus voucher for 70% discount on the Gaana APP.</li>
+					</ul>
+					<p class='infoItem font-Bold'>Don’t win a lottery in the first go? No worries. We give you another chance to win. You can earn it by:</p>
+					<ul class='what'>
+						<li>Signing in on the HappyEasyGo app or website (get one chance daily on signing in)</li>
+						<li>Downloading the HappyEasyGo app and signing up</li>
+						<li>Booking flight tickets during the anniversary celebration.</li>
+						<li>First synchronising your contacts under the referral program on the HEG app</li>
+						<li>Getting your friend to sign up on the HEG app using your referral code</li>
+						<li>Having a friend you referred book a flight ticket with us</li>
+					</ul>
+					<p class='infoItem font-Bold' id='roll_top'>Prizes T&C</p>
+					<ul class='prizeTC'>
+						<li>
+							<p>Samsung S8<i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>Please fill your information in the form, so that we can deliver the prize to you. </li>
+									<li>Please fill your address and contact info within 5 working days at the end of Anniversary Campaign, or we will regard you give it up. </li>
+									<li>After submission of this form, we will start to deliver it within 5 working days.</li>
+									<li>The image shown here is indicative only. The actual product may differ.</li>
+								</ul>
+							</div>
+							
+						</li>
+						<li>
+							<p>Free Air Tickets Coupons<i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>Regarding free flight ticket reward, convenience fee and tax cannot be deducted. Winner needs to pay convenience fee and tax and apply a customized coupon code to get it.  </li>
+									<li>This free flight tickets coupon code is valid for flight tickets valued no more than Rs.5000 on HappyEasygo App only, from 1st August to 30th September. </li>
+									<li>It can be used once for one winner.</li>
+								</ul>
+							</div>
+							
+						</li>
+						<li>
+							<p>HappyEasyGo Coupons <i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>You can check this customized Rs.500 coupon in My Coupons’ page.  </li>
+									<li>It will be valid from 1st Aug to 30th Sept.  </li>
+								</ul>
+							</div>
+							
+						</li>
+						<li>
+							<p>Happy Silver<i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>You can check HappySilver in My wallet’ page.</li>
+								</ul>
+							</div>
+							
+						</li>
+						<li>
+							<p>ZOOMCAR Coupons<i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>You can redeem ZoomCar coupon discount at its official website: 
+										<ol>
+											<li><a href="https://goo.gl/f4Eyyo" target='_blank'>https://goo.gl/f4Eyyo</a> </li>
+											<li>Maximum discount of Rs 1000 or 20% whichever is lower.</li>
+										</ol>
+									</li>
+									<li>validity till 30th Sep 2018.</li>
+									<li>A fully refundable security deposit will be charged at time of booking</li>
+									<li>Only valid on bookings made through Zoomcar website and iOS/Android app.</li>
+									<li>Discount applicable only on original reservation charges (not applicable on excess Km, late return fee, or other fees/charges) </li>
+									<li>Offer not applicable on blackout days. </li>
+								</ul>
+							</div>
+							
+						</li>
+						<li>
+							<p>TREEBO Coupons<i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>You can redeem Treebo coupon discount at its official website: <a href="https://goo.gl/o5CyPi" target='_blank'>https://goo.gl/o5CyPi.</a>  </li>
+									<li>No minimum booking amount to qualify for discount. </li>
+									<li>No maximum limit on discount.</li>
+									<li>Offer is valid for bookings made till 31st October 2018 for stay dates till 31st October 2018.</li>
+									<li>Code redeemable only on <a href="https://goo.gl/o5CyPi">https://goo.gl/o5CyPi</a> </li>
+									<li>Cancellation charges will be applicable as per the Treebo policy.</a> </li>
+									<li>This offer cannot be combined with any other offer currently applicable on Treebo website & Android app.</li>
+									<li>All bookings are subject to availability.</li>
+									<li>Treebo reserves the right to discontinue the offer without any prior notice.</li>
+									<li>All Treebo Hotel policies apply.</li>
+								</ul>
+							</div>
+							
+						</li>
+						<li>
+							<p>MYNTRA Coupons<i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>You can redeemMyntra coupon discount at its official website: <a href="https://goo.gl/t1ci1T" target='_blank'>https://goo.gl/t1ci1T</a>  </li>
+									<li>Get Rs 200 off on the Myntra app or website on spends of INR 999 or more valid till 31st Aug 2018</li>
+									<li>Valid only on a selected catalogue for HEG customers – <a href="https://www.myntra.com/eors18-special-offers?utm_source=heg&utm_medium=heg" target='_blank'>https://www.myntra.com/eors18-special-offers?utm_source=heg&utm_medium=heg</a></li>
+									<li>The code can be used only once per Customer</li>
+									<li>This offer is not valid at any of the alliance partner retail outlets/stores </li>
+									<li>Multiple coupons cannot be clubbed in a single order </li>
+									<li>The balance amount, after the discount is availed, will have to be paid by the customer at the time of purchase</li>
+									<li>In no case, whatsoever, can the discount amount be refunded, encashed or partly encashed Myntra's Return and Exchange Policy offers you the
+									option to return or exchange items purchased on Myntra's application within 30 days of the receipt. In case of return of the purchased item,
+										please refer to the “Return Policy” on the website/ app or call Myntra Customer Care</li>
+								</ul>
+							</div>
+							
+						</li>
+						<li>
+							<p>XOXODAY Coupons<i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>You can redeem XOXODay coupon discount at its official website: <a href="https://goo.gl/CxGPQh" target='_blank'>https://goo.gl/CxGPQh</a></li>
+									<li>Offer valid till 30th Sep 2018.</li>
+									<li>Get 25% off on all the activities listed on Xoxoday.</li>
+									<li>The maximum discount amount is Rs.1000</li>
+									<li>Offer can be used once per customer.Offer cannot be clubbed with any other offers and is not transferable.</li>
+									<li>All other T&C shall be applicable as mentioned on the merchant website.</li>
+									<li>No cash component can be given as a refund.</li>
+									<li>Offer cannot be clubbed with any other offers and is not transferable.</li>
+									<li>All other T&C shall be applicable as mentioned on the merchant website.</li>
+									<li>No cash component can be given as a refund.</li>
+								</ul>
+							</div>
+							
+						</li>
+						<li>
+							<p>NETMEDS Coupons <i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<p>You can redeem NETMED coupon discount at its official website: <a href="https://goo.gl/mHJQ9d" target='_blank'>https://goo.gl/mHJQ9d</a></p>
+								<ul>
+									<li>40% OFF on Prescription Medicines (Flat 20% discount and 20% NMS Supercash back) to the clients of the Beneficiaries, based upon the physician’s prescription.</li>
+									<li>The Flat 20% discount is valid on any order value of Prescription Medicines only.</li>
+									<li>Coupon is valid till 31st Dec, 2018.</li>
+									<li>A Flat 20% of the Ordered value of Prescription Medicines would be credited as NMS SuperCash, to the NMS Wallet once the order is delivered only if the unique coupon code is used. This would be applicable only for Prepaid Orders.</li>
+									<li>The maximum SuperCash amount is Rs.3000 per transaction and is valid for 45 days from the date it was credited.</li>
+									<li>The NMS SuperCash wallet amount can be redeemed for a maximum of 30% of total value of prescription medicines in your cart in one transaction. However, you can use the remaining wallet amount in subsequent transactions placed within the validity period of your NMS SuperCash wallet amount.</li>
+									<li>NO other coupon code/e-voucher discounts or promotional offers can be applied for the orders where the NMS SuperCash wallet amount is redeemed.</li>
+									<li>The NMS SuperCash wallet amount can be redeemed on all medicines and on fully Pre-paid orders only (not valid if partly paid by COD). Note: COD orders are not eligible for redemption of the cashback.</li>
+									<li>All disputes arising out of or in connection to this scheme are subject to exclusive jurisdiction of the courts in Chennai only.</li>
+								</ul>
+							</div>
+						</li>
+						<li>
+							<p>GAANA Plus Coupons <i class='icon foldIcon pull-right'></i></p>
+							<div>
+								<ul>
+									<li>You can use your Gaana Plus coupon to avail a flat discount of 70 percent on 1 year subscription on the Gaana Android or iOS app.</li>
+									<li>One customer can use the code only once.</li>
+									<li>The code is valid till 30th April, 2019 and only for Indian citizens.</li>
+								</ul>
+							</div>
+						</li>
+					</ul>
+			</div>
+    </div>
+	</div>
+</div>
+
+<script id="lotteryNumTpl" type="text/template">
+	<p><span class='lotteryRemaining'>{{= model.remaining}}</span> chances | <span class='getChange'>How to earn more chances?</span></p>
+</script>
+
+<script id="PrizeTpl" type="text/template">
+	{{if(!myModel.isLogin) { }}
+	<div class='loginBtn'>
+		<div class='login_btn'>
+			<a href="/static/tpl/loginTpl.html" data-toggle="modal" data-target="#login_modal">SIGN IN</a>
+		</div>
+		<p class='info'>please log in first</p>
+	</div>
+	{{ } else{ }}
+		{{ if(!myModel.succ) { }}
+		<div class='noPrize'>
+			<span>No record of prizes</span>
+		</div>
+		{{ } else { }}
+		<div class='havePrize'>
+			<div class='prizeBox'>
+				<ul>
+					{{_.each(myModel.data, function(val, key){ }}
+						{{if(val.source == 1) { }}
+							{{if(val.type == 1) { }}
+							<li>
+								<div class='img'>
+									<img src="{{=val.listImg}}" alt="">
+								</div>
+								<div class='prize_Info'>
+									<p class='prize clearfix'>
+										<span class='pull-left'>{{= val.prizeName }}</span>
+										<span class='pull-right'>{{= val.winTime}}</span>
+									</p>
+									<div class='info clearfix'>	
+										<p>{{= val.prizeContent}}</p>
+										{{if(val.recipientAddress != null) { }}
+										<a href="javascript:;" data-index ={{=val.winningId}}  class='prizeInfo check Check'>Check</a>
+										{{ }else { }}
+										<a href="javascript:;" data-index ={{=val.winningId}} class='prizeInfo Redeem'>Redeem</a>
+										{{ } }}
+									</div>
+								</div>
+							</li>
+							{{ }else { }}
+							<li>
+								<div class='img'>
+									<img src="{{=val.listImg}}" alt="">
+								</div>
+								<div class='prize_Info'>
+									<p class='prize clearfix'>
+										<span class='pull-left'>{{= val.prizeName }}</span>
+										<span class='pull-right'>{{= val.winTime}}</span>
+									</p>
+									<div class='info clearfix'>	
+										<p>{{= val.prizeContent}}</p>
+										{{if(val.category == 1) { }}
+										<a href="/account/?src=myCoupon" data-index ={{=val.winningId}} class='prizeInfo Check'>Check</a>
+										{{ }else { }}
+										<a href="/account/?src=wallet" data-index ={{=val.winningId}}  class='prizeInfo Check'>Check</a>
+										{{ } }}
+										
+									</div>
+								</div>
+							</li>
+							{{ } }}
+						
+						{{ } else { }}
+						<li>
+							<div class='img'>
+								<img src="{{=val.listImg}}" alt="">
+							</div>
+							<div class='prize_Info'>
+								<p class='prize clearfix'>
+									<span class='pull-left'>{{= val.prizeName }}</span>
+									<span class='pull-right'>{{= val.winTime}}</span>
+								</p>
+								<div class='info noBtn'>	
+									<p>{{= val.prizeContent}}</p>
+								</div>
+							</div>
+						</li>
+						{{ } }}
+					
+					{{ }) }}
+				</ul>
+			</div>
+		</div>
+		{{ } }}
+	{{ } }}
+</script>
+
+<div class="modal noPrizeModal fade" id='noPrizeModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title font-Bold'>Sorry,you didn't win the prize.</p>
+			</div>
+      <div class="modal-body">
+				<div class='prize_img'></div>
+				<p class='msg'>Maybe next time.So,keep palying!</p>
+      </div>
+      <div class="modal-footer">
+        <a href='javascript:;' type="button" class="btn btn-default" data-dismiss="modal">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal prizeModal fade" id='prizeModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title font-Bold'>Congratulation</p>
+			</div>
+      <div class="modal-body" id='prizeImg'>
+				
+      </div>
+      <div class="modal-footer">
+        <a href='javascript:;' type="button" class="btn btn-default" data-dismiss="modal">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal noChangeModal fade" id='noChangeModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				
+			</div>
+      <div class="modal-body">
+				<p class='msg font-Bold'>You have run out of chances</p>
+      </div>
+      <div class="modal-footer">
+        <a href='javascript:;' type="button" class="btn btn-default" data-dismiss="modal">Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="prizeImgTpl" type="text/template">
+	<div class='prize_img'>
+		<img class='sideImg' src="{{= model.winImg}}" width="178" alt="">
+	</div>
+	<p class='msg'>You’ve won {{=model.name}}</p>
+</script>
+
+ <div class="modal informationModal fade" id='informationModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title'>Enter your information and we will contact you in time</p>
+			</div>
+      <div class="modal-body">
+				<form id='userInfo'>
+					<div class="form-group ">
+						<label for="">Email(only be your account email)</label>
+						<input name='email' class="form-control" id="infoEmail" placeholder="Email" readonly="readonly">
+					</div>
+					<div class="form-group emailBox">
+						<label for="">Phone(only be your account phone)</label>
+						<input name='phone'  class="form-control" id="infoPhone" placeholder="Password" readonly="readonly">
+					</div>
+					<div class="form-group">
+						<label for="">Your Name</label>
+						<input type='text' name='username' class="form-control"  placeholder="Real name">
+					</div>
+					<div class="form-group">
+						<label for="">Recipient's address(Only in India)</label>
+						<input type='text' name='postal'  class="form-control"  placeholder="Postal code">
+					</div>
+					<div class="form-group">
+						<textarea style="resize: none;" name='address' class="form-control textarea" placeholder='City,Street address,Apt,Floor,etc'></textarea>
+					</div>
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" class='checkBox'>Once the information is submitted, it cannot be modified
+						</label>
+					</div>
+				</form>
+				<div class='checkErrorBox'>
+					<p class="checkError font-Roman hidden">Please enter your delivery information  </p>
+				</div>
+      </div>
+      <div class="modal-footer">
+        <a href='javascript:;' type="button" class="btn btn-default" id='MailingInfo'>Confirm</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal changeTCModal fade" id='changeTCModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+			</div>
+      <div class="modal-body">
+				<div class='Opportunity fontSz16 grayDark'>
+        1st Anniversary Sale has ended.Please redeem the prizes as soon as possible within 30 days.You can use the accumulated lottery chances in Autumn Shake page.
+				</div>
+				
+      </div>
+      <div class="modal-footer">
+        <a href="/AutumnSale" class="btn btn-default">Go to Shake</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="modal viewInforModal fade" id='viewInforModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title'>Enter your information and we will contact you in time</p>
+			</div>
+      <div class="modal-body" id='userInfo2'>
+				
+      </div>
+    </div>
+  </div>
+</div>
+
+<script id="userInfo2Tpl" type="text/template">
+	<form>
+		<div class="form-group ">
+			<label for="">Email(only be your account email)</label>
+			<input  class="form-control" id="" value='{{=myModel.userEmail}}' readonly="readonly">
+		</div>
+		<div class="form-group emailBox">
+			<label for="">Phone(only be your account phone)</label>
+			<input  class="form-control" id=""  value='{{=myModel.userPhone}}' readonly="readonly">
+		</div>
+		<div class="form-group">
+			<label for="">Your Name</label>
+			<input  class="form-control" id=""  value='{{=myModel.recipientName}}' readonly="readonly">
+		</div>
+		<div class="form-group">
+			<label for="">Recipient's address(Only in India)</label>
+			<input  class="form-control" id=""  value='{{=myModel.postalCode}}' readonly="readonly">
+		</div>
+		<div class="form-group">
+			<textarea style="resize: none;"  class="form-control textarea" readonly="readonly">{{=myModel.recipientAddress}}</textarea>
+		</div>
+	</form>
+</script>

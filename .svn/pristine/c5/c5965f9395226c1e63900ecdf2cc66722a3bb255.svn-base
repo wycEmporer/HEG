@@ -1,0 +1,272 @@
+<div class="content">
+	<div class='head'>
+	  <div class="hotelSearchBar">
+			<%=require('../../_component/flightAndhotel/search.ejs')()%>
+		</div>
+		<div class="banner" id="banner">	</div>
+		
+		<div class='Countdown'>
+			<div class='Countdown_time'>
+				<p class='in'>Campaign is live !</p>
+				<p class='end hidden'>Campaign <i class='status'>Ends</i> : <span> <i id='RemainD1_1'></i>d: <i id='RemainH1_1'></i>h: <i id='RemainM1_1'></i>m: <i id='RemainS1_1'></i>s</span></p>
+				<p class='time'>Nov 23rd, 00:00:00 -- Nov 26th, 23:59:59</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wrap">
+		<div class="container">
+			<div class='hotel_info'>
+				<div class='title font-Bold'>Black Friday & Cyber Monday Sale</div>
+				<div class='info'>
+					<ul>
+						<li data-toggle="modal" data-target="#noPrizeModal_1">
+							<img src="<%= require('./images/hotel.png') %>" alt="">
+							<div class='info clearfix'>
+								<div class="pull-left font-BlackCond">200<span>Rs.</span>	</div>
+								<div class="pull-right">
+									<p class='font-Bold'>Instant Discount Coupon (PC/Mobile)</p>
+									<p class='font-Light'>Validity: Nov 23,2018- Nov 26,2018</p>
+									<div>
+										<span class='copyText_1'>HEGHFRI</span>
+										<a class='goSearch' target="_blank" href="https://www.happyeasygo.com/hotel">Go to Use</a>
+										<div class='TipsMsg'>
+											Successfully copied link to the clipboard
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li data-toggle="modal" data-target="#noPrizeModal_2">
+							<img src="<%= require('./images/flight.png') %>" alt="">
+							<div class='info clearfix'>
+								<div class="pull-left font-BlackCond">350<span>Rs.</span>	</div>
+								<div class="pull-right">
+									<p class='font-Bold'>Instant Discount Coupon (App)</p>
+									<p class='font-Light'>Validity: Nov 23,2018- Nov 26,2018</p>
+									<div>
+										<span class='copyText_1'>HEGFRAP</span>
+										<a class='goSearch' target="_blank" href="/cheap-flights-booking-app">Go to Use</a>
+										<div class='TipsMsg'>
+											Successfully copied link to the clipboard
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+						<li data-toggle="modal" data-target="#noPrizeModal_3">
+							<img src="<%= require('./images/flight.png') %>" alt="">
+							<div class='info clearfix'>
+								<div class="pull-left font-BlackCond">300<span>Rs.</span>	</div>
+								<div class="pull-right">
+									<p class='font-Bold'>Instant Discount Coupon (PC/Mobile)</p>
+									<p class='font-Light'>Validity: Nov 23,2018- Nov 26,2018</p>
+									<div>
+										<span class='copyText_1'>HEGFRI</span>
+										<a class='goSearch' target="_blank" href="/flight">Go to Use</a>
+										<div class='TipsMsg'>
+											Successfully copied link to the clipboard
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					
+					</ul>
+				</div>
+			</div>
+			<div class="otherRules">
+				<div class="tabBar">
+					<ul class="nav nav-tabs font-Bold" role="tablist">
+						<li class="active" role="presentation">
+							<a href="#walletRules" data-toggle="tab" role="tab" aria-controls="walletRules">How to redeem it</a>
+						</li>
+						<!-- <li class="" role="presentation">
+							<a href="#withdrawRules" data-toggle="tab" role="tab" aria-controls="withdrawRules">Withdraw Rules</a>
+						</li> -->
+						<li class="" role="presentation">
+							<a href="#cancelRules" data-toggle="tab" role="tab" aria-controls="cancelRules">Terms & Conditions</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-content tabcon font-Roman">
+					<div class="tab-pane active" id="walletRules">
+						<ul>
+							<li>  Click on the coupon code to copy it.  </li>
+							<li>  Search for the flight/hotel you wish to book on HappyEasyGo website or app. </li>
+							
+							<li>   Enter the coupon code on the booking page and get related flight/hotel discounts. </li>
+					</div>
+					<div class="tab-pane cancelRules" id="cancelRules">
+						<ul>
+							<li>
+							 The coupon code: HEGHFRI can be used on HappyEasyGo website to get extra Rs.200 off on hotel booking of over Rs.2500.
+							</li>
+							<li>  The coupon code: HEGFRAP can be used on HappyEasyGo app to get Rs.350 instant discount on flight booking. </li>
+							<li>The coupon code: HEGFRI can be used on HappyEasyGo desktop or mobile site to get Rs.300 instant discount on flight booking. </li>
+							<li>
+							  The coupon codes are valid from November 23rd, 2018 to November 26th, 2018.
+							</li>
+							<li>
+							  Cancellation charges will be deducted from the cash as well as Happy Wallet.
+							</li>
+							<li>
+							  HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.
+							</li>
+							<li>
+							  Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon, Haryana, India.
+							</li>
+						</ul>
+					
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+
+<div class="modal noPrizeModal fade" id='noPrizeModal_1' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content font-Roman">
+      <div class="modal-header">
+				<p class='title '>HappyEasyGo Discount Coupons</p>
+			</div>
+      <div class="modal-body">
+				<ul class='msg'>
+					<li>
+						<p class='cont_1'>Introduction</p>
+						<p class=''>Extra Rs.200 off on hotel booking of over Rs.2500.</p>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Category</span>
+						<span class='pull-right'>Hotel</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Applicable Device</span>
+						<span class='pull-right'>PC/Mobile</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Validity</span>
+						<span class='pull-right'>Nov 23,2018- Nov 26,2018</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Coupon Code</span>
+						<span class='pull-right copyText'>HEGHFRI</span>
+						<div class='TipsMsg'>
+							Successfully copied link to the clipboard
+						</div>
+					</li>
+				</ul>
+				<div class='TC'>
+					<p class='cont_1'>Terms & Conditions</p>
+					<ul>
+						<li>HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.</li>
+						<li>Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon, Haryana, India.</li>
+					</ul>
+				</div>
+      </div>
+			<div class="modal-footer">
+        <button type="button" class="btn font-Bold btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal noPrizeModal fade" id='noPrizeModal_2' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content font-Roman">
+      <div class="modal-header">
+				<p class='title '>Instant Discount Coupons (App)</p>
+			</div>
+      <div class="modal-body">
+				<ul class='msg'>
+					<li>
+						<p class='cont_1'>Introduction</p>
+						<p class=''>Get Rs.350 instant discount on flight booking.</p>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Category</span>
+						<span class='pull-right'>Flight</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Applicable Device</span>
+						<span class='pull-right'>App</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Validity</span>
+						<span class='pull-right'>Nov 23,2018- Nov 26,2018</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Coupon Code</span>
+						<span class='pull-right copyText'>HEGFRAP</span>
+						<div class='TipsMsg'>
+							Successfully copied link to the clipboard
+						</div>
+					</li>
+				</ul>
+				<div class='TC'>
+					<p class='cont_1'>Terms & Conditions</p>
+					<ul>
+						<li>HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.</li>
+						<li>Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon, Haryana, India.</li>
+					</ul>
+				</div>
+      </div>
+			<div class="modal-footer">
+        <button type="button" class="btn font-Bold btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal noPrizeModal fade" id='noPrizeModal_3' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content font-Roman">
+      <div class="modal-header">
+				<p class='title '>Instant Discount Coupons (PC/Mobile)</p>
+			</div>
+      <div class="modal-body">
+				<ul class='msg'>
+					<li>
+						<p class='cont_1'>Introduction</p>
+						<p class=''>Get Rs.300 instant discount on flight booking. </p>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Category</span>
+						<span class='pull-right'>Flight</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Applicable Device</span>
+						<span class='pull-right'>PC/Mobile</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Validity</span>
+						<span class='pull-right'>Nov 23,2018- Nov 26,2018</span>
+					</li>
+					<li class='clearfix'>
+						<span class='pull-left cont_1'>Coupon Code</span>
+						<span class='pull-right copyText'>HEGFRI</span>
+						<div class='TipsMsg'>
+							Successfully copied link to the clipboard
+						</div>
+					</li>
+				</ul>
+				<div class='TC'>
+					<p class='cont_1'>Terms & Conditions</p>
+					<ul>
+						<li>HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.</li>
+						<li>Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon, Haryana, India.</li>
+					</ul>
+				</div>
+      </div>
+			<div class="modal-footer">
+        <button type="button" class="btn font-Bold btn-default" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

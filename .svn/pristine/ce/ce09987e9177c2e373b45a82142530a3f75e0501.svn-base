@@ -1,0 +1,119 @@
+
+<footer>
+  <div class="footImg">
+      <div class="container">
+        <div class="footImg_img"></div>
+      </div>
+  </div>
+  <div class="foot"> 
+      <!--  <div class="bg">
+        </div> -->
+          <div class="container">
+            <ul class="clearfix">
+              <!-- <li class="col-sm-1"></li> -->
+              <li class="first-link  col-sm-2">
+                <dl>
+                  <dt class="font-Roman"><strong>HappyEasyGo</strong></dt>
+                  <dd><a href="/aboutus/">About Us</a></dd>
+                  <!-- <dd><a href="##">Our Team</a></dd> -->
+                  <!-- <dd><a href="##">Investors</a></dd> -->
+                  <dd><a href="/contact/">Contact Us</a></dd>
+                  <dd><a href="/Careers/">Careers</a></dd>
+                  <dd><a href="https://www.happyeasygo.com/travel-blog/">Blog</a></dd>
+                  <dd><a href="https://www.happyeasygo.com/heg_seo/flight.do" target="_blank">TOP Airline Routes</a></dd> 
+                  <!-- <dd><a href="##">Partner with Us</a></dd> -->
+                  <!-- <dd><a href="##">Join Us</a></dd> -->
+                </dl>
+              </li>
+              <li class="second-link col-sm-2">
+                <dl>
+                  <dt class="font-Roman"><strong>About the Site</strong></dt>
+                  <dd><a href="/faqs/">FAQs</a></dd>
+                  <dd><a href="/conditions/">Terms &amp; Conditions</a></dd>
+                  <dd><a href="/privacy/">Privacy</a></dd>
+                  <!-- <dd><a href="##">Payment Security</a></dd> -->
+                  <!-- <dd><a href="##">User Agreement</a></dd> -->
+                </dl>
+              </li>
+              <!-- <li class="third-link col-sm-2">
+                <dl>
+                  <dt><strong>Product Offering</strong></dt>
+                  <dd><a href="##">Flight Schedule</a></dd>
+                  <dd><a href="##">City Airline Routes</a></dd>
+                  <dd><a href="##">international Flights</a></dd>
+                </dl>
+              </li> -->
+              <li class="fourth-link col-sm-2">
+                <dl>
+                  <dt class="font-Roman"><strong>More Links</strong></dt>
+                  <!-- <dd><a href="##">HappyEasyGo Offers</a></dd> -->
+                  <dd><a href="/airlines/indigo/">IndiGo</a></dd>
+                  <dd><a href="/airlines/jetairways/">Jet Airways</a></dd>
+                  <dd><a href="/airlines/goair/">GoAir</a></dd>
+                  <!-- <dd><a href="/goindia/">Go India</a></dd> -->
+                  <dd><a href="/airlines/spicejet/">SpiceJet</a></dd>
+                  <dd><a href="/airlines/airasia/">AirAsia</a></dd>
+                  <dd><a href="/airlines/vistara/">Vistara</a></dd>
+                  <dd><a href="/airlines/airindia/">Air India</a></dd>
+                </dl>
+              </li>
+              <li class="link followUs col-sm-2">
+                <dl>
+                  <dt class="font-Roman"><strong >Follow Us</strong></dt>
+                  <dd class='clearfix'>
+                    <a href="https://www.facebook.com/happyeasygo/" target='_blank' class="fb-icon fwIcon"></a>
+                    <a href="https://twitter.com/happyeasygo" target='_blank' class="tw-icon fwIcon"></a>
+                    <a href="https://www.instagram.com/happyeasygo_india/" target='_blank' class="ins-icon fwIcon"></a>
+                    <a href="https://www.youtube.com/channel/UCBlph2534GSN1PDJH9E5ylg" target='_blank' class="tb-icon fwIcon"></a>
+                    <a href="https://plus.google.com/+HappyEasyGoIndia" target='_blank' class="gl-icon fwIcon"></a>
+                  </dd>
+                  <!--<dd class='clearfix'>
+                    <a href="https://www.youtube.com/channel/UCBlph2534GSN1PDJH9E5ylg" class="tb-icon fwIcon"></a>
+                    <a href="https://plus.google.com/+HappyEasyGoIndia" class="gl-icon fwIcon"></a>
+                  </dd>-->
+                </dl>
+              </li>
+              <li class="link linkDownload col-sm-2">
+                <dl>
+                  <dt class="font-Roman"><strong>Mobile</strong></dt>
+                  <dd><a href="/cheap-flights-booking-app">Download our mobile App</a></dd>
+                  <dd>
+                    <a href="https://app.adjust.com/2x7p5g" target="_blank" class="downLink">
+                      <img src="<%=require('../../less/componentsdir/images/google-play.png')%>" alt="">
+                    </a>
+                  </dd>
+                  <dd>
+                    <a href="https://itunes.apple.com/app/id1390426818?mt=8" target="_blank">
+                      <img src="<%=require('../../less/componentsdir/images/app-play.png')%>" alt="">
+                    </a>
+                  </dd>
+                </dl>
+              </li>
+            </ul>
+            <p class=" foot_p" style="text-align: center;margin: 20px 0px 0px;">Copyright &copy; 2016-2019 Happyeasygo Group. All rights reserved</p>
+            <p class=" foot_p" style="text-align: center;margin: 10px 0px 0px;">All brands, logos are trademarks or registered trademarks of their respective owners.</p>
+          </div>
+  </div>
+</footer>
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="login_modal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:440px;height:410px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px;opacity:1;"><span aria-hidden="true" style='color:#ccc;'>&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="register_modal" data-backdrop="static" data-keyboard="false" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>

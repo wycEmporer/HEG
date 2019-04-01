@@ -1,0 +1,4 @@
+require('./flightSearch_2/index');
+require('./hotelSearch/index');
+require('./style.less');
+

@@ -1,0 +1,129 @@
+
+@themeColor: #2ca5ea;
+.body{
+	background: #f5f5f5;
+}
+.content{
+	.banner{
+		width: 100%;
+		height: 400px;
+		background: url('./images/banner.jpg') no-repeat;
+		background-position: top center;
+	}
+	
+	.container{
+		padding: 0px;
+		.wrap{
+			width: 100%;
+			padding: 20px 40px;
+			.title{
+				text-align: center;
+				font-size: 24px;
+				line-height: 30px;
+				margin: 30px 0px;
+			}
+			.TC{
+				p{
+					font-size: 14px;
+					line-height: 24px;
+					margin-bottom: 15px;
+				}
+			}
+			.showImg{
+				width: 100%;
+				height: 230px;
+				margin-top: 20px;
+				ul{
+					height: 100%;
+					li{
+						width: 360px;
+						float: left;
+						height: 100%;
+						background: red;
+						margin-right: 20px;
+						&:nth-child(1){
+							background: url('./images/join1.png') no-repeat;
+						}
+						&:nth-child(2){
+							background: url('./images/join2.png') no-repeat;
+						}
+						&:last-child{
+							background: url('./images/join3.png') no-repeat;
+							margin-right: 0px;
+						}
+					}
+				}
+			}
+			.departNum{
+				width: 100%;
+				height: 60px;
+				line-height: 60px;
+				margin-top: 50px;
+				span{
+					float: left;
+					&:nth-child(1),
+					&:nth-child(3){
+						width: 340px;
+						height: 60px;
+						padding: 29px 0px;
+						line-height: 0px;
+						i{
+							display: inline-block;
+							width: 100%;
+							height: 1px;
+							background: #999999;
+						}
+					}
+					&:nth-child(2){
+						text-align: center;
+						width: 440px;
+						font-size: 38px;
+						color: #333;
+						font-weight: 700;
+						i{
+							margin: 0 10px;
+						}
+					}
+				}
+			}
+			.MTF{
+				width: 100%;
+				margin: 0px 0px 20px;
+				ul{
+					li{
+						padding: 30px 0px 10px 370px;
+						position: relative;
+						border-bottom: 1px solid #999999;
+						&:last-child{
+							border: none;
+						}
+						.mtf_left{
+							position: absolute;
+							left: 0;
+							top: 30px;
+							width: 360px;
+							p{
+								font-size: 24px;
+								line-height: 26px;
+							}
+						}
+						.mtf_right{
+							p{
+								font-size: 18px;
+								line-height: 25px;
+								&:nth-child(even){
+									color: #333;
+									margin: 5px 0px 20px;
+									font-size: 14px;
+								}
+								a{
+									color: #1ba481;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

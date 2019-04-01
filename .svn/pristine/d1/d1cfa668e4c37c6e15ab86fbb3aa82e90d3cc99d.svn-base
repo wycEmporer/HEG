@@ -1,0 +1,54 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+body{
+	background: #fff;
+}
+.banner{
+	position: relative;
+	width:100%;
+	height: 400px;
+	overflow: hidden;
+	.banImg{
+		position: absolute;
+		left:50%;
+		transform: translateX(-50%);
+	}
+}
+.content{
+	position: relative;
+}
+.category{
+	.con{
+		margin:0 30px;
+	}
+	h2.title{
+		font-size: 16px;
+		text-align: center;
+		padding:30px 0 40px;
+	}
+	.works{
+		.detail{
+			.listWrap{
+				padding: 10px 40px 20px 54px;
+				background-color: #f9fbfb;
+			}
+			.listWrapF{
+				padding: 0 40px 20px 20px;
+
+			}
+			li{
+				list-style: disc;
+				line-height: 20px;
+				font-size: 14px;
+				margin-bottom: 6px;
+			}
+			h3{
+				background-color: #e1f1ee;
+				font-size: 16px;
+				height: 46px;
+				line-height: 46px;
+				padding-left: 40px;
+			}
+		}
+	}
+	
+}

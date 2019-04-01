@@ -1,0 +1,11 @@
+const config = require('configModule');
+const content = require('./content.ejs'); 
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let pageTitle = 'Happy Wallet | Earn Cash and Get Discount';
+let metaDescription = 'HappyEasygo come up with a hassle-free and convenient payment gateway online.';
+let metaKeywords = 'flight wallet offers, get offers on flight booking, cashback offers, deals with happyeasygo, offers with happyeasygo, discount with happyeasygo, flight travel discount ';
+module.exports = layout.init({
+  pageTitle, metaKeywords, metaDescription 
+}).run(content(dirsConfig));
+

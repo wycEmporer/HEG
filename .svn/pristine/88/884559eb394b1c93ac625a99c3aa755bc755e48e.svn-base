@@ -1,0 +1,51 @@
+<div class="content">
+	<div class="banner" id="">	
+		</div>
+	<div class="container">
+		<div class="wrap clearfix" id='wrap'>
+			<p class="title">Are you ready to earn some cash?</p>
+			<p class='cont'>HappyEasyGo is offering up to 3000 e-cash to its new customers. If you have not signed up with HappyEasyGo yet, then register right away and get instant Happy Silver in your Happy Wallet. You can use this Happy Silver to enjoy great discounts on your flight ticket booking.</p>
+			<p class='cont'>Take a look at how much Happy Silver you can win:</p>
+			<div class='winBox clearfix'>
+				<div class='box_left pull-left'>
+					<p class='title_1'>Register on the HappyEasyGo app:</p>
+					<p class='title_2'>Win <span>1000</span> Happy Silver</p>
+					<div class='downLoad clearfix'>
+						<div class='pull-left'>
+							<p>Download by QR code</p>
+							<img src="<%=require('./images/cheapFights.png')%>" alt="">
+						</div>
+						<div class='pull-left downLink'>
+							<p>Download our mobile App</p>
+							 <a href="https://app.adjust.com/2x7p5g" target="_blank" class="">
+								<img src="<%= require('./images/google.png') %>" alt="">
+							</a>
+							<br>
+							<a href="https://itunes.apple.com/app/id1390426818?mt=8" target="_blank">
+								<img src="<%= require('./images/iponeApp.png') %>" alt="">
+							</a>
+						</div>
+					</div>	
+					<div class='mobleImg'>
+						<img src="<%= require('./images/phone (1).png')%>" alt="">
+					</div>
+				</div>
+				<div class='box_right pull-right'>
+					<p class='title_1'>Register on the desktop or mobile site:</p>
+					<p class='title_2'>Win <span>800</span> Happy Silver</p>
+					<div class='btn_box'>
+						<a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal" class='btn btn-warning'>Register Now</a>
+					</div>
+					<div class='mobleImg'>
+						<img src="<%= require('./images/com.png')%>" alt="">
+					</div>
+				</div>
+			</div>	
+			<p class='cont'>Don’t think it is going to be enough for you to satiate your wanderlust? Worry not because you can keep on earning Happy Silver and Happy Gold with HappyEasyGo’s <a href="/referral" class='a_link'>Refer and Earn</a> programme.</p>
+			<p class='cont'>Valid for a period of three months from the date of issue, Happy Silver in Happy Wallet can be used to enjoy discounts on flight bookings. Pay a part of your ticket price using Happy Silver and the rest directly. Wondering how much of your flight ticket price can be paid using Happy Silver? Find out <a href="/wallet-terms" class='a_link'>here</a>.</p>
+			<p class='cont_2'>So, what are you waiting for? <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal" class='a_link'>Register right now</a> and start planning an adventure!</p>
+		</div>
+	</div>
+</div>
+
+

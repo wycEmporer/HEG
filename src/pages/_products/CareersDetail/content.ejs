@@ -1,0 +1,121 @@
+<div class="content">
+	<div class="banner" id="">	
+		</div>
+	<div class="container">
+		<div class="wrap clearfix" id='wrap'>
+			
+		</div>
+	</div>
+</div>
+
+
+<script id="wrapTpl" type="text/template">
+	<p class='title'>
+		<a style='color:#1ba481' href="/Careers">All jobs</a> > {{= model.position}}
+	</p>
+	<div class='share clearfix'>
+		<div class='share_left'>
+			<p>{{= model.position}}</p>
+			<p><i class='icon icon_coord'></i>{{= model.workPlace}} </p>
+			<p>
+				<i class='icon icon_info'></i>
+				<a href="mailto:{{=model.contactEmail}}" class="email">
+					<span>{{= model.contactEmail}}</span>
+				</a>
+			</p>
+		</div>
+		<div class='share_right'>
+			<ul class='clearfix'>
+				<li><a href="https://www.facebook.com/happyeasygo/" class='icon icon_1'></a></li>
+				<li><a href="https://twitter.com/happyeasygo" class='icon icon_2'></a></li>
+				<li><a id='webShareIn' href='' class='icon icon_3' target="_blank"></a></li>
+				<li><a id="webShare" class="webShare icon icon_4" target="_blank" href=""></a></li>
+				<li><a href='javascript:;' id='copyIcon' class='icon icon_5'></a></li>
+			</ul>
+			<p>Posted: {{= model.creatData}}</p>
+			<div class='TipsMsg'>
+          Successfully copied to the Clipboard
+      </div>
+			<input type="text" value="" id="webUrl" style='border:none;height:0px;'/>
+		</div>
+	</div>
+	<div class='TC'>
+		<div>
+			{{= model.jobDescription}}
+		</div>
+		<div>
+			{{= model.workRequirements}}
+		</div>
+	</div>
+	<div class='applyBtn'>
+		<!--<a href="mailto:{{=model.contactEmail}}" class="btn">APPLY NOW</a>-->
+		<a href="javascript:;" data-toggle='modal' data-target="#proccedModal" class="btn">APPLY NOW</a>
+	</div>
+</script>
+
+ <div class="modal proccedModal fade" id='proccedModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document" style='width:475px;'>
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title'>Are sure to procced?</p>
+			</div>
+      <div class="modal-body" id=''>
+				<form id='career_Info' method="post" enctype="multipart/form-data">
+          <div class="form-group verify-box">
+            <input type="text" name='name'  class="form-control" id="name" placeholder='Name'>
+						<p class="checkError hidden">Please enter a valid name</p>
+          </div>
+          <div class="form-group username-box" >
+            <input type="email" id='email' name='email' class="form-control" id="" placeholder='Email Address'>
+						<p class="checkError hidden">Please enter a valid Email Address</p>
+          </div>
+          <div class="form-group mobile-box">
+            <input type="mobile" id='mobile' name='mobile' class="form-control" id="" placeholder='Mobile Number'>
+						<p class="checkError hidden">Please enter a valid Mobile Number.</p>
+          </div>
+          <div class="form-group location-box">
+            <input type="text" class="form-control" id='location' name='location' id="" placeholder='Current Location'>
+						<p class="checkError hidden">Please enter your current location</p>
+          </div>
+          <div class="form-group joinReason-box">
+            <textarea class="form-control" id='joinReason' name='joinReason' id="" style='resize: vertical;' placeholder='Why do you want to join HappyEasyGo ?' rows='6'></textarea>
+						<span>300</span>
+						<p class="checkError hidden">Please write down your reason</p>
+          </div>
+					<div class="form-group">
+            <input type="text" class="form-control" name='linkedinUrl' id="" placeholder='LinkedIn URL (Optional)'>
+          </div>
+					<div class="form-group fileUpload-box">
+						<div id="fileUpload" class="demo"></div>   
+						<p class="checkError hidden">Please Upload your attach resume.</p>
+          </div>
+					<div class="form-group text-center">
+            <a href="javascript:;" type='button' class='btn btn-default' data-dismiss="modal">Cancel</a>
+            <a href="javascript:;" id='saveCareeer' type='submit' class='btn btn-success'>Submit</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal noChangeModal fade" id='saveSuccModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+			<div class='prize_img'></div>
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p>Apply Online</p>
+				<span class='line'></span>
+			</div>
+      <div class="modal-body">
+			
+				<p class='msg font-Bold'>Thank you for applying to this job</p>
+      </div>
+      <div class="modal-footer">
+        <a href='javascript:;' type="button" class="btn btn-default" data-dismiss="modal">OK</a>
+      </div>
+    </div>
+  </div>
+</div>

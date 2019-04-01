@@ -1,0 +1,263 @@
+
+@themeColor: #2ca5ea;
+.body{
+	background: #f5f5f5;
+}
+.content{
+	
+	.banner{
+		width: 100%;
+		height: 400px;
+		background: url('./images/banner.jpg') no-repeat;
+		background-position: top center;
+	}
+	.container{
+		padding: 0px;
+		.wrap{
+			width: 100%;
+			padding: 10px 40px;
+			.title{
+				font-size: 14px;
+				line-height: 60px;
+				color: #333333;
+				span{
+					color: #1ba481;
+				}
+			}
+			.share{
+				width: 100%;
+				border-bottom: 1px solid #ccc;
+				padding: 15px 0 30px;
+				.share_left{
+					float: left;
+					p{
+						font-size: 14px;
+						line-height: 20px;
+						&:first-child{
+							font-size: 23px;
+							height: 40px;
+						}
+						&:last-child{
+							a{
+								color: #1ba481;
+							}
+						}
+						.icon{
+							display: inline-block;
+							vertical-align: middle;
+							margin-right: 10px;
+						}
+						.icon_coord{
+							width: 14px;
+							height: 18px;
+							margin-left: 2px;
+							margin-right: 12px;
+							background: url('./images/join6.png') no-repeat;
+						}
+						.icon_info{
+							width: 18px;
+							height: 14px;
+							background: url('./images/join7.png') no-repeat;
+						}
+					}
+				}
+				.share_right{
+					width: 290px;
+					float: right;
+					position: relative;
+					ul{
+						li{
+							float: left;
+							margin-right: 10px;
+							&:last-child{
+								margin: 0;
+							}
+							.icon{
+								display: inline-block;
+								width: 50px;
+								height: 50px;
+							}
+							.icon_1{
+								background: url('./images/join1.png') no-repeat;
+							}
+							.icon_2{
+								background: url('./images/join2.png') no-repeat;
+							}
+							.icon_3{
+								background: url('./images/join3.png') no-repeat;
+							}
+							.icon_4{
+								background: url('./images/join4.png') no-repeat;
+							}
+							.icon_5{
+								background: url('./images/join5.png') no-repeat;
+							}
+						}
+					}
+					p{
+						font-size: 14px;
+						line-height: 30px;
+					}
+					.TipsMsg{
+						position: absolute;
+						right: 0;
+						top: 60px;
+						width: 180px;
+						padding: 10px;
+						font-size: 12px;
+						color: white;
+						background: rgba(0 , 0, 0, 0.8);
+						border-radius: 4px;
+						display: none;
+					}
+				}
+			}
+			.TC{
+				padding: 20px 0px;
+				div{
+					margin-top: 20px;
+					// p{
+					// 	font-size: 18px;
+					// 	line-height: 40px;
+					// 	color: #333333;
+					// }
+					// ul{
+					// 	padding-left:15px; 
+					// 	li{
+					// 		line-height: 25px;
+					// 		list-style: disc;
+					// 		font-size: 14px;
+					// 	}
+					// }
+				}
+			}
+			.applyBtn{
+				text-align: center;
+				margin: 50px 0 100px;
+				.btn{
+					border-radius: 4px;
+					display: inline-block;
+					width: 225px;
+					height: 45px;
+					line-height: 33px;
+					font-size: 16px;
+					background: #1ba481;
+					color: white;
+				}
+			}
+		}
+	}
+}
+
+.proccedModal{
+	.modal-header{
+		font-size: 26px;
+	}
+	.joinReason-box{
+		position: relative;
+		span{
+			position: absolute;
+			color: #ccc;
+			right: 15px;
+			bottom: 5px;
+		}
+	}
+	.btn-default{
+		width: 150px;
+		background: #ececec;
+		border-color: #ececec;
+		margin-right: 20px;
+	}
+	.btn-success{
+		width: 150px;
+		background: #fc9525;
+		border-color: #fc9525;
+	}
+}
+.noChangeModal{
+	.modal-dialog{
+		width: 600px;
+		height: 280px;
+		position: absolute;
+    left: 50%;
+    top: 50%;
+		transform: translate(-50%,-50%)!important;
+		margin: 0px;
+		.modal-content{
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			color: #333333;
+			overflow: hidden;
+			position: relative;
+			.prize_img{
+				margin: auto;
+				width: 228px;
+				height: 228px;
+				background: url('./images/join-character.png') no-repeat;
+				position: absolute;
+				right: 0;
+				top: 50px;
+				opacity: 0.2;
+			}
+			.modal-header{
+				height: 80px;
+				padding: 0px;
+				position: relative;
+				border: none;
+				.close{
+					width: 29px;
+					height: 29px;
+					// background: url('./images/close.png') no-repeat;
+					position: absolute;
+					right: 10px;
+					top: 10px;
+					color: #333333;
+				}
+				p{
+					position: absolute;
+					left: 0;
+					top: 0;
+					font-size: 16px;
+					margin: 22px 0px 0px 20px;
+				}
+				.line{
+					position: absolute;
+					right: 0px;
+					top: 33px;
+					width: 470px;
+					height: 0;
+					border-bottom: 1px solid #ccc;
+				}
+			}
+			.modal-body{
+				margin-bottom:20px;
+				.msg{
+					height: 50px;
+					line-height: 50px;
+					font-size: 24px;
+					color: #1ba481;
+				}
+			}
+			.modal-footer{
+				text-align: center;
+				border: none;
+				padding: 0px;
+				position: relative;
+				a{
+					width: 320px;
+					height: 34px;
+					background: #fc9525;
+					border-radius: 4px;
+					color: white;
+					border: none;
+					line-height: 23px;
+					font-size: 20px;
+					&:active{
+						border: none;
+					}
+				}
+			}
+		}
+	}
+}

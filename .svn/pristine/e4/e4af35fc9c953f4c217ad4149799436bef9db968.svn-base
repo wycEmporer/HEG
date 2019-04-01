@@ -1,0 +1,1879 @@
+<div class="container" id="container">
+  <div class="row">
+    <div class="conLeft col-sm-9">
+      <div class="flightInfo">
+        <div class="section1 clearfix sec open" id="section1">
+          <div class="nav clearfix">
+            <div class="num">
+              01
+            </div>
+            <h2 class="til font-Bold">
+              Ticket Details
+            </h2>
+            <div class="viewEdit pull-right fontSz16 colorWar" style="cursor: pointer;">
+              View Detail
+            </div>
+          </div>
+          <div class="content" id="Itinerary">
+
+          </div>
+          <div class="tripSummary" id="tripSummary"></div>
+
+        </div>
+        <div class="section2 clearfix sec open" id="section2">
+          <div class="nav clearfix">
+            <div class="num">02</div>
+            <h2 class="til font-Bold">
+              Traveller Details
+            </h2>
+            <div class="viewEdit TD_viewEdit pull-right fontSz16 colorWar hidden" style="cursor: pointer;">
+              Edit
+            </div>
+          </div>
+          <div class="content" id="Passenger"></div>
+        </div>
+      </div>
+      <div class="payInfo">
+        <div class="section3 sec closed" id="section3">
+          <div class="nav clearfix">
+            <div class="num">03</div>
+            <h2 class="til font-Bold">
+              Confirmation &amp; Payment
+            </h2>
+          </div>
+          <div class="content" style="margin: 0 40px">
+            <div id="travellerInfo"></div>
+            <div id="paymentInfo"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="conRight col-sm-3" id="conRight">
+      <div class="item">
+        <h2 class="title">
+          Fare Summary
+        </h2>
+        <div class="sumWrap" id="fareDetailWrap">
+          
+        </div>
+      </div>
+      <div class="item">
+        <h2 class="title">
+          HappyEasyGo offers 
+          <span class="colorWar pull-right fontSz16 editFare">Edit</span>
+        </h2>               
+        <div class="sumWrap hegOffers" id="hegOffers">
+          
+        </div>
+      </div>
+      <div class="item">
+        <div id="hegWallet">
+        </div>
+      </div>
+    </div>    
+  </div>
+  <div class="footImg"></div>
+</div>
+
+<script id="itineraryTpl" type="text/template">
+  <div class="tripWrap">
+    <div style="padding:10px 0 0 40px;" class='fontSz14'>
+      <span class="colorPri font-Roman">NOTE:</span>
+      Indigo (6E 2000 to 6E 2999) & SpiceJet (SG 8000 to SG 8999) expand to Delhi Airport Terminal-2 (T2) from March 25, 2018. 
+      <a href="/airlines-notification/" class="colorPri" target="_blank">Know more</a>
+    </div>
+    {{_.each(myModel.itineraryArray, function(val, key){ }}
+    <div class="fInfo">
+      <h3 class="title clearfix fontSz16">
+        <span class="ic"></span>
+        <span class="city font-Roman">
+          {{=val.dc}}
+          <i class="fa fa-long-arrow-right"></i>
+          {{=val.ac}} &nbsp;&nbsp;
+        </span>
+        <span class="time font-Light">
+          {{=val.primaryDDate}} &nbsp;&nbsp;
+        </span> 
+        <span class="colorPri">
+          {{=val.fee.r}}
+        </span>
+      </h3>
+      <div class="fInfoI">
+        <div class="halfCircleTop"></div>
+        {{ _.each(val.stopByFlightArray, function(value, i){ }}
+        {{if(i < 1){ }}
+        <div class="fInfoII">
+          <ul class="clearfix fLine font-Light">
+            <li class="vendor">
+              <img src="/static/images/air-logo/{{=value.al}}.png" width="30" onerror="this.src='/static/images/air-logo/default.png" alt="">
+              <span>{{=value.co}}</span>
+              <span>{{=value.fn}}</span>
+              <span></span>
+            </li>
+            <li class="start">
+              <span>{{=value.ddate}}</span>
+              <strong class="fontSz24 marB8">{{=value.ds}} {{=value.dtime}}</strong>
+              <span>{{=value.da}} {{=value.dti}}</span>
+            </li>
+            <li class="through">
+              <div class="line pull-left"></div>
+              <strong class="dur fontSz24 font-Roman pull-left">{{=value.wdt}}</strong>
+              <div class="line pull-left"></div>
+            </li>
+            <li class="end">
+              <span>{{=value.adate}}</span>
+              <strong class="fontSz24 marB8">{{=value.as}} {{=value.atime}}</strong>
+              <span>{{=value.aa}} {{=value.ati}}</span>
+            </li>
+          </ul>
+          <div class="bagInfo">
+            <span>
+              <i class="fa fa-baggage"></i>
+              {{= value.baggageInfo.ch}} kgs check-In Baggage,
+              {{=value.baggageInfo.ca}} kgs Hand Baggage
+            </span>
+          </div>
+        </div>
+        {{ }else{ }}
+        <div class="layover">
+           <div class="row">
+             <div class="col-sm-offset-1 col-sm-3 line"></div>
+             <div class="layoverTime col-sm-4 fontSz16">
+               layover : {{=value.wt}}
+             </div>
+             <div class="col-sm-3 line"></div>
+           </div>
+        </div>
+        <div class="fInfoII">
+          <ul class="clearfix fLine font-Light">
+            <li class="vendor">
+              <img src="/static/images/air-logo/{{=value.al}}.png" width="30" onerror="this.src='/static/images/air-logo/default.png" alt="">
+              <span>{{=value.co}}</span>
+              <span>{{=value.fn}}</span>
+              <span></span>
+            </li>
+            <li class="start">
+              <span>{{=value.ddate}}</span>
+              <strong class="fontSz24 marB8">{{=value.ds}} {{=value.dtime}}</strong>
+              <span>{{=value.da}} {{=value.dti}}</span>
+            </li>
+            <li class="through">
+              <div class="line pull-left"></div>
+              <strong class="dur fontSz24 pull-left">{{=value.wdt}}</strong>
+              <div class="line pull-left"></div>
+            </li>
+            <li class="end">
+              <span>{{=value.adate}}</span>
+              <strong class="fontSz24 marB8">{{=value.as}} {{=value.atime}}</strong>
+              <span>{{=value.aa}} {{=value.ati}}</span>
+            </li>
+          </ul>
+          <div class="bagInfo">
+            <span>
+              <i class="fa fa-baggage"></i>
+              {{= value.baggageInfo.ch}} kgs check-In Baggage,
+              {{=value.baggageInfo.ca}} kgs Hand Baggage
+            </span>
+          </div>
+        </div>
+        {{ }; }) }}
+        <div class="halfCircleBot"></div>
+      </div>
+    </div>
+    {{ }) }}
+  </div>
+</script>
+
+<script id="passengersTpl" type="text/template">
+  {{if(!myModel.isLogin){}}
+  <div class="Tra_public clearfix">
+    <div class="pull-left fontSz14 grayDark" style="padding-top: 8px;">
+      Already registered before? Log in your HEG account to quicken your booking process.
+    </div>
+    <div class="pull-right">
+      <a href="/static/tpl/loginTpl.html" data-toggle="modal" data-target="#login_modal" class="btn btn-warning">Sign in</a>
+    </div>
+  </div>
+  {{ } }}
+  <form class="passForm" role="form">
+    <div class="note fontSz14">
+      <span class="colorPri font-Roman">NOTE: </span>
+      Please make sure the Name you entered as per your govt. photo id.
+    </div>
+    <div class="listWrap"> 
+      <h3 class="title font-Roman">
+        Adults
+      </h3>
+      {{if(myModel.travellerHis && myModel.travellerHis.Adult.length > 0){ }}
+      <div class="padLR40 travellerHisWrap">
+        <ul class="travellerHis clearfix">
+          {{_.each(myModel.travellerHis.Adult, function(val, key){ }}
+          <li class="nameItem">
+            <div class="checkbox"> 
+              <label class="fontSz14" title="{{=val.passengerFirstName+' '+val.passengerLastName }}">
+                <input type="checkbox" data-type="Adult"  data-id="{{=val.id}}"> {{=val.passengerFirstName+" "+val.passengerLastName }}
+              </label>
+            </div>
+          </li>
+          {{ }) }}
+        </ul>
+        {{if(myModel.travellerHis.Adult.length > 4){}}
+          <a href="javascript:void(0)" id="adultMore" class="traMore fontSz14"><i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></a>
+        {{ } }}
+      </div>
+      {{ } }}
+      {{for(var i = 1; i <= parseInt(myModel.adults); i++){ }}
+      <div class="passengerInfo marB20">
+        <div class="ic"></div>
+        <div class="formItem row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <select name="sexAdult{{= i}}" passengerType="1" class="form-con sex">
+                  <option value="0">Gender</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+            <div class="col-sm-5 pad0">
+              <div class="inputBox marR10">
+                <input type="text" maxlength="32" name="FnameAdult{{= i}}" class="form-con Fname"  placeholder="First name" autocomplete="disabled">
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+            <div class="col-sm-5 pad0">
+              <div class="inputBox marR10">
+                <input type="text" maxlength="32" name="LnameAdult{{= i}}" class="form-con Lname" placeholder="Last name" autocomplete="disabled">
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        {{if(myModel.isI5){ }}
+        <div class="formItem birthdayInfo clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Date of Birth</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="dayAdult{{= i}}" class="form-con day">
+                    <option value="0">Day</option>
+                    {{for(var j = 1; j <= 31; j ++){ }}
+                      <option value="{{= (j + 100).toString().slice(1)}}">{{= (j + 100).toString().slice(1)}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="monthAdult{{= i}}" class="form-con month">
+                    <option value="0">Month</option>
+                    {{_.each(['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], function(val,k){ }}
+                      <option value="{{= (k+101).toString().slice(1)}}">{{= val}}</option>
+                    {{ }) }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="yearAdult{{= i}}" class="form-con year">
+                    <option value="0">Year</option>
+                    {{ for(var curYear = new Date().getFullYear();  curYear > 1912; curYear --){ }}
+                      <option value="{{= curYear}}">{{= curYear}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 dateError checkError hidden"></div>
+        </div>
+        {{ } }}
+        {{ if(myModel.isPassport){ }}
+        <div class="formItem clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Passport No.</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-6 pad0">
+                <div class="inputBox marR10">
+                  <input type="text" name="passNo{{= i}}" class="form-con passNo" placeholder="Passport Number" autocomplete="disabled">
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 pad0">
+                <div class="inputBox marR10">
+                  <select class="form-con passCountry" name="passCountry{{=i}}">
+                    <option value="0">Issuing Country</option>
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 dateError checkError hidden"></div>
+        </div>
+        <div class="formItem expiryDate clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Expiry Date</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="dayAdult{{= i}}" class="form-con eday">
+                    <option value="0">Day</option>
+                    {{for(var j = 1; j <= 31; j ++){ }}
+                      <option value="{{= (j + 100).toString().slice(1)}}">{{= (j + 100).toString().slice(1)}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="monthAdult{{= i}}" class="form-con emonth">
+                    <option value="0">Month</option>
+                    {{_.each(['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], function(val,k){ }}
+                      <option value="{{= (k+101).toString().slice(1)}}">{{= val}}</option>
+                    {{ }) }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="yearAdult{{= i}}" class="form-con eyear">
+                    <option value="0">Year</option>
+                    {{ for(var curYear = new Date().getFullYear();  curYear < 2031; curYear ++){ }}
+                      <option value="{{= curYear}}">{{= curYear}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 dateError checkError hidden"></div>
+        </div>
+        {{ } }}
+        
+        
+      </div>
+      {{ } }}
+    </div>
+    {{if(myModel.childs != '0'){ }}
+    <div class="listWrap"> 
+      <h3 class="title font-Roman">
+        Children
+      </h3>
+      {{if(myModel.travellerHis && myModel.travellerHis.Child.length > 0){ }}
+      <div class="padLR40 travellerHisWrap">
+        <ul class="travellerHis clearfix">
+          {{_.each(myModel.travellerHis.Child, function(val, key){ }}
+          <li class="nameItem">
+            <div class="checkbox">
+              <label class="fontSz14" title="{{=val.passengerFirstName+' '+val.passengerLastName }}">
+                <input type="checkbox" data-type="Child"  data-id="{{=val.id}}"> {{=val.passengerFirstName+" "+val.passengerLastName }}
+              </label>
+            </div>
+          </li>
+          {{ }) }}
+        </ul>
+        {{if(myModel.travellerHis.Child.length > 4){}}
+          <a href="javascript:void(0)" class="traMore fontSz14"><i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></a>
+        {{ } }}
+      </div>
+      {{ } }}
+      {{for(var i = 1; i <= parseInt(myModel.childs); i++){}}
+      <div class="passengerInfo">
+        <div class="ic"></div>
+        <div class="formItem row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <select name="sexChild{{= i}}" passengerType="2" class="form-con sex">
+                  <option value="0">Gender</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+            <div class="col-sm-5 pad0">
+              <div class="inputBox marR10">
+                <input type="text" maxlength="32" name="FnameChild{{= i}}" class="form-con Fname" placeholder="First name" autocomplete="disabled">
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+            <div class="col-sm-5 pad0">
+              <div class="inputBox marR10">
+                <input type="text" maxlength="32" name="LnameChild{{= i}}" class="form-con Lname"  placeholder="Last name" autocomplete="disabled">
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="formItem birthdayInfo clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Date of Birth</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="dayChild{{= i}}" class="form-con day">
+                    <option value="0">Day</option>
+                    {{for(var j = 1; j <= 31; j ++){ }}
+                      <option value="{{= (j + 100).toString().slice(1)}}">{{= (j + 100).toString().slice(1)}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="monthChild{{= i}}" class="form-con month">
+                    <option value="0">Month</option>
+                    {{_.each(['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], function(val,k){ }}
+                      <option value="{{= (k+101).toString().slice(1)}}">{{= val}}</option>
+                    {{ }) }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="yearChild{{= i}}" class="form-con year">
+                    <option value="0">Year</option>
+                    {{var curYear = new Date().getFullYear(); for(var j = 0; j < 13; j ++){ }}
+                      <option value="{{= curYear - j }}">{{= curYear - j }}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 dateError checkError hidden"></div>
+        </div>
+        {{ if(myModel.isPassport){ }}
+        <div class="formItem clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Passport No.</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-6 pad0">
+                <div class="inputBox marR10">
+                  <input type="text" name="passNo{{= i}}" class="form-con passNo" placeholder="Passport Number" autocomplete="disabled">
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 pad0">
+                <div class="inputBox marR10">
+                  <select class="form-con passCountry" name="passCountry{{=i}}">
+                    <option value="0">Issuing Country</option>
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 dateError checkError hidden"></div>
+        </div>
+        <div class="formItem expiryDate clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Expiry Date</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="dayAdult{{= i}}" class="form-con eday">
+                    <option value="0">Day</option>
+                    {{for(var j = 1; j <= 31; j ++){ }}
+                      <option value="{{= (j + 100).toString().slice(1)}}">{{= (j + 100).toString().slice(1)}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="monthAdult{{= i}}" class="form-con emonth">
+                    <option value="0">Month</option>
+                    {{_.each(['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], function(val,k){ }}
+                      <option value="{{= (k+101).toString().slice(1)}}">{{= val}}</option>
+                    {{ }) }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="yearAdult{{= i}}" class="form-con eyear">
+                    <option value="0">Year</option>
+                    {{ for(var curYear = new Date().getFullYear();  curYear < 2031; curYear ++){ }}
+                      <option value="{{= curYear}}">{{= curYear}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 dateError checkError hidden"></div>
+        </div>
+        {{ } }}
+      </div>
+      {{ } }}
+    </div>
+    {{}}}
+
+    {{if(myModel.baby != '0'){ }}
+    <div class="listWrap"> 
+      <h3 class="title font-Roman">
+        Infants
+      </h3>
+      {{if(myModel.travellerHis && myModel.travellerHis.Baby.length > 0){ }}
+      <div class="padLR40 travellerHisWrap">
+        <ul class="travellerHis clearfix">
+          {{_.each(myModel.travellerHis.Baby, function(val, key){ }}
+          <li class="nameItem">
+            <div class="checkbox">
+              <label class="fontSz14" title="{{=val.passengerFirstName+' '+val.passengerLastName }}">
+                <input type="checkbox" data-type="Baby"  data-id="{{=val.id}}"> {{=val.passengerFirstName+" "+val.passengerLastName }}
+              </label>
+            </div>
+          </li>
+          {{ }) }}
+        </ul>
+        {{if(myModel.travellerHis.Baby.length > 4){}}
+          <a href="javascript:void(0)"  class="traMore fontSz14"><i class="fa fa-caret-down fa-lg" aria-hidden="true"></i></a>
+        {{ } }}
+      </div>
+      {{ } }}
+      {{for(var i = 1; i <= parseInt(myModel.baby); i++){}}
+      <div class="passengerInfo marB20">
+        <div class="ic"></div>
+        <div class="formItem row">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <select name="sexInfant{{= i}}" passengerType="3" class="form-con sex">
+                  <option value="0">Gender</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+            <div class="col-sm-5 pad0">
+              <div class="inputBox marR10">
+                <input type="text" name="FnameInfant{{= i}}" class="form-con Fname" maxlength="32" placeholder="First name" autocomplete="disabled">
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+            <div class="col-sm-5 pad0">
+              <div class="inputBox marR10">
+                <input type="text" name="LnameInfant{{= i}}" class="form-con Lname" maxlength="32" placeholder="Last name" autocomplete="disabled">
+                <div class="checkError hidden"></div>
+              </div>
+            </div>
+            <div class="col-sm-offset-2 col-sm-8 checkError hidden"></div>
+          </div>
+        </div>
+        <div class="formItem birthdayInfo clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Date of Birth</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="dayInfant{{=i}}" class="form-con day">
+                    <option value="0">Day</option>
+                    {{for(var j = 1; j <= 31; j ++){ }}
+                      <option value="{{= (j + 100).toString().slice(1)}}">{{= (j + 100).toString().slice(1)}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="monthInfant{{= i}}" class="form-con month">
+                    <option value="0">Month</option>
+                    {{_.each(['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], function(val,k){ }}
+                      <option value="{{= (k+101).toString().slice(1)}}">{{= val}}</option>
+                    {{ }) }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="yearInfant{{=i}}" class="form-con year">
+                    <option value="0">Year</option>
+                    {{var curYear = new Date().getFullYear(); for(var j = 0; j < 3; j ++){ }}
+                      <option value="{{= curYear - j }}">{{= curYear - j }}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 checkError dateError hidden"></div>
+        </div>
+        {{ if(myModel.isPassport){ }}
+        <div class="formItem clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Passport No.</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-6 pad0">
+                <div class="inputBox marR10">
+                  <input type="text" name="passNo{{= i}}" class="form-con passNo" placeholder="Passport Number" autocomplete="disabled">
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-6 pad0">
+                <div class="inputBox marR10">
+                  <select class="form-con passCountry" name="passCountry{{=i}}">
+                    <option value="0">Issuing Country</option>
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 dateError checkError hidden"></div>
+        </div>
+        <div class="formItem expiryDate clearfix">
+          <div class="col-sm-2"></div>
+          <div class="col-sm-10 pad0">
+            <div class="col-sm-2 pad0">
+              <div class="inputBox marR10">
+                <div class="form-con formItemTil">Expiry Date</div>
+              </div>
+            </div>
+            <div class="col-sm-10 pad0">
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="dayAdult{{= i}}" class="form-con eday">
+                    <option value="0">Day</option>
+                    {{for(var j = 1; j <= 31; j ++){ }}
+                      <option value="{{= (j + 100).toString().slice(1)}}">{{= (j + 100).toString().slice(1)}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="monthAdult{{= i}}" class="form-con emonth">
+                    <option value="0">Month</option>
+                    {{_.each(['Jan', 'Feb', 'Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'], function(val,k){ }}
+                      <option value="{{= (k+101).toString().slice(1)}}">{{= val}}</option>
+                    {{ }) }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+              <div class="col-sm-4 pad0">
+                <div class="inputBox marR10">
+                  <select name="yearAdult{{= i}}" class="form-con eyear">
+                    <option value="0">Year</option>
+                    {{ for(var curYear = new Date().getFullYear();  curYear < 2031; curYear ++){ }}
+                      <option value="{{= curYear}}">{{= curYear}}</option>
+                    {{ } }}
+                  </select>
+                  <div class="checkError hidden"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-offset-2 col-sm-8 dateError checkError hidden"></div>
+        </div>
+        {{ } }}
+      </div>
+      {{ } }}
+    </div>
+    {{}}}
+
+    <div class="wrapMargin">
+      <h3 class="title fontSz16 fontB marB8">
+        Contact Details
+      </h3>
+      <div class="row form-gro">
+        <div class="col-sm-2">
+          <label for="" class="con-label">Contact Name</label>
+        </div>
+        <div class="col-sm-5">
+          <div class="inputBox">
+            <input type="text" name="contactName" class="form-con" placeholder="Your contact name" autocomplete="disabled">
+            <div class="checkError hidden"></div>
+          </div>
+        </div>
+        <p class="col-sm-offset-2 col-sm-8 checkError hidden"></p>
+      </div>
+      <div class="row form-gro">
+        <div class="col-sm-2">
+          <label for="" class="con-label">Email Address</label>
+        </div>
+        <div class="col-sm-5">
+          <div class="inputBox">
+            <input type="email" name="email" class="form-con" placeholder="Email" autocomplete="disabled">
+            <div class="checkError hidden"></div>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <label for="" class="con-label">Your ticket will be sent to this email address</label>
+        </div>
+      </div>
+      
+      <!-- <div id="PWDtip" class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="isSendMsg"> Send me travel offers, deals and news by email
+            </label>
+          </div>
+        </div>
+      </div> -->
+      <div class="row form-gro">
+        <div class="col-sm-2">
+          <label for="" class="con-label">Mobile Number</label>
+        </div>
+        <div class="col-sm-5">
+          <div class="inputBox">
+            <div style="width:30%;position: relative;" class="pull-left">
+              <select name="" class="registerAreaCode form-con areaCode" style="position: absolute;top:0;left:0; width: 100%;opacity:0;padding: 5px 10px;">
+                <option value="91">+91</option>
+              </select>
+              <input class="form-con showSelect" style="width: 100%;padding-left: 12px;background-color:#fff;" value="+91" readonly>
+              <b style="position: absolute;border-top: 5px solid #333;border-right: 3px solid transparent;border-bottom: 5px solid transparent;border-left: 3px solid transparent;right: 6px;top: 18px;"></b>
+            </div>
+            <div style="width:70%;" class="pull-left">
+              <input type="tel" name="phoneNo" id='travellDetail' class="form-con" placeholder="Mobile number" minlength="9" maxlength="17" autocomplete="disabled">
+            </div>
+            <div class="checkError hidden"></div>
+          </div>
+        </div>
+        <div class="col-sm-offset-2 col-sm-8 checkError hidden"></div>
+      </div>
+    </div>
+    {{if(!myModel.isLogin && myModel.productType > 1){}}
+    <div class="Tra_public clearfix inputBox" id="getSilverBox">
+      <div class="fontSz14 grayDark marB8">
+        {{=myModel.productType > 2 ? 'Don’t have a HEG account yet? Register now by  choosing a password' : 'Don’t have a HEG account yet? Register now by  choosing a password and get <span id="silverDis"> '+ myModel.silverDis +' </span> silver deduction on this order.'}}
+      </div>
+      <div class="fontSz14 grayDark">
+        Our system will send the initial password to your phone and email.
+      </div>
+      <div class="checkError hidden" style="padding-left: 64px;"></div>
+    </div>
+    {{ } }}
+    <div class="wrapMargin">
+      {{if(myModel.allowGST){ }}
+      <div class="form-gro row">
+        <div class="col-sm-10">
+          <div class="checkbox">
+            <label id="isGST" class="fontSz16  font-Roman">
+              <input type="checkbox"> I have a GST number(optional)
+            </label>
+          </div>
+        </div>
+      </div>
+      <div id="gstCon" class="hidden font-Light">
+        <div class="form-gro row">
+          <div class="col-sm-4">
+            <div class="inputBox">
+              <input type="text" name="gstN" class="form-con" disabled="disabled" maxlength="20" placeholder="GST Number" autocomplete="disabled">
+              <div class="checkError hidden"></div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="inputBox">
+              <input type="text" name="gstC" class="form-con" disabled="disabled" maxlength="100" placeholder="Company Name" autocomplete="disabled">
+              <div class="checkError hidden"></div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="inputBox">
+              <input type="text" name="gstEmail" class="form-con" disabled="disabled" maxlength="50" placeholder="Bussiness Email ID" autocomplete="disabled">
+              <div class="checkError hidden"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-gro row">
+          <div class="col-sm-12">
+            <div class="inputBox">
+              <input type="text" name="gstAddr" class="form-con" disabled="disabled" maxlength="65"  placeholder="Company Address" autocomplete="disabled">
+              <div class="checkError hidden"></div>
+            </div>
+          </div>
+        </div>
+        <div class="form-gro row">
+          <div class="col-sm-3">
+            <div class="inputBox">
+              <input type="text" name="gstPhone" class="form-con" disabled="disabled" maxlength="20" placeholder="Phone Number" autocomplete="disabled">
+              <div class="checkError hidden"></div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="inputBox">
+              <input type="text" name="gstCountry" class="gstCountry form-con" disabled="disabled" maxlength="20" placeholder="Country" value="India" readonly>
+              <div class="checkError hidden"></div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="inputBox">
+              <input type="text" name="gstState" class="form-con gstState" disabled="disabled" maxlength="30" placeholder="State" value="Haryana" autocomplete="disabled">
+              <div class="checkError hidden"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{}}}
+      {{if(myModel.sendOtpRequired){}}
+      <div class="form-gro row">
+        <div class="col-sm-offset-2 col-sm-5">
+          <div class="inputBox">
+            <div class="pull-left" style="width:70%;">
+              <input type="text" class="form-con" readonly value="{{=myModel.otpMob}}">
+            </div>
+            <div class="pull-left" style="width: 30%;">
+              <input type="button" class="silverOtpBtn form-con" id="silverOtp" value="Send OTP">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-gro row">
+        <div class="col-sm-offset-2 col-sm-3">
+          <div class="inputBox">
+            <input type="text" name="otp" class="form-con" placeholder="OTP" autocomplete="disabled">
+            <div class="checkError hidden"></div>
+          </div>
+        </div>
+      </div>
+      {{ } }}
+
+      <div style="clear:both"></div>
+    </div>
+
+    <div id="insureWrap"></div>
+  
+    <div class="wrapMargin clearfix">
+      <div class="pull-right">
+        <button type="button" id="step2" class="btnmy fontSz18 font-Roman btn btn-warning">Confirm</button>
+        <button type="button" id="createorder" style="display: none"></button>
+      </div>
+    </div>
+  </form>
+</script>
+<script id="insureTpl" type="text/template">
+  <div class="nav insHead clearfix">
+    <div class="num"></div>
+    <h2 class="til font-Bold">
+      Secure Your Trip
+    </h2>
+    <i class='icon img_icon pull-right'></i>
+  </div>
+  <div class="insureWrap wrapMargin">
+    <h3 class="title">
+      <p class='font-Bold'>96% of our customers insure their trip. See all the benefits you get for just <s class='oldPri {{= model.isSetPri > 0 ? "" : "hidden"}}'>Rs.<span>{{= model.perInsurePr}}</span></s> Rs.<span class='settingPri'>{{=model.setPri}}</span> {{=model.title}}</p>
+    </h3>
+    <div class="loadMore">
+      <div class='trip'>
+        <img src="<%=require('./imgs/bfit_1.png')%>" alt="">
+        {{if(model.isIntl) { }}
+        <p class="tips font-Bold">Trip Cancellation & Interruption</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>750</span></p>
+        {{ } else { }}
+        <p>Trip Cancellation</p>
+        <p>Claim upto <span><span class='rs'>Rs.</span>20,000</span></p>
+        {{ } }}
+        
+      </div>
+      <div class='trip'>
+        <img src="<%=require('./imgs/bfit_2.png')%>" alt="">
+        {{if(model.isIntl) { }}
+        <p class="tips font-Bold">Trip Delay</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>180</span></p>
+        {{ } else { }}
+        <p>Trip Delay</p>
+        <p>Claim upto <span><span class='rs'>Rs.</span>10,500</span></p>
+        {{ } }}
+        
+      </div>
+      
+      <div class='showMore'>
+        <p class="moreNum"><span>{{=model.isIntl ? '10' : '8'}}</span></p>
+        <p class='text'>View All benefits</p>
+        <p class='btn_showMore'><span id="isShowMore" class='drow down'></span></p>
+      </div>
+    </div>
+    <div id="benWrap" class="benWrap">
+      
+      {{if(!model.isIntl) { }}
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_3.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Loss of Checked-In ...</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="rs">Rs.</i>10,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_4.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Personal Accident</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="rs">Rs.</i>500,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_7.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Personal Liability</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="rs">Rs.</i>200,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_5.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Emergency Medical</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="rs">Rs.</i>100,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_6.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Emergency Evacuation</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="rs">Rs.</i>100,000</span></p>
+      </div>
+     
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_8.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Missed Connection</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="rs">Rs.</i>2,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_9.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Compassionate Trip</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="rs">Rs.</i>30,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_10.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Emergency Accomo...</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="rs">Rs.</i>20,000</span></p>
+      </div>
+      {{ }else { }}
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_3.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Total Loss of Checked in baggage</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>500</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_4.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Personal Accident</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>20,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_7.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Personal Liability</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>100,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_5.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Medical Expenses Including Transportation, Evacuation & Repatriation of Mortal Remains</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>100,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_11.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Dental Treatment</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>500</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_12.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Loss of Passport</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>300</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_13.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Delay of Checked in Baggage</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>100</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_14.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Accidental Death & Dismemberment- Common Carrier</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>25,000</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_15.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Daily Allowance in case of Hospitalisation</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>125</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_16.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Financial Emergency Assistance</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>500</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_17.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Hijack Distress Allowance</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class="">$</i>420</span></p>
+      </div>
+      <div class="b-item">
+        <div class="imgWrap">
+          <img src="<%=require('./imgs/bfit_18.png')%>" alt="">
+        </div>
+        <p class="tips font-Bold">Compassionate visit</p>
+        <p class="gray">Claim upto <span class="grayDarker"><i class=""></i>Return Fare</span></p>
+      </div>
+      {{ } }}
+      
+    </div>
+    
+    
+    <div class="form-gro row">
+      <div class="col-sm-8">
+        <div class="radio">
+          <label class="fontSz14">
+            <input type="radio" name="insureRadios" value="yes">
+            Yes, Secure my trip with insurance. I agree to the <a href="/static/images/pdf/{{=model.isIntl ? 'intlTC.pdf':'TC.pdf'}}" class="colorPri" target="_black">Terms &amp; Conditions</a> 
+            {{if(model.isIntl) { }} 
+              <div id="insureCountView" style='line-height:30px;margin-top:10px;'>
+                Stay duration
+                <div style='display:inline-block;position: relative;'>
+                  <input class='insureTime' type="text" maxlength='3' name="insureTime" value="{{=model.days}}" placeholder='2~180' style='width:100px;height:30px;text-align:center; padding:5px 35px 5px 8px;'>
+                  <i class='days' style='position: absolute;right:8px;top:0px;'>days</i>
+                </div>
+                <span class='perInsurePr'><i class="rs">Rs.</i>{{=model.isSetPri > 0 ? model.days*model.setPri : model.days*model.perInsurePr}} for {{=model.days}} days (Per Peson) </span>
+                <p>Policy begins on your departure date and ends after the duratio</p>
+              </div>
+            {{ } }}
+            
+          </label>
+        </div>
+        <div class="radio">
+          <label class="fontSz14">
+            <input type="radio" name="insureRadios" value="no">
+            No, I do not want to insure my trip 
+          </label>
+        </div>
+        <p class="fontSz14"><span class='font-Bold' style='color:#0b9d78;margin-right:15px;'>NOTE:</span>Insurance only for Indian citizens aged between 6 months to 70 years.</p>
+      </div>
+      <div class="sec-trip">
+        <p class="clearfix"><i class='icon checksec pull-left'></i> <span class="pull-left">Secure trip</span></p>
+        <p class="setPri {{= model.isSetPri > 0 ? '':'hidden'}}">save<span> Rs.{{= model.isSetPri}}</span></p>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="travellerInfoTpl" type="text/template">
+  <div class='flightInfo f-info'>
+    <p class='title'>Flights Info</p>
+    {{_.each(model.itineraryArray , function(value, key) { }}
+      <div class='fl_info'>
+      <ul class='clearfix'>
+        <li class='color{{=key}}'>{{= key == 0 ? 'Depart' : 'Return'}}</li>
+        <li class=''>
+          <img style='display:block;' src="/static/images/air-logo/{{=value.al}}.png" width="30" onerror="this.src='/static/images/air-logo/default.png" alt="">
+          <span>{{=value.fn}}</span>
+        </li>
+        <li class='f_info'>
+          <p><span>{{=value.primaryDDate}} {{= value.dt.split(' ')[1]}}</span></p>
+          <p>{{=value.dc}}</p>
+        </li>
+        <li class='flGo'><p>{{=value.stopByFlightArray.length==1 ? 'Non-stop' : value.stopByFlightArray.length-1 + ' Stops'}}</p><p>——————></p></li>
+        <li class='f_info'>
+          <p>{{=value.primaryADate}} {{=value.at.split(' ')[1]}}</p>
+          <p>{{=value.ac}}</p>
+        </li>
+      </ul>
+    </div>
+    {{ })}}
+    
+  </div>
+  <div class='passInfo f-info'>
+    <p class='title'>Passenger Info</p>
+    {{if(model.psrList.adult.lenght != 0) { }}
+      <div class='fl_info'>
+        <ul class='clearfix'>
+          <li class='class'>{{= model.psrList.adult.length}} {{= model.psrList.adult.length == 1 ? 'Adult':'Adults'}}</li>
+          {{_.each(model.psrList.adult , function(value, key) { }}
+          <li class='f_info'>
+            <p>{{=value.passengerFirstName}} {{=value.passengerLastName}} ({{=value.sex == 1 ? 'Female':'Male'}})</p>
+            <p>{{=value.birthDate}}</p>
+            <p>{{=value.cardNo}}</p>
+          </li>
+          {{ })}}
+        </ul>
+      </div>
+    {{ } }}
+    {{if(model.psrList.children.length != 0) { }}
+      <div class='fl_info'>
+        <ul class='clearfix'>
+          <li class='class'>{{= model.psrList.children.length}} Children</li>
+          {{_.each(model.psrList.children , function(value, key) { }}
+          <li class='f_info'>
+            <p>{{=value.passengerFirstName}} {{=value.passengerLastName}} ({{=value.sex == 1 ? 'Female':'Male'}})</p>
+            <p>{{=value.birthDate}}</p>
+            <p>{{=value.cardNo}}</p>
+          </li>
+          {{ })}}
+        </ul>
+      </div>
+    {{ } }}
+    {{if(model.psrList.infant.length != 0) { }}
+      <div class='fl_info'>
+        <ul class='clearfix'>
+          <li class='class'>{{= model.psrList.infant.length}} {{= model.psrList.infant.length == 1 ? 'Infant':'Infants'}}</li>
+          {{_.each(model.psrList.infant , function(value, key) { }}
+          <li class='f_info'>
+            <p>{{=value.passengerFirstName}} {{=value.passengerLastName}} ({{=value.sex == 1 ? 'Female':'Male'}})</p>
+            <p>{{=value.birthDate}}</p>
+            <p>{{=value.cardNo}}</p>
+          </li>
+          {{ })}}
+        </ul>
+      </div>
+    {{ } }}
+    
+  </div>
+  <div class='conInfo font-Roman f-info'>
+    <p class='title'>Contact Info</p>
+    <div class='fl_info'>
+      <ul class='clearfix'>
+        <li class=''>
+          <p><span>Email</span> : {{=model.contactInfo.contactEmail}}</p>
+        </li>
+        <li class=''>
+          <p><span>Phone</span> : {{='+' + model.contactInfo.contactMob}}</p>
+        </li>
+        {{if(model.gstInfo != '') { }}
+        <li class=''>
+          <p><span>GST</span> : {{=model.gstInfo.registrationNumber}}</p>
+        </li>
+        {{ } }}
+       
+      </ul>
+    </div>
+  </div>
+</script>
+<script id="paymentInfoTpl" type="text/template">
+  <div class="paySummary">
+    <div class="paySession">
+      <div class="padT10 padB10">
+        <i class="fa fa-clock-o fa-lg colorDan"></i>
+        <span>The session will expire in: </span>
+        <span class="colorWar">{{=model.exTime}}</span>
+      </div>
+    </div>
+    <div class="payAmount text-center padT10">
+      <div class="cfAdd marB20" id="cfAdd">
+        <p class="fontSz18 fontB">Total payable amount 
+          <span class="colorDan fontSz24">
+            <i class="fa fa-inr"></i>
+            {{=model.payPrice.toThree()}}
+          </span>
+        </p>
+        <p class="fontSz14">
+          ( A Convenience fee of <span class="fontB">Rs.{{=model.fee["Convenience fee"].toThree()}}</span> is added )
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="fontSz18 marB8 font-Roman fontB">
+    Payment
+  </div>
+  {{if(model.isLogin){ }}
+  <div class="payWallet">
+    <form role="form">
+      <div class="goldWrap marB20">
+        <div class="checkbox goldCheck">
+          <label class="fontSz16 font-Light">
+            <input type="checkbox" name="" id="checkGold">
+            Happy Gold Account Balance <i class="rs">Rs.</i> 
+            <span class="happygold" id="goldBalance">{{=(model.goldBalance || 0).toThree()}}</span> 
+            <a href="javascript:void(0)" id="refreshGold" class="colorPri">Refresh</a>
+          </label>
+        </div>
+        <div class="goldBox hidden">
+          <div class="row">
+            <div class="form-gro col-sm-4">
+              <input type="text" id="useGold" class="form-con" autocomplete="off">
+            </div>
+            <div class="col-sm-6">
+              <p class="padT10">Please input happygold amount here</p>
+            </div>
+          </div>
+          <div>
+            <p><a href="https://www.happyeasygo.com/wallet-terms/" target="_blank" class="colorPri">Know more about Happy Gold</a></p>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  {{ } }}
+  {{if(model.isNewPay){}}
+  <div class="payTypes" id="payTypes">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      {{for(var i = 0; i < model.paymentChannel.length; i ++){ }}
+        {{if(model.paymentChannel[i].id == 1){ }}
+        <li role="presentation" class="active" ><a href="#CreditType" class="fontSz16" aria-controls="CreditType" index="1" role="tab" data-toggle="tab">Credit card</a></li>
+        {{ }else if(model.paymentChannel[i].id == 2){ }}
+        <li role="presentation"><a href="#DebitType" aria-controls="DebitType" index="2" class="fontSz16"role="tab" data-toggle="tab">Debit card</a></li>
+        {{ }else if(model.paymentChannel[i].id == 3){ }}
+        <li role="presentation"><a href="#bankType" index="3" aria-controls="bankType" class="fontSz16" role="tab" data-toggle="tab">Net banking</a></li>
+        {{ }else if(model.paymentChannel[i].id == 4){ }}
+        <li role="presentation"><a href="#walletType" index="4" aria-controls="walletType" class="fontSz16" role="tab" data-toggle="tab">Mobile Wallet</a></li>
+        {{ }else if(model.paymentChannel[i].id == 6){ }}
+        <li role="presentation"><a href="#upiType" index="6" aria-controls="upiType"  class="fontSz16" role="tab" data-toggle="tab">UPI</a></li>
+        {{ }else if (model.paymentChannel[i].id == 7){ }}
+        <li role="presentation"><a href="#paypalType" index="7" aria-controls="paypalType"  class="fontSz16" role="tab" data-toggle="tab">Paypal</a></li>
+        {{ } }}
+      
+      {{ } }}
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active" id="CreditType">
+        <div class="cardWrap clearfix">
+          <div class="cardGather clearfix">
+            <i></i>
+          </div>
+          <div class="form">
+            <form>
+              <div class="row marB8">
+                <div class="col-sm-6 c_group">
+                  <div>
+                    <input type="text" class="c_num" maxlength="51" placeholder="Enter card number">
+                  </div>
+                  <div class="checkError hidden">Please enter a valid card number</div>
+                </div>
+                <div class="col-sm-3 c_group">
+                  <div>
+                    <select name="" class="c_month">
+                      <option value="">MM</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                      <option value="04">04</option>
+                      <option value="05">05</option>
+                      <option value="06">06</option>
+                      <option value="07">07</option>
+                      <option value="08">08</option>
+                      <option value="09">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
+                  </div>
+                  <div class="checkError hidden">You miss this</div>
+                </div>
+                <div class="col-sm-3 c_group">
+                  <div>
+                    <select class="c_year">
+                      <option value="">YYYY</option>
+                      <% for(var i = (new Date()).getFullYear(); i < ((new Date()).getFullYear() - 0 + 23); i++) {  %>
+                        <option value="<%= i %>"> <%= i %> </option>
+                      <% } %>
+                    </select>
+                  </div>
+                  <div class="checkError hidden">You miss this</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 c_group">
+                  <div>
+                    <input type="text" class="c_holder" placeholder="Enter card holder's name">
+                  </div>
+                  <div class="checkError hidden">Please enter a valid name</div>
+                </div>
+                <div class="col-sm-6 c_group">
+                  <div class='cvvBox'>
+                    <input type="text" class="c_cvv" maxlength="3" style='display:none;'>
+                    <input type="text" class="c_cvv1" maxlength="3" placeholder="CVV">
+                    <div class='questionInfo'>
+                      <div class='cvvTipsBox'>
+                        <i class='arrow'></i>
+                        <i class='card'></i>
+                        <span>
+                            the 3 digit number printed on the back
+                            of the card
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkError hidden">Please enter a valid card CVV</div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="checkError checkError10  hidden" style='line-height: 20px;font-size: 15px;'></div>
+          <div class="note padT10 fontSz14">
+            <div class="row">
+              <div class="col-sm-1">
+                <p class="colorPri font-Roman textR">
+                  NOTE:
+                </p>
+              </div>
+              <div class="col-sm-11">
+                <p>
+                  For security reasons, the holder of the international credit card used to book a ticket or group of tickets must be one of the travellers on that itinerary or have the same family name. 
+                </p>
+                <p>
+                  Allow popup to proceed for payment gateway <a href="https://www.wikihow.com/Allow-Pop%E2%80%93ups" class="colorPri" target="_blank">(How to Allow Pop–ups)</a> 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="DebitType">
+        <div class="cardWrap clearfix">
+          <div class="cardGather clearfix">
+            <i></i>
+          </div>
+          <div class="form">
+            <form>
+              <div class="row marB8">
+                <div class="col-sm-6 c_group">
+                  <div>
+                    <input type="text" class="c_num" maxlength="51" placeholder="Enter card number">
+                  </div>
+                  <div class="checkError hidden">You miss this</div>
+                </div>
+                <div class="col-sm-3 c_group">
+                  <div>
+                    <select name="" class="c_month">
+                      <option value="">MM</option>
+                      <option value="01">01</option>
+                      <option value="02">02</option>
+                      <option value="03">03</option>
+                      <option value="04">04</option>
+                      <option value="05">05</option>
+                      <option value="06">06</option>
+                      <option value="07">07</option>
+                      <option value="08">08</option>
+                      <option value="09">09</option>
+                      <option value="10">10</option>
+                      <option value="11">11</option>
+                      <option value="12">12</option>
+                    </select>
+                  </div>
+                  <div class="checkError hidden">You miss this</div>
+                </div>
+                <div class="col-sm-3 c_group">
+                  <div>
+                    <select class="c_year">
+                      <option value="">YYYY</option>
+                      <% for(var i = (new Date()).getFullYear(); i < ((new Date()).getFullYear() - 0 + 23); i++) {  %>
+                        <option value="<%= i %>"> <%= i %> </option>
+                      <% } %>
+                    </select>
+                  </div>
+                  <div class="checkError hidden">You miss this</div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6 c_group">
+                  <div>
+                    <input type="text" class="c_holder" placeholder="Enter card holder's name">
+                  </div>
+                  <div class="checkError hidden">Please enter a valid name</div>
+                </div>
+                <div class="col-sm-6 c_group">
+                  <div class='cvvBox'>
+                    <input type="text" class="c_cvv" maxlength="3" style='display:none;'>
+                    <input type="text" class="c_cvv1" maxlength="3" placeholder="CVV">
+                    <div class='questionInfo'>
+                      <div class='cvvTipsBox'>
+                        <i class='arrow'></i>
+                        <i class='card'></i>
+                        <span>
+                            the 3 digit number printed on the back
+                            of the card
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="checkError hidden">Please enter a valid CVV</div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="checkError checkError10  hidden" style='line-height: 20px;font-size: 15px;'></div>
+          <div class="note padT10 fontSz14">
+            <div class="row">
+              <div class="col-sm-1">
+                <p class="colorPri font-Roman textR">
+                  NOTE:
+                </p>
+              </div>
+              <div class="col-sm-11">
+                <p>
+                  Allow popup to proceed for payment gateway <a href="https://www.wikihow.com/Allow-Pop%E2%80%93ups" class="colorPri" target="_blank">(How to Allow Pop–ups)</a> 
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="bankType">
+        <div class="bankWrap">
+          <form>
+            <div class="bankList">
+              <div class="checkError hidden" style="margin:0 0 8px;">
+                Please choose a bank
+              </div>
+              <ul class="clearfix row">
+                {{_.each(model.hotBank, function(val){ }}
+                <li class="col-sm-4">
+                  <label>
+                    <input type="radio" name="bankid" value="{{=val.id}}">
+                    <b class="bankIcon"><img src="{{=val.bankpic}}" alt=""></b>
+                  </label>
+                </li>
+                {{ }) }}
+              </ul>
+            </div>
+            <div class="otherList row">
+              <div class="col-sm-4">
+                  <select>
+                    <option value="0">Choose your bank</option>
+                    {{_.each(model.bankList, function(val){ }}
+                    <option value="{{=val.id}}">{{=val.bankName}}</option>
+                    {{ }) }}
+                  </select>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="note padT10 fontSz14">
+          <div class="row">
+            <div class="col-sm-1">
+              <p class="colorPri font-Roman textR">
+                NOTE:
+              </p>
+            </div>
+            <div class="col-sm-11">
+              <p>
+                Allow popup to proceed for payment gateway <a href="https://www.wikihow.com/Allow-Pop%E2%80%93ups" class="colorPri" target="_blank">(How to Allow Pop–ups)</a> 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="walletType">
+        <div class="bankWrap">
+          <form>
+            <div class="bankList">
+              <div class="checkError hidden" style="margin:0 0 8px;">
+                Please choose a mode
+              </div>
+              <ul class="clearfix row">
+                {{_.each(model.walletList, function(val){ }}
+                <li class="col-sm-4">
+                  <label>
+                    <input type="radio" name="walletid" data-id="{{=val.id}}">
+                    <b class="bankIcon"><img src="{{=val.bankpic}}" alt=""></b>
+                  </label>
+                </li>
+                {{})}}
+              </ul>
+            </div>
+          </form>
+        </div>
+        <div class="note padT10 fontSz14">
+          <div class="row">
+            <div class="col-sm-1">
+              <p class="colorPri font-Roman textR">
+                NOTE:
+              </p>
+            </div>
+            <div class="col-sm-11">
+              <p>
+                Allow popup to proceed for payment gateway <a href="https://www.wikihow.com/Allow-Pop%E2%80%93ups" class="colorPri" target="_blank">(How to Allow Pop–ups)</a> 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="upiType">
+        <div class='flowChart'>
+          <div></div>
+        </div>
+        <div class="upi">
+          <p class="padB10">Enter your Virtual Payment Address (<span class="fontB">VPA</span>)</p>
+          <input type="text" placeholder="Ex: username@upi">
+          <div class="checkError hidden">
+            Please enter a valid VPA
+          </div>
+        </div>
+        <div class="note padT10 fontSz14">
+          <div class="row">
+            <div class="col-sm-1">
+              <p class="colorPri font-Roman textR">
+                NOTE:
+              </p>
+            </div>
+            <div class="col-sm-11">
+              <p>
+                Allow popup to proceed for payment gateway <a href="https://www.wikihow.com/Allow-Pop%E2%80%93ups" class="colorPri" target="_blank">(How to Allow Pop–ups)</a> 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane" id="paypalType">
+        <div class="padT10 padB10 marT10 marB20"></div>
+        <div class="note padT10 fontSz14">
+          <div class="row">
+            <div class="col-sm-1">
+              <p class="colorPri font-Roman textR">
+                NOTE:
+              </p>
+            </div>
+            <div class="col-sm-11">
+              <p>
+                Allow popup to proceed for payment gateway <a href="https://www.wikihow.com/Allow-Pop%E2%80%93ups" class="colorPri" target="_blank">(How to Allow Pop–ups)</a> 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{}}}
+  <div class="marB20 clearfix text-right">
+    <div class="pull-right">
+      <button type="button" id="creditPay" class="btn btn-warning fontSz18" index="1" style="width:200px;">Pay</button>
+      <div class="checkbox">
+        <label class="fontSz14">
+          <input type="checkbox" name="agreement" value="off" checked="checked"> I agree with the <a href="/conditions/" target="_blank" class="colorPri">Terms &amp; Conditions </a>of HappyEasyGo
+        </label>
+        <div class="checkError hidden"></div>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <p class="colorDan fontB" style="font-size:13px;">It will take a few minutes to process your payment. If you have completed payment, please do not make payment again.</p>
+  </div>
+</script>
+
+<script id="fareDetailTpl" type="text/template">
+  <div class="sumList">
+    <div class="passSum">
+      <span class="fontB padR10">Traveller</span>
+      <span>{{=model.adults}} Adult(s)</span>
+      {{if(model.childs != 0){ }}
+        <span>{{=model.childs}} Child(ren)</span>
+      {{}}}
+      {{if(model.baby != 0){ }}
+        <span>{{=model.baby}} Infant(s)</span>
+      {{}}}
+    </div>
+  </div>
+  <div class="sumList">
+    <div class="fareSum">
+      <h3 class="title fontSz16 fontB">
+        Fare
+      </h3>
+      <div class="con clearfix">
+        <span class="fontSz16 pull-left">Base fare and taxes</span>
+        <span class="padL10 fontSz24 pull-right">
+          <i class="fa fa-inr"></i>
+          <span id="viewOopr">{{=model.oopr.toThree()}}</span>
+        </span>
+        <a tabindex="0" id="showFareDetail" class="showFareDetail" role="button" data-toggle="popover" title="Fare break up" data-trigger="focus" data-html='true' data-placement="left"><i class="fontSz14 pull-right fa fa-info-circle colorPri"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="sumList fareDetail fontSz16" style="display: none" id="insureItem">
+    <h3 class="title fontSz16 fontB">
+        Add Ons
+    </h3>
+    <div class="clearfix">
+      <div class="pull-left">Insurance</div>
+      <div class="padL10 fontSz24 pull-right">
+        <i class="fa fa-inr"></i>
+        <span class="insurePr">{{=model.insurePr}}</span>
+      </div>
+    </div>
+  </div>
+  <div class="sumList fareDetail fontSz16">
+    <h3 class="title fontSz16 fontB">
+        HappyEasyGo Coupon
+    </h3>
+    {{ if(model.type == 2){ }} 
+      
+      <div class="clearfix fontSz14 gray">
+        <input type="checkbox" checked disabled style="margin-right:6px;"> -<span id="" class="fontSz16 viewCash_1">{{=model.discount.toThree()}}</span> Happy Silver  ( <i class="fa fa-inr"></i>-<span id="" class="fontSz16 viewCash_1">{{=model.discount.toThree()}}</span>)
+      </div>
+      <div class="clearfix fontSz14 gray  hidden " id='viewCash_2'>
+        <input type="checkbox" checked disabled style="margin-right:6px;">  <span id="" class="fontSz16 viewCash_2"></span> HEG Coupon   ( <i class="fa fa-inr"></i><span id="" class="fontSz16 viewCash_2"></span>)
+      </div>
+    {{ } else { }}
+      <div class="clearfix fontSz14 gray">
+        <input type="checkbox" checked disabled style="margin-right:6px;"> HEG Coupon <i class="fa fa-inr"></i> -<span id="viewCash" class="fontSz16">{{=model.discount.toThree()}}</span>
+      </div>
+    {{ } }}
+  </div>
+</script>
+<script id="hegOffersTpl" type="text/template">
+  <div class="sumList">
+    {{ if(!model.returnCash){ }}
+    <p class="fontSz14">(Get instant discount with Coupon)</p> 
+    <form class="form-inline" onsubmit="return false;">
+      <div class="coupon-code form-group">
+        <div class='couponInput'>
+          <input type="text" maxlength="20" value="{{= model.couponCode}}" 
+              class="form-control" id='couponInput'>
+          <a href='javascript:;' class='listIcon' id='couponList'></a>     
+          <div class='couponList hide' id='couponItem'>
+          </div>
+        </div>
+        <a href="javascript:void(0)" class="apply btn  btn-warning" id="applyCoupon">Apply</a>
+      </div>
+    </form>
+    <div class="couponNote colorDan" id="couponNote"></div>
+    {{ }else{ }}
+    <div class="coupon-code fontSz14 clearfix text-right {{=model.earnTitle.isShow ? '' : 'hidden'}}">
+      <a tabindex="0" role="button" class="goldbackPop gray" data-container="body"
+          data-trigger="focus" data-toggle="popover" data-html='true' data-placement="bottom"
+        style="outline: none;">
+        <span class='earnPrice'>{{=model.earnTitle.titleName}}
+          <i class="rs">Rs.</i>
+          <span class="cashback" style="display: inline;"> {{=model.fee.goldback.toThree()}}</span>
+        </span>
+      </a>
+      <p class='couponInfo'>Cashback will be credited within an hour</p>
+    </div>
+    {{ } }}
+    {{if(!model.isLogin){ }}
+    <div class="colorPri fontSz14 access">
+      <a href="/static/tpl/loginTpl.html" data-toggle="modal" data-target="#login_modal">Sign In</a> / <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal">Sign Up</a> to use Happy Gold
+    </div>
+    {{ } }}
+  </div>
+</script>
+
+<script id='couponItemTpl' type="text/template">
+  <ul>
+    {{if(myModel.lenght == 0 ||  myModel == '' ){ }}
+      <div class='noList'>
+        <i class='icon'></i>
+        <p>No valid private coupon</p>
+      </div>
+    {{ } else { }}
+      {{_.each(myModel, function(val){ }}
+        <li>
+          <span>{{=val.couponCode}}</span>
+          <span>-<i class='rs'>Rs.</i>{{= val.discount}}</span>
+      </li>
+      {{ }) }}
+    {{ } }}
+  </ul>
+</script>
+
+<script id="hegWalletTpl" type="text/template">
+  <a href="javascript:void(0)" class="priceWrap">
+    <div class="colorPri price">
+      Total Amount
+      <span class="pull-right">
+        <i class="fa fa-inr"></i>
+        <span class="amount" id="viewTotal">{{=model.totalPrice.toThree()}}</span>
+      </span>
+    </div>
+    <div id="upFare" class="upFare hidden">
+      <!-- <b class="arrow-t"></b> -->
+      <div class="fontSz16" style="padding:8px 0 8px 10px; margin-left:-20px; margin-right:-20px">
+        <i class="fa fa-arrow-up colorDan" aria-hidden="true"></i>
+         Fare is changed by Airlines
+         <span class="colorDan">
+         <i class="fa fa-inr"></i> <span class="upp"></span>
+        </span>
+      </div>
+      <div class="upFareNote">
+        <b class="arrow-t"></b>
+        <div class="noteWrap text-left" style="color:#fff; padding:16px 8px 16px 14px;">
+          <h3 class="fontSz18 padB10">Why does the price of the Airline change?</h3>
+          <div class="fontSz12">
+            <p class="padB10 fontSz14">Note: Rules in terms of fare of the Airlines.</p>
+            <p>&bull; We assure the best price for the new available flight</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</script>
+
+<div class="modal fade" id="bookExpire" role='dialog' tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="modal-content">
+      <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px; display:{{=model.showClose ? 'block' : 'none'}}"><span aria-hidden="true">&times;</span>
+      </div>
+      <div class="modal-header">
+        <h2 class="modal-title colorPri fontSz16">{{=model.title || "Oops!"}}</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <div style="font-size:16px;margin:14px 0;">
+          {{=model.text || "Fare or Seat(s) not available with the airline. <br /> Redirecting to Search Page..."}}
+        </div>
+        {{if(model.btnTex){}}
+          <a href="{{=model.href || ''}}" class="btn btn-warning pull-right">{{=model.btnTex}}</a>
+        {{}}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="cancelInsureModal" role='dialog' tabindex="-1" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;position:absolute; top:40%;left: 50%; transform: translateX(-50%) translateY(-50%)">
+    <div class="modal-content">
+      <div class="modal-body clearfix">
+        <div class="noInsuranceMsg" style="font-size:16px;margin:14px 0;">
+        </div>
+        <div style="padding-left: 50px;">
+          <button class="btn btn-default uncheckedBtn"  style="width:190px;">
+          I will pay Rs.<span class="withInsureDiscount"></span> more
+          </button>
+          <button class="btn btn-warning" data-dismiss="modal" aria-label="Close" style="width:190px;">
+          I want Insurance
+          </button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="setPwdModal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:400px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title colorPri" style="font-size: 16px;">Notice</h2>
+      </div>
+      <div class="modal-body clearfix">
+        <p style="margin-bottom: 16px; font-size: 16px;">
+          You haven't payment password now.
+        </p>
+        <a href="/passport/?pay=1" target="_blank" id="setPaymentPwd" class="btn btn-warning pull-right">Set payment password</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" data-backdrop="static" data-keyboard="false" id="login_modal" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:440px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="register_modal" data-backdrop="static" data-keyboard="false" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px"><span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="log-loading">
+        <img src="/static/images/loading.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="orderTimeout" role='dialog' tabindex="-1">
+  <div class="modal-dialog" style="overflow: hidden;width:500px;">
+    <div class="close" data-dismiss="modal" aria-label="Close" style="position: absolute; right:6px; top:3px; z-index: 100; font-size: 28px">
+      <span aria-hidden="true">&times;</span>
+    </div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title colorPri fontSz16" id="exampleModalLabel">Session Timed Out</h4>
+      </div>
+      <div class="modal-body clearfix">
+        <p class='orderTimeoutMsg' style="margin-bottom: 10px;"></p>
+        <button type="button" class="btn SearchAgain btn-warning pull-right">Search again</button>
+      </div>
+    </div>
+  </div>
+</div>

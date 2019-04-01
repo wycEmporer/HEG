@@ -1,0 +1,81 @@
+<div class=" login-wrapper ">
+  <div class="logWrap-container">
+    <div class="checkFailure hidden">
+      <p>The username or password you entered is incorrect</p>
+    </div>
+    <p style="height: 70px;line-height: 70px;font-size:14px;text-align: center;background: #0b9d78;color: white">Sign in and Get lots of Cashback Rewards and Discount</p>
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Mobile Phone</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">E-mail</a></li>
+      </ul>
+    
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+          <form action="" onsubmit="return false">
+            <dl class="vertical">
+              <dd class="username-box clearfix">
+
+                <div class="pull-left" style="position: relative;margin-right:10px;">
+                  <select name="areaCode" id="loginAreaCodeSele" class="registerAreaCode form-control" style="display: inline-block; width: 84px;position: absolute;top:0;left:0;opacity:0;">
+                    <option value="91">India (+91)</option>
+                  </select>
+                  <input class="form-control showSelect" readonly style="width: 84px;height:35px;padding-left: 12px;background-color:#fff;border-radius:2px;border-color: #999;" value="+91">
+                  <b style="position: absolute;border-top: 5px solid #333;border-right: 3px solid transparent;border-bottom: 5px solid transparent;border-left: 3px solid transparent;right: 6px;top: 15px;"></b>
+                </div>
+                <div class="pull-left">
+                  <input type="tel" name="phoneNo" id="user_phone" maxlength="50" size="50" autocomplete="off" class="inputin" class="form-control" style="width:266px;height:35px;display: inline-block;border-radius:2px;" placeholder="Mobile Number">
+                </div>
+              </dd>
+             
+              <dd class="password-box">
+                <input type="password" name="password" id="password" class="inputin password" maxlength="32" placeholder="Password" onkeydown="if(event.keyCode == 13){this.form['login-btn'].click()}">
+              </dd>
+              <dd class="persistent-box">
+                <input type="checkbox" name="rememberMe" class="persistent_login">
+                <label for="persistent_login">Remember me on this computer<a href="javascript:void(0)" class="forgot-link resetPwd" id="resetPwd">Forgot my password</a></label>
+              </dd>
+              <dd class="error_info">
+                <p class="checkError hidden"></p>
+              </dd>
+              <dd class="submit-box">
+                <button type="button" data-type="1" class="login-btn btn btn-large btn-warning" id="login-btn">Sign In</button>
+              </dd>
+            </dl>
+          </form>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profile">
+          <form action="" onsubmit="return false">
+            <dl class="vertical">
+              <dd class="username-box">
+                <input type="text" name="email" id="user_email" maxlength="50" size="50" class="inputin" placeholder="Email Address">     
+              </dd>
+              
+              <dd class="password-box">
+                <input type="password" name="password" id="password2" class="inputin password" maxlength="32" placeholder="Password" onkeydown="if(event.keyCode == 13){this.form['login-btn2'].click()}">
+              </dd>
+              <dd class="persistent-box">
+                <input type="checkbox" name="rememberMe" class="persistent_login">
+                <label for="persistent_login">Remember me on this computer<a href="javascript:void(0)" class="forgot-link resetPwd" id="resetPwd2">Forgot my password</a></label>
+              </dd>
+              <dd class="error_info">
+                <p class="checkError hidden"></p>
+              </dd>
+              <dd class="submit-box">
+                <button type="button" data-type="2" class="login-btn btn btn-large btn-warning" id="login-btn2">Sign In</button>
+              </dd>
+            </dl>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <span style="color:#0b9d78">Need an account?</span>
+      <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal" class="register-link btn btn-primary pull-right" id="creatAccount" >Sign Up</a>
+    </div>
+    
+  </div>
+</div>

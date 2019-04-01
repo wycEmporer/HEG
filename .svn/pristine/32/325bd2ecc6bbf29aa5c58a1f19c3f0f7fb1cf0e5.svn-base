@@ -1,0 +1,89 @@
+/* ========================================================================= *\
+    vmcarousel plugin
+\* ========================================================================= */
+
+.vmc-container {
+    width: 1040px;
+    height: 375px;
+    margin: auto;
+    position: relative;
+}
+
+.vmc-viewport {
+    overflow: hidden;
+}
+
+.vmcarousel {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 1000%;
+}
+
+.vmcarousel:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.vmcarousel>li {
+    float: left;
+}
+.vmcarousel>li img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.vmc-centered {
+    padding: 40px 0 55px;
+}
+
+.vmc-centered img {
+    transition: all 0.3s ease;
+}
+
+.vmc-centered li img:hover {
+    transform: scale(1.18);
+}
+
+.vmc-arrow-left,
+.vmc-arrow-right {
+    position: absolute;
+    top: 50%;
+    left: -40px;
+    width: 30px;
+    height: 50px;
+    margin-top: -25px;
+    overflow: hidden;
+    text-align: center;
+}
+.vmc-arrow-left{
+    background: url('../images/left-1.png') no-repeat;
+   
+}
+.vmc-arrow-right {
+    left: auto;
+    right: -40px;
+    background: url(../images/right-1.png) no-repeat;
+}
+
+.vmc-container .vmc-arrow-left:hover{
+    background: url(../images/left.png) no-repeat;
+}
+.vmc-container .vmc-arrow-right:hover {
+    background: url(../images/right.png) no-repeat;
+}
+.vmc-container img[src$=".svg"] {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 100%;
+}
+
+.notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    -ms-transition: none !important;
+    transition: none !important;
+}

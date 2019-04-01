@@ -1,0 +1,226 @@
+@import '~sprite.less';
+
+.newFooter{
+  .cheapBox{
+    // width: 100%;
+   
+    padding: 0px 55px;
+    .cheap-box{
+      border-bottom: 1px solid #DCDCDC;
+      
+      .cheapTrip{
+        width: 610px;
+        padding: 38px 0 32px;
+        
+        .title{
+          font-size: 22px;
+          line-height: 25px;
+          margin-bottom: 25px;
+        }
+        .ul-1{
+          li{
+            &:nth-last-child(4) ~ li{
+              margin-bottom: 0;
+            }
+          }
+        }
+        ul{
+          li{
+            text-align: left;
+            float: left;
+            width: 143px;
+            margin-bottom: 6px;
+            margin-left: 30px;
+            &:nth-of-type(3n+1){
+              margin-left: 0;
+            }
+            
+            a{
+              display: inline-block;
+              font-size: 14px;
+              height: 20px;
+              line-height: 20px;
+            }
+            &.active{
+              a{
+                color: #0B9D78;
+                border-bottom: 2px solid #0B9D78;
+              }
+            }
+          }
+        }
+      }
+      .cheapTrip-r{
+        width: 480px;
+        ul{
+          border: none;
+          li{
+            width: 100px;
+            margin-left: 76px;
+            &:nth-of-type(3n+1){
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+    
+  }
+  .linkBox{
+    padding: 36px 30px 36px 55px;
+    // display: flex;
+    div{
+      float: left;
+      text-align: left;
+      margin-right: 182px;
+      .title{
+        line-height: 25px;
+        font-size: 18px;
+        margin-bottom: 25px;
+      }
+      ul{
+        li{
+          margin-bottom: 6px;
+          a{
+            font-size: 14px;
+            color: #383838;
+          }
+          &.active{
+            a{
+              color: #0B9D78;
+              border-bottom: 2px solid #0B9D78;
+            }
+          }
+        }
+      }
+    }
+   
+    .link_5{
+      margin-right: 0;
+      ul{
+        width: 180px;
+        li{
+          width: 73px;
+          // &:nth-child(odd){
+          //   float: left;
+          // }
+          // &:nth-child(even){
+          //   float: right;
+          // }
+        }
+      }
+    }
+  }
+  .footImg_img{
+    width: 100%;
+    height: 60px;
+    background: url('./images/new-footImg.png') no-repeat;
+    background-position: center;
+  }
+  .foot{
+    width: 100%;
+    background: #F6F6F6;
+    padding: 25px 0 50px;
+    margin-top: 40px;
+    .container{
+      padding:0 60px; 
+      color: #000000;
+      .load_info{
+        padding: 25px 0;
+        border-bottom: 1px solid #E6E6E6;
+        .title{
+          font-size: 22px;
+          line-height: 25px;
+          margin-bottom: 10px;
+        }
+        .icon{
+          .fwIcon{
+            float: left;
+            display: block;
+            width: 28px;
+            height: 28px;
+            margin-right: 8px;
+            margin-bottom: 15px;
+          }
+          .fb-icon{
+            .sprite(@new-fb);
+          }
+          .tw-icon{
+            .sprite(@new-tw);
+          }
+          .ins-icon{
+            .sprite(@new-ins);
+          }
+          .tb-icon{
+            .sprite(@youtu);
+          }
+          .lk-icon{
+            .sprite(@new-lk);
+          }
+        }
+        .load{
+          width: 300px;
+          a{
+            &.downLink{
+              margin-right: 20px;
+            }
+          }
+        }
+        .search_Text{
+          p{
+            font-size: 12px;
+            margin-bottom: 15px;
+            line-height: 20px;
+            &:last-child{
+              margin-bottom: 0;
+            }
+          }
+          .ul-title{
+            font-size: 14px;
+            margin-bottom: 5px;
+          }
+          ul{
+            padding-left: 15px;
+            margin-bottom: 15px;
+            li{
+              list-style: disc;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+      .flight_line{
+        padding-top: 20px;
+        ul{
+          margin-bottom: 20px;
+          li{
+            float:left;
+            font-size: 12px;
+            color: #787878;
+            letter-spacing: 0;
+            line-height: 22px;
+            a{
+              color: #787878;
+              &:hover{
+                color: #0B9D78;
+              }
+            }
+          }
+        }
+      }
+      
+    }
+  }
+  .foot-info{
+    width: 100%;
+    height: 100px;
+    background: #017959;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    padding-top: 20px;
+    p{
+      line-height: 30px;
+    }
+  }
+}

@@ -1,0 +1,207 @@
+<div class="content">
+	<div class='head'>
+	  <div class="hotelSearchBar">
+			<%=require('../../_component/flightAndhotel/search.ejs')()%>
+		</div>
+		<div class="banner" id="banner">	</div>
+		
+		<div class='Countdown'>
+			<div class='Countdown_time'>
+				<p class='in'>Campaign is live !</p>
+				<p class='end hidden'>Campaign <i class='status'>Ends</i> : <span> <i id='RemainD1_1'></i>d: <i id='RemainH1_1'></i>h: <i id='RemainM1_1'></i>m</p>
+				<p class='time'><span class="startTime"></span>, 00:00:00 -- <span class="endTime"></span>, 23:59:59</p>
+			</div>
+		</div>
+	</div>
+	<div class="wrap_card">
+		<div class='hotel_info'>
+			<div class='info font-Roman'>
+				<ul>
+					<li>
+						<div class="pull-left">
+							<p class="font-Light"><i class="icon pull-left hotel"></i><span class="pull-left">Hotel</span></p>
+							<p class="font-BlackCond"><span>300</span><span>Rs. off</span></p>
+							<p class="font-Light valid">Validity: <span class="startTime"></span> - <span class="endTime"></span></p>
+						</div>
+						<div class="pull-right">
+							<p>
+								<i class="icon app"></i>
+								<i class="icon phone"></i>
+								<i class="icon pc"></i>
+							</p>
+							<p class='font-Roman'>Discount on all platforms</p>
+							<p><span class='copyText copyText_1 GAVE' ga-category="newYearSale" ga-action="click" ga-label="CopyCoupon_Hotel">HTL300</span></p>	
+							<p class="font-Roman"><a class='btn goToUse GAVE' ga-category="newYearSale" ga-action="click" ga-label="GoToUse_Hotel" href="https://www.happyeasygo.com/hotel">Go to Use</a></p>
+						</div>
+						<div class='TipsMsg'>
+							Successfully copied use code to the clipboard
+						</div>
+					</li>
+					<li>
+						<div class="pull-left">
+							<p class="font-Light"><i class="icon pull-left flight"></i><span class="pull-left">Flight</span></p>
+							<p class="font-BlackCond"><span>400</span><span>Rs. off</span></p>
+							<p class='orderOf'>on order of <span class="font-Bold">over Rs.5000</span></p>
+							<p class="font-Light valid valid_1">Validity: <span class="startTime"></span> - <span class="endTime"></span></p>
+						</div>
+						<div class="pull-right">
+							<p>
+								<i class="icon app"></i>
+								<i class="icon phone"></i>
+								<i class="icon pc"></i>
+							</p>
+							<p class='font-Roman'>Discount on all platforms</p>
+							<p><span class='copyText copyText_1 GAVE' ga-category="newYearSale" ga-action="click" ga-label="CopyCoupon_Flight1">HEGFLY1</span></p>	
+							<p class="font-Roman"><a class='btn goToUse GAVE' ga-category="newYearSale" ga-action="click" ga-label="GoToUse_Flight1" href="/flight">Go to Use</a></p>
+						</div>
+						<p class="domestic"> ON <span>DOMESTIC & INTERNATIONAL</span> FLIGHTS </p>
+						<div class='TipsMsg'>
+							Successfully copied use code to the clipboard
+						</div>
+					</li>
+					<li>
+						<div class="pull-left">
+							<p class="font-Light"><i class="icon pull-left flight"></i><span class="pull-left">Flight</span></p>
+							<p class="font-BlackCond"><span>300</span><span>Rs. off</span></p>
+							<p class='orderOf'>on order of <span class="font-Bold">below Rs.5000</span></p>
+							<p class="font-Light valid valid_1">Validity: <span class="startTime"></span> - <span class="endTime"></span></p>
+						</div>
+						<div class="pull-right">
+							<p>
+								<i class="icon app"></i>
+								<i class="icon phone"></i>
+								<i class="icon pc"></i>
+							</p>
+							<p class='font-Roman'>Discount on all platforms</p>
+							<p><span class='copyText copyText_1 disabled GAVE' ga-category="newYearSale" ga-action="click" ga-label="CopyCoupon_Flight2">HEGFLY2</span></p>	
+							<p class="font-Roman"><a class='goToUse btn GAVE' href="/flight" ga-category="newYearSale" ga-action="click" ga-label="GoToUse_Flight2">Go to Use</a></p>
+						</div>
+						<p class="domestic"> ON <span>DOMESTIC & INTERNATIONAL </span> FLIGHTS </p>
+						<div class='TipsMsg'>
+							Successfully copied use code to the clipboard
+						</div>
+					</li>
+		
+				</ul>
+			</div>
+			<p class="login-box loginTitle">
+				<a href="/static/tpl/loginTpl.html" class="GAVE" ga-category="newYearSale" ga-action="click" ga-label="SignIn" data-toggle="modal" data-target="#login_modal">
+					Login in</a> to redeem coupons. Have no account ? 
+				<a href="/static/tpl/register.html" class="GAVE" ga-category="newYearSale" ga-action="click" ga-label="SignUp" data-toggle="modal" data-target="#register_modal">Sign up</a> now 
+			</p>
+		</div>
+	</div>
+	<div class="wrap font-Roman">
+		<div class="container">
+			
+			<div class='sale_box'>
+				<div class='title'>
+					<div>
+						<img class="title-img" src="<%= require('./images/onlyonApp.png') %>" alt="">
+						<p class='p_1 font-Light'>New Year Gift 1 & New Year Gift 2</p>
+						<p class='clearfix load'>
+							<a href="https://app.adjust.com/xmfxff?campaign=NewYear1225&adgroup=PCAppDownload&creative=20181226" target="_blank" class='pull-left GAVE' ga-category="newYearSale" ga-action="click" ga-label="DownLoad_Button"><img src="<%= require('./images/app-play.png') %>" alt=""></a>
+							<a href="https://app.adjust.com/xmfxff?campaign=NewYear1225&adgroup=PCAppDownload&creative=20181226" target="_blank" class='pull-right GAVE' ga-category="newYearSale" ga-action="click" ga-label="DownLoad_Button"><img src="<%= require('./images/google-play.png') %>" alt=""></a>
+						</p>
+						<p class='font-Light'>Download our mobile App</p>
+					</div>
+				</div>
+				<div class='sale app_sale'>
+					<p class='titleImg'><img src="<%= require('./images/ShareGet.png') %>" alt=""></p>
+					<div class='shareFlight'>
+						<p>Share <span>Flight Booking</span> &</p>
+						<p>get avg <span class='font-BlackCond'>Rs.500</span> Happy Gold</p>
+					</div>
+					<div class='shareInfo clearfix'>
+						<div class="pull-left">
+							<span class='share-title share-title-1 font-Roman'>You get</span>
+							<span class='share-title share-title-2 font-Light'>avg.</span>
+							<span class='share-title share-title-3 font-Light'>Up To.</span>
+							<p class='font-Bold'>Rs.35 Happy Gold</p>
+							<p class='font-Light'>on each referral register</p>
+							<p class='font-Bold'>Rs.700 Happy Gold</p>
+							<p class='font-Light'>per order share</p>
+						</div>
+						<div class="pull-right">
+							<span class='share-title share-title-1 font-Roman'>You friend gets</span>
+				
+							<p class='font-Bold'>Rs.1000 Happy Silver</p>
+							<p class='font-Light'>&</p>
+							<p class='font-Bold'>Rs.650 flight voucher</p>
+							<p class='font-Light'>when he/she signs up</p>
+						</div>
+						
+					</div>
+					<p class='btn_box'><a href="/flight" class='GAEV' ga-category="newYearSale" ga-action="click" ga-label="GoToBook">Go to Book</a></p>
+					<p class="gift_1">New Year Gift 1</p>
+					<div class='img_1'>
+						<img  src="<%= require('./images/code_1.png')%>" alt="">
+					</div>
+					<img class='img_2' src="<%= require('./images/code(3).png')%>" alt="">
+					<img class='img_3' src="<%= require('./images/code(2).png')%>" alt="">
+				</div>
+			</div>
+			
+			<div class='slide-box'>
+				<div class='slide_box'>
+					<div class='slide-title'>
+						<p class='title-img'></p>
+						<p class='title-text'><span>SHAKE</span> your phone to win <span>AMAZING PRIZES</span>!</p>
+					</div>
+					<div id="vmcarouselList" class="zy-Slide">
+						
+					</div>
+					<div class='btn_box'>
+						<a href="/shake" class='btn btn-warning GAEV' ga-category="newYearSale" ga-action="click" ga-label="GoForDetail_Button">Go for Details</a>
+					</div>
+					<div class='gift_2Box'>
+						<p class="gift_1">New Year Gift 2</p>
+						<img class='img_1' src="<%= require('./images/code_2.png')%>" alt="">
+					</div>
+				</div>
+			</div>
+			
+			<p class='TC'>
+				<a href="javascript:;" data-toggle="modal" data-target="#noPrizeModal_1">New Year Sale's Terms & Conditions</a>
+			</p>
+		</div>
+	</div>
+</div>
+
+<script id="vmcarouselListTpl" type="text/template">
+	<ul class="vmcarousel-centered-infitine vmc-centered">
+	{{ _.each(myModel, function(model, key){ }}
+		<li><a href="/shake"><img src="{{= model}}" alt="" width="220"></a></li>
+	{{ }) }}
+	</ul>
+</script>
+
+
+<div class="modal noPrizeModal fade" id='noPrizeModal_1' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content font-Roman">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title'>New Year Sale's Terms & Conditions</p>
+			</div>
+      <div class="modal-body">
+				<ul class='msg_1'>
+					<li>This offer starts from <span class="startTime_2"></span> to <span class="endTime_2"></span>.</li>
+					<li>The coupon code: HTL300 can be used save Rs.300 on hotel bookings across India.</li>
+					<li>The coupon code: HEGFLY1 can be used save Rs.400 on flight bookings of over Rs.5000 on the desktop, mobile site and mobile apps. </li>
+					<li>The coupon code: HEGFLY2 can be used save Rs.300 on flight bookings of below Rs.5000 on the desktop, mobile site and mobile apps.</li>
+					<li>All flight coupon discounts of New Year Sale can be applied to book flight tickets with Instant Discount price and Member Discount price. </li>
+				</ul>
+				<ul class='msg'>
+					<li>HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.</li>
+					<li>Any disputes arising out of this offer shall be subject to the exclusive jurisdiction of competent courts in Gurgaon, Haryana, India.</li>
+				</ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

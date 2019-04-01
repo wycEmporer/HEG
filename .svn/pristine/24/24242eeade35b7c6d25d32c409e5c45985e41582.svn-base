@@ -1,0 +1,203 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+body{
+  background-color:@gray-lighter;
+}
+.grayDark{
+  color:@gray-dark;
+}
+.content{
+  width: 1180px;
+}
+.title{
+  margin-bottom:0px!important; 
+  margin-top: 10px;
+}
+.side{
+  width:288px;
+  .airline{
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+    .vendor{
+      line-height: 20px;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .airlineInfo{
+      padding: 10px 0;
+      font-size:16px;
+      h3{
+        line-height: 24px;
+      }
+    }
+  }
+  .searchWrap{
+    h2{
+      height:40px;
+      background-color: @brand-primary;
+      color:#fff;
+      font-size: 18px;
+      line-height: 40px;
+      text-align: center;
+    }
+    .s-content{
+      padding:10px 10px 20px;
+      background-color: #fff;
+    }
+
+  }
+  nav.L-tripType{
+    padding:6px 0;
+    .item{
+      float:left;
+      margin-right:60px;
+      .trip-type{
+        vertical-align: middle;
+        margin:0;
+      }
+      strong{
+        display: inline-block;
+        font-weight: bold;
+        // vertical-align: bottom;
+      }
+    }
+  }
+  .LS-trip{
+    .fore{
+      float:left;
+    }
+    .form-group{
+      margin-bottom: 10px;
+    }
+    input,select{
+      height:26px;
+      line-height: 26px;
+      padding:0 8px;
+    }
+    .checkError{
+      font-weight: bold;
+      color:@brand-danger;
+    }
+    .inputError{
+      border:2px solid @brand-danger;
+    }
+    .section1{
+      .d-city,.a-city{
+        width:68%;
+        margin-right: 10px;
+      }
+    }
+    .switch-city{
+      cursor:pointer;
+      margin:22px 20px 0;
+    }
+    .section2 {
+      .d-date, .r-date{
+        width:68%;
+        margin-right:20px;
+        position: relative;
+        input{
+          cursor: pointer;
+          background-color:#fff;
+        }
+      }
+      .datepick{
+        position:absolute;
+        top:24px;
+        right:10px;
+      }
+      .d-date{
+        .icon{
+          display: inline-block;
+          width:20px;
+          height:18px;
+          background-image: url(./imgs/dapartbg.png);
+          background-repeat: no-repeat;
+        }
+      }
+      .r-date{
+        .icon{
+          display: inline-block;
+          width:20px;
+          height:18px;
+          background-image: url(./imgs/returnbg.png);
+          background-repeat: no-repeat;
+        }
+      }
+    }
+  }
+  .section3{
+    .fore{
+      height:64px;
+    }
+    select{
+      width:60px;
+    }
+    .line{
+      width:14px;
+      height:3px;
+      background:#000;
+      margin:34px 8px 0;
+    }
+  }
+  .section4{
+    float:left;
+    min-height:34px;
+    .more-op{
+      color:@brand-info;
+    }
+    .options{
+      padding:10px 0;
+      .vertical{
+        width:163px;
+        float:left;
+        margin-right: 20px;
+      }
+    }
+  }
+  .section5{
+    padding-top: 10px;
+    float:right;
+    text-align: right;
+  }
+}
+.right{
+  width:880px;
+  h2{
+    height:40px;
+    line-height: 40px;
+    font-size: 16px;
+  }
+  .textContent{
+    line-height: 18px;
+    padding:15px 20px;
+    background-color: #fff;
+    color:@gray-dark;
+    p{
+      padding:5px 0;
+    }
+  }
+}
+.autoComplete{
+  max-height: 292px;
+  overflow-y: auto;
+  background-color:#fff;
+  border:1px solid #ccc;
+  box-shadow: 0 3px 3px #aaa;
+  z-index: 10;
+  .item{
+    height:32px;
+    line-height: 32px;
+    padding:0 5px;
+    cursor:pointer;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    &.active{
+      background-color:#36c;
+    }
+  }
+}
+
+

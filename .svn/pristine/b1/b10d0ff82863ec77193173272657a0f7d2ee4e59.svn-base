@@ -1,0 +1,660 @@
+<div class="account-wrap">
+  <div class="container">
+    <div class="aside">
+      <ul class="primaryNav">
+        <li class="trips">
+          <a href="/account/" class="ac-link icon" id="trips_tap">TRIPS</a>
+          <ul class="secNav">
+            <li class="fore0">
+              you've Booked
+            </li>
+            <li class="fore1 ">Upcoming</li>
+            <li class="fore2 curr">History record</li>
+            <li class="fore3">Calendar</li>
+          </ul>
+        </li>
+        <li class="feedback">
+          <a href="/account/" class="ac-link icon" id="trips_tap">FEEDBACK</a>
+        </li>
+        <li class="wallet">
+          <a href="/account/" class="ac-link icon" id="trips_tap">WALLET</a>
+        </li>
+        <li class="profile">
+          <a href="/account/" class="ac-link icon" id="trips_tap">PROFILE</a>
+          <ul class="secNav hidden">
+            <li class="fore0">
+              My Profile
+            </li>
+            <li class="fore1 ">Traveler</li>
+            <li class="fore2 curr">Your Documents</li>
+            <li class="fore3">My settings</li>
+          </ul>
+        </li>
+        <li class="help">
+          <a href="/account/" class="ac-link icon" id="trips_tap">HELP</a>
+        </li>
+      </ul>
+    </div>
+    <div class="no-login hidden">
+      <div class="message">
+        <p>LOOKS LIKE YOU HAVEN'T BOOKED ANY TRIPS YET</p>
+        <p>START EXPLORING</p>
+        <a href="" id="relogin" class="btn btn-warning btn-custom marT50">EXPLORE</a>
+      </div>
+    </div>
+    <!-- third-con -->
+    <div class="third-con">
+    <!-- secondNav History record -->
+      <div class="calendar-wrapper hidden">
+        <div class="people-filter clearfix">
+          <ul>
+            <li class="active">Myself</li>
+            <li class="">All passengers</li>
+          </ul>
+        </div>
+        <div class="orders clearfix">
+          <div class="year-line">
+            2016
+          </div>
+          <a class="order-item">
+            <ul class="clearfix">
+              <li class="fore0">
+                <div class="card">
+                  <div class="c-month">JANUARY</div>
+                  <div class="c-data">
+                    <span class="day">21</span>
+                    <span class="week">Web</span>
+                  </div>
+                </div>
+              </li>
+              <li class="fore1">
+                <div class="f-route">
+                  <div class="citys">
+                    <span class="dc">New Delhi</span>
+                    <span class="icon" style="width:30px;height:1">00</span>
+                    <span class="ac">Mumbai</span>
+                  </div>
+                  <p class="passengers">
+                    zhang is flying
+                  </p>
+                </div>
+              </li>
+              <li class="fore2">
+                <div class="other-info">
+                  <div class="status-btn">
+                    END
+                  </div>
+                  <p class="info">
+                    Trip ID: 
+                    <span class="id">1231415215</span>
+                  </p>
+                  <p class="info">
+                    Booked on: 
+                    <span class="data">02/12/16</span>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </a>
+          <a class="order-item">
+            <ul class="clearfix">
+              <li class="fore0">
+                <div class="card">
+                  <div class="c-month">JANUARY</div>
+                  <div class="c-data">
+                    <span class="day">21</span>
+                    <span class="week">Web</span>
+                  </div>
+                </div>
+              </li>
+              <li class="fore1">
+                <div class="f-route">
+                  <div class="citys">
+                    <span class="dc">New Delhi</span>
+                    <span class="icon" style="width:30px;height:1">00</span>
+                    <span class="ac">Mumbai</span>
+                  </div>
+                  <p class="passengers">
+                    zhang is flying
+                  </p>
+                </div>
+              </li>
+              <li class="fore2">
+                <div class="other-info">
+                  <div class="status-btn">
+                    END
+                  </div>
+                  <p class="info">
+                    Trip ID: 
+                    <span class="id">1231415215</span>
+                  </p>
+                  <p class="info">
+                    Booked on: 
+                    <span class="data">02/12/16</span>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </a>
+        </div>
+      </div>
+    <!--secondNav your Documents -->
+      <ul class="edit-wrapper clearfix hidden">
+        <li class="item">
+          <h2 class="title">Your Passport</h2>
+          <a href="" class="btn btn-warning edit-btn" id="passPortBtn">Edit</a>
+        </li>
+        <li class="item">
+          <h2 class="title">Your Passport</h2>
+          <a href="" class="btn btn-warning edit-btn" id="passPortBtn">Edit</a>
+        </li>
+      </ul>
+      <!-- Passport Information -->
+      <div class="editing-wrapper hidden">
+        <h1 class="title">
+          Your Passport Information
+        </h1>
+        <section class="edit-item">
+          <h3 class="til">
+            Your name as on the passport
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="sex" id="">
+                <option value="title">title</option>
+                <option value="mr">Mr</option>
+                <option value="ms">Ms</option>
+                <option value="mrs">Mrs</option>
+              </select>
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="First Name" >
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="Middle Name">
+              <div class="errorMsg"></div>
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="last Name">
+              <div class="errorMsg">This first name is required</div>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Passport details
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="sex" id="">
+                <option value="title">Country</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="Passport No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Date of Birth
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="day" id="">
+                <option value="title">Day</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <select name="month" id="">
+                <option value="title">Month</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <select name="year" id="">
+                <option value="title">Year</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <div class="form-field">
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Save</a>
+            </span>
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Cancle</a>
+            </span>
+          </div>
+        </section>
+      </div>
+      <!-- visa Information -->
+      <div class="editing-wrapper hidden">
+        <h1 class="title">
+          Your visa Information
+        </h1>
+        <section class="edit-item">
+          <h3 class="til">
+            Passport details
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="sex" id="">
+                <option value="title">Country</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="Passport No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Date of Birth
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="day" id="">
+                <option value="title">Day</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <select name="month" id="">
+                <option value="title">Month</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <select name="year" id="">
+                <option value="title">Year</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <div class="form-field">
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Save</a>
+            </span>
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Cancle</a>
+            </span>
+          </div>
+        </section>
+      </div>
+      <!-- has added -->
+      <ul class="edit-wrapper clearfix edited hidden">
+        <li class="item">
+          <h2 class="title">Your Passport</h2>
+          <p class="passport-brief"> jiack</p>
+          <p class="passport-brief">America 12321321</p>
+          <a href="" class="btn btn-warning edit-btn" id="passPortBtn">Edit</a>
+        </li>
+        <li class="item">
+          <h2 class="title">Your Passport</h2>
+          <p class="passport-brief"> jiack</p>
+          <p class="passport-brief">America 12321321</p>
+          <a href="" class="btn btn-warning edit-btn" id="passPortBtn">Edit</a>
+        </li>
+      </ul>
+    <!-- secondNav traveler -->
+      <!-- personal information -->
+      <div class="editing-wrapper hidden">
+        <h1 class="title">
+          Your Personal Information
+        </h1>
+        <section class="edit-item">
+          <h3 class="til">
+            Your name
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="sex" id="">
+                <option value="title">title</option>
+                <option value="mr">Mr</option>
+                <option value="ms">Ms</option>
+                <option value="mrs">Mrs</option>
+              </select>
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="First Name" >
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="Middle Name">
+              <div class="errorMsg"></div>
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="last Name">
+              <div class="errorMsg">This first name is required</div>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Your Contact Info Latest Available
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <input type="text" placeholder="Email">
+              <div class="errorMsg">The Email no is require</div>
+            </span>
+            <span class="fore international-code">
+              <input type="text" placeholder="+91" class="">
+              <!-- <div class="errorMsg">The document no is require</div> -->
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="Phone No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Date of Birth
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="day" id="">
+                <option value="title">Day</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <select name="month" id="">
+                <option value="title">Month</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <select name="year" id="">
+                <option value="title">Year</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Your Complete Address Latest Avialable
+          </h3>
+          <div class="form-field">
+            <span class="fore address">
+              <input type="text" placeholder="Address">
+              <div class="errorMsg">The Address is require</div>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="fore ad-field">
+              <input type="text" placeholder="City">
+              <div class="errorMsg">The Email no is require</div>
+            </span>
+            <span class="fore ad-field">
+              <input type="text" placeholder="Pincode">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="fore ad-field">
+              <input type="text" placeholder="State">
+              <div class="errorMsg">The Email no is require</div>
+            </span>
+            <span class="fore ad-field">
+              <input type="text" placeholder="Country">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item clearfix">
+          <h3 class="til">
+            Add a Photo
+          </h3>
+          <div class="avatar">
+            <img src="" alt="" width="50" height="50">
+            <p>Change Image</p>
+          </div>
+          <div class="choose-img">
+            <a href="" class="btn btn-danger">Upload</a>
+            <p>Support JPEG,PNG and GIF.The file size should not exceed 1 MB</p>
+          </div>
+        </section>
+        <section class="edit-item">
+          <div class="form-field">
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Save</a>
+            </span>
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Cancle</a>
+            </span>
+          </div>
+        </section>
+      </div>
+      <!-- traveler information -->
+      <div class="editing-wrapper hidden">
+        <h1 class="title">
+          Your Traveller's Information
+        </h1>
+        <section class="edit-item">
+          <h3 class="til">
+            Your name
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="sex" id="">
+                <option value="title">title</option>
+                <option value="mr">Mr</option>
+                <option value="ms">Ms</option>
+                <option value="mrs">Mrs</option>
+              </select>
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="First Name" >
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="Middle Name">
+              <div class="errorMsg"></div>
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="last Name">
+              <div class="errorMsg">This first name is required</div>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Your Contact Info Latest Available
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <input type="text" placeholder="Email">
+              <div class="errorMsg">The Email no is require</div>
+            </span>
+            <span class="fore international-code">
+              <input type="text" placeholder="+91" class="">
+              <!-- <div class="errorMsg">The document no is require</div> -->
+            </span>
+            <span class="fore">
+              <input type="text" placeholder="Phone No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Date of Birth
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <select name="day" id="">
+                <option value="title">Day</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <select name="month" id="">
+                <option value="title">Month</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+            <span class="fore">
+              <select name="year" id="">
+                <option value="title">Year</option>
+                <option value="mr">India</option>
+                <option value="ms">china</option>
+                <option value="mrs">America</option>
+              </select>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <div class="form-field">
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Save</a>
+            </span>
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Cancle</a>
+            </span>
+          </div>
+        </section>
+      </div>
+      <!-- has added -->
+      <div class="edit-wrapper traveller hidden">
+        <div class="item">
+          <h2 class="title">Personal Information</h2>
+          <img src="" alt="" width="50" height="50">
+          <p class="text-brief">jiack</p>
+          <p class="text-brief">America 12321321</p>
+          <p class="text-brief">12333858@example.com</p>
+          <a href="" class="btn btn-warning edit-btn" id="">Edit</a>
+        </div>
+        <div class="item">
+          <span class="edit-tip">*</span>
+          <h2 class="title">Traveller's Information</h2>
+          <img src="" alt="" width="50" height="50">
+          <p class="text-brief">jiack</p>
+          <p class="text-brief">America 12321321</p>
+          <p class="text-brief">12333858@example.com</p>
+          <a href="" class="btn btn-warning edit-btn" id="">Delete</a>
+        </div>
+        <div class="item">
+          <span class="edit-tip">*</span>
+          <h2 class="title">Traveller's Information</h2>
+          <img src="" alt="" width="50" height="50">
+          <p class="text-brief">jiack</p>
+          <p class="text-brief">America 12321321</p>
+          <p class="text-brief">12333858@example.com</p>
+          <a href="" class="btn btn-warning edit-btn" id="">Delete</a>
+        </div>
+        <div class="item last-add">
+          <h2 class="title">Traveller's Information</h2>
+           <a href="" class="btn btn-warning edit-btn" id="">Add</a>
+        </div>
+      </div>
+    <!-- secondNav my settings -->
+      <div class="settings editing-wrapper hidden">
+        <section class="edit-item">
+          <h3 class="til">
+            Change Password
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <input type="text" placeholder="Passport No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="fore">
+              <input type="text" placeholder="Passport No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="fore">
+              <input type="text" placeholder="Passport No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Submit</a>
+            </span>
+          </div>
+        </section>
+        <section class="edit-item">
+          <h3 class="til">
+            Change Email Address
+          </h3>
+          <div class="form-field">
+            <span class="fore">
+              <input type="text" placeholder="Passport No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="fore">
+              <input type="text" placeholder="Passport No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="fore">
+              <input type="text" placeholder="Passport No">
+              <div class="errorMsg">The document no is require</div>
+            </span>
+          </div>
+          <div class="form-field">
+            <span class="fore">
+              <a class="btn btn-warning edit-btn">Submit</a>
+            </span>
+          </div>
+        </section>
+      </div>
+    </div> 
+    <!-- end third-con -->
+
+    <!-- flight detail include cancle/refund/change -->
+    <div class="f-detail">
+      <div class="anchorNav">
+        <a href="">Flight Information</a>
+        <a href="">Traveller Details</a>
+        <a href="">Payment Detail</a>
+        <a href="">Contact Detail</a>
+        <a href="">Common Problem</a>
+      </div>
+    </div>
+  </div>
+</div>

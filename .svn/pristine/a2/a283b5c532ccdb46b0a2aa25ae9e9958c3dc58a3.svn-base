@@ -1,0 +1,9 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+const metaKeywords = 'cheap air tickets, cheap flight tickets, online ticket booking, cheap air fare, flight booking, flight tickets, air flight booking, cheap flight ticket, cheap flights, cheap flights domestic India, domestic flights offers, India travel, travel in India, flight, Airline Tickets India, cheap airline tickets, Airline Reservation, Airline Booking, Mumbai To Delhi Flights, Delhi To Mumbai Flights, Cheap Airfares, discount airline ticket, AirAsia, AirAsia Flights, low air fare, lowest air fares, Air Asia';
+const metaDescription = 'Looking for the Best pirce on Domestic Flights Tickets? We guarantee you the cheapest offer on booking AirAsia flights online.';
+module.exports = layout.init({
+  pageTitle: 'Book cheapest AirAsia Flights on HappyEasyGo', metaKeywords, metaDescription
+}).run(content(dirsConfig));

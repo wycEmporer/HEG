@@ -1,0 +1,59 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+body{
+  background-color:@gray-lighter;
+  background: #fff !important;
+}
+.content{
+  .title{
+    font-size: 20px;
+    color: rgb(251,28,41);
+    font-weight: 900;
+    margin: 16px 0 10px 10px;
+  }
+  .underline{
+    width: 50px;
+    height: 6px;
+    margin: 0 0 15px 10px;
+    background: rgb(251,28,41);
+  }
+  .downloadApp{
+    width: 1180px;
+    height: 257px;
+    position: relative;
+    margin-bottom: 10px;
+    .downAnd,.downIos{
+      width: 50%;
+      height: 100%;
+      position:absolute;
+      bottom: 0;
+    }
+    .downAnd{
+      left: 0;
+    }
+    .downIos{
+      right: 0;
+    }
+    a{
+      position: absolute;
+      width: 190px;
+      height: 44px;
+      cursor: pointer;
+      left: 100px;
+      bottom: 81px;
+    }
+  }
+  .activity{
+    width: 1180px;
+    height: 200px;
+
+  }
+  .bottomTest{
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    color: rgb(109,109,109);
+    font-size: 17px;
+  }
+
+  
+}

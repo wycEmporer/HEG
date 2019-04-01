@@ -1,0 +1,206 @@
+
+@themeColor: #2ca5ea;
+body{
+	background: #f5f5f5;
+	min-width: 1275px;
+}
+@media screen and (max-width:1500px){
+	.add-search #searchForm{
+		padding-left:0;
+	}
+}
+
+.content{
+	position: relative;
+	height: 1815px;
+	.add-search{
+		background:rgba(11,157,120,0.3)!important ;
+	}
+	.banner{
+		position: relative;
+		width:100%;
+		height: 570px;
+		overflow: hidden;
+		.banImg{
+			position: absolute;
+			left:50%;
+			transform: translateX(-50%);
+		}
+	}
+	.head{
+		position: relative;
+		.Countdown{
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 170px;
+			background: rgba(0	,0	,0	, 0.5);
+			.Countdown_time{
+				width: 100%;
+				height: 100%;
+				color: white;
+				text-align: center;
+				padding-top: 15px;
+				i{
+					font-style: inherit;
+				}
+				.in,.end{
+					font-size: 36px;
+					height: 80px;
+					span{
+						font-size: 60px;
+					}
+				}
+				.in{
+					line-height: 80px;
+				}
+				.time{
+					font-size: 20px;
+				}
+			}
+		}
+	}
+	.wrap{
+		width: 100%;
+		padding: 20px 0px 0px;
+		min-width: 1200px;
+		position: absolute;
+		left: 0;
+		top: 520px;
+		.container{
+			padding: 0px;
+			text-align: center;
+			.sale{
+				width: 100%;
+				height: 300px;
+				background: white;
+				margin-bottom: 20px;
+			}
+			.app_sale{
+				.sale_left{
+					width: 280px;
+					height: 100%;
+					padding: 40px;
+					text-align: center;
+					p{
+						line-height: 40px;
+					}
+					.code{
+						width: 70px;
+						height: 70px;
+						img{
+							width: 100%;
+						}
+					}
+				}
+				.sale_right{
+					width: 920px;
+					height: 100%;
+					padding: 40px 40px 40px 0px;
+					position: relative;
+					li{
+						float: left;
+						width: 47%;
+						height: 85px;
+						border-bottom: 1px solid #cccccc;
+						text-align: left;
+						padding: 10px 0px;
+						&:nth-child(odd){
+							margin-right: 6%;
+						}
+						div{
+							position: relative;
+							span{
+								&:nth-child(1){
+									font-size: 36px;
+									font-weight: 700;
+								}
+								&:nth-child(2){
+									font-size: 36px;
+									font-weight: 700;
+									color: #ffad3d;
+									margin-right: 20px;
+								}
+								&:nth-child(3){
+									font-size: 14px;
+								}
+								&:nth-child(4){
+									font-size: 14px;
+									font-weight: 700;
+								}
+								&:nth-child(5){
+									position: absolute;
+									right: 0;
+									top: 15px;
+									width: 28px;
+									height: 28px;
+									background: url(./images/copy2.png) no-repeat;
+								}
+							}
+						}
+						p{
+							color: #999;
+							line-height: 25px;
+							span{
+								color: #0b9d78;
+								font-weight: 700;
+							}
+						}
+					}
+					.bottom_title{
+						font-size: 14px;
+						font-style: italic;
+						margin-top: 20px;
+						line-height: 50px;
+						font-weight: 700;
+					}
+					.TipsMsg{
+						position: absolute;
+						right: 415px;
+						top: 180px;
+						width: 180px;
+						padding: 10px;
+						font-size: 12px;
+						color: white;
+						background: rgba(0 , 0, 0, 0.8);
+						border-radius: 4px;
+						display: none;
+					}
+				}
+			}
+			.slide_box{
+				width: 100%;
+				padding: 20px;
+				background: white;
+				.title{
+					width: 283px;
+					margin: auto;
+					span{
+						color: #ffad3d;
+						font-size: 36px;
+						margin: 15px 0 0 5px;
+						font-style: oblique;
+						font-weight: 700;
+					}
+				}
+				.p_1{
+					font-size: 14px;
+					line-height: 50px;
+					span{
+						font-weight: 700;
+					}
+				}
+			}
+			
+			.btn_box{
+				margin: 50px;
+				.btn{
+					width: 220px;
+					height: 40px;
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}

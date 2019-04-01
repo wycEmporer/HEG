@@ -1,0 +1,325 @@
+import renderView from '../renderView';
+
+const utils = require('utils');
+const {
+accountPath, ossPath
+} = utils;
+let upLoadFileUrl = '';
+export const cancelController = function(id){
+  var viewElement = $('#rightside');
+  viewElement.html($('#loadingTpl').html());
+  var model = {};
+  
+  var tripDetailArr = JSON.parse(sessionStorage.getItem('o_d'));
+  model.trips = tripDetailArr.map(val => ({
+    dc: val.voyageinfo[0].dc, 
+    ac: val.voyageinfo[val.voyageinfo.length -1].ac,
+    travellerinfos: val.travellerinfo,
+    averagePrice: (val.price / val.travellerinfo.length).toFixed(2),
+    tripid: val.id,
+    fn: val.voyageinfo[0].fn.slice(0, 2) 
+  }));
+  var tripid = model.trips[0].tripid;
+  // var isRefundTogether = false;
+  var viewHtml = $('#cancelTpl').html();
+
+  $.when.apply($, model.trips.map(trip=> $.ajax(accountPath.cancelQueryUrl(trip.tripid)))).then((...resArr)=>{
+    if(model.trips.length == 1){
+      resArr = [resArr];
+    }
+    resArr.forEach((v, i) => {
+      model.trips[i].refund = v[0] || 0;
+      model.trips[i].cancelFee = model.trips[i].averagePrice - model.trips[i].refund;
+    });
+    renderView(viewElement, viewHtml, {model});
+    model.trips.forEach((v, i) => detailPop(v, i));
+    randerRefundReason([]);
+
+    $.getJSON('/heg_api/rebook/needRefundOrRebookTogether.do?tripId='+model.trips[0].tripid).done(res => {
+      if(res.succ){
+        refundTogether();
+        $('#showTogetherNote').removeClass('hidden');
+      }
+    });
+    refundModalSet(model);
+  });
+  
+  function refundTogether(){
+    $('.refundList').on('click', function(){
+      let key = $(this).attr('key').replace('/', '\\/');
+      if(this.checked == true){
+        
+        $(`input[key=${key}]`).prop('checked', true);
+      }else{
+        $(`input[key=${key}]`).prop('checked', false);
+      }
+    });
+  }  
+};
+/**
+ * 获取 退票原因
+ */
+function randerRefundReason(pId){
+
+  $.ajax({
+    url:'/heg_api/refund/getRefundReason.do',
+    type:'POST',
+    data:JSON.stringify({'travellers' : pId}),
+    contentType:'application/json',
+    dataType:'json'
+  }).done(res => {
+    if(res.data.length > 0){
+      let $html = res.data.map((v, i) => `<label>
+        <input type="radio" name="reason" data-stamp=${v.isNeedStampCopy} value="${v.reasonType}" ${i== 0? 'checked': ''}> ${v.reason}
+      </label>
+      
+       ${ (v.isNeedStampCopy) ? `
+        <div class="${i == 0? '': 'hidden'} fileloadBox">
+          <p>${v.reasonRemark}</p>
+          Attach file:<input id="file1" type="file" style="display:none"  name="file1" multiple="multiple" accept=".png, .jpg, .gif, .jpeg, .pdf">
+          <label for="file1">Browse</label><span class="fileName"></span>
+        </div>
+       ` : '' }
+      `);
+      $('section.reason-info .reason-wrap').html($html.join(' '));
+    }
+    fileUpload();
+  });
+}
+
+function detailPop(model, i){
+  let content = `
+  <div style="width: 200px;">
+    <p class="fontSz14 fontB marB8">Refund(Per Person)</p>
+    <ul>
+      <li class="clearfix fontSz12" style="margin-bottom: 4px">
+        <span class="pull-left">
+          Paid
+        </span>
+        <span class="pull-right textR"> 
+          Rs.
+          <span class="viewOpr">${model.averagePrice}</span>
+        </span>
+      </li>
+      <li class="clearfix fontSz12" style="margin-bottom: 4px; padding-bottom:4px; border-bottom:1px solid #999;">
+        <span class="pull-left">
+          Cancellation fee
+        </span>
+        <span class="pull-right textR">
+          Rs.
+          <span class="viewSell">${model.cancelFee}</span>
+        </span>
+      </li>
+  
+      <li class="clearfix fontSz14" style="margin-bottom: 10px">
+        <span class="pull-left fontB">
+        Refund
+        </span>
+        <span class="pull-right textR fontB">
+          Rs.
+          <span class="viewSell">${model.refund}</span>
+        </span> 
+      </li>
+    </ul>
+    <p class="fontSz12">The final amount refunded to your 
+    account may vary.</p>
+  </div>`;
+  $('.detailPop'+ i).popover({content});
+}
+function refundModalSet(model){
+  $('#refundApplyModal').on('show.bs.modal', function(){
+    let phone = JSON.parse(sessionStorage.getItem('o_d'))[0].contactMob;
+    let refundNote = sendRefundData.tripid.map((val, i) => {
+      return (`<p style="margin-bottom: 10px; font-size: 14px;">
+          Your booking with trip id
+          <span class="fontB">${val}</span> will be cancelled and the Gross Refundable Amount is RS.
+          <span class="fontB">${model.trips[i].refund}</span> per passenger per sector.
+        </p>`);
+    });
+    $('#canclePhoneOtp').val(phone);
+    $('#refundApplyModal .refundNote').html(refundNote.join(' '));
+  });
+}
+var sendRefundData;
+
+$('body').on('click', '#cancelApply', function(){
+  
+  // {'flightPsrIds': [123, 1414]};
+  sendRefundData = {
+    flightPsrIds:[],
+      tripid:[]
+    };
+  $.each($('input[name=flightPsrIds]:checked'), function(key, value){
+    sendRefundData.flightPsrIds.push(value.value);
+    sendRefundData.tripid.push($(value).attr('tripid'));
+  });
+  sendRefundData.tripid = _.unique(sendRefundData.tripid);
+  if(sendRefundData.flightPsrIds.length === 0){
+    alert('Please select a passenger to cancel flight');
+    return;
+  }
+  sendRefundData.reasonType = $('input[name=reason]:checked').val();
+  $.ajax({
+    url:accountPath.verifyRefund(),
+    type:'POST',
+    data:JSON.stringify(sendRefundData),
+    contentType:'application/json',
+    dataType:'json'
+  }).done(result => {
+    if(result.data.success){
+      $('#refundApplyModal').modal('show');
+    }else{
+      $('#notGoldModal').on('shown.bs.modal', function(){
+        let refund = result.data.amount;
+        $('#Difference').text(refund);
+      });
+      $('#notGoldModal').modal('show');
+    }
+  }); 
+});
+
+$(document).on('click', '#getRefundOTP', function(){
+  let timer = null;
+  let that = this;
+  this.disabled = true;
+  let tripId = JSON.parse(sessionStorage.getItem('o_d'))[0].id;
+  $.getJSON(accountPath.getRefundOtp() + '?tripId=' + tripId).done(function(res){
+    if(res.success){
+      let times = res.lastSendTime;
+      timer = setInterval(function(){
+        times --;
+        that.value = times + 's resend';
+        if(times <= 0){
+          that.disabled = false;
+          that.value = 'Send OTP';
+          clearInterval(timer);
+          times = 60;
+        }
+      }, 1000);
+    }else if(res.code ===2){
+      $('#emailAdr').parents('.form-group').addClass('has-error').find('.checkError').text(res.msg).removeClass('hidden');
+    }
+  });
+});
+$(document).on('click', '#comfirmCan', function(){
+  let that = this;
+  function checkForm(form){
+    let flag = true;
+    $(form).find('.form-group').removeClass('has-error');
+    $(form).find('.checkError').addClass('hidden');
+    if(form.verifyCode.value.trim() == ''){
+      $(form.verifyCode).parents('.form-group').addClass('has-error').find('.checkError').removeClass('hidden');
+      flag = false;
+    }
+    return flag;
+  }
+  if(checkForm(this.form)){
+    sendRefundData.travellers = sendRefundData.flightPsrIds.map(v => ({pId: v}));
+    sendRefundData.otp = this.form.verifyCode.value.trim();
+    let params = {
+      otp: sendRefundData.otp,
+      travellers: sendRefundData.travellers,
+      reasonType: sendRefundData.reasonType,
+      stampCopyUrl : upLoadFileUrl
+    };// delete sendRefundData.flightPsrIds;
+    $.ajax({
+      url:'/heg_api/refund/applyForRefundTogether.do',
+      type:'POST',
+      data:JSON.stringify(params),
+      contentType:'application/json',
+      dataType:'json'
+    }).done(result => {
+      if(result.succ){
+        $('#refundApplyModal').modal('hide');
+        // location.reload();
+        let tripId = JSON.parse(sessionStorage.getItem('o_d'))[0].id;
+        window.location.href='/account/?src=trips/'+ tripId +'&token=';
+      }else if(result.code == 5){
+        $(that.form.verifyCode).parents('.form-group').addClass('has-error').find('.checkError').removeClass('hidden');
+      }else{
+        alert(result.msg);
+      }
+    }); 
+  }
+});
+
+// 特殊航班 上传附件
+// 判断是否是特殊航班
+
+$(document).on('click', 'input[name=flightPsrIds]', function(){
+  let pid= [];
+  $('input[name=flightPsrIds]:checked').each(function(index, val){
+    pid.push({'pId':$(this).val()});
+  });
+  randerRefundReason(pid);
+
+});
+
+$(document).on('click', 'input[name=reason]', function(){
+  var stamp = $(this).data('stamp');
+  if(stamp) {
+    $(this).parent('label').next('div').removeClass('hidden').siblings('div').addClass('hidden');
+    fileUpload();
+  } else {
+    $('.reason-info .reason-wrap div').addClass('hidden');
+  }
+});
+
+function fileUpload() {
+  var $input =  $('#file1');
+  console.log($input);
+  // ①为input设定change事件
+  $input.change(function (event) {
+    var files = event.target.files, file; 
+    if (files && files.length > 0) {
+      // 获取目前上传的文件
+      // file = files[0];
+      // // 那么我们可以做一下诸如文件大小校验的动作
+      // if(file.size > 1024 * 1024 * 2) {
+        
+      //   alert('图片大小不能超过 2MB!');
+      //   return false;
+      // }
+      fileLoad(this);
+    } 
+  });
+}
+
+
+
+function fileLoad(ele){
+  //④创建一个formData对象
+  var formdata = new FormData();
+  //⑤获取传入元素的val
+  var name = $(ele).val();
+    //⑥获取files
+  var files = $(ele)[0].files[0];
+  //⑦将name 和 files 添加到formData中，键值对形式
+  formdata.append('file', files);
+  formdata.append('typeId', '125dc0d6-4084-11e9-93e2-000c29231d9f');
+  $.ajax({
+    url: '/upload/extract.do',
+    type: 'POST',
+    data: formdata,
+    processData: false, // ⑧告诉jQuery不要去处理发送的数据
+    contentType: false, // ⑨告诉jQuery不要去设置Content-Type请求头
+    success: function (res) {
+      //11成功后的动作
+      if(res.code == 200) {
+        upLoadFileUrl = res.reply;
+        $('span.fileName').text(files.name);
+        $('.fileloadBox label').text('Re-upload');
+      } else {
+        alert(res.message);
+      }
+    },
+    error : function (res) {
+      //12出错后的动作
+      alert(res.message);
+    }
+  });
+}
+
+
+
+

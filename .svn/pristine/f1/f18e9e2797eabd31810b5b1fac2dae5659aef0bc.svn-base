@@ -1,0 +1,10 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const headScript = require('./headScript.ejs');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let metaKeywords = ' Cheap flight booking, Cheap Hotels, Flight booking offers, Budget hotels, luxury Hotels, Online Hotel rooms, International Flight tickets, Domestic Air Tickets';
+let metaDescription = ' Find the best deals on flight tickets and hotel bookings. Grab the lowest airfares for international and domestic travel and score exclusive offers on hotels. ';
+module.exports = layout.init({
+  pageTitle: 'Book Cheap Flights and Budget Hotels Online - HappyEasyGo', scriptStr:headScript(), metaDescription, metaKeywords
+}).run(content(dirsConfig));

@@ -1,0 +1,62 @@
+<!-- Modal -->
+<div class="modal prizeModal fade" id='couShareModal' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close GAEV" ga-category="Homepage_popup_coupon_redeem" ga-action="click" ga-label="HomepagePopup_Close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+        <div class="title fontSz16 font-Roman">
+          <span class="fontB fontSz24">Holi Festival 2019</span> 
+          <br>
+          Sign up now for massive discounts on your first booking!
+        </div>
+        <div class="validity colorGray">
+        Validity: <span></span>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="imgBox">
+          <div class="couponBan">
+            <div style="position:relative">
+              <img src="" alt="" class="couponImg">
+              <div class="btnCopy">
+                <div class="coupon-value hotel-coupon">
+                  <span>HEGFLY</span> 
+                  <img src="<%=require('./images/scissors.png')%>" alt="">
+                </div>
+              </div>
+              <div class="mark">
+                <i class="icon icon-flight"></i>
+                <span>Flight</span>
+              </div>
+            </div>
+            <a href="/flight" class="redeemBtn GAEV" ga-category="Homepage_popup_coupon_redeem" ga-action="click" ga-label="HomepagePopup_F_BookNow">
+              Book Now
+            </a>
+          </div>
+          <div class="couponBan">
+            <div style="position:relative">
+              <img src="" alt="" class="couponImg">
+              <div class="btnCopy">
+                <div class="coupon-value hotel-coupon">
+                  <span>HEGHHFN</span> 
+                  <img src="<%=require('./images/scissors.png')%>" alt="">
+                </div>
+              </div>
+              <div class="mark">
+                <i class="icon icon-hotel"></i>
+                <span>Hotel</span>
+              </div>
+            </div>
+            <a href="https://hotel.happyeasygo.com/" class="redeemBtn GAEV" ga-category="Homepage_popup_coupon_redeem" ga-action="click" ga-label="HomepagePopup_H_BookNow">
+              Book Now
+            </a>
+          </div>
+        </div>
+        <div class="footNote login">
+           You can check its usage terms and conditions on <a href="/offers/holi-festival-sale" class="colorPri campaigs-link GAEV" ga-category="Homepage_popup_coupon_redeem" ga-action="click" ga-label="HomepagePopup_HoliFestival" >Holi Festival 2019</a>  page.
+        </div>
+        <div class="TipsMsg" style="display:none">The coupon code has been copied to your clipboard</div>
+      </div>
+    </div>
+  </div>
+</div>

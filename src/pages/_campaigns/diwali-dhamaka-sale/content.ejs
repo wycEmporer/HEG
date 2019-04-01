@@ -1,0 +1,140 @@
+<div class="content">
+	<div class='head'>
+	  <div class="flightSearchBar">
+			<%=require('../../_component/flightSearch/search.ejs')()%>
+		</div>
+		<div class="banner" id="banner">	</div>
+		
+		<div class='Countdown'>
+			<div class='Countdown_time'>
+				<p class='in'>Campaign is live !</p>
+				<p class='end hidden'>Campaign <i class='status'>Ends</i> : <span> <i id='RemainD1_1'></i>d: <i id='RemainH1_1'></i>h: <i id='RemainM1_1'></i>m: <i id='RemainS1_1'></i>s</span></p>
+				<p class='time'>Oct 19th, 00:00:00 -- Nov 10th, 23:59:59</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wrap">
+		<div class="container">
+			<div class='sale_box'>
+				<div class='sale app_sale'>
+					<div class='sale_left pull-left'>
+						<div class='pull-left phoneImg'>
+							<img src="<%= require('./images/phone.png') %>" alt="">
+							<p>Discount on App</p>
+							<div class='clearfix' style='padding:0 10px;'>
+								<div class='pull-left'>
+									<a href="https://app.adjust.com/2x7p5g" target="_blank" class="GAEV"  ga-category="diwali" ga-action="click" ga-label="DownloadButton">
+										<img src="<%= require('./images/googleplay.png') %>" style='margin-bottom:10px;' alt="">
+									</a>
+									<br>
+									<a href="https://itunes.apple.com/app/id1390426818?mt=8" class="GAEV" target="_blank" ga-category="diwali" ga-action="click" ga-label="DownloadButton">
+										<img src="<%= require('./images/appstore.png') %>" alt="">
+									</a>
+								</div>
+								<div class="pull-right code">
+									<img src="<%= require('./images/PC_Autumn_Deeplink.png')%>" alt="">
+								</div>
+							</div>
+							<p>Download our mobile App</p>
+						</div>
+						<div class='clearfix  font-Bold pull-right downLoad'>
+							<div>
+								<p>Save <span id='couponPri_1'>Rs.650</span></p>
+								<p>Order Amount <  <span>4,000</span> </p>
+							</div>
+							<div>
+								<p>Save <span id='couponPri_1'>Rs.750</span></p>
+								<p>Order Amount  <span>4,000-5,999</span> </p>
+							</div>
+							<div>
+								<p>Save <span id='couponPri_1'>Rs.850</span></p>
+								<p>Order Amount   <span>6,000-9,999</span> </p>
+							</div>
+							<div>
+								<p>Save <span id='couponPri_1'>Rs.1150</span></p>
+								<p>Order Amount <span>10K + </span> </p>
+							</div>
+							
+							<p class='font-Light useCode clearfix'>
+								<span>Use Code: </span>
+								<span class='font-Bold copyText_2 GAEV' data-type='1' ga-category="diwali" ga-action="click" ga-label="couponCopy" ga-value="HEGAPP">HEGAPP</span>
+							</p>
+						</div>
+					</div>
+					<div class='sale_right pull-right'>
+							<div class='pull-left phoneImg'>			
+							<img src="<%= require('./images/pc.png') %>" alt="">
+							<p>Discount on PC & Mobile Site</p>
+							<div class='clearfix login-box hidden'>
+								<div class='clearfix' style='margin:55px 0 35px;'>
+									<a href="/static/tpl/loginTpl.html" style='width:210px;height:40px;line-height:28px;background: #ffad3d; color:white;font-size: 16px;' data-toggle="modal" data-target="#login_modal" class='btn  GAEV' ga-category="diwali" ga-action="click" ga-label="SignIn">Sign In</a>
+								</div>
+								<p style='font-size: 14px;color: #666666;'>Have no account? <a href="/static/tpl/register.html" data-toggle="modal" style='font-size: 16px;margin-left:20px;color:#0b9d78' data-target="#register_modal"  class="GAEV" ga-category="diwali" ga-action="click" ga-label="SignUp">Sign Up</a></p>
+							</div>
+						</div>
+						<div class='clearfix  font-Bold pull-right downLoad'>
+							<div>
+								<p>Save <span id='couponPri_1'>Rs.600</span></p>
+								<p>Order Amount <  <span>4,000</span> </p>
+							</div>
+							<div>
+								<p>Save <span id='couponPri_1'>Rs.700</span></p>
+								<p>Order Amount  <span>4,000-5,999</span> </p>
+							</div>
+							<div>
+								<p>Save <span id='couponPri_1'>Rs.800</span></p>
+								<p>Order Amount   <span>6,000-9,999</span> </p>
+							</div>
+							<div>
+								<p>Save <span id='couponPri_1'>Rs.950</span></p>
+								<p>Order Amount <span>10K + </span> </p>
+							</div>
+							
+							<p class='font-Light useCode clearfix'>
+								<span>Use Code: </span>
+								<span class='font-Bold copyText_2 GAEV' data-type='2' ga-category="diwali" ga-action="click" ga-value="HEGPCM" ga-label="couponCopy">HEGPCM</span>
+							</p>
+						</div>
+					</div>
+				
+					<div class='TipsMsg TipsMsg_1'>
+						Successfully copied use code to the clipboard
+					</div>
+					<div class='TipsMsg TipsMsg_2'>
+						Successfully copied use code to the clipboard
+					</div>
+				</div>
+			</div>
+			<div class='TC font-Bold'><span>ON DOMESTIC & INTERNATIONAL FLIGHTS</span></div>
+			<div class='slide-box'>
+				<div class='slide_box'>
+					<div class='slide-title'>
+						<p class='title-img'></p>
+						<p class='title-text'><span>SHAKE</span> your phone to win <span>AMAZING PRIZES</span>!</p>
+					</div>
+					<div id="vmcarouselList" class="zy-Slide">
+						
+					</div>
+					<div class='btn_box'>
+						<a href="/shake" class='btn btn-warning GAEV' ga-category="diwali" ga-action="click" ga-label="GoForDetail">Go for Details</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script id="vmcarouselListTpl" type="text/template">
+	<ul class="vmcarousel-centered-infitine vmc-centered">
+	{{ _.each(myModel, function(model, key){ }}
+		<li><img src="{{= model}}" alt="" width="220"></li>
+	{{ }) }}
+	</ul>
+</script>
+
+
+
+
+

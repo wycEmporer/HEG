@@ -1,0 +1,197 @@
+<div class="banner" id="banner">
+	</div>
+<div class="content">
+	<div class="container">
+		<div class="wrap">
+			<div class="caption">
+				<h1 class="title">
+					Happy Wallet Introduction
+				</h1>
+				<div class="dec">
+					<p>HappyEasyGo brings you Happy Wallet – a virtual account where all your rewards and cashbacks
+						are saved. Available as Happy Gold and Happy Silver, these rewards and cashbacks can be used to enjoy unbelievable discounts on your flight bookings. Take a look at what these are:
+					</p>
+				</div>
+			</div>
+			<div class="category">
+				<div class="con clearfix">
+					<div class="side left pull-left">
+						<h2 class="title">
+							Happy Silver
+							<!-- <span style="font-size: 16px;font-weight: 400;padding-left: 20px;">coming soon</span> -->
+						</h2>
+						<div class="overview">
+							<p>Happy Silver are points that are credited to your account when you sign up on HappyEasyGo or whenever someone signs up using your referral code. 
+							These points are valid for a period of 3 months from the date of issue.  </p>
+							
+							<!-- <p>
+								Earn your Happy Silver Cash quickly by Joining in our Referral Program. <a href="">Know more</a>
+							</p> -->
+
+							
+						</div>
+						<div class="rules">
+							<div style="height:250px;" class="borderB">
+								<h3 class="colorPri">
+									How to earn Happy Silver？ 
+								</h3>
+								<!-- <p>
+									Happy Silver can be used for flight booking under the following rules:
+								</p> -->
+								<ol>
+									<li>
+										Sign up on HappyEasyGo and start earning Happy Silver from the get-go. For more details, click on <a href="/RegistrationReward" style='display: inline-block;color: #0b9d78;text-decoration: underline;'>Registration Reward</a>.
+									</li>
+									<li>
+										Refer HappyEasyGo to friends and family, and earn Happy Silver whenever someone registers using your referral code. For more details, click on<a href="/referral" style='display: inline-block;color: #0b9d78;text-decoration: underline;'> Refer & Earn</a>.
+									</li>
+								
+								</ol>
+							</div>
+							<div class="use">
+								<p class="fontB">What are the benefits of Happy Silver?</p>
+								<ul>
+									<li>
+										Happy Silver can be used to pay a part of your booking price when you purchase the tickets at Member Discount price. Please refer to the product quotation 
+										list for the amount of Happy Silver you can use in one booking.
+									</li>
+								</ul>
+								<div>
+									<div class="img"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="side right pull-left">
+						<h2 class="title">
+							Happy Gold
+						</h2>
+						<div class="overview">
+							<p>Happy Gold is a virtual currency which is added to Happy Wallet to book flight tickets and enjoy discounts on bookings. Happy Gold has no expiration date and you can 
+							keep it in your Happy Wallet as long as you wish. </p>
+							<p style='font-weight:700;font-size:25px;text-align:center;margin:20px 0px 0px; color:#333;'>1 Happy Gold = 1 Rupee</p>
+						</div>
+						<div class="rules">
+							<div style="height:250px;" class="borderB">
+								<h3 class="colorPri">
+									How to earn Happy Gold？
+								</h3>
+								<!-- <p>
+									Happy Gold can be used for flight booking under the following rules:
+								</p> -->
+								<ol>
+									<li>
+										Get additional Happy Gold every time you top-up your Happy Wallet. The higher the top-up amount, the higher the percentage of additional Happy Gold you get. For more details, click on <a href="/top-up" style='display: inline-block;color: #0b9d78;text-decoration: underline;'>Top-up</a>.
+									</li>
+									<li>
+										Avail HappyEasyGo’s various cashback offers. All the cashbacks you earn are instantly added to your Happy Wallet as Happy Gold. For more details, click on <a href="/cashback" style='display: inline-block;color: #0b9d78;text-decoration: underline;'>Cashback</a>.
+									</li>
+									<li>
+										Whenever someone signs up on HappyEasyGo using your referral code and books flight tickets on HappyEasyGo, you get 50 Happy Gold per order they place. For more details, click on <a href="/referral" style='display: inline-block;color: #0b9d78;text-decoration: underline;'> Refer & Earn</a>.
+									</li>
+									<!-- <li>
+										Happy Gold can be recharged and withdrawn at any time.
+									</li> -->
+									
+								</ol>
+							</div>
+
+							<div class="use">
+								<p class="fontB">What are the benefits of Happy Gold? </p>
+								<ul>
+									<li>There is no limit on how much Happy Gold you can use in one booking. You can even pay your entire airfare using Happy Gold. </li>
+									<li>Get an instant refund in case of ticket cancellation or non-issuance of flight ticket due to any other reason.</li>
+									<li>When you don’t see yourself travelling anytime soon, you can transfer Happy Gold to your bank account and spend it the way you like. A small fee may be charged for this transaction by your bank. For more details, click on <a href="/account/?src=wallet/withdraw" style='display: inline-block;color: #0b9d78;text-decoration: underline;'>Transfer-to-Bank</a>.</li>
+								</ul>
+								<p style='font-size:14px;color:#000;margin-top:20px;'>(Happy Gold rewards are not available for transfer-to-bank-account option，such as top-up rewards, gift, referral program and other ad hoc promotional events etc)</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="otherRules">
+				<div class="tabBar">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="active" role="presentation">
+							<a href="#walletRules" data-toggle="tab" role="tab" aria-controls="walletRules">Guidelines To use Happy Wallet</a>
+						</li>
+						<!-- <li class="" role="presentation">
+							<a href="#withdrawRules" data-toggle="tab" role="tab" aria-controls="withdrawRules">Withdraw Rules</a>
+						</li> -->
+						<li class="" role="presentation">
+							<a href="#cancelRules" data-toggle="tab" role="tab" aria-controls="cancelRules">Guidelines for Cancellation</a>
+						</li>
+						<li class="" role="presentation">
+							<a href="#otherRules" data-toggle="tab" role="tab" aria-controls="otherRules">General Guidelines</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-content tabcon">
+					<div class="tab-pane active" id="walletRules">
+						<ul>
+							<li> Happy Wallet can be used for every booking either HappyEasygo site or App.</li>
+							<li> Each time you, earn or redeem your Happy wallet ,will be notified by Email or SMS.</li>
+							
+							<li> HappyEasyGo wouldn't be liable to any hacking or unauthorized use of account moreover the responsibility to ensure privacy and confidentially lies on the account holder.</li>
+							<li>
+								HappyEasyGo has  rights to cancel all or partial Happy Wallet amount granted to the account holder at any point of time without any prior notice.
+							</li>
+							<!-- <li>In case of any disputes, HappyEasyGo’s decision will be final.</li> -->
+						</ul>
+					</div>
+					<div class="tab-pane" id="withdrawRules">
+						<ul>
+							<li>
+								According to the policy of Reserve Bank of India, we need to verify your personal identity at the 1st time you withdraw on our website.
+							</li>
+							<li>The maximum accumulated amount you can withdraw is Rs. 10,000 in the past 30 days.</li>
+							<li>3% of withdrawal amount or Rs. 30 will be charged (inclusive of GST) for your transaction fee each time whichever is higher. </li>
+							<li>
+								The transaction fee will be deducted from the withdrawal amount that you applied.
+							</li>
+							<li>
+								The minimum withdrawal amount should be no less than Rs. 100 each time.
+							</li>
+							<li>
+								The withdrawal amount (less fees and tax) will be transferred into your bank account in 15 working days.
+							</li>
+						</ul>
+					</div>
+					<div class="tab-pane" id="cancelRules">
+						<ul>
+							<li>
+								In terms of Cancellation, Happy gold utilized in the booking will be credited to your Happy Gold Account, while Happy Silver will become ineffective.
+							</li>
+							<li>The customer has the facility to choose between the option A) Transfer to Bank B) Happy Gold Account</li>
+							<li>Cancellation charges will be deducted from the cash as well as from happy wallet respectively.</li>
+							<li>
+								Refund will be credited to the Happy Wallet only.
+							</li>
+							<li>
+								Refund is subject to HappyEasyGo terms & Conditions.
+							</li>
+						</ul>
+					</div>
+					<div class="tab-pane" id="otherRules">
+						<ul>
+							<li> User is free to opt payment options either happy wallet or Debit/credit/ online payment.
+								Every transaction is validated by user credentials and OTP.</li>
+							<li> In case of any dispute, HappyEasyGo’s decision will prevail</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- <div class="otherNo">
+				<ul>
+					<li>
+						 Expiry of Happy Silver would be adjusted to the end of the month; for example, if 200 Happy Silver is to expire on January 12 (as per 90 days validity period), then the actual expiry would take place on January 31.
+					</li>
+					<li>
+						Happy Wallet Cashback will be credited to the Email ID used for booking if you are not logged in on www.happyeasy.com while making the booking. In case you have not registered your Email ID, you need to sign up with this Email ID to receive and use this Happy Wallet.
+					</li>
+				</ul>
+			</div> -->
+		</div>
+	</div>
+</div>

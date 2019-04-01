@@ -1,0 +1,216 @@
+<div class="content">
+	<div class='head'>
+	  <div class="hotelSearchBar">
+			<%=require('../../_component/flightAndhotel/search.ejs')()%>
+		</div>
+		<div class="banner" id="banner">	</div>
+		
+		<div class='Countdown'>
+			<div class='Countdown_time'>
+				<p class='in'>Campaign is live !</p>
+				<p class='end hidden'>Campaign <i class='status'>Ends</i> : <span> <i id='RemainD1_1'></i>d: <i id='RemainH1_1'></i>h: <i id='RemainM1_1'></i>m: <i id='RemainS1_1'></i>s</span></p>
+				<p class='time'>Nov 13th, 00:00:00 -- Dec 25th, 23:59:59</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wrap">
+		<div class="container">
+			<div class='hotel_info'>
+				<div class='title'></div>
+				<div class='info'>
+					<ul>
+						<li>
+							<p>Up to <span>30% off</span></p>
+							<p>on hotel booking</p>
+							<p class='copyCode'>Use Code: <span class='copyText_1'>HEGHTL30</span></p>
+							<div class='TipsMsg'>
+								Successfully copied use code to the clipboard
+							</div>
+							<p class='showTC' data-type='1'>Great Discount ></p>
+						
+						</li>
+						<li>
+							<p><span>3000</span> Happy Gold</p>
+							<p>reward daily on every <span>100th</span> order</p>
+							<p class='showTC' data-type='2'>Exclusive Reward ></p>
+						</li>
+						<li>
+							<p><span>200</span> Happy Gold</p>
+							<p>reward on every booking with Order <br> ID ending with <span>12 or 25</span></p>
+							<p class='showTC' data-type='3'>Exclusive Reward ></p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class='sale_box'>
+				<div class='title'></div>
+				<div class='sale app_sale'>
+					<div class='sale_left pull-left'>
+						<div class='clearfix pull-left downLoad' style='width:290px;'>
+							<p class='title_2' style='margin-bottom:5px;'>Extra <span>Rs.300</span> off</p>
+							<p class='title_3'  style='margin-bottom:80px;'>on each order</p>
+							<!--<p class='title_2'>Extra <span>10%</span>+<span>Rs.50</span> off</p>
+							<p class='title_3'>save up to Rs.3050</p>
+							<p class='title_4'>Note: Extra 10% off on base fare after HEG inbuilt discount.  10% off = (Base Fare-HEG inbuilt discount) x 10%</p>
+							<p class='title_2'>SAVE <span>₨.650-1150</span></p>
+							<ul class=''>
+								<li>Rs.650 off, order < Rs.3999 </li>
+								<li>Rs.750 off, order: Rs.4000 - Rs.5999 </li>
+								<li>Rs.850 off, order: Rs.6000 - Rs.9999 </li>
+								<li>Rs.1150 off, order > 10,000</li>
+							</ul>-->
+							<p class='useCode clearfix'>
+								<span>Use Code: </span>
+								<span class='font-Bold copyText_2 GAEV' data-type='1' ga-category="prechristmas" ga-action="click" ga-label="couponCopy" ga-value="HEGAPP">HEGAPP</span>
+							</p>
+						</div>
+						<div class='pull-right phoneImg'>
+							<img src="<%= require('./images/phone.png') %>" alt="">
+							<p>Discount on App</p>
+							<div class='' style='height:30px;margin-top: 10px;'>
+								<a href="https://app.adjust.com/2x7p5g" target="_blank" class="GAEV pull-left"  ga-category="prechristmas" ga-action="click" ga-label="DownloadButton">
+									<img src="<%= require('./images/googleplay.png') %>" style='' alt="">
+								</a>
+								<a href="https://itunes.apple.com/app/id1390426818?mt=8" class="GAEV pull-right" target="_blank" ga-category="prechristmas" ga-action="click" ga-label="DownloadButton">
+									<img src="<%= require('./images/appstore.png') %>" alt="">
+								</a>
+							</div>
+							<p>Download our mobile App</p>
+						</div>
+					</div>
+					<div class='sale_right pull-right'>
+						<div class='clearfix pull-left downLoad' style='width:275px'>
+							<p class='title_2' style='margin-bottom:5px;'>Extra &nbsp;<span>Rs.250</span>&nbsp;off</p>
+							<p class='title_3'  style='margin-bottom:80px;'>on each order</p>
+							<!--<p class='title_2'>Extra &nbsp;<span>10%</span>&nbsp;off</p>
+							<p class='title_3'>save up to Rs.3000</p>
+							<p class='title_4'>Note: Extra 10% off on base fare after HEG inbuilt discount.  10% off = (Base Fare-HEG inbuilt discount) x 10%</p>
+							<p class='title_2'>SAVE <span>₨.600-950</span></p>
+							<ul class=''>
+								<li>Rs.600 off, order < Rs.3999 </li>
+								<li>Rs.700 off, order: Rs.4000 - Rs.5999 </li>
+								<li>Rs.800 off, order: Rs.6000 - Rs.9999 </li>
+								<li>Rs.950 off, order > 10,000</li>
+							</ul>-->
+							<p class='useCode clearfix'>
+								<span>Use Code: </span>
+								<span class='font-Bold copyText_2 GAEV' data-type='2' ga-category="prechristmas" ga-action="click" ga-label="couponCopy" ga-value="HEGAPP">HEGPCM</span>
+							</p>
+						</div>
+						<div class='pull-right phoneImg'>			
+							<img src="<%= require('./images/pc.png') %>" alt="">
+							<p style='font-size: 14px;color: #666666;' class='login-box hidden'>Have no account? <a href="/static/tpl/register.html" data-toggle="modal" style='font-size: 16px;margin-left:10px;color:#0B9D78;text-decoration: underline;' data-target="#register_modal"  class="GAEV" ga-category="prechristmas" ga-action="click" ga-label="SignUp">Sign Up</a></p>
+							<p class='loginText hidden'>Discount on PC & Mobile Site</p>
+							<div class='clearfix login-box hidden'>
+								<div class='clearfix' style='margin:25px 0 0px;'>
+									<a href="/static/tpl/loginTpl.html" style='width:220px;height:40px;line-height:28px;background: rgba(11,157,120,0.10);border: 1px solid #0B9D78;border-radius: 4px;color: #0B9D78;font-size: 16px;' data-toggle="modal" data-target="#login_modal" class='btn  GAEV' ga-category="prechristmas" ga-action="click" ga-label="SignIn">Sign In</a>
+								</div>
+								
+							</div>
+						</div>			
+					</div>
+				
+					<div class='TipsMsg TipsMsg_1'>
+						Successfully copied use code to the clipboard
+					</div>
+					<div class='TipsMsg TipsMsg_2'>
+						Successfully copied use code to the clipboard
+					</div>
+					<div class='TC font-Light'><span>ON DOMESTIC & INTERNATIONAL FLIGHTS</span></div>
+				</div>
+			</div>
+			
+			<div class='slide-box'>
+				<div class='slide_box'>
+					<div class='slide-title'>
+						<p class='title-img'></p>
+						<p class='title-text'><span>SHAKE</span> your phone to win <span>AMAZING PRIZES</span>!</p>
+					</div>
+					<div id="vmcarouselList" class="zy-Slide">
+						
+					</div>
+					<div class='btn_box'>
+						<a href="/shake" class='btn btn-warning GAEV' ga-category="prechristmas" ga-action="click" ga-label="GoForDetail">Go for Details</a>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<script id="vmcarouselListTpl" type="text/template">
+	<ul class="vmcarousel-centered-infitine vmc-centered">
+	{{ _.each(myModel, function(model, key){ }}
+		<li><img src="{{= model}}" alt="" width="220"></li>
+	{{ }) }}
+	</ul>
+</script>
+
+
+<div class="modal noPrizeModal fade" id='noPrizeModal_1' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title font-Bold'>Up to 30% off on all hotel bookings</p>
+			</div>
+      <div class="modal-body">
+				<ul class='msg'>
+					<li>Available on hotels pan India. </li>
+					<li>Applicable on bookings made on HEG PC and mobile site, and app. </li>
+					<li>Code is valid from Nov 12th to Dec 25, 2018.</li>
+				</ul>
+				<p>HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal noPrizeModal fade" id='noPrizeModal_2' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title font-Bold'>3000 Happy Gold reward daily on every 100th order</p>
+			</div>
+      <div class="modal-body">
+			<ul class='msg'>
+					<li>It will be transferred on the next working day of the booking to Happy Wallet. </li>
+					<li>It can be used to book flight tickets for now. </li>
+					<li>No expiry date.  </li>
+					<li>It cannot be withdrawn or transferred to the bank account. </li>
+					<li>In case the order is cancelled due to any reason, the reward will be forfeited. </li>
+				</ul>
+				<p>HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal noPrizeModal fade" id='noPrizeModal_3' tabindex="-1" role="dialog" aria-labelledby="gridSystemModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style='margin-bottom:15px;'>
+        <a href='javascript:;' type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"></span></a>
+				<p class='title font-Bold'>200 Happy Gold reward on every booking with order ID ending with 12 or 25</p>
+			</div>
+      <div class="modal-body">
+				<ul class='msg'>
+					<li>It will be transferred on the next working day of the booking to Happy Wallet. </li>
+					<li>It can be used to book flight tickets for now.  </li>
+					<li>No expiry date.  </li>
+					<li>It cannot be withdrawn or transferred to the bank account. </li>
+					<li>In case the order is cancelled due to any reason, the reward will be forfeited. </li>
+				</ul>
+				<p>HappyEasyGo Travel Pvt. Ltd. ("HappyEasyGo") reserves the right to add, alter, modify all or any of these terms and conditions, or replace wholly or in part, this offer by any other offer, whether similar to this offer or not, without prior notice.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

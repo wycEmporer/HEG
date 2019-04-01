@@ -1,0 +1,9 @@
+const config = require('configModule');
+const content = require('./content.ejs');
+const layout = require('layout');
+const dirsConfig = config.DIRS;
+let metaDescription = 'HappyEasyGo is an India\'s fastest growing travel Company, which provides best deals for Domestic Flight Tickets, hotels and International air tickets.';
+let metaKeywords = 'HappyEasygo Travels, Cheap Domestic Flights, Cheap International flights, Travel Company, Travel Agency.';
+module.exports = layout.init({
+  pageTitle: 'About HappyEasyGo | Fastest Growing Travel Company', metaDescription, metaKeywords
+}).run(content(dirsConfig));

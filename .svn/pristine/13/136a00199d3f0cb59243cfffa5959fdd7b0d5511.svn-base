@@ -1,0 +1,380 @@
+<div class="conentwrapper">
+  <div class="L-content" id="L_content">
+    <div class="container">
+      <div id="carBanner" class="banner-wrap carousel pull-right slide" data-ride="carousel" data-interval='8000'>
+      </div>
+      <div class='searchBox'> 
+        <div class='container'>
+          <div class='searchTab'>
+            <ul role="tablist">
+              <li class='active'><a href="#flightTab" aria-controls="flightTab" role="tab" data-toggle="tab">Flight</a></li>
+              <li><a href="#hotelTab" aria-controls="hotelTab" class="red-point" role="tab" data-toggle="tab">Hotels</a></li>
+            </ul>
+          </div>
+          <div class="tab-content">
+            <div class='searchFrom tab-pane active' id="flightTab">
+              <form id="searchForm" onsubmit="return false;" class='clearfix'>
+                <div class='flightType '>
+                  <nav class="L-tripType clearfix">
+                    <ul>
+                      <li class="item oneway">
+                          <label for="oneway" class='radio'>
+                            <input type="radio" name="tripType" id="oneway" value="0"  checked='checked' class="trip-type">
+                            <i></i>
+                            <strong class="font-Roman">One way</strong>
+                        </label>
+                      </li>
+                      <li class="item roundtrip">
+                          <label for="Roundtrip" class='radio'>
+                          <input type="radio" name="tripType" id="Roundtrip" value="1" class="trip-type">
+                            <i></i>
+                            <strong class="font-Roman">Round trip</strong>
+                        </label>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>  
+                <div class='LS-trip'>
+                  <div class="section1 clearfix">
+                    <div class="d-city fore form-group">
+                      <label for="D_city" class="font-Roman">From</label>
+                      <span class="checkError hidden">You missed this</span>
+                      <input type="text" id="D_city" value="New Delhi" class="form-control" autocomplete="off">
+                      <input type="hidden" id="From" name="from" value="DEL" data-country="IN">
+                      <!-- <i class="icon"></i> -->
+                    </div>
+                    <div class="fore form-group roundIcon" id='switch_city'>
+                        
+                    </div>
+                    <div class="a-city fore form-group">
+                      <label for="A_city" class="font-Roman">To</label>
+                      <span class="checkError hidden">You missed this</span>
+                      <input type="text" id="A_city" value="Mumbai" class="form-control" autocomplete="off">
+                      <input type="hidden" id="To" name="to" value="BOM" data-country="IN">
+                      <!-- <i class="icon"></i> -->
+                    </div>
+                  </div>
+              
+                  <div class="section2 clearfix">
+                    <div class="d-date fore form-group">
+                      <label for="D_date" class="font-Roman">Depart</label>
+                      <input type="text" readonly="readonly" id="D_date" class="form-control" placeholder="Choose Date" autocomplete='off'>
+                      <input type="hidden" id="departDate" name="departDate" value="">
+                      <a class="icon datepick"></a>
+                      <span class="checkError hidden">You missed this</span>
+                    </div>
+                    <div class="r-date fore form-group ">
+                      <label for="R_date" class="font-Roman">Return</label>
+                      <input type="text" readonly="readonly" id="R_date" class="form-control" placeholder=""  autocomplete='off'>
+                      <input type="hidden" name="returnDate" id="returnDate" disabled="disabled" value="">
+                      <a class="icon datepick"></a>
+                      <p class="checkError hidden">You missed this</p>
+                    </div>
+                  </div>
+
+                  <div class="section6 pull-left clearfix">
+                    <div class="item selectItem form-group">
+                      <label for="" class="font-Roman">Passengers&nbsp;|&nbsp;Class</label>
+                      <a href="javascript:void(0)" class="trallerpop font-Bold" id="p-popover">
+                        <span id="pCount">1</span>&nbsp;<span id="pIcon">|</span>&nbsp;<span id="pType">Ecnomic</span>
+                        <div class="img-icon arrows">
+                          <p></p>
+                        </div>
+                      </a>
+                      <div class="SelectWrap  bottom popover">
+                        <div class="arrow" style="left: 10%"></div>
+                        <div class="headTop">
+                          <a href="javascript:void(0)" style="position: absolute;top:4px; right:10px;z-index:2;" class="close">&times;</a>
+                        </div>
+                        <div class="clearfix">
+                          <div class="A-passenger fore">
+                            <p>Adults</p>
+                            <span class="img-type A-type"></span>
+                            <input id="A_passenger" type="text" value="1" name="adults" alt="a" class="passenger" autocomplete='off'>
+                            <div class="minus-plus">
+                              <span class="minus-img"></span>
+                              <span class="plus-img"></span>
+                            </div>
+                          </div>
+                          <div class="C-passenger fore">
+                              <p>Children</p>
+                              <span class="img-type C-type"></span>
+                              <input id="C_passenger" type="tel" value="0" name="childs" alt="c" class="passenger" autocomplete='off'>
+                              <div class="minus-plus">
+                                <span class="minus-img"></span>
+                                <span class="plus-img"></span>
+                              </div>
+                          </div>
+                          <div class="I-passenger fore">
+                              <p>Infants</p>
+                              <span class="img-type I-type"></span>
+                              <input id="I_passenger" type="tel" value="0" name="baby" alt="i" class="passenger" autocomplete='off'>
+                              <div class="minus-plus">
+                                <span class="minus-img"></span>
+                                <span class="plus-img"></span>
+                              </div> 
+                          </div>
+                          <div class="S-seat">
+                              <div class="s-seatType">
+                                  <label for="economy">
+                                    <input type="radio" name="cabinClass" id="economy" value="Economy" checked="checked" class="seat-type">
+                                    <strong class="font-Roman">Economy</strong>
+                                  </label> 
+                                  <label for="business">
+                                    <input type="radio" name="cabinClass" id="business" value="Business" class="seat-type">
+                                    <strong class="font-Roman">Business</strong>
+                                  </label> 
+                                  <label for="first">
+                                    <input type="radio" name="cabinClass" id="first" value="First" class="seat-type">
+                                    <strong class="font-Roman">First</strong>
+                                  </label> 
+                                  <label for="prenium" class="prenium">
+                                    <input type="radio" name="cabinClass" id="prenium" value="Premium Economy" class="seat-type">
+                                    <strong class="font-Roman">Premium Economy</strong>
+                                  </label> 
+                              </div>
+                              <!--<p class='text'>Children 5 to 14 years old on a separate flight must be 
+                                reserved for their “unaccompanied minors".
+                              </p>-->
+                          </div>
+                          <div class="B-confirm" style="margin: 15px 0px 10px;">
+                            <input id="confirm" type="button" value="Confirm" name="button" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="section5 pull-right">
+                    <button class="btn btn-warning" id="search_flights">Search flights</button>
+                  </div>
+                </div>
+                <input type="hidden" name="carrier" value="">
+              </form>
+            </div>
+            <div class="tab-pane selector" id="hotelTab">
+              <div class="selector-container">
+                <div class="form-group cityname"> 
+                  <label for="cityname">City, Location, Hotel</label>
+                  <input type="text" id="cityname" autocomplete="off">
+                  <span class='icon-loading'></span>
+                  <div class="search-result">
+                    <h2>SEARCH RESULTS</h2>
+                    <div class="result-items">
+                      <!--城市名-->
+                    </div>
+                  </div> 
+                </div>
+                <div class="form-group check-in">
+                  <label for="check-in">Check-In</label>
+                  <input type="text" id="check-in" readonly>
+                  <!--<i class="icon-date"></i>-->
+                </div>
+                <div class="form-group check-out">
+                  <label for="check-out">Check-Out</label>
+                  <input type="text" id="check-out" readonly>
+                  <!--<i class="icon-date"></i>-->
+                </div>
+                <div class="form-group rooms-guest">
+                  <label for="room-guest">Rooms/guests</label>
+                  <input type="text" id="room-guest" value="1 Room,2 Guests" readonly>
+                  <i class="icon-down"></i>
+                  <i class="icon-down"></i>
+                  <div class="search-result">
+                    <div class="search-result-container">
+                      <div class="s-r-item" data-index="0">
+                        <div class="room-result result-item">
+                          <span>Rooms 1</span>
+                          <div class="r-info">
+                            <span>2 Adults 0 Children</span>
+                            <span class="edit">edit</span>
+                          </div>
+                        </div>
+                        <div class="guests-result">
+                          <div class="adult-result result-item">
+                            <span>Adults （+12 yrs）</span>
+                            <div class="clearfix result-info">
+                              <em></em>
+                              <b>2</b>
+                              <i class="add" data-index="1"></i>
+                              <i class="minus" data-index="1"></i>
+                            </div>
+                          </div>
+                          <div class="child-result result-item">
+                            <span>Children （1-12 yrs）</span>
+                            <div class="clearfix result-info">
+                              <em></em>
+                              <b>0</b>
+                              <i class="add" data-index="2"></i>
+                              <i class="minus minus-disabled" data-index="2"></i>
+                            </div>
+                          </div>
+                          <ul class="child-age">
+                          </ul>
+                        </div> 
+                      </div>
+    
+                    </div>
+                    <div class="room-operate">
+                      <button class="add-room">ADD ROOM</button>
+                      <span class="done">Done</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group get-set-go">
+                  <button class="go">Search</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end container -->
+    </div>
+    <div class="best-price">
+      <div class="container">
+        <a href="/guarantee/" class="guaranteed">
+          <span class="title colorDan fontB">BEST PRICE GUARANTEED - </span>
+          <span class="text grayDark">We assure the lowest flight price or refund you  <i style="font-weight:bold;">200%</i> of the difference.</span>
+        </a>
+      </div>
+    </div>
+    <!-- Coupon-card -->
+    <div class="couPon-Card">
+      <div class="container">
+        <ul class="couCaed" id="couponCard">
+            
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+  <!-- end L-content -->
+ 
+
+
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="container">
+      <div class="panel panel-default">
+        <a role="button" class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true"
+          aria-controls="collapseOne">
+          <i class="onOff onOffactive"></i>
+        </a>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="cont">
+            <p>
+              <span>Believing</span> in these lines “Flying might not be all plain sailing but the fun of it must be worth the
+              price” HappyEasyGo is determined to provide hassle-free and guarantees lowest flight ticket worldwide. It facilitates
+              us through innumerable flight booking offers in form of enticing cashback and discount throughout.</p>
+            <p>
+              <span>HappyEasyGo</span> is one of India's fastest growing online travel portal for
+              <a href="https://www.happyeasygo.com" title="Cheap Flight Booking Online">cheap flight bookings</a>, both domestic and international. HEG strives for the convenient, quick and cheap
+              flight booking for its customers, and dedicates itself to be the paragon in this sector. It is emerging as
+              the most desired online travel portal for flight bookings.</p>
+            <p>
+              <span>HappyEasyGo</span> guarantees the cheapest air ticket in both domestic and international sector. Just by registering
+              into the portal you are entitled to access all the services and offers which are too good to ignore. The variety
+              of offers and deals for the user makes it unique. You will be beneficiary of the most attractive deals in single
+              as well as round trip in international and domestic flights. Well, who doesn't want to save their hard earned
+              money?</p>
+            <p>
+              <span>With</span> HappyEasyGo you need not spend hours checking flights, by simply booking with us you can save time
+              by comparing all available domestic and Internationals offers and deals at one place and all while being assured
+              that if the price of the flight you book is not the lowest we'll credit you the 200% of difference with our
+              amazing and free reward program.</p>
+            <p>
+              <span>We</span> have an array of products to address the diversified requirement of our heterogeneous customers along
+              with 24 *7 frontline customer support service. In customer service, we extend various facilities like online
+              cancellation, SMS alert to keep you updated with flight time, modifications etc. HappyEasyGo is perennial in
+              opting the most innovative ways to satiate the needs of our customers, by providing them ease of booking along
+              with the
+              <a href="https://www.happyeasygo.com" title="Lowest Airfare in India">lowest airfares</a>.</p>
+            <p>
+              <span>With</span> a proprietary airfare booking interface, Happy Easy Go is dedicated to provide the best fares available
+              in the marketplace. Our experienced and customer centric travel experts always try to ensure a happy and easy
+              experience for our customers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- hidden 2018-01-04 <div class="proOpenWrap hidden" id="proOpenWrap">
+  <div class="proOpenCon">
+  </div>
+</div>
+<div class="proWrap hidden" id="proWrap">
+  <div class="proCon">
+    <div class="closed"></div>
+    <div class="container">
+      <div class="registerWrap row">
+        <div class="col-sm-9">
+          <div class="textC fontSz20" style="color:#fff">
+            Register now, and get <span style="color: #000;"><i class="fa fa-inr"></i> 2000</span> Happy Silver for your amazing Member Price.
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <a href="/static/tpl/register.html" data-toggle="modal" data-target="#register_modal" class="proSign"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div id="promotion" class='promotion'>
+  
+</div>
+
+<div class="promotion-wrap" id="promotion-wrap">
+  <div class="promotion-con">
+    <div class="conWrap" style="width:1146px">
+      <div class="register-wrap clearfix">
+        <div class="closed pull-right"></div>
+        <a href="https://app.adjust.com/2x7p5g" target="_blank">
+          <div id="footBanner">
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script id="couponCardTpl" type="text/template">
+
+  {{_.each(myModel.data, function(val, key){}}
+  <li class='{{= val.couponType == 2 ? "bg_2" :  "bg_1"}}' data-type = '{{= val.couponType == 2 ? "2" :  "1"}}'>
+    {{ if(val.couponType == 2) { }}
+      <a href='https://hotel.happyeasygo.com/' class='goCouponDetail'>
+    {{ } else { }}
+      <a href='/coupondetails?code={{=val.couponCode}}&type=2' class='goCouponDetail'>
+    {{ } }}
+      <p class='text'>{{=val.title}}</p>
+      <p class='text'>{{=val.description}}</p>
+      <p class='price'>
+      Save {{=val.discount.indexOf('%') >-1 ? val.discount :  val.discount}}
+      </p>
+    </a>
+    <div class='codeInfo'>
+      <div class='pull-left code'>
+        <p class='couponCode'>{{=val.couponCode}}</p>
+        <p></p>
+      </div>
+      <i class='pull-right copyIcon' id='copyIcon'></i>
+      <div class='TipsMsg'>
+          Successfully copied coupon code to the clipboard
+      </div>
+    </div>
+  </li>
+  {{})}}
+  {{if(myModel.data.length < 4){ }}
+   {{_.each(myModel.list.splice(0,(4-myModel.data.length)), function(item, idnex){ }}
+    <li style='border:none;background:none'>
+      <a href='{{= item.href}}' class='img_1'>
+        <img src="{{= item.url}}" alt="">
+      </a>
+    </li>
+    {{ }) }}
+  {{ } }}
+</script>

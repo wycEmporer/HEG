@@ -1,0 +1,90 @@
+
+
+<div class="content">
+  <div id="flightSearchBar" class="add-search1 row" style="padding:0px 0;display:none;">
+     <%=require('../_common/flightSearch/search.ejs')()%>
+  </div>
+  <div id="hotelSearchBar" style="display:none">
+    <%=require('../../_component/hotelSearch/search.ejs')()%>
+  </div>
+	<div class="container">
+		<div class="wrap"  id="couponInfoList">
+      
+    </div>
+	</div>
+</div>
+
+<script  id="couponInfoListTpl" type="text/template">
+  <p class='title font-Bold'>{{= model.name }}</p>
+  <div class="couponInfo">
+    <div class="info_title font-Bold">
+      <p>Introduction</p>
+    </div>
+    <div class="list">
+      {{=model.landingPageDescription}}
+    </div>
+  </div>
+  <div class='tableBox'>
+    <ul class='clearfix'>
+      <li>
+        <img src="<%= require('./images/cou_1.png') %>" alt="" >
+        <p  id=''><span class='couponCode'>{{=model.couponCode}}</span></p>
+        <p>Coupon Code</p>
+        <div class='TipsMsg'>
+          Successfully copied coupon code to the clipboard
+        </div>
+      </li>
+      <li>
+        <img src="<%= require('./images/cou_2.png') %>" alt="">
+        <p>{{=model.validTill}}</p>
+        <p>Validity</p>
+      </li>
+      
+      {{ if(model.coupon_Type == 2 ) { }}
+      <li>
+        <img src="<%= require('./images/cou_4.png') %>" alt="">
+        <p>{{= model.prizeSource}}</p>
+        <p>Source</p>
+      </li>
+      {{ } else if(model.coupon_Type == 1 || model.coupon_Type == '') { }}
+      <li>
+        <img src="<%= require('./images/cou_3.png') %>" alt="">
+        <p> 
+          {{_.each(model.suitablePlatform, function(val, key){}}
+            {{ if(key == model.suitablePlatform.length-1){ }} 
+              <span>{{=val}}</span>
+            {{ } else { }}
+              <span>{{=val}} /</span>
+            {{ } }}         
+          {{})}}
+        </p>
+        <p>Applicable Device</p>
+      </li>
+      {{ } }}
+      
+    </ul>
+    
+  </div>
+  
+  <div class="couponInfo">
+    <div class="info_title font-Bold">
+      <p>Terms & Conditions</p>
+    </div>
+    <div class="list">
+      {{= model.coupon_Type == '' ? model.tc : model.tC}}
+    </div>
+  </div>
+  {{if(model.coupon_Type == 2) { }}
+  <div class="couponInfo">
+    <div class="info_title font-Bold">
+      <p>Steps to Redeem</p>
+    </div>
+    <div class="list">
+      {{=model.stepsToRedeem}}
+    </div>
+  </div>
+  {{ } }}
+  
+</script>
+
+

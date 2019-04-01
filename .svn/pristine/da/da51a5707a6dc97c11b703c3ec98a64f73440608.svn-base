@@ -1,0 +1,182 @@
+<div class="content">
+	<div class='head'>
+		<div class="flightSearchBar">
+			<%=require('../../_component/flightSearch/search.ejs')()%>
+		</div>
+		<div class="banner" id="banner">	
+		</div>
+		<div class='Countdown'>
+			<div class='Countdown_time'>
+				<p class='in'>Campaign is live !</p>
+				<p class='end hidden'>Campaign Ends : <span> <i id='RemainD1_1'></i>d: <i id='RemainH1_1'></i>h: <i id='RemainM1_1'></i>m: <i id='RemainS1_1'></i>s</span></p>
+				<p class='time'>Sept 13th, 00:00:00 -- Sept 30th, 23:59:59</p>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wrap">
+		<div class="container">
+			<div class='sale app_sale'>
+				<div class='sale_left pull-left'>
+					<img src="<%= require('./images/phone.png') %>" alt="">
+					<p>Discount on App</p>
+					<div class='clearfix' style='padding:0 10px;'>
+						<div class='pull-left'>
+							<a href="https://app.adjust.com/2x7p5g" target="_blank" class="GAEV"  ga-category="AutumnSale" ga-action="click" ga-label="DownloadButton">
+								<img src="<%= require('./images/googleplay.png') %>" style='margin-bottom:10px;' alt="">
+							</a>
+							<br>
+							<a href="https://itunes.apple.com/app/id1390426818?mt=8" class="GAEV" target="_blank" ga-category="AutumnSale" ga-action="click" ga-label="DownloadButton">
+								<img src="<%= require('./images/appstore.png') %>" alt="">
+							</a>
+						</div>
+						<div class="pull-right code">
+							<img src="<%= require('./images/PC_Autumn_Deeplink.png')%>" alt="">
+						</div>
+					</div>
+					<p>Download our mobile App</p>
+				</div>
+				<div class='sale_right pull-right'>
+					<ul class='clearfix'>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.300</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGSEP1</span>
+								<span class='copyIcon GAEV'  ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>< 5,000</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.350</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGSEP2</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>5,000-6,999</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.550</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGSEP3</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>7,000-9,999</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.800</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGSEP4</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>10K +</span></p>
+						</li>
+					</ul>
+					<p class='bottom_title'>—— ON DOMESTIC & INTERNATIONAL FLIGHTS ——</p>
+					<div class='TipsMsg'>
+						Successfully copied use code to the clipboard
+				  </div>
+				</div>
+			</div>
+			
+			<div class='sale app_sale'>
+				<div class='sale_left pull-left'>
+					<img src="<%= require('./images/pc.png') %>" alt="">
+					<p>Discount on PC & Mobile Site</p>
+					<div class='clearfix' style='margin-top:20px;'>
+						<a href="/static/tpl/loginTpl.html" style='width:160px;' data-toggle="modal" data-target="#login_modal" class='btn btn-warning GAEV' ga-category="AutumnSale" ga-action="click" ga-label="SignIn">Sign In</a>
+					</div>
+					<p>Have no account? <a href="/static/tpl/register.html" data-toggle="modal" style='color:#0b9d78' data-target="#register_modal"  class="GAEV" ga-category="AutumnSale" ga-action="click" ga-label="SignUp">Sign Up</a></p>
+				</div>
+				<div class='sale_right pull-right'>
+					<ul class='clearfix'>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.250</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGAUT1</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>< 5,000</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.300</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGAUT2</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>5,000-6,999</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.500</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGAUT3</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>7,000-9,999</span></p>
+						</li>
+						<li>
+							<div>
+								<span>Save</span>
+								<span>Rs.700</span>
+								<span>USE CODE: </span>
+								<span class='code'>HEGAUT4</span>
+								<span class='copyIcon GAEV' ga-category="AutumnSale" ga-action="click" ga-label="CouponCopy"></span>
+							</div>
+							<p>Order Amount&nbsp; <span>10K +</span></p>
+						</li>
+					</ul>
+					<p class='bottom_title'>—— ON DOMESTIC & INTERNATIONAL FLIGHTS ——</p>
+					<div class='TipsMsg'>
+						Successfully copied use code to the clipboard
+				  </div>
+				</div>
+			</div>
+			<div class='slide_box'>
+				<div class='title clearfix'>
+					<img class='pull-left' src="<%= require('./images/yao.png')%>" alt="">
+					<span class='pull-left fontB' style="font-style:italic">Shake & Win</span>
+				</div>
+				<p class='p_1'><span>SHAKE</span> your phone to win <span>AMAZING PRIZES!</span></p>
+				<div id="" class="zy-Slide">
+					<ul class="vmcarousel-centered-infitine vmc-centered">
+						<li><img src="<%= require('./images/1.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/2.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/3.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/4.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/5.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/6.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/7.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/8.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/9.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/10.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/11.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/12.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/13.png')%>" alt="" width="200"></li>
+						<li><img src="<%= require('./images/14.png')%>" alt="" width="200"></li>
+					</ul>
+				</div>
+				<div class='btn_box'>
+					<a href="/shake" class='btn btn-warning GAEV' ga-category="AutumnSale" ga-action="click" ga-label="GoForDetail">Go for Details</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+

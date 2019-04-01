@@ -1,0 +1,115 @@
+
+@themeColor: #2ca5ea;
+.body{
+	background: #f5f5f5;
+}
+.content{
+	
+	.banner{
+		width: 100%;
+		height: 400px;
+		background: url('./images/banner.png') no-repeat;
+		background-position: top center;
+	}
+	.container{
+		padding: 0px;
+		.wrap{
+			width: 100%;
+			padding: 10px 40px;
+			
+			.title{
+				width: 100%;
+				height: 80px;
+				line-height: 80px;
+				font-size: 36px;
+				font-weight: 700;
+				text-align: center;
+			}
+			.cont{
+				font-size: 14px;
+				line-height: 20px;
+				margin-bottom: 20px;
+			}
+			.cont_2{
+				text-align: center;
+				margin: 40px 0;
+				font-size: 14px;
+				.a_link{
+					color: #ffad3d;
+					font-size: 24px;
+				}
+			}
+			.winBox{
+				margin: 30px 0px;
+				.title_1{
+					font-size: 16px;	
+					line-height: 20px;
+					margin-top: 10px;	
+				}
+				.title_2{
+					font-size: 24px;
+					font-weight: 700;
+					margin-bottom: 20px;
+					line-height: 40px;
+					span{
+						color: #ff1c1c;
+					}
+				}
+				.box_left{
+					width: 550px;
+					height: 270px;
+					background: #f9fbfb;
+					padding: 20px;
+					position: relative;
+					
+					.downLoad{
+						p{
+							font-size: 16px;
+							line-height: 30px;
+						}
+						.pull-left{
+							margin-right: 30px;
+							img{
+								width: 100px;
+							}
+						}
+						.downLink{
+							img{
+								width: 130px;
+								margin-top: 10px;
+							}
+						}
+					}
+					.mobleImg{
+						position: absolute;
+						right: 30px;
+						top: 30px;
+					}
+				}
+				.box_right{
+					width: 550px;
+					height: 270px;
+					background: #f9fbfb;
+					padding: 20px;
+					position: relative;
+					.btn_box{
+						text-align: center;
+						margin-top: 70px;
+						.btn{
+							width: 260px;
+							height: 40px;
+							font-size: 20px;
+							color: white;
+						}
+					}
+					
+					.mobleImg{
+						position: absolute;
+						right: 30px;
+						top: 30px;
+					}
+				}
+			}
+		}
+	}
+}

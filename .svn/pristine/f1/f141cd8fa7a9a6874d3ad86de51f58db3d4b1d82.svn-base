@@ -1,0 +1,171 @@
+@font-face{
+  font-family: 'WebRupee';
+  src:url('./WebRupee.V2.0.ttf');
+  // font-display: optional;
+}
+@font-face{
+  font-family: 'HT-Roman';
+  src:url('./webfont/HelveticaLTPro-Roman.otf');
+  // font-display: optional;
+}
+@font-face{
+  font-family: 'HT-Light';
+  src:url('./webfont/HelveticaLTPro-Light.otf');
+  // font-display: optional;
+}
+@font-face{
+  font-family: 'HT-Bold';
+  src:url('./webfont/HelveticaLTPro-Bold.otf');
+  // font-display: optional;
+}
+@font-face{
+  font-family: 'HT-BlackCond';
+  src:url('./webfont/HelveticaLTPro-BlackCond.otf');
+  // font-display: optional;
+}
+.font-Roman{
+  font-family: HT-Roman!important;
+}
+.font-Light{
+  font-family: HT-Light!important;
+}
+.font-Bold{
+  font-family: HT-Bold!important;
+}
+.font-BlackCond{
+  font-family: HT-BlackCond!important;
+}
+.a_link{
+  color: #0b9d78;
+  text-decoration: underline!important;
+}
+.btn-large{
+  width:220px;
+  height:46px;
+  line-height: 32px;
+}
+.btn-middle{
+  width:168px;
+  height:30px;
+}
+.container{
+  min-width: 1200px;
+}
+.btn-small{
+  width:88px;
+  height:32px;
+}
+.btn.progress-dynamic{
+    background-image:linear-gradient(135deg,hsla(0,0%,100%,.3) 25%,transparent 0,transparent 50%,hsla(0,0%,100%,.3) 0,hsla(0,0%,100%,.3) 75%,transparent 0,transparent);
+  background-size:40px 40px;
+  animation:progress-btn-stripes 2s linear infinite;
+}
+@keyframes progress-btn-stripes {
+    0%{
+      background-position: 0 0;
+    }
+    100%{
+      background-position: 40px 0;
+    }
+}
+.rs{
+  font-family: 'WebRupee';
+  font-weight: normal;
+  margin-right: 0.2em;
+  line-height: 0.5em;
+}
+.grayer{
+  color:@gray-light;
+}
+.grayDark{
+  color:@gray-dark;
+}
+.grayDarker{
+  color:@gray-darker;
+}
+.grayBase{
+  color:@gray-base;
+}
+.gray{
+  color:@gray;
+}
+.colorWar{
+  color:@brand-warning;
+}
+.colorDan{
+  color:@brand-danger;
+}
+.colorPri{
+  color:@brand-primary;
+}
+.inputError{
+  border:2px solid @brand-danger;
+}
+.checkError{
+  margin-top:6px;
+  font-weight: bold;
+  color: @brand-danger;
+}
+.fontB{
+  font-weight: bold;
+}
+.fontSz10{
+  font-size: 10px;
+}
+.fontSz16{
+  font-size: 16px;
+}
+.fontSz12{
+  font-size: 12px;
+}
+.fontSz14{
+  font-size: 14px;
+}
+.fontSz24{
+  font-size: 24px;
+}
+.fontSz20{
+  font-size: 20px;
+}
+.fontSz18{
+  font-size: 18px;
+}
+.marB8{
+  margin-bottom: 8px;
+}
+.marB20{
+  margin-bottom: 20px;
+}
+.marT10{
+  margin-top: 10px;
+}
+.marR10{
+  margin-right: 10px;
+}
+.pad0{
+  padding:0;
+}
+.padL20{
+  padding-left:20px;
+}
+.padR20{
+  padding-right:20px;
+}
+.padL10{
+  padding-left:10px;
+}
+.padT10{
+  padding-top: 10px;
+}
+.padR10{
+  padding-right: 10px;
+}
+.padB10{
+  padding-bottom: 10px;
+}
+.textR{
+  text-align: right;
+}
+.textC{
+  text-align: center;
+}

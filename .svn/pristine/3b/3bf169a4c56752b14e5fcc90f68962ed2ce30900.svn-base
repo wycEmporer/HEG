@@ -1,0 +1,7 @@
+require('./content.less');
+require('cp');
+import {getBannerInfo, REFERRAL} from '../_common/index';
+// require('../../_component/searchBar/content.js');
+$(function() {
+  getBannerInfo(REFERRAL);
+});

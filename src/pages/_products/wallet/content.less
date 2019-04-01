@@ -1,0 +1,242 @@
+@import "../../../public-resource/less/basedir/_variables.less";
+.body{
+	background: #f5f5f5;
+}
+.colorWhite{
+  color: #fff;
+}
+.fontSz26{
+  font-size: 26px;
+}
+.banner{
+	width:100%;
+	height:400px;
+	overflow: hidden;
+	position: relative;
+	.banImg{
+		position: absolute;
+		left:50%;
+		transform: translateX(-50%);
+	}
+}
+.content{
+	position: relative;
+}
+.wrap{
+	margin: 0 10px;
+	background-color:#fff;
+	// box-shadow: 0px 0px 3px #aaa;
+}
+.summary{
+	padding:36px 60px;
+	// border-bottom: 10px solid #ccc;
+	margin-bottom: 30px;
+	.termsTrans{
+		width: 60%;
+		margin:30px auto;
+		h3{
+			padding-bottom: 30px;
+		}
+	}
+	.trans{
+		border-top: 1px solid @brand-warning;
+		border-bottom: 1px solid @brand-warning;
+		padding: 20px 0;
+		font-size: 26px;
+		.goldColor{
+			color: #cfb26d
+		}
+		.silverColor{
+			color: #c0c0c0;
+		}
+	}
+
+}
+.amount{
+	border:1px solid #ccc;
+	margin-bottom: 30px;
+	.num{
+		font-size: 40px;
+	}
+	.pad{
+		padding: 12px 0;
+	}
+	.borB{
+		border-bottom:1px solid #ccc; 
+	}
+	.borR{
+		border-right: 1px solid #ccc;
+	}
+	.total{
+		padding-top:30px;
+	}
+	p{
+		line-height: 50px;
+		height:50px;
+	}
+}
+.termsAndStep{
+	box-shadow: 0px 0px 3px #aaa;
+}
+.berif{
+	padding:36px;
+	border-bottom: 2px solid #ccc;
+	.side{
+		width: 520px;
+		.title{
+			font-size: 20px;
+			padding:10px 16px;
+			font-weight: bold;
+			color:@gray-dark;
+		}
+		.text{
+			height:190px;
+			color:@gray-dark;
+			font-size: 15px;
+			padding: 10px 20px;
+		}
+		&.left{
+			.title{
+				background:linear-gradient(to right,#e6e6e6 10%, #cacaca 30%, #e0e0e0 70%, #aaaaaa);
+			}
+			.text{
+				border:2px solid #e6e6e6;
+				border-top:none;
+			}
+		}
+		&.right{
+			.title{
+				background:linear-gradient(to left,#c6a860 10%, #ffebbd 30%, #e4cc92 70%, #ffebbc);
+			}
+			.text{
+				border:2px solid #fae5b4;
+				border-top:none;
+			}
+		}
+		
+	}
+}
+.caption{
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	padding:30px;
+	p{
+		line-height: 26px;
+	}
+
+}
+ul.steps{
+	padding:16px 50px;
+	li.step{
+		border-bottom: 1px dashed  #ccc;
+		padding:20px 0;
+	}
+	// li.step:nth-child(even){
+	// 	float:right;
+	// }
+	.ic{
+		width:75px;
+		height:75px;
+		background-position: center;
+		margin-top: 16px;
+	}
+	.ic1{
+		background-image: url(./images/wallet-ic_01.png);
+	}
+	.ic2{
+		background-image: url(./images/wallet-ic_02.png);
+	}
+	.ic3{
+		background-image: url(./images/wallet-ic_03.png);
+	}
+	.ic4{
+		background-image: url(./images/wallet-ic_04.png);
+	}
+	.bgR{
+		padding-right: 30px;
+	}
+	.bgL{
+		padding-left: 30px;
+	}
+}
+.share{
+	padding:20px 0;
+	a{
+		float:left;
+		width:50px;
+		height: 50px;
+		margin-right: 20px;
+	}
+}
+.proDetail{
+	.silverD{
+		.cash{
+			display: block;
+			padding:4px 20px;
+			border:1px dashed #ccc;
+			border-radius: 2px;
+		}
+	}
+}
+
+.termsLink{
+	text-align: center;
+	a{
+		border:1px solid @brand-warning;
+		color:@brand-warning;
+		padding:10px 20px;
+		font-size: 14px;
+		border-radius: 4px;
+	}
+}
+
+.promotion-wrap{
+  position: fixed;
+  left:0;
+  bottom:0;
+  right:0;
+  height:160px;
+  z-index: 999;
+  .promotion-con{
+    position: absolute;
+    left:-100%;
+    width:100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .8;
+  }
+  .conWrap{
+    width: 1050px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .register-wrap{ 
+    .title{
+      font-size: 14px;
+      line-height: 20px;
+      color:#fff;
+    }
+    .lefts{
+      width: 240px;
+    }
+    .downBtn{
+      position: relative;
+      padding-top: 40px;
+      .arrowD{
+        position: absolute;
+        left: -42px;
+        top: 8px; 
+      }
+    }
+    p{color:#fff;}
+    .closed{
+      width:22px;
+      height:23px;
+      margin-top: 20px;
+      background:url('images/icon-close.png');
+      cursor:pointer;
+    }
+  }
+}
+

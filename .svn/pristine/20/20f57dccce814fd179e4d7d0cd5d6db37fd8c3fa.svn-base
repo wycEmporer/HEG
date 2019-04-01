@@ -1,0 +1,165 @@
+html{
+  font-size: 14px;
+}
+.container{
+  max-width: 800px;
+  padding: 0;
+  min-width: 300px;
+}
+.summary{
+  background-color: #0b9d78;
+  color:white;
+  padding:20px;
+  margin-bottom: 20px;
+  .offer-group{
+    display: none;
+  }
+}
+.marL10{
+  margin-left: 10px;
+}
+.mm-3{
+  width:30%;
+  float: left;
+  padding: 0 10px;
+}
+.c_group{
+  margin-bottom: 15px;
+}
+.cont{
+  padding: 0 10px;
+}
+a[data-toggle="collapse"]{
+  display: inline-block;
+  width: 100%;
+  &:hover{
+    text-decoration:none;
+  }
+}
+
+.panel-group {
+  .panet-heading{
+    border-bottom:0;
+  }
+}
+.panel-default {
+  border-color: #ddd;
+  &> .panel-heading{
+    color: #333;
+    background-color: #f5f5f5;
+    border-color: #ddd;
+  }
+}
+.panel{
+  border-radius: 4px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  font-size: 14px;
+  .panel-body{
+    padding: 14px;
+  }
+  & + .panel{
+    margin-top:5px;
+  }
+}
+.panel-heading{
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.panel-title{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+}
+.bankList{
+  label{
+    width: 150px;
+    border: 1px solid #999;
+    padding: 8px;
+    border-radius:4px;
+    display: inline-block;
+    input[type=radio]{
+      margin-right:6px;
+      margin-top:6px;
+    }
+    img{
+      height: 20px;
+    }
+  }
+  input[type=radio]{
+    float: left;
+  }
+  .bankIcon{
+    display: block;
+    float: left;
+    width: 110px;
+    height: 20px;
+    margin-left: 10px;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+  .hdfc{
+    background-image: url('./imgs/HDFC.png');
+  }
+  .sbi{
+    background-image: url('./imgs/sbi.png');
+  }
+  .kotak{
+    background-image: url('./imgs/kotak.png');
+  }
+  .icici{
+    background-image: url('./imgs/icici.png');
+  }
+  .axis{
+    background-image: url('./imgs/AXIS.png');
+  }
+  .yes{
+    background-image: url('./imgs/yes.png');
+  }
+
+  // wallet
+  .freecharge{
+    background-image: url('./imgs/freecharge.png');
+  }
+  .mobikwik{
+    background-image: url('./imgs/mobikwik.png');
+  }
+  .ola{
+    background-image: url('./imgs/ola.png');
+  }
+  .jiomoney{
+    background-image: url('./imgs/jiomoney.png');
+  }
+  .oxigen{
+    background-image: url('./imgs/oxigen.png');
+  }
+  .airtelmoney{
+    background-image: url('./imgs/airtelmoney.png');
+  }
+}
+
+.otherList{
+  select{
+    width: 100%;
+    height: 38px;
+    padding: 0 10px;
+  }
+}
+.upi{
+  input{
+    height: 36px;
+    width: 300px;
+    padding-left: 10px;
+  }
+}
+#loading{
+  background: url(./imgs/Spinner-1s-100px.gif) 50% no-repeat rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+}
